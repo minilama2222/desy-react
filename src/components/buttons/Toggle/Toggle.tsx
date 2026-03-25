@@ -78,38 +78,34 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
     const onContent = children || onState || onStateContent;
     const offContent = offState || offStateContent;
 
-    const stateClasses = pressed
-      ? clsx(classes, onStateClasses)
-      : clsx(classes, offStateClasses);
+    const buttonClassName = clsx('c-toggle__button', classes);
 
     const ariaPressed = !isExpandible ? (pressed ? 'true' : 'false') : undefined;
     const ariaChecked = isSwitch ? (pressed ? 'true' : 'false') : undefined;
     const ariaExpanded = isExpandible ? (pressed ? 'true' : 'false') : undefined;
 
     return (
-      <button
-        ref={ref}
-        id={id}
-        type="button"
-        className={stateClasses}
-        aria-pressed={ariaPressed}
-        aria-checked={ariaChecked}
-        aria-expanded={ariaExpanded}
-        role={isSwitch ? 'switch' : undefined}
-        onClick={handleClick}
-        {...rest}
-      >
-        {onContent && (
-          <span className={clsx(!pressed && 'hidden')}>
-            {onContent}
-          </span>
-        )}
-        {offContent && (
-          <span className={clsx(pressed && 'hidden')}>
+      <div className="relative c-toggle" data-module="c-toggle">
+        <button
+          ref={ref}
+          id={id}
+          type="button"
+          className={buttonClassName}
+          aria-pressed={ariaPressed}
+          aria-checked={ariaChecked}
+          aria-expanded={ariaExpanded}
+          role={isSwitch ? 'switch' : undefined}
+          onClick={handleClick}
+          {...rest}
+        >
+          <span className={clsx('c-button--is-not-pressed', 'pointer-events-none', !pressed && onStateClasses, pressed && offStateClasses)}>
             {offContent}
           </span>
-        )}
-      </button>
+          <span className={clsx('c-button--is-pressed', 'hidden', 'pointer-events-none', pressed && onStateClasses, !pressed && offStateClasses)}>
+            {onContent}
+          </span>
+        </button>
+      </div>
     );
   }
 );

@@ -72,42 +72,56 @@ export const ButtonLoader = forwardRef<HTMLButtonElement, ButtonLoaderProps>(
     },
     ref
   ) => {
-    const baseClassName = clsx('c-button-loader', 'relative', className, classes);
-    const contentClassName = clsx('c-button-loader__content', 'inline-flex', 'align-baseline');
     const isLoading = state === 'is-loading';
     const isSuccess = state === 'is-success';
 
-    const spinnerContent = (
-      <span className="sr-only" role="alert" aria-live="assertive">
-        {loaderText || DEFAULT_LOADER_TEXT}
-      </span>
+    const wrapperClassName = clsx(
+      'c-button-loader',
+      'relative',
+      className,
+      classes,
+      disabled && 'c-button-loader--disabled',
+      isLoading && 'c-button-loader--is-loading',
+      isSuccess && 'c-button-loader--is-success'
     );
 
-    const successContent = (
-      <>
-        <span className="sr-only" role="alert" aria-live="assertive">
-          {successText || DEFAULT_SUCCESS_TEXT}
-        </span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 48 48"
-          aria-hidden="true"
-          width="1em"
-          height="1em"
-          className="text-green-600"
-        >
-          <path
-            d="M13.714 42.857A6.857 6.857 0 0 1 8.4 40.183L.857 31.646a3.429 3.429 0 0 1 .309-4.869A3.429 3.429 0 0 1 6 27.12l7.063 7.989a.72.72 0 0 0 .617.308.789.789 0 0 0 .617-.274L42.103 6.206a3.429 3.429 0 0 1 4.937 4.731L18.926 40.526a6.651 6.651 0 0 1-5.212 2.331Z"
-            fill="currentColor"
-          />
-        </svg>
-      </>
-    );
+    const contentClassName = clsx('c-button-loader__content', 'inline-flex', 'align-baseline');
 
     const buttonContent = html ? (
       <span dangerouslySetInnerHTML={{ __html: html }} />
     ) : (
       text || children
+    );
+
+    const spinnerContent = (
+      <span className="c-button-loader__spinner flex items-center justify-center absolute inset-0">
+        <span className="sr-only" role="alert" aria-live="assertive">
+          {loaderText || DEFAULT_LOADER_TEXT}
+        </span>
+      </span>
+    );
+
+    const successContent = (
+      <span className="c-button-loader__success flex items-center justify-center absolute inset-0">
+        <span className="sr-only" role="alert" aria-live="assertive">
+          {successText || DEFAULT_SUCCESS_TEXT}
+        </span>
+        <span aria-hidden="true">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 48 48"
+            aria-hidden="true"
+            width="1em"
+            height="1em"
+            className="text-green-600"
+          >
+            <path
+              d="M13.714 42.857A6.857 6.857 0 0 1 8.4 40.183L.857 31.646a3.429 3.429 0 0 1 .309-4.869A3.429 3.429 0 0 1 6 27.12l7.063 7.989a.72.72 0 0 0 .617.308.789.789 0 0 0 .617-.274L42.103 6.206a3.429 3.429 0 0 1 4.937 4.731L18.926 40.526a6.651 6.651 0 0 1-5.212 2.331Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </span>
     );
 
     if (element === 'a') {
@@ -117,13 +131,14 @@ export const ButtonLoader = forwardRef<HTMLButtonElement, ButtonLoaderProps>(
           id={id}
           href={href}
           target={target}
-          className={baseClassName}
+          className={wrapperClassName}
+          data-module="c-button-loader"
           aria-disabled={disabled ? 'true' : undefined}
           data-prevent-double-click={preventDoubleClick ? 'true' : undefined}
           onClick={onClick as React.MouseEventHandler<HTMLAnchorElement>}
         >
-          {isLoading && spinnerContent}
-          {isSuccess && successContent}
+          {spinnerContent}
+          {successContent}
           <span className={contentClassName}>{buttonContent}</span>
         </a>
       );
@@ -137,7 +152,8 @@ export const ButtonLoader = forwardRef<HTMLButtonElement, ButtonLoaderProps>(
           name={name}
           type={type}
           value={value || text}
-          className={baseClassName}
+          className={wrapperClassName}
+          data-module="c-button-loader"
           disabled={disabled}
           aria-disabled={disabled ? 'true' : undefined}
           data-prevent-double-click={preventDoubleClick ? 'true' : undefined}
@@ -154,14 +170,15 @@ export const ButtonLoader = forwardRef<HTMLButtonElement, ButtonLoaderProps>(
         name={name}
         type={type}
         value={value}
-        className={baseClassName}
+        className={wrapperClassName}
+        data-module="c-button-loader"
         disabled={disabled}
         aria-disabled={disabled ? 'true' : undefined}
         data-prevent-double-click={preventDoubleClick ? 'true' : undefined}
         onClick={onClick as React.MouseEventHandler<HTMLButtonElement>}
       >
-        {isLoading && spinnerContent}
-        {isSuccess && successContent}
+        {spinnerContent}
+        {successContent}
         <span className={contentClassName}>{buttonContent}</span>
       </button>
     );
