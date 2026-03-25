@@ -33,9 +33,6 @@ export const PorDefecto: Story = {
         text: 'Opción 5',
       },
     ],
-    attributes: {
-      'aria-label': 'Menú horizontal',
-    },
   },
 };
 
@@ -64,9 +61,6 @@ export const ConItemDeshabilitado: Story = {
         text: 'Opción 5',
       },
     ],
-    attributes: {
-      'aria-label': 'Menú horizontal',
-    },
   },
 };
 
@@ -95,10 +89,7 @@ export const ConItemActivo: Story = {
         text: 'Opción 5',
       },
     ],
-    attributes: {
-      'aria-label': 'Menú horizontal',
-      id: 'mi-menu-horizontal',
-    },
+    id: 'mi-menu-horizontal',
   },
 };
 
@@ -109,46 +100,28 @@ export const ConTargetEnEnlaces: Story = {
         href: 'http://www.google.com',
         text: 'Opción 1',
         target: '_blank',
-        attributes: {
-          title: 'Se abre en ventana nueva',
-        },
       },
       {
         href: 'http://www.google.com',
         text: 'Opción 2',
         target: '_blank',
-        attributes: {
-          title: 'Se abre en ventana nueva',
-        },
       },
       {
         href: 'http://www.google.com',
         text: 'Opción 3',
         target: '_blank',
-        attributes: {
-          title: 'Se abre en ventana nueva',
-        },
       },
       {
         href: 'http://www.google.com',
         text: 'Opción 4',
         target: '_blank',
-        attributes: {
-          title: 'Se abre en ventana nueva',
-        },
       },
       {
         href: 'http://www.google.com',
         text: 'Opción 5',
         target: '_blank',
-        attributes: {
-          title: 'Se abre en ventana nueva',
-        },
       },
     ],
-    attributes: {
-      'aria-label': 'Menú horizontal',
-    },
   },
 };
 
@@ -168,10 +141,7 @@ export const ConIconosEnItems: Story = {
         html: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14" width="1em" height="1em" class="inline-block align-baseline mr-sm" aria-label="Solicitud" focusable="false" role="img"><g><path fill="currentColor" fill-rule="evenodd" d="M5.5 0C4.94772 0 4.5 0.447716 4.5 1V1.5C4.5 2.05229 4.94772 2.5 5.5 2.5H8.5C9.05229 2.5 9.5 2.05229 9.5 1.5V1C9.5 0.447715 9.05229 0 8.5 0H5.5ZM2.75 1H3.25V1.5C3.25 2.74264 4.25736 3.75 5.5 3.75H8.5C9.74264 3.75 10.75 2.74264 10.75 1.5V1H11.25C12.0784 1 12.75 1.67157 12.75 2.5V12.5C12.75 13.3284 12.0784 14 11.25 14H2.75C1.92157 14 1.25 13.3284 1.25 12.5V2.5C1.25 1.67157 1.92157 1 2.75 1ZM3.875 8.50049C3.875 8.15531 4.15482 7.87549 4.5 7.87549H9.5C9.84518 7.87549 10.125 8.15531 10.125 8.50049C10.125 8.84567 9.84518 9.12549 9.5 9.12549H4.5C4.15482 9.12549 3.875 8.84567 3.875 8.50049ZM4.5 10.3755C4.15482 10.3755 3.875 10.6553 3.875 11.0005C3.875 11.3457 4.15482 11.6255 4.5 11.6255H9.5C9.84518 11.6255 10.125 11.3457 10.125 11.0005C10.125 10.6553 9.84518 10.3755 9.5 10.3755H4.5Z" clip-rule="evenodd"></path></g></svg> Opción 3',
       },
     ],
-    attributes: {
-      id: 'mi-menu-icons',
-      'aria-label': 'Menú horizontal',
-    },
+    id: 'mi-menu-icons',
   },
 };
 
@@ -202,10 +172,7 @@ export const ConClasesCssTipoEnlaces: Story = {
         text: 'Opción 5',
       },
     ],
-    attributes: {
-      id: 'mi-menu-links',
-      'aria-label': 'Menú horizontal',
-    },
+    id: 'mi-menu-links',
   },
 };
 
@@ -241,10 +208,7 @@ export const ConSeparadoresYTextoPequeno: Story = {
         classes: 'lg:py-0! text-sm',
       },
     ],
-    attributes: {
-      id: 'mi-menu-links-divider',
-      'aria-label': 'Menú horizontal',
-    },
+    id: 'mi-menu-links-divider',
   },
 };
 
@@ -275,10 +239,7 @@ export const ConClasesCssNavigationBar: Story = {
         text: 'Opción 5',
       },
     ],
-    attributes: {
-      id: 'mi-menu-navigation-bar',
-      'aria-label': 'Menú horizontal',
-    },
+    id: 'mi-menu-navigation-bar',
   },
 };
 
@@ -309,10 +270,7 @@ export const ConTabsEnEscritorio: Story = {
         text: 'Opción 5',
       },
     ],
-    attributes: {
-      id: 'mi-menu-tabs-en-escritorio',
-      'aria-label': 'Menú horizontal',
-    },
+    id: 'mi-menu-tabs-en-escritorio',
   },
 };
 
@@ -334,10 +292,7 @@ export const ConTabsEnMovil: Story = {
         html: '<span class="flex flex-col items-center"><span class="block"><svg class="w-6 h-6 mb-xs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" aria-hidden="true" focusable="false" width="1em" height="1em"><path d="M21.71 5.71 16.29.29a1 1 0 0 0-.7-.29H4a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6.41a1 1 0 0 0-.29-.7ZM19.5 22h-15a.5.5 0 0 1-.5-.5v-19a.5.5 0 0 1 .5-.5h1.75a.25.25 0 0 1 .25.25V13a.5.5 0 0 0 .31.46.47.47 0 0 0 .54-.11l2-2a.27.27 0 0 1 .36 0l2 2a.47.47 0 0 0 .35.15.43.43 0 0 0 .19 0 .5.5 0 0 0 .25-.5V2.25a.25.25 0 0 1 .25-.25H15a.49.49 0 0 1 .36.15l4.53 4.53A.49.49 0 0 1 20 7v14.5a.5.5 0 0 1-.5.5Z" fill="currentColor" transform="scale(2)"/></svg></span><span class="block text-sm">Notificaciones</span></span>',
       },
     ],
-    attributes: {
-      id: 'mi-menu-tabs-en-movil',
-      'aria-label': 'Menú horizontal',
-    },
+    id: 'mi-menu-tabs-en-movil',
   },
 };
 
@@ -366,9 +321,6 @@ export const ConIdPrefix: Story = {
         text: 'Opción 5',
       },
     ],
-    attributes: {
-      'aria-label': 'Menú horizontal',
-    },
   },
 };
 
@@ -399,65 +351,6 @@ export const ConIdsIndividuales: Story = {
         href: 'http://www.google.com',
         text: 'Opción 5',
         id: 'option-E',
-      },
-    ],
-    attributes: {
-      'aria-label': 'Menú horizontal',
-    },
-  },
-};
-
-export const ConAtributos: Story = {
-  args: {
-    attributes: {
-      id: 'nav-id-example',
-      'aria-label': 'Menú horizontal',
-    },
-    items: [
-      {
-        href: 'http://www.google.com',
-        text: 'Opción 1',
-        attributes: {
-          'data-attribute-1': 'value-A',
-          'data-attribute-2': 'value-B',
-          'data-attribute-3': 'value-C',
-        },
-      },
-      {
-        href: 'http://www.google.com',
-        text: 'Opción 2',
-        attributes: {
-          'data-attribute-1': 'value-A',
-          'data-attribute-2': 'value-B',
-          'data-attribute-3': 'value-C',
-        },
-      },
-      {
-        href: 'http://www.google.com',
-        text: 'Opción 3',
-        attributes: {
-          'data-attribute-1': 'value-A',
-          'data-attribute-2': 'value-B',
-          'data-attribute-3': 'value-C',
-        },
-      },
-      {
-        href: 'http://www.google.com',
-        text: 'Opción 4',
-        attributes: {
-          'data-attribute-1': 'value-A',
-          'data-attribute-2': 'value-B',
-          'data-attribute-3': 'value-C',
-        },
-      },
-      {
-        href: 'http://www.google.com',
-        text: 'Opción 5',
-        attributes: {
-          'data-attribute-1': 'value-A',
-          'data-attribute-2': 'value-B',
-          'data-attribute-3': 'value-C',
-        },
       },
     ],
   },

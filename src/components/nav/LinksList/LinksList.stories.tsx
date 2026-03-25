@@ -25,9 +25,6 @@ export const PorDefecto: Story = {
         text: 'Enlace 3',
       },
     ],
-    attributes: {
-      'aria-label': 'Lista de enlaces',
-    },
   },
 };
 
@@ -48,9 +45,6 @@ export const ConEnlaceActivo: Story = {
         text: 'Enlace 3',
       },
     ],
-    attributes: {
-      'aria-label': 'Lista de enlaces',
-    },
   },
 };
 
@@ -70,9 +64,6 @@ export const ConEnlaceDeshabilitado: Story = {
         text: 'Enlace 3',
       },
     ],
-    attributes: {
-      'aria-label': 'Lista de enlaces',
-    },
   },
 };
 
@@ -86,16 +77,9 @@ export const ConEnlaceExterno: Story = {
       {
         href: 'https://www.aragon.es/',
         text: 'Enlace externo',
-        attributes: {
-          target: '_blank',
-          rel: 'noopener noreferrer',
-          title: 'Se abre en ventana nueva',
-        },
+        target: '_blank',
       },
     ],
-    attributes: {
-      'aria-label': 'Lista de enlaces',
-    },
   },
 };
 
@@ -109,15 +93,11 @@ export const ConSeparador: Story = {
       {
         href: '#',
         text: 'Enlace 2',
-        divider: true,
       },
       {
         href: '#',
         text: 'Enlace 3',
       },
     ],
-    attributes: {
-      'aria-label': 'Lista de enlaces',
-    },
   },
 };

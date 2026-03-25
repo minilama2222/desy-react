@@ -13,20 +13,17 @@ export const PorDefecto: Story = {
   args: {
     items: [
       {
-        href: '#',
+        routerLink: '#',
         text: 'Inicio',
       },
       {
-        href: '#',
+        routerLink: '#',
         text: 'Categoría',
       },
       {
         text: 'Página actual',
       },
     ],
-    attributes: {
-      'aria-label': 'Breadcrumb',
-    },
   },
 };
 
@@ -34,16 +31,13 @@ export const ConInicio: Story = {
   args: {
     items: [
       {
-        href: '#',
+        routerLink: '#',
         text: 'Inicio',
       },
       {
         text: 'Página actual',
       },
     ],
-    attributes: {
-      'aria-label': 'Breadcrumb',
-    },
   },
 };
 
@@ -51,28 +45,25 @@ export const ConMuchosNiveles: Story = {
   args: {
     items: [
       {
-        href: '#',
+        routerLink: '#',
         text: 'Inicio',
       },
       {
-        href: '#',
+        routerLink: '#',
         text: 'Nivel 1',
       },
       {
-        href: '#',
+        routerLink: '#',
         text: 'Nivel 2',
       },
       {
-        href: '#',
+        routerLink: '#',
         text: 'Nivel 3',
       },
       {
         text: 'Página actual',
       },
     ],
-    attributes: {
-      'aria-label': 'Breadcrumb',
-    },
   },
 };
 
@@ -80,41 +71,16 @@ export const ConIconoInicioPersonalizado: Story = {
   args: {
     items: [
       {
-        href: '#',
+        routerLink: '#',
         html: '<span>Inicio personalizado</span>',
       },
       {
-        href: '#',
+        routerLink: '#',
         text: 'Categoría',
       },
       {
         text: 'Página actual',
       },
     ],
-    attributes: {
-      'aria-label': 'Breadcrumb',
-    },
-  },
-};
-
-export const ConTextoOcultoEnPrimerElemento: Story = {
-  args: {
-    items: [
-      {
-        href: '#',
-        text: 'Inicio',
-        hiddenText: 'Ir a ',
-      },
-      {
-        href: '#',
-        text: 'Categoría',
-      },
-      {
-        text: 'Página actual',
-      },
-    ],
-    attributes: {
-      'aria-label': 'Breadcrumb',
-    },
   },
 };

@@ -1,17 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { HeaderAdvanced } from './HeaderAdvanced';
+import { SkipLink } from '../SkipLink/SkipLink';
 
 const meta: Meta<typeof HeaderAdvanced> = {
-  title: 'Navigation/HeaderAdvanced',
+  title: 'Nav/HeaderAdvanced',
   component: HeaderAdvanced,
-  tags: ['autodocs'],
-  parameters: {
-    docs: {
-      description: {
-        component: 'Advanced header component with super section, title container, navigation, and dropdown slots.',
-      },
-    },
-  },
 };
 
 export default meta;
@@ -19,24 +12,12 @@ type Story = StoryObj<typeof HeaderAdvanced>;
 
 const navigationItems = [
   { text: 'Inicio', href: '/' },
-  { text: 'Trámites', href: '/tramites' },
-  {
-    text: 'Empresas',
-    sub: {
-      items: [
-        { id: 'alta', text: 'Alta de empresa', href: '/empresas/alta' },
-        { id: 'modificar', text: 'Modificar datos', href: '/empresas/modificar' },
-        { divider: true },
-        { id: 'certificados', text: 'Certificados', href: '/empresas/certificados' },
-      ],
-    },
-  },
-  { text: 'Ayuda', href: '/ayuda' },
+  { text: 'Navigation item 2', href: '/item2', active: true },
+  { text: 'Navigation item 3', href: '/item3' },
+  { text: 'Navigation item 4', href: '/item4' },
 ];
 
-
-
-export const Default: Story = {
+export const PorDefecto: Story = {
   args: {
     navigationData: {
       items: navigationItems,
@@ -44,27 +25,47 @@ export const Default: Story = {
   },
 };
 
-export const WithTitleContainer: Story = {
+export const ConSkipLinkPersonalizado: Story = {
+  args: {
+    navigationData: {
+      items: navigationItems,
+    },
+    skipLink: <SkipLink text="Saltar al contenido central" fragment="content-center" />,
+  },
+};
+
+export const ConTitulo: Story = {
   args: {
     navigationData: {
       items: navigationItems,
     },
     titleContainerSlot: (
-      <div className="bg-heading-base bg-no-repeat bg-cover bg-center text-white py-base lg:py-lg px-base">
-        <div className="container mx-auto">
-          <h2 className="text-2xl lg:text-3xl font-bold mb-1">
-            <a href="/" title="Ir a la página de inicio">Portal de Empresas</a>
-          </h2>
-          <p className="text-sm lg:text-base opacity-90">
-            Gestión integral de trámites empresariales
-          </p>
-        </div>
+      <div className="container mx-auto">
+        <h2 className="text-2xl lg:text-3xl font-bold mb-1">
+          <a href="/" title="Ir a la página de inicio">Titulo de cabecera</a>
+        </h2>
       </div>
     ),
   },
 };
 
-export const WithSuperSection: Story = {
+export const ConSubtitulo: Story = {
+  args: {
+    navigationData: {
+      items: navigationItems,
+    },
+    titleContainerSlot: (
+      <div className="container mx-auto">
+        <h2 className="text-2xl lg:text-3xl font-bold mb-1">
+          <a href="/" title="Ir a la página de inicio">SDA</a>
+        </h2>
+        <p className="text-sm opacity-90">Servicios Digitales de Aragón.</p>
+      </div>
+    ),
+  },
+};
+
+export const ConSuperSeccion: Story = {
   args: {
     navigationData: {
       items: navigationItems,
@@ -77,21 +78,54 @@ export const WithSuperSection: Story = {
       </div>
     ),
     titleContainerSlot: (
-      <div className="bg-heading-base bg-no-repeat bg-cover bg-center text-white py-base lg:py-lg px-base">
-        <div className="container mx-auto">
-          <h2 className="text-2xl lg:text-3xl font-bold">
-            <a href="/" title="Ir a la página de inicio">Servicio de Gestión</a>
-          </h2>
-        </div>
+      <div className="container mx-auto">
+        <h2 className="text-2xl lg:text-3xl font-bold mb-1">
+          <a href="/" title="Ir a la página de inicio">Titulo de cabecera</a>
+        </h2>
       </div>
     ),
   },
 };
 
-export const FullLayout: Story = {
+export const ConNavegacionPersonalizada: Story = {
   args: {
     navigationData: {
       items: navigationItems,
+    },
+    customNavigationSlot: (
+      <div className="flex items-center">
+        <a href="#" className="c-button c-button--ghost-white c-button--lg mr-base">Custom Item 1</a>
+        <a href="#" className="c-button c-button--ghost-white c-button--lg mr-base">Custom Active Item 2</a>
+      </div>
+    ),
+  },
+};
+
+export const ConDropdown: Story = {
+  args: {
+    navigationData: {
+      items: navigationItems,
+    },
+    dropdownSlot: (
+      <div className="flex items-center">
+        <span className="text-white mr-1">Marta Pérez</span>
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </div>
+    ),
+  },
+};
+
+export const LayoutCompleto: Story = {
+  args: {
+    navigationData: {
+      items: [
+        { text: 'Inicio', href: '/' },
+        { text: 'Navigation item 2', href: '/item2', active: true },
+        { text: 'Navigation item 3', href: '/item3' },
+        { text: 'Navigation item 4', href: '/item4' },
+      ],
     },
     superSlot: (
       <div className="bg-primary-dark text-white py-2">
@@ -102,67 +136,12 @@ export const FullLayout: Story = {
       </div>
     ),
     titleContainerSlot: (
-      <div className="bg-heading-base bg-no-repeat bg-cover bg-center text-white py-base lg:py-lg px-base">
-        <div className="container mx-auto">
-          <h1 className="text-2xl lg:text-3xl font-bold mb-1">
-            <a href="/" title="Ir a la página de inicio">Gestión de Trámites</a>
-          </h1>
-          <p className="text-sm lg:text-base opacity-90">
-            Acceda a todos los servicios de forma sencilla
-          </p>
-        </div>
+      <div className="container mx-auto">
+        <h2 className="text-2xl lg:text-3xl font-bold mb-1">
+          <a href="/" title="Ir a la página de inicio">Título de cabecera</a>
+        </h2>
+        <p className="text-sm opacity-90">Descripción del portal</p>
       </div>
     ),
-    subSlot: (
-      <div className="bg-neutral-lighter border-b border-neutral-base py-sm">
-        <div className="container mx-auto px-base text-sm">
-          <nav className="flex gap-base">
-            <a href="/" className="text-primary-dark hover:underline">Inicio</a>
-            <a href="/tramites" className="text-neutral-dark hover:underline">Trámites</a>
-            <a href="/empresas" className="text-neutral-dark hover:underline">Empresas</a>
-          </nav>
-        </div>
-      </div>
-    ),
-  },
-};
-
-export const WithCustomNavigation: Story = {
-  args: {
-    navigationData: {
-      items: navigationItems,
-    },
-    customNavigationSlot: (
-      <div className="flex items-center gap-4">
-        <button className="text-sm px-base py-sm hover:bg-neutral-light rounded">
-          Notificaciones
-        </button>
-        <button className="text-sm px-base py-sm bg-primary-dark text-white rounded hover:bg-primary-darker">
-          Nuevo trámite
-        </button>
-      </div>
-    ),
-    dropdownSlot: (
-      <div className="flex items-center">
-        <span className="text-sm mr-2">María García</span>
-        <div className="relative">
-          <div className="w-8 h-8 rounded-full bg-primary-base flex items-center justify-center text-white text-sm font-bold">
-            MG
-          </div>
-        </div>
-      </div>
-    ),
-  },
-};
-
-export const Minimal: Story = {
-  args: {
-    navigationData: {
-      items: [
-        { text: 'Inicio', href: '/', active: true },
-        { text: 'Servicios', href: '/servicios' },
-        { text: 'Contacto', href: '/contacto' },
-      ],
-    },
   },
 };

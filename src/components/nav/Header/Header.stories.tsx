@@ -2,136 +2,90 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Header } from './Header';
 
 const meta: Meta<typeof Header> = {
-  title: 'Navigation/Header',
+  title: 'Nav/Header',
   component: Header,
-  tags: ['autodocs'],
-  parameters: {
-    docs: {
-      description: {
-        component: 'Full header component with logo, navigation menu, dropdown, and mobile offcanvas support.',
-      },
-    },
-  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Header>;
 
-const navigationItems = [
-  { text: 'Inicio', href: '/' },
-  { text: 'Trámites', href: '/tramites' },
-  {
-    text: 'Empresas',
-    sub: {
-      items: [
-        { id: 'alta', text: 'Alta de empresa', href: '/empresas/alta' },
-        { id: 'modificar', text: 'Modificar datos', href: '/empresas/modificar' },
-        { divider: true },
-        { id: 'certificados', text: 'Certificados', href: '/empresas/certificados' },
-      ],
-    },
-  },
-  { text: 'Ayuda', href: '/ayuda' },
-];
-
-const dropdownItems = [
-  { text: 'Mi perfil', href: '/perfil' },
-  { text: 'Configuración', href: '/configuracion' },
-  { divider: true },
-  { text: 'Cerrar sesión', href: '/logout' },
-];
-
-const offcanvasContent = `
-  <ul class="flex flex-col gap-base p-base">
-    <li><a href="/" class="block py-sm px-base text-sm hover:bg-primary-light">Inicio</a></li>
-    <li><a href="/tramites" class="block py-sm px-base text-sm hover:bg-primary-light">Trámites</a></li>
-    <li><a href="/empresas" class="block py-sm px-base text-sm hover:bg-primary-light">Empresas</a></li>
-    <li><a href="/ayuda" class="block py-sm px-base text-sm hover:bg-primary-light">Ayuda</a></li>
-  </ul>
-`;
-
-export const Default: Story = {
-  args: {
-    navigationData: {
-      items: navigationItems,
-    },
-  },
-};
-
-export const WithSubnav: Story = {
-  args: {
-    subnavData: {
-      text: 'Portal de Empresas',
-      items: [
-        { text: 'Alta', href: '/empresas/alta' },
-        { text: 'Modificar', href: '/empresas/modificar' },
-        { text: 'Certificados', href: '/empresas/certificados' },
-      ],
-    },
-    navigationData: {
-      items: navigationItems,
-    },
-  },
-};
-
-export const WithDropdown: Story = {
-  args: {
-    navigationData: {
-      items: navigationItems,
-    },
-    dropdownData: {
-      text: 'María García',
-      items: dropdownItems,
-    },
-  },
-};
-
-export const WithAllSlots: Story = {
+export const PorDefecto: Story = {
   args: {
     homepageUrl: '/',
-    expandedLogo: false,
+    mobileTextData: {
+      text: 'Gestor de expedientes',
+    },
     subnavData: {
-      text: 'Aplicación de Trámites',
+      text: 'Gestor de expedientes',
     },
     navigationData: {
-      items: navigationItems,
-    },
-    dropdownData: {
-      text: 'Usuario',
-      html: '<span class="font-semibold">María García</span>',
-      items: dropdownItems,
-    },
-    offcanvasData: {
-      text: 'Menú',
-      contentHtml: offcanvasContent,
-      textClose: 'Cerrar',
+      items: [
+        {
+          href: '#1',
+          text: 'Navigation item 1',
+        },
+        {
+          href: '#2',
+          text: 'Navigation item 2',
+          active: true,
+        },
+        {
+          href: '#3',
+          text: 'Navigation item 3',
+        },
+        {
+          href: '#4',
+          text: 'Navigation item 4',
+        },
+      ],
     },
   },
 };
 
-export const Compact: Story = {
+export const LogoExpandido: Story = {
   args: {
     homepageUrl: '/',
     expandedLogo: true,
-    navigationData: {
+  },
+};
+
+export const ConSubnavText: Story = {
+  args: {
+    homepageUrl: '/',
+    mobileTextData: {
+      text: 'Gestor de expedientes',
+    },
+    subnavData: {
+      text: 'Gestor de expedientes',
+    },
+  },
+};
+
+export const ConDropdown: Story = {
+  args: {
+    homepageUrl: '/',
+    mobileTextData: {
+      text: 'Gestor de expedientes',
+    },
+    dropdownData: {
+      text: 'Marta Pérez',
       items: [
-        { text: 'Inicio', href: '/', active: true },
-        { text: 'Servicios', href: '/servicios' },
-        { text: 'Contacto', href: '/contacto' },
+        {
+          text: 'Perfil',
+          href: '/',
+        },
+        {
+          text: 'Cerrar sesión',
+          href: '/',
+        },
       ],
     },
   },
 };
 
-export const WithoutNavigation: Story = {
+export const EmailTemplateExample: Story = {
   args: {
-    homepageUrl: '/',
-    subnavData: {
-      text: 'Navegación personalizada',
-    },
-    dropdownData: {
-      text: 'Opciones',
-      items: dropdownItems,
-    },
+    homepageUrl: 'https://www.aragon.es/',
+    expandedLogo: true,
   },
 };

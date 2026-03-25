@@ -31,9 +31,6 @@ export const PorDefecto: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'default-example-item-1',
-          },
         },
       },
       {
@@ -54,9 +51,6 @@ export const PorDefecto: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'default-example-item-2',
-          },
         },
       },
       {
@@ -77,15 +71,9 @@ export const PorDefecto: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'default-example-item-3',
-          },
         },
       },
     ],
-    attributes: {
-      'aria-label': 'Menu navigation',
-    },
   },
 };
 
@@ -107,9 +95,6 @@ export const ConItemDeshabilitado: Story = {
         disabled: true,
       },
     ],
-    attributes: {
-      'aria-label': 'Menu navigation',
-    },
   },
 };
 
@@ -131,10 +116,6 @@ export const ConItemActivo: Story = {
         text: 'Item 3',
       },
     ],
-    attributes: {
-      'aria-label': 'Menu navigation',
-      id: 'mi-menu',
-    },
   },
 };
 
@@ -161,9 +142,6 @@ export const ConSubItemActivo: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'active-sub-item-example-1',
-          },
         },
       },
       {
@@ -184,9 +162,6 @@ export const ConSubItemActivo: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'active-sub-item-example-2',
-          },
         },
       },
       {
@@ -207,16 +182,9 @@ export const ConSubItemActivo: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'active-sub-item-example-3',
-          },
         },
       },
     ],
-    attributes: {
-      'aria-label': 'Menu navigation',
-      id: 'mi-sub-menu',
-    },
   },
 };
 
@@ -228,30 +196,18 @@ export const ConTargetEnEnlaces: Story = {
         href: '#',
         text: 'Item 1',
         target: '_blank',
-        attributes: {
-          title: 'Se abre en ventana nueva',
-        },
       },
       {
         href: '#',
         text: 'Item 2',
         target: '_blank',
-        attributes: {
-          title: 'Se abre en ventana nueva',
-        },
       },
       {
         href: '#',
         text: 'Item 3',
         target: '_blank',
-        attributes: {
-          title: 'Se abre en ventana nueva',
-        },
       },
     ],
-    attributes: {
-      'aria-label': 'Menu navigation',
-    },
   },
 };
 
@@ -266,9 +222,7 @@ export const ConDivisores: Story = {
       {
         href: '#',
         text: 'Item 2',
-        divider: {
-          html: '<div class="absolute h-11 border-l border-neutral-base"></div>',
-        },
+        divider: true,
       },
       {
         text: 'Item 3',
@@ -289,9 +243,6 @@ export const ConDivisores: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'with-dividers-example-parent',
-          },
         },
       },
       {
@@ -299,9 +250,6 @@ export const ConDivisores: Story = {
         text: 'Item 4',
       },
     ],
-    attributes: {
-      'aria-label': 'Menu navigation',
-    },
   },
 };
 
@@ -328,9 +276,6 @@ export const Grande: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'large-example-item-1',
-          },
         },
       },
       {
@@ -352,9 +297,6 @@ export const Grande: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'large-example-item-2',
-          },
         },
       },
       {
@@ -376,15 +318,9 @@ export const Grande: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'large-example-item-3',
-          },
         },
       },
     ],
-    attributes: {
-      'aria-label': 'Menu navigation',
-    },
   },
 };
 
@@ -411,9 +347,6 @@ export const Pequeno: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'small-example-item-1',
-          },
         },
       },
       {
@@ -435,9 +368,6 @@ export const Pequeno: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'small-example-item-2',
-          },
         },
       },
       {
@@ -459,15 +389,9 @@ export const Pequeno: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'small-example-item-3',
-          },
         },
       },
     ],
-    attributes: {
-      'aria-label': 'Menu navigation',
-    },
   },
 };
 
@@ -494,9 +418,6 @@ export const Primario: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'primary-example-item-1',
-          },
         },
       },
       {
@@ -520,9 +441,6 @@ export const Primario: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'primary-example-item-2',
-          },
         },
       },
       {
@@ -545,15 +463,9 @@ export const Primario: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'primary-example-item-3',
-          },
         },
       },
     ],
-    attributes: {
-      'aria-label': 'Menu navigation',
-    },
   },
 };
 
@@ -580,9 +492,6 @@ export const Transparente: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'transparent-example-item-1',
-          },
         },
       },
       {
@@ -606,9 +515,6 @@ export const Transparente: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'transparent-example-item-2',
-          },
         },
       },
       {
@@ -631,15 +537,9 @@ export const Transparente: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'transparent-example-item-3',
-          },
         },
       },
     ],
-    attributes: {
-      'aria-label': 'Menu navigation',
-    },
   },
 };
 
@@ -666,9 +566,6 @@ export const ConElUltimoItemALaDerecha: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'right-example-item-1',
-          },
         },
       },
       {
@@ -689,9 +586,6 @@ export const ConElUltimoItemALaDerecha: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'right-example-item-2',
-          },
         },
       },
       {
@@ -712,9 +606,6 @@ export const ConElUltimoItemALaDerecha: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'right-example-item-3',
-          },
         },
       },
       {
@@ -735,15 +626,9 @@ export const ConElUltimoItemALaDerecha: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'right-example-item-4',
-          },
         },
       },
     ],
-    attributes: {
-      'aria-label': 'Menu navigation',
-    },
   },
 };
 
@@ -771,9 +656,6 @@ export const ConDeshabilitadoOSinHrefEnUnPadreEHijo: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'nav-item-item-1-b',
-          },
         },
       },
       {
@@ -793,15 +675,9 @@ export const ConDeshabilitadoOSinHrefEnUnPadreEHijo: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'nav-item-item-2-b',
-          },
         },
       },
     ],
-    attributes: {
-      'aria-label': 'Menu navigation',
-    },
   },
 };
 
@@ -830,9 +706,6 @@ export const ConIdPrefix: Story = {
         text: 'Opción 5',
       },
     ],
-    attributes: {
-      'aria-label': 'Menu navigation',
-    },
   },
 };
 
@@ -861,9 +734,6 @@ export const ConIdsIndividuales: Story = {
               id: 'ids-subitem-3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'ids-item-1',
-          },
         },
       },
       {
@@ -884,65 +754,31 @@ export const ConIdsIndividuales: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'ids-item-2',
-          },
         },
       },
     ],
-    attributes: {
-      'aria-label': 'Menu navigation',
-    },
   },
 };
 
 export const ConAtributos: Story = {
   args: {
     idPrefix: 'with-attributes-example',
-    attributes: {
-      id: 'nav-id-example',
-    },
     items: [
       {
         href: '#',
         text: 'Opción 1',
-        attributes: {
-          'data-attribute-1': 'value-A',
-          'data-attribute-2': 'value-B',
-          'data-attribute-3': 'value-C',
-        },
       },
       {
         href: '#',
         text: 'Opción 2',
-        attributes: {
-          'data-attribute-1': 'value-A',
-          'data-attribute-2': 'value-B',
-          'data-attribute-3': 'value-C',
-        },
       },
       {
         text: 'Opción 3',
-        attributes: {
-          'data-attribute-1': 'value-A',
-          'data-attribute-2': 'value-B',
-          'data-attribute-3': 'value-C',
-        },
         sub: {
-          attributes: {
-            'data-attribute-1': 'value-A',
-            'data-attribute-2': 'value-B',
-            'data-attribute-3': 'value-C',
-          },
           items: [
             {
               href: '#',
               text: 'Enlace simple',
-              attributes: {
-                'data-attribute-1': 'value-A',
-                'data-attribute-2': 'value-B',
-                'data-attribute-3': 'value-C',
-              },
             },
             {
               href: '#',
@@ -958,31 +794,17 @@ export const ConAtributos: Story = {
       {
         href: '#',
         text: 'Opción 4',
-        attributes: {
-          'data-attribute-1': 'value-A',
-          'data-attribute-2': 'value-B',
-          'data-attribute-3': 'value-C',
-        },
       },
       {
         href: '#',
         text: 'Opción 5',
-        attributes: {
-          'data-attribute-1': 'value-A',
-          'data-attribute-2': 'value-B',
-          'data-attribute-3': 'value-C',
-        },
       },
     ],
-    attributes: {
-      'aria-label': 'Menu navigation',
-    },
   },
 };
 
 export const ConItemsMixtos: Story = {
   args: {
-    name: 'with-sub-items',
     idPrefix: 'with-mixed-items-example',
     items: [
       {
@@ -999,9 +821,7 @@ export const ConItemsMixtos: Story = {
       },
       {
         text: 'Padre con divisor',
-        divider: {
-          html: '<div class="absolute h-11 border-l border-neutral-base"></div>',
-        },
+        divider: true,
         id: 'with-sub-items-1',
         sub: {
           items: [
@@ -1013,9 +833,6 @@ export const ConItemsMixtos: Story = {
               href: '#',
               text: 'Enlace simple',
               target: '_blank',
-              attributes: {
-                title: 'Se abre en ventana nueva',
-              },
             },
             {
               href: '#',
@@ -1031,9 +848,6 @@ export const ConItemsMixtos: Story = {
               text: 'Enlace simple',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'with-sub-items-1',
-          },
         },
       },
       {
@@ -1063,14 +877,8 @@ export const ConItemsMixtos: Story = {
               disabled: true,
             },
           ],
-          attributes: {
-            'aria-labelledby': 'with-sub-items-2',
-          },
         },
       },
     ],
-    attributes: {
-      'aria-label': 'Menu navigation',
-    },
   },
 };

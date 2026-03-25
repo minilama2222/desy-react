@@ -4,98 +4,249 @@ import { Footer } from './Footer';
 const meta: Meta<typeof Footer> = {
   title: 'Nav/Footer',
   component: Footer,
-  tags: ['autodocs'],
-  parameters: {
-    docs: {
-      description: {
-        component: 'Site footer with navigation, meta links, and EU funding logo.',
-      },
-    },
-  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Footer>;
 
-export const Default: Story = {
-  args: {},
-};
-
-export const WithNavigation: Story = {
+export const PorDefecto: Story = {
   args: {
-    navigation: [
-      {
-        title: 'Gobierno',
-        items: [
-          { text: 'Portal de la Administración', href: '#' },
-          { text: 'Administraciones Públicas', href: '#' },
-          { text: 'Función Pública', href: '#' },
-        ],
-      },
-      {
-        title: 'Normativa',
-        items: [
-          { text: 'Legislación', href: '#' },
-          { text: 'Reglamentos', href: '#' },
-          { text: 'Órganos consultivos', href: '#' },
-        ],
-      },
-      {
-        title: 'Servicios',
-        items: [
-          { text: 'Atención al ciudadano', href: '#' },
-          { text: 'Cita previa', href: '#' },
-          { text: 'Oficinas', href: '#' },
-        ],
-      },
-    ],
+    classes: 'lg:mt-48',
   },
 };
 
-export const WithMetaLinks: Story = {
+export const ConEnlacesEnMetaYContenido: Story = {
   args: {
-    navigation: [
-      {
-        title: 'Ayuda',
-        items: [
-          { text: 'Preguntas frecuentes', href: '#faq' },
-          { text: 'Contacto', href: '#contacto' },
-        ],
-      },
-    ],
     meta: {
-      visuallyHiddenTitle: 'Enlaces legales',
+      visuallyHiddenTitle: 'Enlaces a pie de página',
       items: [
-        { text: 'Accesibilidad', href: '#accesibilidad' },
-        { text: 'Mapa del sitio', href: '#mapa' },
-        { text: 'Aviso legal', href: '#aviso' },
-        { text: 'Protección de datos', href: '#privacidad' },
-        { text: 'Cookies', href: '#cookies' },
+        {
+          href: '#1',
+          text: 'Inicio',
+        },
+        {
+          href: '#2',
+          text: 'Aviso legal',
+        },
+        {
+          href: '#3',
+          text: 'Política de cookies',
+        },
+        {
+          href: '#4',
+          text: 'Mapa del sitio',
+        },
+      ],
+    },
+    descriptionText:
+      '© Gobierno de Aragón. Dirección: (placeholder). Teléfono: (placeholder)',
+  },
+};
+
+export const ConUnMetaPersonalizado: Story = {
+  args: {
+    meta: {
+      visuallyHiddenTitle: 'Navegación footer',
+      items: [
+        {
+          href: '#',
+          text: 'Accesibilidad',
+        },
+        {
+          href: '#',
+          text: 'Declaración de accesibilidad',
+        },
+        {
+          href: '#',
+          text: 'Mapa del sitio',
+        },
       ],
     },
   },
 };
 
-export const WithoutLogo: Story = {
+export const ConDescripcionPersonalizada: Story = {
+  args: {
+    descriptionText:
+      'Esta es una descripción personalizada para el footer. Puedes añadir cualquier texto aquí.',
+    meta: {
+      visuallyHiddenTitle: 'Enlaces a pie de página',
+      items: [
+        {
+          href: '#',
+          text: 'Inicio',
+        },
+        {
+          href: '#',
+          text: 'Aviso legal',
+        },
+      ],
+    },
+  },
+};
+
+export const SinLogo: Story = {
   args: {
     noLogo: true,
+    descriptionText: 'Footer sin logo del Gobierno de Aragón.',
     meta: {
+      visuallyHiddenTitle: 'Enlaces a pie de página',
       items: [
-        { text: 'Accesibilidad', href: '#' },
-        { text: 'Aviso legal', href: '#' },
+        {
+          href: '#',
+          text: 'Inicio',
+        },
+        {
+          href: '#',
+          text: 'Aviso legal',
+        },
       ],
     },
   },
 };
 
-export const WithCustomLogoType: Story = {
+export const NavegacionCon3SeccionesEnColumnasIguales: Story = {
   args: {
-    type: 'FEADER',
+    navigation: [
+      {
+        title: 'Sección 1',
+        items: [
+          {
+            href: '#',
+            text: 'Enlace 1.1',
+          },
+          {
+            href: '#',
+            text: 'Enlace 1.2',
+          },
+          {
+            href: '#',
+            text: 'Enlace 1.3',
+          },
+        ],
+      },
+      {
+        title: 'Sección 2',
+        items: [
+          {
+            href: '#',
+            text: 'Enlace 2.1',
+          },
+          {
+            href: '#',
+            text: 'Enlace 2.2',
+          },
+          {
+            href: '#',
+            text: 'Enlace 2.3',
+          },
+        ],
+      },
+      {
+        title: 'Sección 3',
+        items: [
+          {
+            href: '#',
+            text: 'Enlace 3.1',
+          },
+          {
+            href: '#',
+            text: 'Enlace 3.2',
+          },
+          {
+            href: '#',
+            text: 'Enlace 3.3',
+          },
+        ],
+      },
+    ],
     meta: {
+      visuallyHiddenTitle: 'Enlaces a pie de página',
       items: [
-        { text: 'Accesibilidad', href: '#' },
-        { text: 'Aviso legal', href: '#' },
+        {
+          href: '#',
+          text: 'Inicio',
+        },
+        {
+          href: '#',
+          text: 'Aviso legal',
+        },
       ],
     },
+  },
+};
+
+export const NavegacionCon2SeccionesUnaDeEllasCon3Columnas: Story = {
+  args: {
+    navigation: [
+      {
+        title: 'Sección 1',
+        items: [
+          {
+            href: '#',
+            text: 'Enlace 1.1',
+          },
+          {
+            href: '#',
+            text: 'Enlace 1.2',
+          },
+        ],
+      },
+      {
+        title: 'Sección 2',
+        items: [
+          {
+            href: '#',
+            text: 'Enlace 2.1',
+          },
+          {
+            href: '#',
+            text: 'Enlace 2.2',
+          },
+        ],
+      },
+      {
+        title: 'Sección 3 - Subsección A',
+        classes: 'lg:w-1/3',
+        items: [
+          {
+            href: '#',
+            text: 'Enlace 3A.1',
+          },
+          {
+            href: '#',
+            text: 'Enlace 3A.2',
+          },
+        ],
+      },
+      {
+        title: 'Sección 3 - Subsección B',
+        classes: 'lg:w-1/3',
+        items: [
+          {
+            href: '#',
+            text: 'Enlace 3B.1',
+          },
+          {
+            href: '#',
+            text: 'Enlace 3B.2',
+          },
+        ],
+      },
+      {
+        title: 'Sección 3 - Subsección C',
+        classes: 'lg:w-1/3',
+        items: [
+          {
+            href: '#',
+            text: 'Enlace 3C.1',
+          },
+          {
+            href: '#',
+            text: 'Enlace 3C.2',
+          },
+        ],
+      },
+    ],
   },
 };

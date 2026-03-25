@@ -12,52 +12,45 @@ type Story = StoryObj<typeof Notification>;
 export const Informacion: Story = {
   args: {
     type: 'info',
-    text: 'Esta es una notificación de información.',
+    descriptionText: 'Esta es una notificación de información.',
   },
 };
 
 export const Exito: Story = {
   args: {
     type: 'success',
-    text: 'La operación se ha completado correctamente.',
+    descriptionText: 'La operación se ha completado correctamente.',
   },
 };
 
-export const Warning: Story = {
+export const Alert: Story = {
   args: {
-    type: 'warning',
-    text: 'Este es un mensaje de aviso.',
-  },
-};
-
-export const Error: Story = {
-  args: {
-    type: 'error',
-    text: 'Ha ocurrido un error en la operación.',
+    type: 'alert',
+    descriptionText: 'Este es un mensaje de aviso.',
   },
 };
 
 export const ConTitulo: Story = {
   args: {
     type: 'info',
-    title: 'Título de la notificación',
-    text: 'Este es el mensaje de la notificación con un título.',
+    titleText: 'Título de la notificación',
+    descriptionText: 'Este es el mensaje de la notificación con un título.',
   },
 };
 
 export const SinCerrar: Story = {
   args: {
     type: 'info',
-    text: 'Notificación sin botón de cerrar.',
-    closeButton: false,
+    descriptionText: 'Notificación sin botón de cerrar.',
+    isDismissible: false,
   },
 };
 
 export const ConCierrePersonalizado: Story = {
   args: {
     type: 'info',
-    text: 'Notificación con texto de cierre personalizado.',
-    closeText: 'Cerrar notificación',
+    descriptionText: 'Notificación con texto de cierre personalizado.',
+    isDismissible: true,
   },
 };
 
@@ -65,6 +58,6 @@ export const ConIdPersonalizado: Story = {
   args: {
     id: 'my-notification',
     type: 'info',
-    text: 'Notificación con ID personalizado.',
+    descriptionText: 'Notificación con ID personalizado.',
   },
 };

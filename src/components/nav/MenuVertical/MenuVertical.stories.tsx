@@ -26,9 +26,6 @@ export const PorDefecto: Story = {
         text: 'Item 3',
       },
     ],
-    attributes: {
-      'aria-label': 'Menu vertical',
-    },
   },
 };
 
@@ -49,9 +46,6 @@ export const ConItemDeshabilitado: Story = {
         disabled: true,
       },
     ],
-    attributes: {
-      'aria-label': 'Menu vertical',
-    },
   },
 };
 
@@ -73,10 +67,7 @@ export const ConItemActivo: Story = {
         text: 'Item 3',
       },
     ],
-    attributes: {
-      id: 'mi-menu',
-      'aria-label': 'Menu vertical',
-    },
+    id: 'mi-menu',
   },
 };
 
@@ -88,30 +79,18 @@ export const ConTargetEnEnlaces: Story = {
         href: '#',
         text: 'Item 1',
         target: '_blank',
-        attributes: {
-          title: 'Se abre en ventana nueva',
-        },
       },
       {
         href: '#',
         text: 'Item 2',
         target: '_blank',
-        attributes: {
-          title: 'Se abre en ventana nueva',
-        },
       },
       {
         href: '#',
         text: 'Item 3',
         target: '_blank',
-        attributes: {
-          title: 'Se abre en ventana nueva',
-        },
       },
     ],
-    attributes: {
-      'aria-label': 'Menu vertical',
-    },
   },
 };
 
@@ -137,9 +116,6 @@ export const ConDivisor: Story = {
         text: 'Item 4',
       },
     ],
-    attributes: {
-      'aria-label': 'Menu vertical',
-    },
   },
 };
 
@@ -160,9 +136,6 @@ export const ConUnTextoDeItemMuyLargo: Story = {
         text: 'No debe haber enlaces de más de 250 caracteres, que es el máximo admitido en accesibilidad, con excepción de nombres de leyes. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Etiam porta sem malesuada magna mollis euismod. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. Sed posuere consectetur est at lobortis.',
       },
     ],
-    attributes: {
-      'aria-label': 'Menu vertical',
-    },
   },
 };
 
@@ -189,9 +162,6 @@ export const ConTodosLosItemsPadres: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'parent-example-item-1',
-          },
         },
       },
       {
@@ -213,9 +183,6 @@ export const ConTodosLosItemsPadres: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'parent-example-item-2',
-          },
         },
       },
       {
@@ -237,15 +204,9 @@ export const ConTodosLosItemsPadres: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'parent-example-item-3',
-          },
         },
       },
     ],
-    attributes: {
-      'aria-label': 'Menu vertical',
-    },
   },
 };
 
@@ -275,9 +236,6 @@ export const ItemsConContenidoDescriptivo: Story = {
         },
       },
     ],
-    attributes: {
-      'aria-label': 'Menu vertical',
-    },
   },
 };
 
@@ -305,9 +263,6 @@ export const ConUnItemHijoActivo: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'nav-item-item-1-a',
-          },
         },
       },
       {
@@ -329,15 +284,9 @@ export const ConUnItemHijoActivo: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'nav-item-item-2-a',
-          },
         },
       },
     ],
-    attributes: {
-      'aria-label': 'Menu vertical',
-    },
   },
 };
 
@@ -365,9 +314,6 @@ export const ConHasUnderlineConDeshabilitadoOSinHref: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'nav-item-item-1-b',
-          },
         },
       },
       {
@@ -387,15 +333,9 @@ export const ConHasUnderlineConDeshabilitadoOSinHref: Story = {
               text: 'Subitem 3',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'nav-item-item-2-b',
-          },
         },
       },
     ],
-    attributes: {
-      'aria-label': 'Menu vertical',
-    },
   },
 };
 
@@ -429,9 +369,6 @@ export const ConClasesCssAplicadas: Story = {
               text: 'Enlace simple',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'classes-1',
-          },
         },
       },
       {
@@ -447,9 +384,6 @@ export const ConClasesCssAplicadas: Story = {
         text: 'Opción 5',
       },
     ],
-    attributes: {
-      'aria-label': 'Menu vertical',
-    },
   },
 };
 
@@ -470,10 +404,7 @@ export const ConIconosEnItems: Story = {
         html: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14" width="1em" height="1em" class="inline-block align-baseline mr-sm" aria-label="Solicitud" focusable="false" role="img"><g><path fill="currentColor" fill-rule="evenodd" d="M5.5 0C4.94772 0 4.5 0.447716 4.5 1V1.5C4.5 2.05229 4.94772 2.5 5.5 2.5H8.5C9.05229 2.5 9.5 2.05229 9.5 1.5V1C9.5 0.447715 9.05229 0 8.5 0H5.5ZM2.75 1H3.25V1.5C3.25 2.74264 4.25736 3.75 5.5 3.75H8.5C9.74264 3.75 10.75 2.74264 10.75 1.5V1H11.25C12.0784 1 12.75 1.67157 12.75 2.5V12.5C12.75 13.3284 12.0784 14 11.25 14H2.75C1.92157 14 1.25 13.3284 1.25 12.5V2.5C1.25 1.67157 1.92157 1 2.75 1ZM3.875 8.50049C3.875 8.15531 4.15482 7.87549 4.5 7.87549H9.5C9.84518 7.87549 10.125 8.15531 10.125 8.50049C10.125 8.84567 9.84518 9.12549 9.5 9.12549H4.5C4.15482 9.12549 3.875 8.84567 3.875 8.50049ZM4.5 10.3755C4.15482 10.3755 3.875 10.6553 3.875 11.0005C3.875 11.3457 4.15482 11.6255 4.5 11.6255H9.5C9.84518 11.6255 10.125 11.3457 10.125 11.0005C10.125 10.6553 9.84518 10.3755 9.5 10.3755H4.5Z" clip-rule="evenodd"></path></g></svg> Opción 3',
       },
     ],
-    attributes: {
-      id: 'mi-menu-icons',
-      'aria-label': 'Menu vertical',
-    },
+    id: 'mi-menu-icons',
   },
 };
 
@@ -502,9 +433,6 @@ export const ConIdPrefix: Story = {
         text: 'Opción 5',
       },
     ],
-    attributes: {
-      'aria-label': 'Menu vertical',
-    },
   },
 };
 
@@ -537,100 +465,11 @@ export const ConIdsIndividuales: Story = {
         id: 'option-E',
       },
     ],
-    attributes: {
-      'aria-label': 'Menu vertical',
-    },
-  },
-};
-
-export const ConAtributos: Story = {
-  args: {
-    idPrefix: 'with-attributes',
-    attributes: {
-      id: 'nav-id-example',
-    },
-    items: [
-      {
-        href: '#',
-        text: 'Opción 1',
-        attributes: {
-          'data-attribute-1': 'value-A',
-          'data-attribute-2': 'value-B',
-          'data-attribute-3': 'value-C',
-        },
-      },
-      {
-        href: '#',
-        text: 'Opción 2',
-        attributes: {
-          'data-attribute-1': 'value-A',
-          'data-attribute-2': 'value-B',
-          'data-attribute-3': 'value-C',
-        },
-      },
-      {
-        href: '#',
-        text: 'Opción 3',
-        attributes: {
-          'data-attribute-1': 'value-A',
-          'data-attribute-2': 'value-B',
-          'data-attribute-3': 'value-C',
-        },
-        sub: {
-          attributes: {
-            'data-attribute-1': 'value-A',
-            'data-attribute-2': 'value-B',
-            'data-attribute-3': 'value-C',
-          },
-          items: [
-            {
-              href: '#',
-              text: 'Enlace simple',
-              attributes: {
-                'data-attribute-1': 'value-A',
-                'data-attribute-2': 'value-B',
-                'data-attribute-3': 'value-C',
-              },
-            },
-            {
-              href: '#',
-              text: 'Enlace simple',
-            },
-            {
-              href: '#',
-              text: 'Enlace simple',
-            },
-          ],
-        },
-      },
-      {
-        href: '#',
-        text: 'Opción 4',
-        attributes: {
-          'data-attribute-1': 'value-A',
-          'data-attribute-2': 'value-B',
-          'data-attribute-3': 'value-C',
-        },
-      },
-      {
-        href: '#',
-        text: 'Opción 5',
-        attributes: {
-          'data-attribute-1': 'value-A',
-          'data-attribute-2': 'value-B',
-          'data-attribute-3': 'value-C',
-        },
-      },
-    ],
-    attributes: {
-      'aria-label': 'Menu vertical',
-    },
   },
 };
 
 export const ConItemsMixtos: Story = {
   args: {
-    name: 'with-sub-items',
     idPrefix: 'with-mixed-items',
     items: [
       {
@@ -660,9 +499,6 @@ export const ConItemsMixtos: Story = {
               href: '#',
               text: 'Enlace simple',
               target: '_blank',
-              attributes: {
-                title: 'Se abre en ventana nueva',
-              },
             },
             {
               href: '#',
@@ -678,9 +514,6 @@ export const ConItemsMixtos: Story = {
               text: 'Enlace simple',
             },
           ],
-          attributes: {
-            'aria-labelledby': 'with-sub-items-1',
-          },
         },
       },
       {
@@ -729,14 +562,8 @@ export const ConItemsMixtos: Story = {
               disabled: true,
             },
           ],
-          attributes: {
-            'aria-labelledby': 'with-sub-items-2',
-          },
         },
       },
     ],
-    attributes: {
-      'aria-label': 'Menu vertical',
-    },
   },
 };

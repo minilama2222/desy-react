@@ -11,14 +11,14 @@ type Story = StoryObj<typeof SkipLink>;
 
 export const PorDefecto: Story = {
   args: {
-    href: '#main-content',
     text: 'Ir al contenido principal',
+    fragment: 'main-content',
   },
 };
 
 export const ConTextoPersonalizado: Story = {
   args: {
-    href: '#main',
     text: 'Saltar al contenido',
+    fragment: 'main',
   },
 };

@@ -646,7 +646,7 @@ export const ConLabel: Story = {
     id: 'label-example',
     idPrefix: 'parent-example',
     ariaLabel: 'Menubar descrición',
-    label: 'Mi label',
+    labelText: 'Mi label',
     items: [
       {
         text: 'Menuitem',
