@@ -22,8 +22,8 @@ export const PorDefecto: Story = {
     titleText: 'Problemas encontrados',
     headingLevel: 2,
     errorList: [
-      { text: 'El campo de Nombre no puede estar vacío.', href: '#example-error-1' },
-      { text: 'El campo de Teléfono no es correcto. Introduce una cifra de, al menos, 9 dígitos.', href: '#example-error-2' },
+      { text: 'El campo de Nombre no puede estar vacío.', fragment: '#example-error-1' },
+      { text: 'El campo de Teléfono no es correcto. Introduce una cifra de, al menos, 9 dígitos.', fragment: '#example-error-2' },
     ],
   },
 };
@@ -33,8 +33,8 @@ export const ConEncabezadoDeNivel3: Story = {
     titleText: 'Título con h3',
     headingLevel: 3,
     errorList: [
-      { text: 'El campo de Nombre no puede estar vacío.', href: '#example-error-1' },
-      { text: 'El campo de Teléfono no es correcto. Introduce una cifra de, al menos, 9 dígitos.', href: '#example-error-2' },
+      { text: 'El campo de Nombre no puede estar vacío.', fragment: '#example-error-1' },
+      { text: 'El campo de Teléfono no es correcto. Introduce una cifra de, al menos, 9 dígitos.', fragment: '#example-error-2' },
     ],
   },
 };
@@ -53,7 +53,7 @@ export const ConYSinEnlaces: Story = {
     headingLevel: 2,
     errorList: [
       { text: 'Nombre de usuario o contraseña incorrectos.' },
-      { text: 'Acepta los términos del servicio para acceder.', href: '#example-error-1' },
+      { text: 'Acepta los términos del servicio para acceder.', fragment: '#example-error-1' },
     ],
   },
 };
@@ -65,7 +65,7 @@ export const ConTodo: Story = {
     descriptionText: 'Por favor, corrige los problemas siguientes.',
     errorList: [
       { text: 'Nombre de usuario o contraseña incorrectos.' },
-      { text: 'Acepta los términos del servicio para acceder.', href: '#example-error-1' },
+      { text: 'Acepta los términos del servicio para acceder.', fragment: '#example-error-1' },
     ],
   },
 };
