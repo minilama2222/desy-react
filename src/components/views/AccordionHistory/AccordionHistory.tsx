@@ -264,7 +264,7 @@ export function AccordionHistory({
   };
 
   return (
-    <div className={clsx(classes)}>
+    <div className={clsx('c-accordion', classes)}>
       {/* Header row */}
       <div className="flex justify-between">
         {renderHeadingTitle()}
@@ -281,7 +281,7 @@ export function AccordionHistory({
       </div>
 
       {/* Timeline items */}
-      <div className="Accordion pl-lg">
+      <div className="c-accordion__items pl-lg">
         {items.map((item, index) => {
           const itemId = getItemId(item, index);
           const open = isOpen(index);
@@ -317,6 +317,7 @@ export function AccordionHistory({
                 <button
                   type="button"
                   className={clsx(
+                    'c-accordion__trigger',
                     'group relative w-full py-sm font-semibold text-left cursor-pointer',
                     'focus:bg-warning-base focus:outline-hidden focus:shadow-outline-focus focus:text-black',
                     item.disabled && 'cursor-not-allowed opacity-50'
@@ -345,7 +346,7 @@ export function AccordionHistory({
                       aria-hidden="true"
                     >
                       {!open && (
-                        <span className={clsx('Accordion-show', item.showButton?.classes)}>
+                        <span className={clsx('c-accordion__show', item.showButton?.classes)}>
                           {item.showButton?.html ? (
                             <span dangerouslySetInnerHTML={{ __html: item.showButton.html }} />
                           ) : (
@@ -354,7 +355,7 @@ export function AccordionHistory({
                         </span>
                       )}
                       {allowToggle && open && (
-                        <span className={clsx('Accordion-show', item.hideButton?.classes)}>
+                        <span className={clsx('c-accordion__hide', item.hideButton?.classes)}>
                           {item.hideButton?.html ? (
                             <span dangerouslySetInnerHTML={{ __html: item.hideButton.html }} />
                           ) : (
