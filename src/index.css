@@ -1,14 +1,12 @@
-/* DESY React - Design System CSS Entry Point */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* DESY React - Design System CSS Entry Point (Tailwind v4) */
+@import "tailwindcss";
 
 /* Desy-html base */
 @import "./css/base.css";
 @import "./css/component.text.css";
 @import "./css/component.form-group.css";
 
-/* Desy-html components (only those with CSS files) */
+/* Desy-html components */
 @import "./templates/components/alert/_styles.alert.css";
 @import "./templates/components/breadcrumbs/_styles.breadcrumbs.css";
 @import "./templates/components/button/_styles.button.css";
@@ -38,6 +36,10 @@
 @import "./templates/components/tooltip/_styles.tooltip.css";
 @import "./templates/components/tree/_styles.tree.css";
 @import "./templates/components/treegrid/_styles.treegrid.css";
+
+/* Plugins */
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
 
 /* Safelist for dynamic classes */
 @layer utilities {

@@ -1,43 +1,5 @@
-/* DESY React - Storybook CSS (standalone, no project imports) */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Desy-html base */
-@import "./css/base.css";
-@import "./css/component.text.css";
-@import "./css/component.form-group.css";
-
-/* Desy-html components */
-@import "./templates/components/alert/_styles.alert.css";
-@import "./templates/components/breadcrumbs/_styles.breadcrumbs.css";
-@import "./templates/components/button/_styles.button.css";
-@import "./templates/components/button-loader/_styles.button-loader.css";
-@import "./templates/components/checkboxes/_styles.checkboxes.css";
-@import "./templates/components/collapsible/_styles.collapsible.css";
-@import "./templates/components/datepicker/_styles.datepicker.css";
-@import "./templates/components/dialog/_styles.dialog.css";
-@import "./templates/components/dropdown/_styles.dropdown.css";
-@import "./templates/components/footer/_styles.footer.css";
-@import "./templates/components/header/_styles.header.css";
-@import "./templates/components/input/_styles.input.css";
-@import "./templates/components/listbox/_styles.listbox.css";
-@import "./templates/components/menubar/_styles.menubar.css";
-@import "./templates/components/menu-navigation/_styles.menu-navigation.css";
-@import "./templates/components/menu-horizontal/_styles.menu-horizontal.css";
-@import "./templates/components/notification/_styles.notification.css";
-@import "./templates/components/pill/_styles.pill.css";
-@import "./templates/components/radios/_styles.radios.css";
-@import "./templates/components/select/_styles.select.css";
-@import "./templates/components/skip-link/_styles.skip-link.css";
-@import "./templates/components/spinner/_styles.spinner.css";
-@import "./templates/components/table/_styles.table.css";
-@import "./templates/components/table-advanced/_styles.table-advanced.css";
-@import "./templates/components/tabs/_styles.tabs.css";
-@import "./templates/components/toggle/_styles.toggle.css";
-@import "./templates/components/tooltip/_styles.tooltip.css";
-@import "./templates/components/tree/_styles.tree.css";
-@import "./templates/components/treegrid/_styles.treegrid.css";
+/* DESY React - Storybook CSS (pre-compiled desy-html) */
+@import "./desy-html.css";
 
 /* Safelist for dynamic classes */
 @layer utilities {
