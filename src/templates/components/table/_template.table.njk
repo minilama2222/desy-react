@@ -1,0 +1,69 @@
+{% set headArray = [] %}
+
+{#- Capture the HTML so we can optionally nest it in a wrapper -#}
+{% set innerHtml %}
+<table class="c-table
+  {%- if params.classes %} {{ params.classes }}{% endif %}"{% for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
+  {% if params.caption %}
+  <caption {%- if params.captionClasses %} class="{{ params.captionClasses }}"{% endif %}>{{ params.caption }}</caption>
+  {% endif %}
+  {% if params.head %}
+  <thead class="sr-only lg:not-sr-only">
+    <tr class="border-t border-b border-neutral-base">
+    {% for item in params.head %}
+      {% set headArray = (headArray.push(item.html |safe | striptags if item.html else item.text), headArray) %}
+      <th scope="col" class="align-top px-base py-sm text-left font-normal text-sm text-neutral-dark {%- if item.classes %} {{ item.classes }}{% endif %}"
+      {%- if item.colspan %} colspan="{{ item.colspan }}"{% endif %}
+      {%- if item.rowspan %} rowspan="{{ item.rowspan }}"{% endif %}{% for attribute, value in item.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>{{ item.html |safe if item.html else item.text }}</th>
+    {% endfor %}
+    </tr>
+  </thead>
+  {% endif %}
+  <tbody>
+    {% for row in params.rows %}
+      {% if row %}
+    <tr class="block lg:table-row -mb-px lg:mb-0 text-left border-t border-b border-neutral-base">
+        {% for cell in row %}
+          {% set commonAttributes %}
+            data-label="{{ headArray[loop.index0] }}"
+            {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
+            {%- if cell.rowspan %} rowspan="{{ cell.rowspan }}"{% endif %}{% for attribute, value in cell.attributes %} {{ attribute }}="{{ value }}"{% endfor %}
+          {% endset %}
+          {% if loop.first and params.firstCellIsHeader %}
+      <th scope="row" class="block lg:table-cell before:block before:text-neutral-dark before:lg:hidden before:content-[attr(data-label)] before:text-sm align-top px-base py-sm text-left font-normal text-sm text-neutral-dark{%- if cell.classes %} {{ cell.classes }}{% endif %}"
+            {{- commonAttributes | safe -}}
+          >{{ cell.html | filterquotes | safe if cell.html else cell.text }}</th>
+          {% else %}
+      <td class="block lg:table-cell text-left before:block before:text-neutral-dark before:lg:hidden before:content-[attr(data-label)] before:text-sm px-base py-sm {%- if cell.classes %} {{ cell.classes }}{% endif %}"
+            {{- commonAttributes | safe -}}
+          >{{ cell.html | filterquotes | safe if cell.html else cell.text }}</td>
+          {% endif %}
+        {% endfor %}
+    </tr>
+      {% endif %}
+    {% endfor %}
+  </tbody>
+  {% if params.foot %}
+  <tfoot>
+    <tr class="border-t-2 border-b border-neutral-base">
+    {% for item in params.foot %}
+      <td class="block lg:table-cell text-left before:block before:text-neutral-dark before:lg:hidden before:content-[attr(data-label)] before:text-sm px-base py-sm {%- if item.classes %} {{ item.classes }}{% endif %}"
+      {%- if item.colspan %} colspan="{{ item.colspan }}"{% endif %}
+      {%- if item.rowspan %} rowspan="{{ item.rowspan }}"{% endif %}{% for attribute, value in item.attributes %} {{ attribute }}="{{ value }}"{% endfor %} data-label="{{ headArray[loop.index0] }}">{{ item.html |safe if item.html else item.text }}</td>
+    {% endfor %}
+    </tr>
+  </tfoot>
+  {% endif %}
+</table>
+{% endset %}
+
+
+<!-- table -->
+{% if params.wrapper %}
+<div {%- if params.wrapper.classes %} class="{{ params.wrapper.classes }}"{% endif %} {% for attribute, value in params.wrapper.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
+  {{ innerHtml | trim | safe }}
+</div>
+{% else %}
+  {{ innerHtml | trim | safe }}
+{% endif %}
+<!-- /table -->

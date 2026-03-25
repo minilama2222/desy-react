@@ -1,0 +1,1292 @@
+{% set exampleComponent = "menu-navigation" %}
+{% set examples =  [
+  {
+    "name": "por defecto",
+    "data": {
+      "idPrefix": "default-example",
+      "items": [
+        {
+          "text": "Item 1",
+          "id": "default-example-item-1",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "default-example-item-1"
+            }
+          }
+        },
+        {
+          "text": "Item 2",
+          "id": "default-example-item-2",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "default-example-item-2"
+            }
+          }
+        },
+        {
+          "text": "Item 3",
+          "id": "default-example-item-3",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "default-example-item-3"
+            }
+          }
+        }
+      ],
+      "attributes": {
+        "aria-label": "Menu navigation"
+      }
+    },
+    "visualDescription": "Tres botones rectangulares dispuestos horizontalmente con bordes azules de 1px, fondo blanco y texto azul en negrita. Los botones tienen esquinas ligeramente redondeadas y espaciado uniforme entre ellos. El conjunto está contenido en un rectángulo con borde gris claro.",
+    "_generated": {
+      "hash": "1abe99b5ab12a36e57cab65b721a00d3",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:06:30.152Z"
+    }
+  },
+  {
+    "name": "con item deshabilitado",
+    "data": {
+      "idPrefix": "with-disabled-item-example",
+      "items": [
+        {
+          "href": "#",
+          "text": "Item 1"
+        },
+        {
+          "href": "#",
+          "text": "Item 2"
+        },
+        {
+          "href": "#",
+          "text": "Item 3",
+          "disabled": true
+        }
+      ],
+      "attributes": {
+        "aria-label": "Menu navigation"
+      }
+    },
+    "visualDescription": "Tres botones rectangulares dispuestos horizontalmente donde dos tienen bordes azules con texto azul en negrita y fondo blanco, mientras uno presenta borde gris claro con texto gris claro y fondo blanco. Los botones tienen esquinas ligeramente redondeadas con espaciado uniforme. El conjunto está contenido en un rectángulo con borde gris claro.",
+    "_generated": {
+      "hash": "05dc019ab9de4a385c93f7c7239244e3",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:06:30.152Z"
+    }
+  },
+  {
+    "name": "con item activo",
+    "description": "Añade <code>active: true</code> a un item para mostrarlo activo inicialmente. También puedes usar con javascript la función global <code>activateItemMenuNavigation(elementMenu, idItemSeleccionado)</code> para seleccionar un item de un menú, usando sus ids. Ej: Abre la consola del navegador y escribe <code>activateItemMenuNavigation('mi-menu', 'with-active-item-example-3')</code> para desactivar el item actual y activar el tercer item de este ejemplo.",
+    "data": {
+      "idPrefix": "with-active-item-example",
+      "items": [
+        {
+          "href": "#",
+          "text": "Item 1"
+        },
+        {
+          "href": "#",
+          "text": "Item 2",
+          "active": true
+        },
+        {
+          "href": "#",
+          "text": "Item 3"
+        }
+      ],
+      "attributes": {
+        "aria-label": "Menu navigation",
+        "id": "mi-menu"
+      }
+    },
+    "visualDescription": "Tres botones rectangulares dispuestos horizontalmente donde dos tienen bordes azules con texto azul en negrita y fondo blanco, mientras uno presenta borde azul más grueso de 2px con texto azul oscuro en negrita y fondo blanco. Los botones tienen esquinas ligeramente redondeadas con espaciado uniforme. El conjunto está contenido en un rectángulo con borde gris claro.",
+    "_generated": {
+      "hash": "722e14657e01fbbca5d73fefe39ba7b0",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:06:30.152Z"
+    }
+  },
+  {
+    "name": "con sub-item activo",
+    "description": "Añade <code>active: true</code> a un sub-item para mostrarlo activo inicialmente. También puedes usar con javascript la función global <code>activateSubItemMenuNavigation(elementMenu, idItemSeleccionado)</code> para seleccionar un sub-item de un menú, usando sus ids. Ej: Abre la consola del navegador y escribe <code>activateSubItemMenuNavigation('mi-sub-menu', 'sub-active-sub-item-example-2-2')</code> para desactivar el sub-item actual y activar el tercer sub-item de este ejemplo.",
+    "data": {
+      "idPrefix": "with-active-sub-item-example",
+      "items": [
+        {
+          "text": "Item 1",
+          "id": "active-sub-item-example-1",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2",
+                "active": true
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "active-sub-item-example-1"
+            }
+          }
+        },
+        {
+          "text": "Item 2",
+          "id": "active-sub-item-example-2",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "active-sub-item-example-2"
+            }
+          }
+        },
+        {
+          "text": "Item 3",
+          "id": "active-sub-item-example-3",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "active-sub-item-example-3"
+            }
+          }
+        }
+      ],
+      "attributes": {
+        "aria-label": "Menu navigation",
+        "id": "mi-sub-menu"
+      }
+    },
+    "visualDescription": "Fila horizontal de tres botones rectangulares con bordes azul oscuro de 1px y fondo blanco. Cada botón muestra texto azul oscuro en peso normal con un símbolo de cierre \"×\" alineado a la derecha. Espaciado uniforme entre botones, altura consistente de aproximadamente 32px.",
+    "_generated": {
+      "hash": "b2fd257044912df080ffc78c0dda7287",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:06:39.167Z"
+    }
+  },
+  {
+    "name": "con target en enlaces",
+    "data": {
+      "idPrefix": "with-targets-in-links-example",
+      "items": [
+        {
+          "href": "#",
+          "text": "Item 1",
+          "target": "_blank",
+          "attributes": {
+            "title": "Se abre en ventana nueva"
+          }
+        },
+        {
+          "href": "#",
+          "text": "Item 2",
+          "target": "_blank",
+          "attributes": {
+            "title": "Se abre en ventana nueva"
+          }
+        },
+        {
+          "href": "#",
+          "text": "Item 3",
+          "target": "_blank",
+          "attributes": {
+            "title": "Se abre en ventana nueva"
+          }
+        }
+      ],
+      "attributes": {
+        "aria-label": "Menu navigation"
+      }
+    },
+    "visualDescription": "Fila horizontal de tres botones rectangulares con bordes azul oscuro de 1px y fondo blanco. Texto azul oscuro en peso normal centrado dentro de cada botón. Botones de tamaño compacto con padding interno, separados por espacios en blanco uniformes.",
+    "_generated": {
+      "hash": "3172139c59a5c5edcf910c341830bb1f",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:06:39.167Z"
+    }
+  },
+  {
+    "name": "con divisores",
+    "data": {
+      "idPrefix": "with-dividers-example",
+      "items": [
+        {
+          "href": "#",
+          "text": "Item 1"
+        },
+        {
+          "href": "#",
+          "text": "Item 2",
+          "divider": {
+            "html": "<div class='absolute h-11 border-l border-neutral-base'></div>"
+          }
+        },
+        {
+          "text": "Item 3",
+          "id": "with-dividers-example-parent",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2",
+                "divider": true
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "with-dividers-example-parent"
+            }
+          }
+        },
+        {
+          "href": "#",
+          "text": "Item 4"
+        }
+      ],
+      "attributes": {
+        "aria-label": "Menu navigation"
+      }
+    },
+    "visualDescription": "Fila horizontal de cuatro botones rectangulares con bordes azul oscuro de 1px y fondo blanco. Texto azul oscuro en peso normal, algunos botones incluyen símbolo de cierre \"×\" alineado a la derecha del texto. Botones de altura aproximada de 32px con espaciado horizontal uniforme entre elementos.",
+    "_generated": {
+      "hash": "33688ef79d4477f60185d088b0cdf809",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:06:39.167Z"
+    }
+  },
+  {
+    "name": "grande",
+    "description": "Usando clases para mostrar los items grandes.",
+    "data": {
+      "idPrefix": "large-example",
+      "items": [
+        {
+          "text": "Item 1",
+          "id": "large-example-item-1",
+          "classes": "c-menu-navigation__button--lg -mr-sm",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "large-example-item-1"
+            }
+          }
+        },
+        {
+          "text": "Item 2",
+          "id": "large-example-item-2",
+          "classes": "c-menu-navigation__button--lg -mr-sm",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "large-example-item-2"
+            }
+          }
+        },
+        {
+          "text": "Item 3",
+          "id": "large-example-item-3",
+          "classes": "c-menu-navigation__button--lg -mr-sm",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "large-example-item-3"
+            }
+          }
+        }
+      ],
+      "attributes": {
+        "aria-label": "Menu navigation"
+      }
+    },
+    "visualDescription": "Barra de navegación con tres botones dispuestos horizontalmente. Cada botón tiene texto azul(Item 1, Item 2, Item 3) , borde azul de 1px, fondo blanco, y un indicador de dropdown(▼) . Los botones tienen padding generoso y tamaño de fuente considerable.",
+    "_generated": {
+      "hash": "6e9e3b5148ca37c8860591c4e2a3311a",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:06:47.809Z"
+    }
+  },
+  {
+    "name": "peque",
+    "description": "Usando clases para mostrar los items pequeños.",
+    "data": {
+      "idPrefix": "small-example",
+      "items": [
+        {
+          "text": "Item 1",
+          "id": "small-example-item-1",
+          "classes": "c-menu-navigation__button--sm -mr-sm",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "small-example-item-1"
+            }
+          }
+        },
+        {
+          "text": "Item 2",
+          "id": "small-example-item-2",
+          "classes": "c-menu-navigation__button--sm -mr-sm",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "small-example-item-2"
+            }
+          }
+        },
+        {
+          "text": "Item 3",
+          "id": "small-example-item-3",
+          "classes": "c-menu-navigation__button--sm -mr-sm",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "small-example-item-3"
+            }
+          }
+        }
+      ],
+      "attributes": {
+        "aria-label": "Menu navigation"
+      }
+    },
+    "visualDescription": "Barra de navegación con tres botones dispuestos horizontalmente. Cada botón tiene texto azul(Item 1, Item 2, Item 3) , borde azul de 1px, fondo blanco, y un indicador de dropdown(▼) . Los botones tienen padding compacto y tamaño de fuente reducido.",
+    "_generated": {
+      "hash": "b5c05241cdcea19f5e04b321bfa276c3",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:06:47.809Z"
+    }
+  },
+  {
+    "name": "primario",
+    "description": "Usando clases para mostrar los items primarios.",
+    "data": {
+      "idPrefix": "primary-example",
+      "items": [
+        {
+          "text": "Item 1",
+          "id": "primary-example-item-1",
+          "classes": "c-menu-navigation__button--primary",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "primary-example-item-1"
+            }
+          }
+        },
+        {
+          "text": "Item activo 2",
+          "id": "primary-example-item-2",
+          "classes": "c-menu-navigation__button--primary",
+          "active": true,
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2",
+                "active": true
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "primary-example-item-2"
+            }
+          }
+        },
+        {
+          "text": "Item deshabilitado 3",
+          "id": "primary-example-item-3",
+          "classes": "c-menu-navigation__button--primary",
+          "disabled": true,
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "primary-example-item-3"
+            }
+          }
+        }
+      ],
+      "attributes": {
+        "aria-label": "Menu navigation"
+      }
+    },
+    "visualDescription": "Barra de navegación con tres botones dispuestos horizontalmente. El primer botón tiene fondo azul oscuro sólido con texto blanco. Los dos botones siguientes tienen fondo azul-gris claro con texto blanco, todos con indicadores de dropdown(▼) y bordes visibles.",
+    "_generated": {
+      "hash": "d2d5204f40803e267d9901e86fbe3e6d",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:06:47.809Z"
+    }
+  },
+  {
+    "name": "transparente",
+    "description": "Usando clases para mostrar los items transparentes.",
+    "data": {
+      "idPrefix": "transparent-example",
+      "items": [
+        {
+          "text": "Item 1",
+          "id": "transparent-example-item-1",
+          "classes": "c-menu-navigation__button--transparent",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "transparent-example-item-1"
+            }
+          }
+        },
+        {
+          "text": "Item activo 2",
+          "id": "transparent-example-item-2",
+          "classes": "c-menu-navigation__button--transparent",
+          "active": true,
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2",
+                "active": true
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "transparent-example-item-2"
+            }
+          }
+        },
+        {
+          "text": "Item deshabilitado 3",
+          "id": "transparent-example-item-3",
+          "classes": "c-menu-navigation__button--transparent",
+          "disabled": true,
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "transparent-example-item-3"
+            }
+          }
+        }
+      ],
+      "attributes": {
+        "aria-label": "Menu navigation"
+      }
+    },
+    "visualDescription": "Menú de navegación horizontal con tres ítems de texto en color azul enlace, espaciados uniformemente. Fondo blanco o transparente sin bordes visibles. Los ítems aparecen como enlaces clickeables con texto de tamaño estándar y peso regular.",
+    "_generated": {
+      "hash": "bac05c07d0dcf33efe394fe0a987d011",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:06:58.110Z"
+    }
+  },
+  {
+    "name": "con el último item a la derecha",
+    "data": {
+      "idPrefix": "right-example",
+      "classes": "c-menu-navigation--last-right",
+      "items": [
+        {
+          "text": "Item 1",
+          "id": "right-example-item-1",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "right-example-item-1"
+            }
+          }
+        },
+        {
+          "text": "Item 2",
+          "id": "right-example-item-2",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "right-example-item-2"
+            }
+          }
+        },
+        {
+          "text": "Item 3",
+          "id": "right-example-item-3",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "right-example-item-3"
+            }
+          }
+        },
+        {
+          "text": "Item 4",
+          "id": "right-example-item-4",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "right-example-item-4"
+            }
+          }
+        }
+      ],
+      "attributes": {
+        "aria-label": "Menu navigation"
+      }
+    },
+    "visualDescription": "Menú de navegación con cuatro ítems dentro de un contenedor con borde gris claro de 1px. Los tres primeros ítems(texto azul enlace) están alineados a la izquierda con espaciado mínimo entre ellos, mientras que el cuarto ítem está posicionado en el extremo derecho del contenedor. Fondo blanco y altura uniforme para todos los elementos.",
+    "_generated": {
+      "hash": "2d7aab714cdd0db4b9b1edbcbeb0d474",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:06:58.110Z"
+    }
+  },
+  {
+    "name": "con deshabilitado o sin href en un padre e hijo",
+    "data": {
+      "idPrefix": "nav-item-without-href",
+      "items": [
+        {
+          "text": "Item 1 deshabilitado",
+          "id": "nav-item-item-1-b",
+          "disabled": true,
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2 deshabilitado",
+                "disabled": true
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "nav-item-item-1-b"
+            }
+          }
+        },
+        {
+          "text": "Item 2",
+          "id": "nav-item-item-2-b",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "text": "Subitem 2 sin href"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "nav-item-item-2-b"
+            }
+          }
+        }
+      ],
+      "attributes": {
+        "aria-label": "Menu navigation"
+      }
+    },
+    "visualDescription": "Menú de navegación con dos ítems dentro de un contenedor con borde gris claro de 1px y fondo blanco. El primer ítem presenta texto en gris atenuado indicando estado deshabilitado, seguido de un segundo ítem con texto en azul enlace activo. Altura uniforme del contenedor con padding interno visible.",
+    "_generated": {
+      "hash": "94348757d47bb872c28bfca220a57e5f",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:06:58.110Z"
+    }
+  },
+  {
+    "name": "con estilos de cabecera",
+    "description": "Un Menu navigation puede estar anidado en <code>customNavigationHtml</code> en el componente Header. Añade <code>active: true</code> a un sub-item para mostrarlo activo inicialmente. También puedes usar con javascript la función global <code>activateSubItemMenuNavigation(elementMenu, idItemSeleccionado)</code> para seleccionar un sub-item de un menú, usando sus ids. Ej: Abre la consola del navegador y escribe <code>activateSubItemMenuNavigation('mi-menu-header', 'sub-header-custom-nav-item-1-1')</code> para desactivar el sub-item actual y activar el primer sub-item del primer item de este ejemplo.",
+    "data": {
+      "idPrefix": "header-custom-nav",
+      "classes": "bg-neutral-lighter c-menu-navigation--last-right w-full",
+      "items": [
+        {
+          "text": "Item 1",
+          "id": "header-custom-nav-item-1",
+          "classes": "c-menu-navigation__button--header -mr-base",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "header-custom-nav-item-1"
+            }
+          }
+        },
+        {
+          "text": "Item activo 2",
+          "id": "header-custom-nav-item-2",
+          "classes": "c-menu-navigation__button--header -mr-base",
+          "active": true,
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2",
+                "active": true
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "header-custom-nav-item-2"
+            }
+          }
+        },
+        {
+          "text": "Item deshabilitado 3",
+          "id": "header-custom-nav-item-3",
+          "classes": "c-menu-navigation__button--header -mr-base",
+          "disabled": true,
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "header-custom-nav-item-3"
+            }
+          }
+        },
+        {
+          "text": "Item 4 right",
+          "id": "header-custom-nav-item-4",
+          "classes": "c-menu-navigation__button--header",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "header-custom-nav-item-4"
+            }
+          }
+        }
+      ],
+      "attributes": {
+        "aria-label": "Menu navigation",
+        "id": "mi-menu-header"
+      }
+    },
+    "visualDescription": "Fila horizontal con tres selectores desplegables de tamaño pequeño. Cada selector tiene fondo blanco, borde gris claro de 1px, texto negro y flecha hacia abajo indicando menú. Selector de la derecha tiene alineación a la derecha, los otros dos a la izquierda.",
+    "_generated": {
+      "hash": "3f2dd2ccea2022d35627ed9774b0ac84",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:07:06.506Z"
+    }
+  },
+  {
+    "name": "con idPrefix",
+    "description": "Mostrar código para ver el <code>idPrefix</code> aplicado",
+    "data": {
+      "idPrefix": "with-id-prefix-example",
+      "items": [
+        {
+          "href": "#",
+          "text": "Opción 1"
+        },
+        {
+          "href": "#",
+          "text": "Opción 2"
+        },
+        {
+          "href": "#",
+          "text": "Opción 3"
+        },
+        {
+          "href": "#",
+          "text": "Opción 4"
+        },
+        {
+          "href": "#",
+          "text": "Opción 5"
+        }
+      ],
+      "attributes": {
+        "aria-label": "Menu navigation"
+      }
+    },
+    "visualDescription": "Fila horizontal de cinco botones rectangulares con borde azul de 1px y texto azul en negrita. Cada botón tiene fondo blanco, esquinas ligeramente redondeadas y padding uniforme. Los botones están espaciados uniformemente con separación mínima entre ellos.",
+    "_generated": {
+      "hash": "a6fbc84eeedc307b29eaeec5be7afdca",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:07:06.506Z"
+    }
+  },
+  {
+    "name": "con ids individuales",
+    "data": {
+      "idPrefix": "ids-example",
+      "items": [
+        {
+          "text": "Definidos explícitamente",
+          "id": "ids-item-1",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1",
+                "id": "ids-subitem-1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2",
+                "id": "ids-subitem-2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3",
+                "id": "ids-subitem-3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "ids-item-1"
+            }
+          }
+        },
+        {
+          "text": "Generados automáticamente",
+          "id": "ids-item-2",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem 1"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 2"
+              },
+              {
+                "href": "#",
+                "text": "Subitem 3"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "ids-item-2"
+            }
+          }
+        }
+      ],
+      "attributes": {
+        "aria-label": "Menu navigation"
+      }
+    },
+    "visualDescription": "Fila horizontal de dos botones rectangulares con borde gris de 1px y texto negro. Cada botón tiene fondo blanco, esquinas ligeramente redondeadas y padding horizontal amplio. Los botones están separados por espacio pequeño entre ellos.",
+    "_generated": {
+      "hash": "38df46e60f01777986050e9d02745ec8",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:07:06.506Z"
+    }
+  },
+  {
+    "name": "con atributos",
+    "description": "Muestra el código para ver cómo se aplican los atributos",
+    "data": {
+      "idPrefix": "with-attributes-example",
+      "attributes": {
+        "id": "nav-id-example"
+      },
+      "items": [
+        {
+          "href": "#",
+          "text": "Opción 1",
+          "attributes": {
+            "data-attribute-1": "value-A",
+            "data-attribute-2": "value-B",
+            "data-attribute-3": "value-C"
+          }
+        },
+        {
+          "href": "#",
+          "text": "Opción 2",
+          "attributes": {
+            "data-attribute-1": "value-A",
+            "data-attribute-2": "value-B",
+            "data-attribute-3": "value-C"
+          }
+        },
+        {
+          "text": "Opción 3",
+          "attributes": {
+            "data-attribute-1": "value-A",
+            "data-attribute-2": "value-B",
+            "data-attribute-3": "value-C"
+          },
+          "sub": {
+            "attributes": {
+              "data-attribute-1": "value-A",
+              "data-attribute-2": "value-B",
+              "data-attribute-3": "value-C"
+            },
+            "items": [
+              {
+                "href": "#",
+                "text": "Enlace simple",
+                "attributes": {
+                  "data-attribute-1": "value-A",
+                  "data-attribute-2": "value-B",
+                  "data-attribute-3": "value-C"
+                }
+              },
+              {
+                "href": "#",
+                "text": "Enlace simple"
+              },
+              {
+                "href": "#",
+                "text": "Enlace simple"
+              }
+            ]
+          }
+        },
+        {
+          "href": "#",
+          "text": "Opción 4",
+          "attributes": {
+            "data-attribute-1": "value-A",
+            "data-attribute-2": "value-B",
+            "data-attribute-3": "value-C"
+          }
+        },
+        {
+          "href": "#",
+          "text": "Opción 5",
+          "attributes": {
+            "data-attribute-1": "value-A",
+            "data-attribute-2": "value-B",
+            "data-attribute-3": "value-C"
+          }
+        }
+      ],
+      "attributes": {
+        "aria-label": "Menu navigation"
+      }
+    },
+    "visualDescription": "Fila horizontal de cinco botones con borde azul de 1px y fondo blanco. Cada botón contiene texto azul en peso regular, etiquetados secuencialmente(\"Opción 1\" hasta \"Opción 5\"). Los botones tienen espaciado uniforme entre ellos y esquinas ligeramente redondeadas.",
+    "_generated": {
+      "hash": "9a67f40b1dacd726a09117c2e48ed045",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:07:15.929Z"
+    }
+  },
+  {
+    "name": "con items mixtos",
+    "data": {
+      "name": "with-sub-items",
+      "idPrefix": "with-mixed-items-example",
+      "items": [
+        {
+          "href": "#",
+          "text": "Enlace simple"
+        },
+        {
+          "text": "Item sin href o deshabilitado",
+          "disabled": true
+        },
+        {
+          "href": "#",
+          "text": "Enlace simple"
+        },
+        {
+          "text": "Padre con divisor",
+          "divider": {
+            "html": "<div class='absolute h-11 border-l border-neutral-base'></div>"
+          },
+          "id": "with-sub-items-1",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Enlace simple"
+              },
+              {
+                "href": "#",
+                "text": "Enlace simple",
+                "target": "_blank",
+                "attributes": {
+                  "title": "Se abre en ventana nueva"
+                }
+              },
+              {
+                "href": "#",
+                "text": "Enlace simple"
+              },
+              {
+                "href": "#",
+                "text": "Enlace simple",
+                "divider": true
+              },
+              {
+                "href": "#",
+                "text": "Enlace simple"
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "with-sub-items-1"
+            }
+          }
+        },
+        {
+          "href": "#",
+          "text": "Enlace simple"
+        },
+        {
+          "href": "#",
+          "text": "Enlace simple"
+        },
+        {
+          "text": "Padre",
+          "id": "with-sub-items-2",
+          "sub": {
+            "items": [
+              {
+                "href": "#",
+                "text": "Subitem"
+              },
+              {
+                "href": "#",
+                "text": "Subitem activo",
+                "active" : true
+              },
+              {
+                "text": "Subitem sin href o deshabilitado",
+                "disabled": true
+              }
+            ],
+            "attributes": {
+              "aria-labelledby": "with-sub-items-2"
+            }
+          }
+        }
+      ],
+      "attributes": {
+        "aria-label": "Menu navigation"
+      }
+    },
+    "visualDescription": "Fila horizontal de seis elementos interactivos con bordes azules de 1px y fondos blancos. Incluye botones con texto azul, botones con texto azul y flechas desplegables(indicador \"▼\"), y un elemento con etiqueta de ítem deshabilitado en texto gris con indicador \"▼\". Los elementos tienen espaciado consistente y esquinas redondeadas, presentando estados habilitado y deshabilitado visualmente diferenciados.",
+    "_generated": {
+      "hash": "a5652b883af3f89985d7a6b0bd0f81a9",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:07:15.929Z"
+    }
+  }
+] %}

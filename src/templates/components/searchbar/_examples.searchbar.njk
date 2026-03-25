@@ -1,0 +1,148 @@
+{% set exampleComponent = "searchbar" %}
+{% set examples =  [
+  {
+    "name": "por defecto",
+    "data": {
+      "id": "searchbar-1",
+      "label": {
+        "text": "Buscar",
+        "classes": "not-sr-only mb-sm"
+      }
+    },
+    "visualDescription": "Campo de búsqueda rectangular con borde gris claro de 1px y fondo blanco. Incluye label \"Buscar\" en texto negro pequeño arriba del campo. Botón de búsqueda con icono de lupa en azul oscuro alineado a la derecha dentro del campo.",
+    "_generated": {
+      "hash": "67ef7af46754cba1bdb0e54b1a75230a",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:12:51.704Z"
+    }
+  },
+  {
+    "name": "con placeholder",
+    "data": {
+      "id": "searchbar-2",
+      "label": {
+        "text": "Buscar"
+      },
+      "placeholder": "Buscar en este sitio"
+    },
+    "visualDescription": "Campo de búsqueda rectangular con borde gris claro de 1px y fondo blanco. Texto placeholder \"Buscar en este sitio\" en gris claro visible dentro del campo. Botón de búsqueda con icono de lupa en azul oscuro alineado a la derecha dentro del campo.",
+    "_generated": {
+      "hash": "27f4114b571c7f91493a1e0174a01321",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:12:51.704Z"
+    }
+  },
+  {
+    "name": "deshabilitado",
+    "data": {
+      "id": "searchbar-3",
+      "label": {
+        "text": "Buscar"
+      },
+      "disabled": true
+    },
+    "visualDescription": "Campo de búsqueda rectangular con borde gris muy claro de 1px y fondo gris claro(#f5f5f5) . El campo aparece sin texto ni placeholder visible. Botón de búsqueda con icono de lupa en azul oscuro alineado a la derecha dentro del campo.",
+    "_generated": {
+      "hash": "a126fc4548da4dad1efa4b75e86c7821",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:12:51.704Z"
+    }
+  },
+  {
+    "name": "Con mensaje de error",
+    "description": "Por accesibilidad, los mensajes de error deben incluir la palabra \"error\", para que no recaiga tan sólo en el color el hecho de que es un mensaje de error.",
+    "data": {
+      "id": "searchbar-4",
+      "label": {
+        "text": "Buscar"
+      },
+      "errorMessage": {
+        "text": "Esto es un mensaje de error",
+        "classes": "mt-xs"
+      }
+    },
+    "visualDescription": "Barra de búsqueda con input de texto rectangular con borde rojo de 2px, fondo blanco, y botón de búsqueda(ícono de lupa) alineado a la derecha dentro del campo. Debajo del input aparece un mensaje de error en texto rojo pequeño. Encima del campo hay un título descriptivo en texto negro normal.",
+    "_generated": {
+      "hash": "dbefd6e80e153cafaa30f878cc5e913c",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:13:01.121Z"
+    }
+  },
+  {
+    "name": "Con label visible",
+    "data": {
+      "id": "searchbar-label-visible",
+      "label": {
+        "text": "Buscar items recientes",
+        "classes": "not-sr-only mb-sm"
+      }
+    },
+    "visualDescription": "Barra de búsqueda con input de texto rectangular con borde gris de 1px, fondo blanco, y botón de búsqueda(ícono de lupa) alineado a la derecha dentro del campo. Encima del input hay un label descriptivo en texto negro pequeño. El campo tiene altura estándar con espaciado interno generoso.",
+    "_generated": {
+      "hash": "331f38b63a508e19bf4751f9297a955c",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:13:01.121Z"
+    }
+  },
+  {
+    "name": "peque",
+    "data": {
+      "id": "searchbar-5",
+      "label": {
+        "text": "Buscar"
+      },
+      "classes": "c-input--sm",
+      "buttonClasses": "m-xs p-0.5 text-xs"
+    },
+    "visualDescription": "Barra de búsqueda con input de texto rectangular de altura reducida, borde gris claro de 1px, fondo blanco, y botón de búsqueda(ícono de lupa) alineado a la derecha dentro del campo. No presenta label superior ni mensajes auxiliares. Las dimensiones verticales son compactas con espaciado interno mínimo.",
+    "_generated": {
+      "hash": "0fd48b62c89e4225e20a86ef100a8c83",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:13:01.121Z"
+    }
+  },
+  {
+    "name": "Botón personalizado",
+    "description": "Añade parámetros del componente Botón para sustituir el icono de la lupa con un botón junto al input.",
+    "data": {
+      "id": "searchbar-6",
+      "label": {
+        "text": "Buscar en esta página"
+      },
+      "button": {
+        "text": "Buscar",
+        "type": "submit",
+        "classes": "c-button--primary"
+      },
+      "classes": "flex-1"
+    },
+    "visualDescription": "Campo de búsqueda con input de texto rectangular con borde gris de 1px y fondo blanco. Botón \"Buscar\" de fondo azul petróleo con texto blanco en mayúsculas está alineado a la derecha del input. El campo ocupa todo el ancho disponible con altura estándar.",
+    "_generated": {
+      "hash": "7937ddc1545f6aa3dc955c19058f4287",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:13:08.801Z"
+    }
+  },
+  {
+    "name": "Botón personalizado pequeño",
+    "description": "Usamos los parámetros del componente Botón para personalizarlo, en este ejemplo botón peque.",
+    "data": {
+      "id": "searchbar-7",
+      "label": {
+        "text": "Buscar en esta página"
+      },
+      "button": {
+        "text": "Buscar",
+        "type": "submit",
+        "classes": "c-button--sm"
+      },
+      "classes": "flex-1 c-input--sm"
+    },
+    "visualDescription": "Campo de búsqueda con input de texto rectangular con borde gris de 1px y fondo blanco. Botón \"Buscar\" compacto con borde azul petróleo y texto azul petróleo está posicionado a la derecha del input. El campo ocupa todo el ancho disponible con altura reducida.",
+    "_generated": {
+      "hash": "f2879e4a8dc9ef14f15280c181dc27bf",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:13:08.801Z"
+    }
+  }
+] %}

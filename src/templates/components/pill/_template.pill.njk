@@ -1,0 +1,39 @@
+{# Set classes for this component #}
+{%- set classNames = "c-pill" -%}
+
+{%- if params.classes %}
+  {% set classNames = classNames + " " + params.classes %}
+{% endif %}
+
+{# Determine type of element to use, if not explicitly set #}
+{%- if params.type %}
+  {% set element = params.type | lower %}
+{% else %}
+  {% if params.href %}
+    {% set element = 'a' %}
+  {% elseif params.type == 'button' %}
+    {% set element = 'button' %}
+  {% else %}
+    {% set element = 'span' %}
+  {% endif %}
+{% endif -%}
+
+{#- Define common attributes that we can use across all element types #}
+
+{%- set commonAttributes %} class="{{ classNames }}" data-module="c-pill"{% for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}{% endset %}
+
+<!-- pill -->
+{%- if element == 'a' %}
+<a href="{{ params.href }}"  {{- buttonAttributes | safe }} {% if params.target %} target="{{ params.target }}"{% endif %}{{- commonAttributes | safe }}>
+  {{- params.html | filterquotes | safe if params.html else params.text -}}
+</a>
+{%- elseif element == 'button' %}
+<button {{- buttonAttributes | safe }} {{- commonAttributes | safe }}>
+  {{- params.html | filterquotes | safe if params.html else params.text -}}
+</button>
+{%- else %}
+<span {{- buttonAttributes | safe }} {{- commonAttributes | safe }}>
+  {{- params.html | filterquotes | safe if params.html else params.text -}}
+</span>
+{% endif %}
+<!-- /pill -->

@@ -1,0 +1,25 @@
+params:
+- name: text
+  type: string
+  required: true
+  description: Text for the status.
+- name: icon
+  type: object
+  required: true
+  description: This is the icon at right
+  - name: html
+    type: string
+    required: false
+    description: Use this html to insert a custom svg inline icon. If this is set, the type are not used.
+  - name: type
+    type: string
+    required: false
+    description: Predefined icon types are `success`, `alert`,`loading` and `error`. Defaults to `success`.
+- name: classes
+  type: string
+  required: false
+  description: Classes to add to the status component.
+- name: attributes
+  type: object
+  required: false
+  description: HTML attributes (for example data attributes) to add to the status component.

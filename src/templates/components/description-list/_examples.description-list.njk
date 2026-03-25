@@ -1,0 +1,503 @@
+{% set exampleComponent = "description-list" %}
+{% set examples =  [
+  {
+    "name": "por defecto",
+    "data": {
+      "items": [
+        {
+          "term": {
+            "text": "término"
+          },
+          "definition": {
+            "text": "definición"
+          }
+        }
+      ]
+    },
+    "visualDescription": "Caja rectangular con borde gris claro de 1px y fondo blanco. Contiene un término en texto negro peso normal tamaño pequeño, seguido de \"definición\" en texto negro peso normal del mismo tamaño, dispuestos verticalmente con espaciado mínimo entre ellos.",
+    "_generated": {
+      "hash": "bff8479f930b75718541c13186930ac8",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:55:37.348Z"
+    }
+  },
+  {
+    "name": "grande",
+    "data": {
+      "items": [
+        {
+          "term": {
+            "text": "término"
+          },
+          "definition": {
+            "text": "definición",
+            "classes": "text-lg"
+          }
+        }
+      ]
+    },
+    "visualDescription": "Caja rectangular con borde gris claro de 1px y fondo blanco. Contiene un término en texto negro peso normal tamaño mediano, seguido de \"definición\" en texto negro peso normal del mismo tamaño, dispuestos verticalmente con espaciado interno generoso.",
+    "_generated": {
+      "hash": "677f066c58ef453fc43ca649302b007d",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:55:37.348Z"
+    }
+  },
+  {
+    "name": "extra grande",
+    "data": {
+      "items": [
+        {
+          "term": {
+            "text": "término"
+          },
+          "definition": {
+            "text": "definición",
+            "classes": "font-bold text-xl"
+          }
+        }
+      ]
+    },
+    "visualDescription": "Caja rectangular con borde gris claro de 1px y fondo blanco. Contiene un término en texto negro peso negrita tamaño grande, seguido de \"definición\" en texto negro peso negrita del mismo tamaño, dispuestos verticalmente con espaciado interno amplio entre elementos.",
+    "_generated": {
+      "hash": "5bcdbfad333ac54f825c98d763a5ab7c",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:55:37.348Z"
+    }
+  },
+  {
+    "name": "vertical",
+    "data": {
+      "items": [
+        {
+          "term": {
+            "text": "término"
+          },
+          "definition": {
+            "text": "definición"
+          },
+          "classes": "mb-base"
+        },
+        {
+          "term": {
+            "text": "término"
+          },
+          "definition": {
+            "text": "definición"
+          },
+          "classes": "mb-base"
+        },
+        {
+          "term": {
+            "text": "término"
+          },
+          "definition": {
+            "text": "definición"
+          },
+          "classes": "mb-base"
+        }
+      ]
+    },
+    "visualDescription": "Componente de lista descriptiva con fondo blanco y borde gris claro de 1px. Cada entrada contiene un término en texto gris oscuro pequeño y su definición en texto negro regular, apilados verticalmente. Presenta tres grupos término-definición organizados en disposición vertical, ocupando el ancho completo del contenedor.",
+    "_generated": {
+      "hash": "61a7526800e96d39c486dc068f3ce95d",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:55:46.668Z"
+    }
+  },
+  {
+    "name": "horizontal",
+    "data": {
+      "classes": "flex w-full",
+      "items": [
+        {
+          "term": {
+            "text": "término"
+          },
+          "definition": {
+            "text": "definición"
+          },
+          "classes": "flex-1 pr-base"
+        },
+        {
+          "term": {
+            "text": "término"
+          },
+          "definition": {
+            "text": "definición"
+          },
+          "classes": "flex-1 pr-base"
+        },
+        {
+          "term": {
+            "text": "término"
+          },
+          "definition": {
+            "text": "definición"
+          },
+          "classes": "flex-1 pr-base"
+        }
+      ]
+    },
+    "visualDescription": "Componente de lista descriptiva con fondo blanco y borde gris claro de 1px. Tres grupos de término-definición distribuidos horizontalmente en una sola fila, cada uno con término en texto gris oscuro pequeño arriba y definición en texto negro regular debajo. Los elementos están espaciados uniformemente a lo largo del ancho del contenedor.",
+    "_generated": {
+      "hash": "31480fcd7f8f4ff3cb0829608e88dba4",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:55:46.668Z"
+    }
+  },
+  {
+    "name": "horizontal con 2 filas",
+    "data": {
+      "classes": "flex flex-wrap w-full",
+      "items": [
+        {
+          "term": {
+            "text": "término"
+          },
+          "definition": {
+            "text": "definición"
+          },
+          "classes": "w-1/3 mb-base pr-base"
+        },
+        {
+          "term": {
+            "text": "término"
+          },
+          "definition": {
+            "text": "definición"
+          },
+          "classes": "w-1/3 mb-base pr-base"
+        },
+        {
+          "term": {
+            "text": "término"
+          },
+          "definition": {
+            "text": "definición"
+          },
+          "classes": "w-1/3 mb-base pr-base"
+        },
+        {
+          "term": {
+            "text": "término"
+          },
+          "definition": {
+            "text": "definición"
+          },
+          "classes": "w-1/3 mb-base pr-base"
+        },
+        {
+          "term": {
+            "text": "término"
+          },
+          "definition": {
+            "text": "definición"
+          },
+          "classes": "w-1/3 mb-base pr-base"
+        },
+        {
+          "term": {
+            "text": "término"
+          },
+          "definition": {
+            "text": "definición"
+          },
+          "classes": "w-1/3 mb-base pr-base"
+        }
+      ]
+    },
+    "visualDescription": "Componente de lista descriptiva con fondo blanco y borde gris claro de 1px. Seis grupos de término-definición organizados en grilla de 2 filas por 3 columnas, cada grupo muestra término en texto gris oscuro pequeño y definición en texto negro regular apilados verticalmente. Los elementos mantienen espaciado uniforme horizontal y vertical entre todas las celdas de la grilla.",
+    "_generated": {
+      "hash": "a0aa7da84bb1ce42bde0c6298c8a4bb2",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:55:46.668Z"
+    }
+  },
+  {
+    "name": "agrupado",
+    "data": {
+      "classes": "w-full py-sm border-t border-b border-neutral-base",
+      "items": [
+        {
+          "term": {
+            "text": "Código de procedimiento",
+            "classes": "lg:w-1/3"
+          },
+          "definition": {
+            "text": "G00345-BX",
+            "classes": "lg:flex-1 font-semibold"
+          },
+          "classes": "lg:flex py-sm"
+        },
+        {
+          "term": {
+            "text": "Nombre del procedimiento",
+            "classes": "lg:w-1/3"
+          },
+          "definition": {
+            "text": "Resolución definitiva",
+            "classes": "lg:flex-1 font-semibold"
+          },
+          "classes": "lg:flex py-sm"
+        },
+        {
+          "term": {
+            "text": "CSV",
+            "classes": "lg:w-1/3"
+          },
+          "definition": {
+            "text": "CSVK45WT8V5T110CPPC",
+            "classes": "lg:flex-1 font-semibold"
+          },
+          "classes": "lg:flex py-sm"
+        },
+        {
+          "term": {
+            "text": "Fecha de captura",
+            "classes": "lg:w-1/3"
+          },
+          "definition": {
+            "text": "13 de Diciembre de 2021. A las 11:48:08",
+            "classes": "lg:flex-1 font-semibold"
+          },
+          "classes": "lg:flex py-sm"
+        },
+        {
+          "term": {
+            "text": "Categoría",
+            "classes": "lg:w-1/3"
+          },
+          "definition": {
+            "text": "Documento simple",
+            "classes": "lg:flex-1 font-semibold"
+          },
+          "classes": "lg:flex py-sm"
+        }
+      ]
+    },
+    "visualDescription": "Lista de definiciones con fondo blanco, sin bordes visibles entre elementos. Labels en texto gris oscuro de peso normal, valores en texto negro en negrita. Espaciado vertical generoso entre pares de término-definición, layout de dos columnas con labels alineados a la izquierda y valores alineados a la derecha.",
+    "_generated": {
+      "hash": "b597699c30a7e4b4d924449a0c703433",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:55:56.804Z"
+    }
+  },
+  {
+    "name": "con apariencia de tabla",
+    "data": {
+      "classes": "w-full",
+      "items": [
+        {
+          "term": {
+            "text": "Nombre y apellidos",
+            "classes": "lg:w-1/3 px-base pt-sm lg:pb-sm text-sm lg:text-base text-neutral-dark"
+          },
+          "definition": {
+            "text": "Ana Pérez Escribano",
+            "classes": "lg:w-2/3 px-base py-sm"
+          },
+          "classes": "lg:flex -mb-px border-t border-b border-neutral-base"
+        },
+        {
+          "term": {
+            "text": "Nº identificación",
+            "classes": "lg:w-1/3 px-base pt-sm lg:pb-sm text-sm lg:text-base text-neutral-dark"
+          },
+          "definition": {
+            "text": "NIF: 00000000T",
+            "classes": "lg:w-2/3 px-base py-sm"
+          },
+          "classes": "lg:flex -mb-px border-t border-b border-neutral-base"
+        },
+        {
+          "term": {
+            "text": "Importe",
+            "classes": "lg:w-1/3 px-base pt-sm lg:pb-sm text-sm lg:text-base text-neutral-dark"
+          },
+          "definition": {
+            "html": "<strong>45,5€</strong>",
+            "classes": "lg:w-2/3 px-base py-sm"
+          },
+          "classes": "lg:flex -mb-px border-t border-b border-neutral-base"
+        },
+        {
+          "term": {
+            "text": "Impuesto",
+            "classes": "lg:w-1/3 px-base pt-sm lg:pb-sm text-sm lg:text-base text-neutral-dark"
+          },
+          "definition": {
+            "text": "Impuesto sobre Sucesiones y donaciones",
+            "classes": "lg:w-2/3 px-base py-sm"
+          },
+          "classes": "lg:flex -mb-px border-t border-b border-neutral-base"
+        },
+        {
+          "term": {
+            "text": "Concepto",
+            "classes": "lg:w-1/3 px-base pt-sm lg:pb-sm text-sm lg:text-base text-neutral-dark"
+          },
+          "definition": {
+            "text": "Modelo 606 - Liquidaciones Transmisiones Patrimoniales Onerosas.",
+            "classes": "lg:w-2/3 px-base py-sm"
+          },
+          "classes": "lg:flex -mb-px border-t border-b border-neutral-base"
+        },
+        {
+          "term": {
+            "text": "Número de justificante",
+            "classes": "lg:w-1/3 px-base pt-sm lg:pb-sm text-sm lg:text-base text-neutral-dark"
+          },
+          "definition": {
+            "text": "6064589854125",
+            "classes": "lg:w-2/3 px-base py-sm"
+          },
+          "classes": "lg:flex -mb-px border-t border-b border-neutral-base"
+        }
+      ]
+    },
+    "visualDescription": "Lista de definiciones con fondo blanco y bordes grises horizontales de 1px separando cada fila. Labels en texto gris oscuro de peso normal en columna izquierda, valores en texto negro de peso normal en columna derecha. Estructura tabular compacta con padding vertical reducido en cada fila, creando una apariencia de tabla con líneas divisorias.",
+    "_generated": {
+      "hash": "de01e8430b745275266e21b3f946e874",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:55:56.804Z"
+    }
+  },
+  {
+    "name": "con apariencia de tabla y números",
+    "data": {
+      "classes": "w-full",
+      "items": [
+        {
+          "term": {
+            "text": "Activo no corriente",
+            "classes": "lg:w-1/3 px-base pt-sm lg:pb-sm text-sm lg:text-base text-neutral-dark"
+          },
+          "definition": {
+            "text": "3045,45€",
+            "classes": "lg:w-2/3 px-base py-sm lg:text-right"
+          },
+          "classes": "lg:flex -mb-px border-t border-b border-neutral-base"
+        },
+        {
+          "term": {
+            "text": "Activo corriente",
+            "classes": "lg:w-1/3 px-base pt-sm lg:pb-sm text-sm lg:text-base text-neutral-dark"
+          },
+          "definition": {
+            "text": "14,32€",
+            "classes": "lg:w-2/3 px-base py-sm lg:text-right"
+          },
+          "classes": "lg:flex -mb-px border-t border-b border-neutral-base"
+        },
+        {
+          "term": {
+            "text": "Total activo",
+            "classes": "lg:w-1/3 px-base pt-sm lg:pb-sm text-sm lg:text-base text-neutral-dark"
+          },
+          "definition": {
+            "text": "279,67€",
+            "classes": "lg:w-2/3 px-base py-sm lg:text-right"
+          },
+          "classes": "lg:flex -mb-px border-t border-b border-neutral-base"
+        },
+        {
+          "term": {
+            "text": "Capital",
+            "classes": "lg:w-1/3 px-base pt-sm lg:pb-sm text-sm lg:text-base text-neutral-dark"
+          },
+          "definition": {
+            "text": "100.704,23€",
+            "classes": "lg:w-2/3 px-base py-sm lg:text-right"
+          },
+          "classes": "lg:flex -mb-px border-t border-b border-neutral-base"
+        },
+        {
+          "term": {
+            "text": "Patrimonio neto",
+            "classes": "lg:w-1/3 px-base pt-sm lg:pb-sm text-sm lg:text-base text-neutral-dark"
+          },
+          "definition": {
+            "text": "2.345,74€",
+            "classes": "lg:w-2/3 px-base py-sm lg:text-right"
+          },
+          "classes": "lg:flex -mb-px border-t border-b border-neutral-base"
+        },
+        {
+          "term": {
+            "text": "Consolidación de cuentas",
+            "classes": "lg:w-1/3 px-base pt-sm lg:pb-sm text-sm lg:text-base text-neutral-dark"
+          },
+          "definition": {
+            "html": "<strong>Si</strong>",
+            "classes": "lg:w-2/3 px-base py-sm lg:text-right"
+          },
+          "classes": "lg:flex -mb-px border-t border-b border-neutral-base"
+        }
+      ]
+    },
+    "visualDescription": "Lista de definiciones con fondo blanco y bordes grises horizontales de 1px separando filas. Labels en texto gris oscuro de peso normal en columna izquierda, valores numéricos alineados a la derecha en texto negro de peso normal. Estructura tabular con padding vertical uniforme, valores numéricos formateados con separadores de miles y símbolo de moneda, diseño optimizado para mostrar datos financieros.",
+    "_generated": {
+      "hash": "b6d1212d19ed7b5f6ce25b015b74686e",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:55:56.804Z"
+    }
+  },
+  {
+    "name": "con HTML y clases",
+    "data": {
+      "items": [
+        {
+          "term": {
+            "html": "Expedientes abiertos <span aria-hidden='true'>&darr;</span>",
+            "classes": "mb-sm"
+          },
+          "definition": {
+            "html": "<span class='font-bold text-4xl'>45</span> <svg role='img' aria-label='expedientes'  class='inline-block align-baseline ml-sm' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140' width='1.6rem' height='1.6rem'><path d='M140 20a20 20 0 00-20-20H20A20 20 0 000 20v100a20 20 0 0020 20h70a10 10 0 007.07-2.93l40-40A10 10 0 00140 90zM20 22.5a2.5 2.5 0 012.5-2.5h95a2.5 2.5 0 012.5 2.5v55a2.5 2.5 0 01-2.5 2.5H95a15 15 0 00-15 15v22.5a2.5 2.5 0 01-2.5 2.5h-55a2.5 2.5 0 01-2.5-2.5z'/></svg><a href='/' class='c-link block mt-sm font-normal text-sm'>Ver todos</a>"
+          }
+        }
+      ],
+      "classes": "inline-block p-base border border-neutral-base rounded-sm"
+    },
+    "visualDescription": "Bloque con borde gris claro conteniendo texto \"45\" en negro grande y negrita, seguido de un ícono cuadrado pequeño. Arriba aparece \"Expedientes abiertos +\" en texto pequeño gris. Abajo hay un enlace azul subrayado \"Ver todos\". Fondo blanco con padding generoso.",
+    "_generated": {
+      "hash": "406611b5b09a34fa70e8ed5915b3ec6e",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:56:06.329Z"
+    }
+  },
+  {
+    "name": "con atributos",
+    "description": "Muestra el código para ver cómo se aplican los atributos",
+    "data": {
+      "items": [
+        {
+          "term": {
+            "text": "término",
+            "attributes": {
+              "id": "term"
+            }
+          },
+          "definition": {
+            "text": "definición",
+            "attributes": {
+              "id": "definition"
+            }
+          },
+          "attributes": {
+            "id": "item"
+          }
+        }
+      ],
+      "attributes": {
+        "id": "description"
+      }
+    },
+    "visualDescription": "Bloque con borde gris claro mostrando dos líneas de texto negro. Primera línea dice \"Mínimo\" en tamaño pequeño, segunda línea dice \"definición\" en tamaño normal. Fondo blanco con padding mínimo. Layout vertical compacto sin elementos interactivos visibles.",
+    "_generated": {
+      "hash": "d0dcb9a0aebab6cd86566ad15f7e6616",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:56:06.329Z"
+    }
+  }
+] %}

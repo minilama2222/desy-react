@@ -1,0 +1,17 @@
+<!-- collapsible -->
+<div class="{%- if params.classes %} {{ params.classes }}{% else -%} -my-px py-sm border-t border-b border-neutral-base{% endif %} c-collapsible" {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %} {% if params.open %} data-expanded="false" {% else %} data-expanded="true" {% endif %} data-module="c-collapsible">
+  <button aria-expanded="false" {%- if params.id %} id="{{params.id}}-title"{% endif %} class="{%- if params.buttonClasses %} {{ params.buttonClasses }}{% else -%} group relative w-full py-sm font-semibold text-left cursor-pointer focus:bg-warning-base focus:outline-hidden focus:shadow-outline-focus focus:text-black{% endif %}" {%- if params.id %} aria-controls="{{params.id}}"{% endif %}>{{ params.headerHtml | safe if params.headerHtml else params.headerText }}
+    <span class="c-collapsible__show {% if params.showClasses %} {{ params.showClasses }}{% else -%} absolute inset-y-0 right-0 py-sm font-normal text-sm text-neutral-dark underline group-focus:text-black pointer-events-none{% endif %}" aria-hidden="false">Mostrar</span>
+    <span class="c-collapsible__hide {% if params.hideClasses %} {{ params.hideClasses }}{% else -%} absolute inset-y-0 right-0 py-sm font-normal text-sm text-neutral-dark underline group-focus:text-black pointer-events-none{% endif %}" aria-hidden="true">Ocultar</span>
+  </button>
+  <div aria-hidden="true" class="c-collapsible__content {% if params.contentClasses %} {{ params.contentClasses }}{% else -%} py-sm{% endif %}" {%- if params.id %} id="{{params.id}}"{% endif %}>
+    {% if params.html %}
+    {{ params.html | filterquotes | safe }}
+    {% else %}
+    <p>
+      {{ params.text }}
+    </p>
+    {% endif %}
+  </div>
+</div>
+<!-- /collapsible -->

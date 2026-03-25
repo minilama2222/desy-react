@@ -1,0 +1,493 @@
+{% set exampleComponent = "button-loader" %}
+{% set examples =  [
+  {
+    "name": "por defecto",
+    "data": {
+      "text": "Por defecto"
+    },
+    "visualDescription": "Botón rectangular con borde azul de 1px, fondo blanco, y texto azul en peso normal. Tamaño compacto con padding moderado alrededor del texto. Esquinas ligeramente redondeadas.",
+    "_generated": {
+      "hash": "6938ecdf24b69c365cc6a48a31016ea8",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:48:28.869Z"
+    }
+  },
+  {
+    "name": "Por defecto con el estado cargando",
+    "description": "Simula activar el estado cargando",
+    "data": {
+      "name": "loading",
+      "text": "Cargando",
+      "state": "is-loading",
+      "classes": "c-button-loader--is-loading",
+      "loader": {
+        "text": "Acción en curso"
+      }
+    },
+    "visualDescription": "Botón rectangular con borde gris claro de 1px, fondo blanco, y spinner circular animado en gris oscuro centrado. Tamaño compacto con padding moderado. Esquinas ligeramente redondeadas.",
+    "_generated": {
+      "hash": "44d06678265dd0f2171116569e572480",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:48:28.869Z"
+    }
+  },
+  {
+    "name": "Por defecto con estado éxito",
+    "description": "Simula activar el estado éxito que sólo se muestra durante unos segundos, luego vuelve al estado inicial.",
+    "data": {
+      "name": "éxito",
+      "text": "Éxito",
+      "state": "is-success",
+      "success" : {
+        "text": "Acción realizada con éxito"
+      },
+      "classes": "c-button-loader--is-success"
+    },
+    "visualDescription": "Botón rectangular con borde verde de 1px, fondo blanco, y ícono de check en verde centrado. Tamaño compacto con padding moderado. Esquinas ligeramente redondeadas.",
+    "_generated": {
+      "hash": "bd0a739bda1925c3f441fbf127500ea2",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:48:28.869Z"
+    }
+  },
+  {
+    "name": "por defecto con estado activo",
+    "description": "Simula activar la pseudoclase de CSS <code>:active</code>",
+    "data": {
+      "name": "active",
+      "text": "Activo",
+      "classes": "ds-active"
+    },
+    "visualDescription": "Botón rectangular con fondo azul oscuro y texto blanco en negrita. Borde azul oscuro de 2px con esquinas ligeramente redondeadas. Tamaño compacto con padding uniforme alrededor del texto.",
+    "_generated": {
+      "hash": "28f99f0460f257cdc8b08242ba4e134f",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:48:35.441Z"
+    }
+  },
+  {
+    "name": "por defecto con estado hover",
+    "description": "Simula activar la pseudoclase de CSS <code>:hover</code>",
+    "data": {
+      "name": "hover",
+      "text": "Hover",
+      "classes": "ds-hover"
+    },
+    "visualDescription": "Botón rectangular con fondo azul claro y texto azul oscuro en negrita. Borde azul oscuro de 2px con esquinas ligeramente redondeadas. Tamaño compacto con padding uniforme alrededor del texto.",
+    "_generated": {
+      "hash": "e1e6d91147f3a0d9a09ba78b6871c069",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:48:35.441Z"
+    }
+  },
+  {
+    "name": "por defecto con estado focus",
+    "description": "Simula activar la pseudoclase de CSS <code>:focus</code>",
+    "data": {
+      "name": "focus",
+      "text": "Focus",
+      "classes": "ds-focus"
+    },
+    "visualDescription": "Botón rectangular con fondo amarillo brillante y texto negro en negrita. Borde negro de 2px con esquinas ligeramente redondeadas. Tamaño compacto con padding uniforme alrededor del texto.",
+    "_generated": {
+      "hash": "519c33eb8b71f3fcd04838f33afa1818",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:48:35.441Z"
+    }
+  },
+  {
+    "name": "por defecto deshabilitado",
+    "data": {
+      "text": "Deshabilitado",
+      "disabled": true
+    },
+    "visualDescription": "Botón rectangular con fondo gris claro, borde gris tenue de 1px, esquinas ligeramente redondeadas. Texto en color gris medio alineado al centro. Apariencia visual indica estado no interactivo.",
+    "_generated": {
+      "hash": "c2b268b8417805a879174af343cc8ceb",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:48:43.715Z"
+    }
+  },
+  {
+    "name": "primario",
+    "data": {
+      "text": "Primario",
+      "classes": "c-button-loader--primary"
+    },
+    "visualDescription": "Botón rectangular con fondo azul oscuro sólido (tonalidad petróleo/teal), sin borde visible, esquinas ligeramente redondeadas. Texto blanco en negrita alineado al centro. Tamaño compacto con padding equilibrado horizontal y vertical.",
+    "_generated": {
+      "hash": "23c55268eb8b70b098abb54b2a4400c6",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:48:43.715Z"
+    }
+  },
+  {
+    "name": "primario con estado activo",
+    "description": "Simula activar la pseudoclase de CSS <code>:active</code>",
+    "data": {
+      "name": "active",
+      "text": "Activo",
+      "classes": "c-button-loader--primary ds-active"
+    },
+    "visualDescription": "Botón rectangular con fondo azul oscuro sólido (tonalidad petróleo/teal), sin borde visible, esquinas ligeramente redondeadas. Texto blanco en negrita alineado al centro. Tamaño compacto con padding equilibrado horizontal y vertical.",
+    "_generated": {
+      "hash": "3db22b099dfffde4f4b6be494f5aa1b7",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:48:43.715Z"
+    }
+  },
+  {
+    "name": "primario con estado hover",
+    "description": "Simula activar la pseudoclase de CSS <code>:hover</code>",
+    "data": {
+      "name": "hover",
+      "text": "Hover",
+      "classes": "c-button-loader--primary ds-hover"
+    },
+    "visualDescription": "Botón rectangular con fondo azul oscuro (petróleo), texto blanco en mayúsculas, esquinas ligeramente redondeadas. Padding moderado horizontal y vertical. Tipografía sans-serif de peso medio.",
+    "_generated": {
+      "hash": "bb60242a4047a78de72a599770d619f1",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:48:51.308Z"
+    }
+  },
+  {
+    "name": "primario con estado focus",
+    "description": "Simula activar la pseudoclase de CSS <code>:focus</code>",
+    "data": {
+      "name": "focus",
+      "text": "Focus",
+      "classes": "c-button-loader--primary ds-focus"
+    },
+    "visualDescription": "Botón rectangular con fondo amarillo brillante, texto negro en mayúsculas, borde negro sólido de aproximadamente 2-3px. Esquinas ligeramente redondeadas. Padding moderado horizontal y vertical, tipografía sans-serif de peso medio.",
+    "_generated": {
+      "hash": "36d3f6079c8b74bd037f700d1485654d",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:48:51.308Z"
+    }
+  },
+  {
+    "name": "primario deshabilitado",
+    "data": {
+      "text": "Deshabilitado",
+      "disabled": true,
+      "classes": "c-button-loader--primary"
+    },
+    "visualDescription": "Botón rectangular con fondo gris claro apagado, texto blanco en mayúsculas, esquinas ligeramente redondeadas. Padding moderado horizontal y vertical. Apariencia atenuada sin borde visible, tipografía sans-serif de peso medio.",
+    "_generated": {
+      "hash": "ecfd10937d7b071116dc2701906d7513",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:48:51.308Z"
+    }
+  },
+  {
+    "name": "alerta",
+    "data": {
+      "text": "Alerta",
+      "classes": "c-button-loader--alert"
+    },
+    "visualDescription": "Botón rectangular con fondo rojo intenso (color #C1394A aproximadamente), texto blanco en peso medio. Tamaño compacto con padding horizontal y vertical, bordes con esquinas ligeramente redondeadas.",
+    "_generated": {
+      "hash": "f5ebb1e9e0d5964c5716d3b94c33e453",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:48:58.295Z"
+    }
+  },
+  {
+    "name": "alerta con estado activo",
+    "description": "Simula activar la pseudoclase de CSS <code>:active</code>",
+    "data": {
+      "name": "active",
+      "text": "Activo",
+      "classes": "c-button-loader--alert ds-active"
+    },
+    "visualDescription": "Botón rectangular con fondo rojo intenso (color #C1394A aproximadamente), texto blanco en peso medio. Tamaño compacto con padding horizontal y vertical, bordes con esquinas ligeramente redondeadas.",
+    "_generated": {
+      "hash": "839d689c681b2fe1bbf8ed058cc19d5f",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:48:58.295Z"
+    }
+  },
+  {
+    "name": "alerta con estado hover",
+    "description": "Simula activar la pseudoclase de CSS <code>:hover</code>",
+    "data": {
+      "name": "hover",
+      "text": "Hover",
+      "classes": "c-button-loader--alert ds-hover"
+    },
+    "visualDescription": "Botón rectangular con fondo rojo oscuro (color #8B2A35 aproximadamente), texto blanco en peso medio. Tamaño compacto con padding horizontal y vertical, bordes con esquinas ligeramente redondeadas.",
+    "_generated": {
+      "hash": "ef366638fda53b256565b79f3c913d25",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:48:58.295Z"
+    }
+  },
+  {
+    "name": "alerta con estado focus",
+    "description": "Simula activar la pseudoclase de CSS <code>:focus</code>",
+    "data": {
+      "name": "focus",
+      "text": "Focus",
+      "classes": "c-button-loader--alert ds-focus"
+    },
+    "visualDescription": "Botón rectangular con fondo amarillo intenso, texto negro en peso medio, y borde negro de 2px. Esquinas ligeramente redondeadas. Encabezado en texto gris oscuro ubicado arriba del botón.",
+    "_generated": {
+      "hash": "eede30ca9f9a83b50e6a6b1fbcd893df",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:49:05.664Z"
+    }
+  },
+  {
+    "name": "alerta deshabilitado",
+    "data": {
+      "text": "Deshabilitado",
+      "disabled": true,
+      "classes": "c-button-loader--alert"
+    },
+    "visualDescription": "Botón rectangular con fondo rosa pálido, texto blanco en peso medio, sin borde visible. Esquinas ligeramente redondeadas. Encabezado en texto gris oscuro ubicado arriba del botón.",
+    "_generated": {
+      "hash": "39c7a2b705ee8c811760114ea77bed02",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:49:05.664Z"
+    }
+  },
+  {
+    "name": "transparente",
+    "data": {
+      "text": "Transparente",
+      "classes": "c-button-loader--transparent"
+    },
+    "visualDescription": "Botón rectangular con fondo blanco o transparente, texto azul en peso medio, y borde azul de 1px. Esquinas ligeramente redondeadas. Encabezado en texto gris oscuro ubicado arriba del botón.",
+    "_generated": {
+      "hash": "18da80b4f700d27f88809fe9d22959ac",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:49:05.664Z"
+    }
+  },
+  {
+    "name": "transparente con estado activo",
+    "description": "Simula activar la pseudoclase de CSS <code>:active</code>",
+    "data": {
+      "name": "active",
+      "text": "Activo",
+      "classes": "c-button-loader--transparent ds-active"
+    },
+    "visualDescription": "Botón con texto azul oscuro en negrita, fondo transparente sin color de relleno, borde azul oscuro de 2px. Dimensiones compactas con padding moderado alrededor del texto. Estilo rectangular con esquinas ligeramente redondeadas.",
+    "_generated": {
+      "hash": "c847c61892502d4b373682091e178ecc",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:49:13.517Z"
+    }
+  },
+  {
+    "name": "transparente con estado hover",
+    "description": "Simula activar la pseudoclase de CSS <code>:hover</code>",
+    "data": {
+      "name": "hover",
+      "text": "Hover",
+      "classes": "c-button-loader--transparent ds-hover"
+    },
+    "visualDescription": "Botón con texto gris oscuro en negrita, fondo gris muy claro semitransparente, borde gris medio de 1px. Dimensiones compactas con padding moderado alrededor del texto. Estilo rectangular con esquinas ligeramente redondeadas.",
+    "_generated": {
+      "hash": "7af1744a616898b02013bfa938543291",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:49:13.517Z"
+    }
+  },
+  {
+    "name": "transparente con estado focus",
+    "description": "Simula activar la pseudoclase de CSS <code>:focus</code>",
+    "data": {
+      "name": "focus",
+      "text": "Focus",
+      "classes": "c-button-loader--transparent ds-focus"
+    },
+    "visualDescription": "Botón con texto negro en negrita, fondo amarillo sólido, borde negro grueso de 3px. Dimensiones compactas con padding moderado alrededor del texto. Estilo rectangular con esquinas ligeramente redondeadas, apariencia de alto contraste visual.",
+    "_generated": {
+      "hash": "75001e353bd9b7249e9c4fee4d2e3452",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:49:13.517Z"
+    }
+  },
+  {
+    "name": "transparente deshabilitado",
+    "data": {
+      "text": "Deshabilitado",
+      "disabled": true,
+      "classes": "c-button-loader--transparent"
+    },
+    "visualDescription": "Botón rectangular con fondo blanco, borde gris claro de 1px, y texto gris claro que lee \"Deshabilitado\". El botón tiene bordes redondeados y padding interno moderado. Apariencia visual de estado inactivo sin interactividad.",
+    "_generated": {
+      "hash": "bc778a98aac01430c65ca579cf628288",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:49:22.013Z"
+    }
+  },
+  {
+    "name": "grande",
+    "data": {
+      "text": "Grande y primario",
+      "classes": "c-button-loader--lg c-button-loader--primary"
+    },
+    "visualDescription": "Botón rectangular con fondo azul petróleo sólido, texto blanco en negrita. Esquinas ligeramente redondeadas con padding generoso vertical y horizontal. Tipografía de tamaño mediano-grande con aspecto prominente y llamativo.",
+    "_generated": {
+      "hash": "7a8ffbe46feba05fcfcb427bfc2c6e68",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:49:22.013Z"
+    }
+  },
+  {
+    "name": "peque",
+    "data": {
+      "text": "Peque",
+      "classes": "c-button-loader--sm"
+    },
+    "visualDescription": "Botón rectangular compacto con fondo blanco, borde azul oscuro de 1px, y texto azul oscuro. Esquinas redondeadas con padding interno reducido en todas direcciones. Tamaño de fuente pequeño con aspecto discreto y minimalista.",
+    "_generated": {
+      "hash": "3af77601cea5764bf8f5aea58764926a",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:49:22.013Z"
+    }
+  },
+  {
+    "name": "enlace",
+    "data": {
+      "text": "Botón enlace",
+      "href": "/"
+    },
+    "visualDescription": "Botón con texto azul en fuente regular, fondo transparente sin borde visible. El botón tiene padding mínimo alrededor del texto, creando un aspecto de enlace de texto clickeable.",
+    "_generated": {
+      "hash": "d846e5b37df2f31e10adc63650ed63d5",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:49:30.222Z"
+    }
+  },
+  {
+    "name": "botón enlace con target blank",
+    "data": {
+      "html": "Botón enlace con target <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' height='0.8em' width='0.8em' class='self-center ml-sm' aria-hidden='true' focusable='false' role='presentation'><g><path id='Union' fill='currentcolor' fill-rule='evenodd' d='M7.428571428571428 0.5714285714285714c-0.6311885714285713 0 -1.1428571428571428 0.5116742857142856 -1.1428571428571428 1.1428571428571428 0 0.6311771428571428 0.5116685714285714 1.1428571428571428 1.1428571428571428 1.1428571428571428h4.098057142857143L0.9061634285714285 13.477599999999999c-0.4463131428571428 0.4462857142857143 -0.4463131428571428 1.1699428571428572 0 1.6162285714285711 0.4463165714285714 0.4462857142857143 1.1699279999999999 0.4462857142857143 1.616248 0L13.142857142857142 4.473382857142857V8.571428571428571c0 0.6311771428571428 0.5116571428571428 1.1428571428571428 1.1428571428571428 1.1428571428571428s1.1428571428571428 -0.51168 1.1428571428571428 -1.1428571428571428v-6.857142857142857c0 -0.6311828571428572 -0.5116571428571428 -1.1428571428571428 -1.1428571428571428 -1.1428571428571428h-6.857142857142857Z' clip-rule='evenodd' stroke-width='1'></path></g></svg>",
+      "href": "http://www.google.com",
+      "target": "_blank",
+      "attributes": {
+        "title": "Se abre en ventana nueva"
+      }
+    },
+    "visualDescription": "Botón con texto azul seguido de un icono de flecha diagonal apuntando hacia arriba-derecha en color azul. Fondo transparente sin borde, padding mínimo, el icono está posicionado a la derecha del texto con espaciado reducido.",
+    "_generated": {
+      "hash": "7438ed3b353d74162fbca0bd9045477d",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:49:30.222Z"
+    }
+  },
+  {
+    "name": "enlace deshabilitado",
+    "data": {
+      "text": "Botón enlace deshabilitado",
+      "href": "/",
+      "disabled": true
+    },
+    "visualDescription": "Botón con texto gris claro en fuente regular, fondo transparente sin borde visible. El botón tiene padding mínimo y presenta una apariencia visualmente atenuada que indica estado inactivo.",
+    "_generated": {
+      "hash": "61bdb51db908f999e69e68796986dc06",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:49:30.222Z"
+    }
+  },
+  {
+    "name": "botón con icono a la derecha",
+    "data": {
+      "html": "Botón con icono<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' height='1em' width='1em' class='self-center ml-2' aria-hidden='true' focusable='false' role='presentation'><g><path fill='currentcolor' fill-rule='evenodd' d='M6.585782857142856 2.3000685714285716C6.960857142857142 1.9249942857142854 7.469565714285714 1.7142857142857142 8 1.7142857142857142c0.5304342857142856 0 1.0391428571428571 0.2107085714285714 1.4142171428571428 0.5857828571428572 0.2369828571428571 0.2369942857142857 0.4083542857142857 0.5273257142857143 0.5024114285714285 0.8427885714285713h-3.8332571428571427c0.09405714285714285 -0.3154628571428571 0.2654285714285714 -0.6057942857142857 0.5024114285714285 -0.8427885714285713ZM4.3299199999999995 3.142857142857143c0.12042285714285714 -0.7734742857142857 0.48325714285714283 -1.4945485714285713 1.04368 -2.054968C6.070171428571428 0.3913257142857143 7.014914285714285 0 8 0c0.9850857142857142 0 1.9298285714285714 0.3913257142857143 2.6264 1.0878891428571429 0.5604228571428571 0.5604194285714286 0.9233142857142856 1.2814937142857143 1.0436571428571428 2.054968H14.571428571428571c0.47337142857142855 0 0.8571428571428571 0.38375999999999993 0.8571428571428571 0.8571428571428571s-0.38377142857142854 0.8571428571428571 -0.8571428571428571 0.8571428571428571H13.714285714285714v9.428571428571429c0 0.4546285714285714 -0.18057142857142855 0.8907428571428571 -0.5020571428571429 1.2122285714285714S12.454628571428572 16 12 16h-8c-0.45466285714285715 0 -0.8906971428571429 -0.18057142857142855 -1.212182857142857 -0.5020571428571429C2.466331428571429 15.176457142857142 2.2857142857142856 14.740342857142856 2.2857142857142856 14.285714285714285V4.857142857142857h-0.8571428571428571C0.955184 4.857142857142857 0.5714285714285714 4.473382857142857 0.5714285714285714 4s0.3837554285714285 -0.8571428571428571 0.8571428571428571 -0.8571428571428571h2.901348571428571ZM6 6.715954285714285c0.39449142857142855 0 0.7142857142857142 0.3198057142857143 0.7142857142857142 0.7142857142857142V12.003428571428572c0 0.3944 -0.3197942857142857 0.7142857142857142 -0.7142857142857142 0.7142857142857142s-0.7142857142857142 -0.3198857142857143 -0.7142857142857142 -0.7142857142857142V7.4302399999999995c0 -0.39447999999999994 0.3197942857142857 -0.7142857142857142 0.7142857142857142 -0.7142857142857142Zm4.714285714285714 0.7142857142857142c0 -0.39447999999999994 -0.3197942857142857 -0.7142857142857142 -0.7142857142857142 -0.7142857142857142s-0.7142857142857142 0.3198057142857143 -0.7142857142857142 0.7142857142857142V12.003428571428572c0 0.3944 0.3197942857142857 0.7142857142857142 0.7142857142857142 0.7142857142857142s0.7142857142857142 -0.3198857142857143 0.7142857142857142 -0.7142857142857142V7.4302399999999995Z' clip-rule='evenodd' stroke-width='1'></path></g></svg>",
+      "href": "/"
+    },
+    "visualDescription": "Botón rectangular con fondo blanco y borde azul de 1px. El texto aparece en azul con peso normal, alineado a la izquierda. Un icono cuadrado azul está posicionado en el extremo derecho del botón.",
+    "_generated": {
+      "hash": "51b77f98d62c7a6e09260842dc8106af",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:49:38.028Z"
+    }
+  },
+  {
+    "name": "botón con icono a la izquierda",
+    "data": {
+
+      "html": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' height='1em' width='1em' class='self-center mr-2' aria-hidden='true' focusable='false' role='presentation'><g><path fill='currentcolor' fill-rule='evenodd' d='M6.585782857142856 2.3000685714285716C6.960857142857142 1.9249942857142854 7.469565714285714 1.7142857142857142 8 1.7142857142857142c0.5304342857142856 0 1.0391428571428571 0.2107085714285714 1.4142171428571428 0.5857828571428572 0.2369828571428571 0.2369942857142857 0.4083542857142857 0.5273257142857143 0.5024114285714285 0.8427885714285713h-3.8332571428571427c0.09405714285714285 -0.3154628571428571 0.2654285714285714 -0.6057942857142857 0.5024114285714285 -0.8427885714285713ZM4.3299199999999995 3.142857142857143c0.12042285714285714 -0.7734742857142857 0.48325714285714283 -1.4945485714285713 1.04368 -2.054968C6.070171428571428 0.3913257142857143 7.014914285714285 0 8 0c0.9850857142857142 0 1.9298285714285714 0.3913257142857143 2.6264 1.0878891428571429 0.5604228571428571 0.5604194285714286 0.9233142857142856 1.2814937142857143 1.0436571428571428 2.054968H14.571428571428571c0.47337142857142855 0 0.8571428571428571 0.38375999999999993 0.8571428571428571 0.8571428571428571s-0.38377142857142854 0.8571428571428571 -0.8571428571428571 0.8571428571428571H13.714285714285714v9.428571428571429c0 0.4546285714285714 -0.18057142857142855 0.8907428571428571 -0.5020571428571429 1.2122285714285714S12.454628571428572 16 12 16h-8c-0.45466285714285715 0 -0.8906971428571429 -0.18057142857142855 -1.212182857142857 -0.5020571428571429C2.466331428571429 15.176457142857142 2.2857142857142856 14.740342857142856 2.2857142857142856 14.285714285714285V4.857142857142857h-0.8571428571428571C0.955184 4.857142857142857 0.5714285714285714 4.473382857142857 0.5714285714285714 4s0.3837554285714285 -0.8571428571428571 0.8571428571428571 -0.8571428571428571h2.901348571428571ZM6 6.715954285714285c0.39449142857142855 0 0.7142857142857142 0.3198057142857143 0.7142857142857142 0.7142857142857142V12.003428571428572c0 0.3944 -0.3197942857142857 0.7142857142857142 -0.7142857142857142 0.7142857142857142s-0.7142857142857142 -0.3198857142857143 -0.7142857142857142 -0.7142857142857142V7.4302399999999995c0 -0.39447999999999994 0.3197942857142857 -0.7142857142857142 0.7142857142857142 -0.7142857142857142Zm4.714285714285714 0.7142857142857142c0 -0.39447999999999994 -0.3197942857142857 -0.7142857142857142 -0.7142857142857142 -0.7142857142857142s-0.7142857142857142 0.3198057142857143 -0.7142857142857142 0.7142857142857142V12.003428571428572c0 0.3944 0.3197942857142857 0.7142857142857142 0.7142857142857142 0.7142857142857142s0.7142857142857142 -0.3198857142857143 0.7142857142857142 -0.7142857142857142V7.4302399999999995Z' clip-rule='evenodd' stroke-width='1'></path></g></svg>Botón con icono",
+      "href": "/"
+    },
+    "visualDescription": "Botón rectangular con fondo blanco y borde azul de 1px. Un icono cuadrado azul está posicionado en el extremo izquierdo. El texto aparece en azul con peso normal, alineado junto al icono.",
+    "_generated": {
+      "hash": "7006c1a1bf46a4ffec46f3e1f67dfca7",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:49:38.028Z"
+    }
+  },
+  {
+    "name": "botón sólo con icono",
+    "data": {
+      "html": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' height='1em' width='1em' class='self-center' aria-hidden='true' focusable='false' role='presentation' aria-label='Borrar'><g><path fill='currentcolor' fill-rule='evenodd' d='M6.585782857142856 2.3000685714285716C6.960857142857142 1.9249942857142854 7.469565714285714 1.7142857142857142 8 1.7142857142857142c0.5304342857142856 0 1.0391428571428571 0.2107085714285714 1.4142171428571428 0.5857828571428572 0.2369828571428571 0.2369942857142857 0.4083542857142857 0.5273257142857143 0.5024114285714285 0.8427885714285713h-3.8332571428571427c0.09405714285714285 -0.3154628571428571 0.2654285714285714 -0.6057942857142857 0.5024114285714285 -0.8427885714285713ZM4.3299199999999995 3.142857142857143c0.12042285714285714 -0.7734742857142857 0.48325714285714283 -1.4945485714285713 1.04368 -2.054968C6.070171428571428 0.3913257142857143 7.014914285714285 0 8 0c0.9850857142857142 0 1.9298285714285714 0.3913257142857143 2.6264 1.0878891428571429 0.5604228571428571 0.5604194285714286 0.9233142857142856 1.2814937142857143 1.0436571428571428 2.054968H14.571428571428571c0.47337142857142855 0 0.8571428571428571 0.38375999999999993 0.8571428571428571 0.8571428571428571s-0.38377142857142854 0.8571428571428571 -0.8571428571428571 0.8571428571428571H13.714285714285714v9.428571428571429c0 0.4546285714285714 -0.18057142857142855 0.8907428571428571 -0.5020571428571429 1.2122285714285714S12.454628571428572 16 12 16h-8c-0.45466285714285715 0 -0.8906971428571429 -0.18057142857142855 -1.212182857142857 -0.5020571428571429C2.466331428571429 15.176457142857142 2.2857142857142856 14.740342857142856 2.2857142857142856 14.285714285714285V4.857142857142857h-0.8571428571428571C0.955184 4.857142857142857 0.5714285714285714 4.473382857142857 0.5714285714285714 4s0.3837554285714285 -0.8571428571428571 0.8571428571428571 -0.8571428571428571h2.901348571428571ZM6 6.715954285714285c0.39449142857142855 0 0.7142857142857142 0.3198057142857143 0.7142857142857142 0.7142857142857142V12.003428571428572c0 0.3944 -0.3197942857142857 0.7142857142857142 -0.7142857142857142 0.7142857142857142s-0.7142857142857142 -0.3198857142857143 -0.7142857142857142 -0.7142857142857142V7.4302399999999995c0 -0.39447999999999994 0.3197942857142857 -0.7142857142857142 0.7142857142857142 -0.7142857142857142Zm4.714285714285714 0.7142857142857142c0 -0.39447999999999994 -0.3197942857142857 -0.7142857142857142 -0.7142857142857142 -0.7142857142857142s-0.7142857142857142 0.3198057142857143 -0.7142857142857142 0.7142857142857142V12.003428571428572c0 0.3944 0.3197942857142857 0.7142857142857142 0.7142857142857142 0.7142857142857142s0.7142857142857142 -0.3198857142857143 0.7142857142857142 -0.7142857142857142V7.4302399999999995Z' clip-rule='evenodd' stroke-width='1'></path></g></svg>",
+      "href": "/",
+      "classes": "c-button-loader--primary p-3 align-bottom"
+    },
+    "visualDescription": "Botón cuadrado pequeño con fondo azul sólido. Un icono blanco está centrado dentro del botón. Sin texto visible ni bordes adicionales aparentes.",
+    "_generated": {
+      "hash": "96df09c1be5997b1a0dac591c0e23bca",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:49:38.028Z"
+    }
+  },
+  {
+    "name": "button peque sólo con icono",
+    "data": {
+      "html": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' height='1em' width='1em' class='self-center' aria-hidden='true' focusable='false' role='presentation' aria-label='Borrar'><g><path fill='currentcolor' fill-rule='evenodd' d='M6.585782857142856 2.3000685714285716C6.960857142857142 1.9249942857142854 7.469565714285714 1.7142857142857142 8 1.7142857142857142c0.5304342857142856 0 1.0391428571428571 0.2107085714285714 1.4142171428571428 0.5857828571428572 0.2369828571428571 0.2369942857142857 0.4083542857142857 0.5273257142857143 0.5024114285714285 0.8427885714285713h-3.8332571428571427c0.09405714285714285 -0.3154628571428571 0.2654285714285714 -0.6057942857142857 0.5024114285714285 -0.8427885714285713ZM4.3299199999999995 3.142857142857143c0.12042285714285714 -0.7734742857142857 0.48325714285714283 -1.4945485714285713 1.04368 -2.054968C6.070171428571428 0.3913257142857143 7.014914285714285 0 8 0c0.9850857142857142 0 1.9298285714285714 0.3913257142857143 2.6264 1.0878891428571429 0.5604228571428571 0.5604194285714286 0.9233142857142856 1.2814937142857143 1.0436571428571428 2.054968H14.571428571428571c0.47337142857142855 0 0.8571428571428571 0.38375999999999993 0.8571428571428571 0.8571428571428571s-0.38377142857142854 0.8571428571428571 -0.8571428571428571 0.8571428571428571H13.714285714285714v9.428571428571429c0 0.4546285714285714 -0.18057142857142855 0.8907428571428571 -0.5020571428571429 1.2122285714285714S12.454628571428572 16 12 16h-8c-0.45466285714285715 0 -0.8906971428571429 -0.18057142857142855 -1.212182857142857 -0.5020571428571429C2.466331428571429 15.176457142857142 2.2857142857142856 14.740342857142856 2.2857142857142856 14.285714285714285V4.857142857142857h-0.8571428571428571C0.955184 4.857142857142857 0.5714285714285714 4.473382857142857 0.5714285714285714 4s0.3837554285714285 -0.8571428571428571 0.8571428571428571 -0.8571428571428571h2.901348571428571ZM6 6.715954285714285c0.39449142857142855 0 0.7142857142857142 0.3198057142857143 0.7142857142857142 0.7142857142857142V12.003428571428572c0 0.3944 -0.3197942857142857 0.7142857142857142 -0.7142857142857142 0.7142857142857142s-0.7142857142857142 -0.3198857142857143 -0.7142857142857142 -0.7142857142857142V7.4302399999999995c0 -0.39447999999999994 0.3197942857142857 -0.7142857142857142 0.7142857142857142 -0.7142857142857142Zm4.714285714285714 0.7142857142857142c0 -0.39447999999999994 -0.3197942857142857 -0.7142857142857142 -0.7142857142857142 -0.7142857142857142s-0.7142857142857142 0.3198057142857143 -0.7142857142857142 0.7142857142857142V12.003428571428572c0 0.3944 0.3197942857142857 0.7142857142857142 0.7142857142857142 0.7142857142857142s0.7142857142857142 -0.3198857142857143 0.7142857142857142 -0.7142857142857142V7.4302399999999995Z' clip-rule='evenodd' stroke-width='1'></path></g></svg>",
+      "href": "/",
+      "classes": "c-button-loader--primary c-button-loader--sm p-2 align-bottom"
+    },
+    "visualDescription": "Botón cuadrado pequeño con fondo azul petróleo (teal oscuro) y un icono de signo más (+) blanco centrado. Dimensiones compactas aproximadas de 32x32px, con esquinas ligeramente redondeadas.",
+    "_generated": {
+      "hash": "fc6ca3afce9b7965b82c58033cc5016d",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:49:47.140Z"
+    }
+  },
+  {
+    "name": "input",
+    "data": {
+      "element": "input",
+      "name": "send-form",
+      "text": "Enviar"
+    },
+    "visualDescription": "Campo de entrada de texto rectangular con borde gris claro de 1px y fondo blanco. Incluye un botón interno con texto gris oscuro, borde gris y esquinas redondeadas, posicionado dentro del área del input. Label superior en texto negro pequeño indica el tipo de input.",
+    "_generated": {
+      "hash": "4cf4a2abaf6b0928ca353f0fc02425e7",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:49:47.140Z"
+    }
+  },
+  {
+    "name": "input deshabilitado",
+    "data": {
+      "element": "input",
+      "text": "Enviar",
+      "disabled": true
+    },
+    "visualDescription": "Campo de entrada de texto rectangular con borde gris muy claro de 1px y fondo blanco levemente atenuado. Contiene un botón interno con texto gris claro y borde gris tenue, indicando estado inactivo. Label superior en texto gris oscuro pequeño indica el estado del input.",
+    "_generated": {
+      "hash": "4f3f59d5d1fa0c75e7c1797b7fff5262",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:49:47.140Z"
+    }
+  },
+  {
+    "name": "prevenir doble click",
+    "data": {
+      "text": "Enviar",
+      "preventDoubleClick": true
+    },
+    "visualDescription": "Botón rectangular con borde azul de 1px, fondo blanco, y texto azul. Tamaño compacto con padding ajustado alrededor del texto. El botón muestra un estado interactivo predeterminado con esquinas ligeramente redondeadas.",
+    "_generated": {
+      "hash": "6a5073a4fc59800f89d9764def97a60e",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:49:53.183Z"
+    }
+  }
+] %}

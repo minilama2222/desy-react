@@ -1,0 +1,39 @@
+{% from "../textarea/_macro.textarea.njk" import componentTextarea %}
+{% from "../hint/_macro.hint.njk" import componentHint %}
+
+<!-- character-count -->
+<div {%- if params.maxlength %} data-maxlength="{{ params.maxlength }}"{% endif %} {%- if params.threshold %} data-threshold="{{ params.threshold }}"{% endif %} {%- if params.maxwords %} data-maxwords="{{ params.maxwords }}"{% endif %}>
+  {{ componentTextarea({
+    id: params.id,
+    name: params.name,
+    describedBy: params.id + '-info',
+    rows: params.rows,
+    value: params.value,
+    formGroup: {
+      "classes": '' + (params.formGroup.classes if params.formGroup.classes else 'mb-0')
+    },
+    classes: 'js-character-count' + (' border-alert-base ring-2 ring-alert-base' if params.errorMessage) + (' ' + params.classes if params.classes),
+    label: {
+      html: params.label.html,
+      text: params.label.text,
+      classes: params.label.classes,
+      isPageHeading: params.label.isPageHeading,
+      attributes: params.label.attributes,
+      for: params.id
+    },
+    hint: params.hint,
+    placeholder: params.placeholder,
+    disabled: params.disabled,
+    errorMessage: params.errorMessage,
+    attributes: params.attributes
+  }) | indent(2) }}
+  {{ componentHint({
+    text: 'Puedes escribir hasta ' + (params.maxlength or params.maxwords) + (' palabras' if params.maxwords else ' caracteres'),
+    id: params.id + '-info',
+    classes: 'mt-xs text-sm' + (' ' + params.countMessage.classes if params.countMessage.classes),
+    attributes: {
+      'aria-live': 'polite'
+    }
+  }) | indent(2) }}
+</div>
+<!-- /character-count -->

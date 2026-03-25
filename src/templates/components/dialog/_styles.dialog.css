@@ -1,0 +1,27 @@
+/* ==========================================================================
+   _styles.dialog.css
+   ========================================================================== */
+
+@utility dialog-backdrop {
+  @apply hidden;
+  @apply fixed;
+  @apply overflow-y-auto;
+  @apply inset-0;
+  @apply bg-black/50;
+  @apply z-50;
+
+  &.active {
+    @apply grid;
+    @apply h-screen;
+    @apply place-items-center;
+  }
+}
+
+
+@layer components {
+  body {
+    &.has-dialog {
+      @apply overflow-hidden;
+    }
+  }
+}

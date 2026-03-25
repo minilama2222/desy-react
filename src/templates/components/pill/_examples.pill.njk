@@ -1,0 +1,181 @@
+{% set exampleComponent = "pill" %}
+{% set examples =  [
+  {
+    "name": "por defecto",
+    "description": "Recuerda que los pills, por accesibilidad, deben estar rodeados de una etiqueta semántica, normalmente un <code>&lt;li&gt;</code>.",
+    "data": {
+      "text": "Pill por defecto"
+    },
+    "visualDescription": "Botón pill con fondo blanco, borde gris de 1px, y texto negro en tamaño pequeño. Esquinas completamente redondeadas tipo cápsula. Padding compacto horizontal y vertical que ajusta al contenido del texto.",
+    "_generated": {
+      "hash": "bb6c0792c91c2d5e5291f2b812b0d331",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:11:21.369Z"
+    }
+  },
+  {
+    "name": "tipo enlace",
+    "data": {
+      "text": "Tipo enlace",
+      "href": "http://www.google.com"
+    },
+    "visualDescription": "Botón pill con fondo blanco, borde gris de 1px, y texto azul estilo hipervínculo en tamaño pequeño. Esquinas completamente redondeadas tipo cápsula. Padding compacto horizontal y vertical, elemento interactivo con cursor pointer.",
+    "_generated": {
+      "hash": "8105cd9f4bb11afee7f132f3ef84e5d3",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:11:21.369Z"
+    }
+  },
+  {
+    "name": "Tipo enlace con target blank",
+    "data": {
+      "text": "Tipo enlace con target",
+      "href": "http://www.google.com",
+      "target": "_blank"
+    },
+    "visualDescription": "Botón pill con fondo blanco, borde gris de 1px, y texto azul estilo hipervínculo en tamaño pequeño. Esquinas completamente redondeadas tipo cápsula. Padding compacto horizontal y vertical, configurado para abrir en nueva pestaña del navegador.",
+    "_generated": {
+      "hash": "72e7979aad41d3895ad47575f389e5af",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:11:21.369Z"
+    }
+  },
+  {
+    "name": "Tipo botón",
+    "data": {
+      "type": "button",
+      "text": "Tipo botón",
+      "classes": "cursor-pointer"
+    },
+    "visualDescription": "Pill con fondo blanco, borde gris de 1px y bordes redondeados. Texto en negro centrado dentro del elemento. Dimensiones compactas de altura reducida y ancho ajustado al contenido.",
+    "_generated": {
+      "hash": "f6083013ed8b81ecabf472562cab8367",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:11:28.518Z"
+    }
+  },
+  {
+    "name": "Tipo enlace o botón con estado hover",
+    "description": "Simula activar la pseudoclase de CSS <code>:hover</code>",
+    "data": {
+      "type": "button",
+      "text": "Hover",
+      "classes": "ds-hover"
+    },
+    "visualDescription": "Pill con fondo gris claro, borde gris de 1px y bordes redondeados. Texto en negro centrado dentro del elemento. Dimensiones compactas de altura reducida y ancho ajustado al contenido.",
+    "_generated": {
+      "hash": "25bbf7d3d537641c2ff90b7fe168a9a2",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:11:28.518Z"
+    }
+  },
+  {
+    "name": "Tipo enlace o botón con estado focus",
+    "description": "Simula activar la pseudoclase de CSS <code>:focus</code>",
+    "data": {
+      "type": "button",
+      "text": "Focus",
+      "classes": "ds-focus"
+    },
+    "visualDescription": "Pill con fondo amarillo, borde negro de 2px y bordes redondeados. Texto en negro centrado dentro del elemento. Dimensiones compactas de altura reducida y ancho ajustado al contenido.",
+    "_generated": {
+      "hash": "f164e9243fe4762a0837e43271c6c0e2",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:11:28.518Z"
+    }
+  },
+  {
+    "name": "Peque",
+    "description": "Usa las clases de tamaño de texto para establecer el tamaño. Recuerda que los pills, por accesibilidad, deben estar rodeados de una etiqueta semántica, normalmente un <code>&lt;li&gt;</code>",
+    "data": {
+      "text": "Peque pill",
+      "classes": "text-sm"
+    },
+    "visualDescription": "Pill de tamaño reducido con texto \"Peque pill\" en color negro sobre fondo blanco. Borde gris claro redondeado que define la forma de cápsula. Dimensiones compactas con padding mínimo alrededor del texto.",
+    "_generated": {
+      "hash": "6a9f1b3e7286b38b3d5651581580c9e2",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:11:37.723Z"
+    }
+  },
+  {
+    "name": "con icono a la derecha",
+    "data": {
+      "type": "button",
+      "html": "Icono derecha pill <svg viewBox='0 0 140 140' class='self-center ml-2' role='img' aria-label='Eliminar' width='.75em ' height='.75em '><path fill='currentColor' d='M85.91 71.77a2.5 2.5 0 010-3.54l46.16-46.16a10 10 0 10-14.14-14.14L71.77 54.09a2.5 2.5 0 01-3.54 0L22.07 7.93A10 10 0 007.93 22.07l46.16 46.16a2.5 2.5 0 010 3.54L7.93 117.93a10 10 0 0014.14 14.14l46.16-46.16a2.5 2.5 0 013.54 0l46.16 46.16a10 10 0 0014.14-14.14z'/></svg>",
+      "classes": "cursor-pointer"
+    },
+    "visualDescription": "Pill con texto \"Icono derecha pill\" en negro sobre fondo blanco, seguido de un ícono \"×\" de cierre alineado a la derecha. Borde gris claro redondeado formando una cápsula horizontal. Padding uniforme que distribuye el espacio entre el texto y el ícono interactivo de cierre.",
+    "_generated": {
+      "hash": "3813aea97639cc68a6ed3af0807473b7",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:11:37.723Z"
+    }
+  },
+  {
+    "name": "con icono a la izquierda",
+    "data": {
+      "type": "button",
+      "html": "<svg viewBox='0 0 140 140' class='self-center mr-2' aria-hidden='true' width='.75em ' height='.75em '><path fill='currentColor' d='M35 35a35 35 0 1070 0 35 35 0 10-70 0zM132.78 133.33a66.59 66.59 0 00-125.56 0 5 5 0 004.71 6.67h116.14a5 5 0 004.71-6.67z' /></svg> Icono izquierda pill",
+      "classes": "cursor-pointer"
+    },
+    "visualDescription": "Pill que presenta un ícono de usuario a la izquierda seguido del texto \"Icono izquierda pill\" en negro, todo sobre fondo blanco. Borde gris claro redondeado que envuelve ambos elementos en forma de cápsula. Padding distribuido que equilibra el ícono inicial con el texto adyacente.",
+    "_generated": {
+      "hash": "6a1a3543e4653f4c8f603107fe2fae9d",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:11:37.723Z"
+    }
+  },
+  {
+    "name": "primario",
+    "data": {
+      "html": "<svg viewBox='0 0 140 140' class='self-center mr-2' aria-hidden='true' width='.75em ' height='.75em '><path fill='currentColor' d='M43.7 140a17.42 17.42 0 01-12.36-5.12L5.13 108.66a17.49 17.49 0 010-24.75l24.61-24.25a7.5 7.5 0 0110.52 10.68L15.69 94.56a2.5 2.5 0 000 3.49l26.21 26.22a2.51 2.51 0 003.54 0l24.22-24.53a7.5 7.5 0 1110.68 10.52l-24.21 24.57A17.53 17.53 0 0143.7 140zM99.66 80.26a7.49 7.49 0 01.08-10.6l24.57-24.22a2.5 2.5 0 000-3.49L98.06 15.73a2.51 2.51 0 00-3.54 0L70.34 40.26a7.5 7.5 0 01-10.68-10.52L83.87 5.17a17.52 17.52 0 0124.79 0l26.21 26.21a17.49 17.49 0 010 24.75l-24.61 24.21a7.49 7.49 0 01-10.6-.08z'/><path fill='currentColor' d='M55 92.5a7.5 7.5 0 01-5.3-12.8l30-30a7.5 7.5 0 1110.6 10.6l-30 30a7.44 7.44 0 01-5.3 2.2z'/></svg> Primario",
+      "classes": "c-pill--primary"
+    },
+    "visualDescription": "Componente pill con fondo azul claro, texto azul oscuro en peso normal, borde redondeado azul de 1px. Incluye ícono de checkmark circular azul a la izquierda del texto. Tamaño compacto con padding horizontal generoso.",
+    "_generated": {
+      "hash": "3f3beb76f055d8a7f013d6438ebc6b96",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:11:44.923Z"
+    }
+  },
+  {
+    "name": "Aviso",
+    "data": {
+      "html": "<svg viewBox='0 0 140 140' class='self-center mr-2' aria-hidden='true' width='.75em' height='.75em '><path fill='currentColor' d='M138.42 118.29l-55-110a15 15 0 00-26.84 0l-55 110A15 15 0 0015 140h110a15 15 0 0013.42-21.71zM62.5 50a7.5 7.5 0 0115 0v30a7.5 7.5 0 01-15 0zm7.5 70a10 10 0 1110-10 10 10 0 01-10 10z'/></svg> Aviso",
+      "classes": "c-pill--warning"
+    },
+    "visualDescription": "Componente pill con fondo amarillo claro, texto negro en peso normal, borde redondeado amarillo de 1px. Incluye ícono de triángulo de advertencia amarillo a la izquierda del texto. Tamaño compacto con padding horizontal generoso.",
+    "_generated": {
+      "hash": "c1dbcba854b781b1ebcfe680ad458d25",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:11:44.923Z"
+    }
+  },
+  {
+    "name": "Éxito",
+    "data": {
+      "html": "<svg viewBox='0 0 140 140' class='self-center mr-2' aria-hidden='true' width='.75em ' height='.75em '><path fill='currentColor' d='M39.94 125a19.88 19.88 0 01-15.53-7.81L2.48 92.26a10 10 0 0115-13.2l20.55 23.39a2.5 2.5 0 003.68.08l81-84.42a10.002 10.002 0 1114.5 13.78l-82.02 86.33A19.41 19.41 0 0139.94 125z'/></svg> Éxito",
+      "classes": "c-pill--success"
+    },
+    "visualDescription": "Componente pill con fondo verde claro, texto verde oscuro en peso normal, borde redondeado verde de 1px. Incluye ícono de checkmark circular verde a la izquierda del texto. Tamaño compacto con padding horizontal generoso.",
+    "_generated": {
+      "hash": "86c6b3b8067a1cbedeb0c62f27dc777c",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:11:44.923Z"
+    }
+  },
+  {
+    "name": "alerta",
+    "data": {
+      "html": "<svg viewBox='0 0 140 140' class='self-center mr-2' aria-hidden='true' width='.75em ' height='.75em '><path fill='currentColor' d='M70 0a70 70 0 1070 70A70.08 70.08 0 0070 0zm-7.5 35a7.5 7.5 0 0115 0v30a7.5 7.5 0 01-15 0zm7.5 75a10 10 0 1110-10 10 10 0 01-10 10z'/></svg> Alerta",
+      "classes": "c-pill--alert"
+    },
+    "visualDescription": "Pill rectangular con esquinas redondeadas, fondo rojo claro, y borde rojo de 1px. Contiene texto \"Alerta\" en color rojo oscuro alineado al centro, junto con un icono circular rojo con una \"X\" blanca en el interior posicionado a la izquierda del texto. El componente tiene padding interno horizontal y vertical, creando un espacio visual compacto alrededor del contenido.",
+    "_generated": {
+      "hash": "4e1033d1fc66a2907717a23d5d79ad97",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:11:51.804Z"
+    }
+  }
+] %}

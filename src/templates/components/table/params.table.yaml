@@ -1,0 +1,131 @@
+params:
+- name: rows
+  type: array
+  required: true
+  description: Array of table rows and cells.
+  params:
+  - name: text
+    type: string
+    required: true
+    description: If `html` is set, this is not required. Text for cells in table rows. If `html` is provided, the `text` argument will be ignored.
+  - name: html
+    type: string
+    required: true
+    description: If `text` is set, this is not required. HTML for cells in table rows. If `html` is provided, the `text` argument will be ignore
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the table row cell.
+  - name: colspan
+    type: integer
+    required: false
+    description: Specify how many columns a cell extends.
+  - name: rowspan
+    type: integer
+    required: false
+    description: Specify how many rows a cell extends.
+  - name: attributes
+    type: object
+    required: false
+    description: HTML attributes (for example data attributes) to add to the table cell.
+- name: head
+  type: array
+  required: false
+  description: Array of table head cells.
+  params:
+  - name: text
+    type: string
+    required: false
+    description: If `html` is set, this is not required. Text for table head cells. If `html` is provided, the `text` argument will be ignored.
+  - name: html
+    type: string
+    required: false
+    description: If `text` is set, this is not required. HTML for table head cells. If `html` is provided, the `text` argument will be ignore
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the table head cell.
+  - name: colspan
+    type: integer
+    required: false
+    description: Specify how many columns a cell extends.
+  - name: rowspan
+    type: integer
+    required: false
+    description: Specify how many rows a cell extends.
+  - name: attributes
+    type: object
+    required: false
+    description: HTML attributes (for example data attributes) to add to the table cell.
+- name: foot
+  type: array
+  required: false
+  description: Array of table tfoot cells.
+  params:
+  - name: text
+    type: string
+    required: false
+    description: If `html` is set, this is not required. Text for table tfoot cells. If `html` is provided, the `text` argument will be ignored.
+  - name: html
+    type: string
+    required: false
+    description: If `text` is set, this is not required. HTML for table tfoot cells. If `html` is provided, the `text` argument will be ignore
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the table tfoot cell.
+  - name: colspan
+    type: integer
+    required: false
+    description: Specify how many columns a cell extends.
+  - name: rowspan
+    type: integer
+    required: false
+    description: Specify how many rows a cell extends.
+  - name: attributes
+    type: object
+    required: false
+    description: HTML attributes (for example data attributes) to add to the table cell.
+- name: caption
+  type: string
+  required: false
+  description: Caption text
+- name: captionClasses
+  type: string
+  required: false
+  description: Classes for caption text size. Classes should correspond to the available typography heading classes.
+- name: firstCellIsHeader
+  type: boolean
+  required: false
+  description: If set to true, first cell in table row will be a TH instead of a TD.
+- name: wrapper
+  type: object
+  required: false
+  description: Options for a wrapper div outside the table
+  params:
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the wrapper (e.g. to show an horizontal scrollbar it there are many columns or in mobile)
+  - name: attributes
+    type: object
+    required: false
+    description: HTML attributes to add to the wrapper div. For accessibility it needs tabindex=0, role=section and aria-label or aria-labelledby.
+- name: classes
+  type: string
+  required: false
+  description: Classes to add to the table container.
+- name: attributes
+  type: object
+  required: false
+  description: HTML attributes (for example data attributes) to add to the table container.
+
+accessibilityCriteria: |
+  ## Las tablas deben:
+    1. Debe tener al menos una celda de encabezado (TH) en las filas o columnas exteriores.
+    2. Si la tabla tiene más de un nivel de encabezado (si hay elementos th en dos filas o en dos columnas) las celdas de datos y de encabezado deben estar asociadas con los atributos id (en los th) /headers (en los td).
+    3. El título de la tabla debe estar marcado como <caption>
+    4. La primera fila de la tabla no puede tener todas las celdas unidas, o se interpreta que se está simulando un caption.
+    5. Después de un encabezado (h1, h2…) no puede ir directamente una tabla, o se entiende que se está usando el encabezado para lo que debería ser el <caption>
+    6. La tabla debe tener una descripción especialmente si la tabla es grande o compleja, tiene varios niveles de encabezados, tiene totales o enlaces, etc. La descripción intenta suplir la primera impresión que tienen de la tabla las personas que pueden verla, por ejemplo, vemos que en la última columna hay enlaces o en la última fila hay totales. Como en HTML 5 ya no está admitido el atributo summary en las tablas, lo que se hace es poner la descripción en un párrafo antes de la tabla y asociarlo a la tabla con aria-describedby (así se evita también el error 5). El caption y la descripción no deben ser iguales.
+    7. El validador del OAW dará error si hay tablas de una única columna y 3 o más filas con texto menor de 150 caracteres, pues considerará que se está simulando una lista.

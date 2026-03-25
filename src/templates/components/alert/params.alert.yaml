@@ -1,0 +1,25 @@
+params:
+- name: button
+  type: component
+  required: true
+  description: Button component to intereact with the dialog.
+- name: labelledId
+  type: string
+  required: true
+  description: Required id attribute to reference with aria-labelledby in the div container tag.
+- name: id
+  type: string
+  required: true
+  description: Required id attribute to add to the div container tag.
+- name: classes
+  type: string
+  required: false
+  description: Classes to add to the div container tag.
+- name: attributes
+  type: object
+  required: false
+  description: HTML attributes (for example data attributes) to add to the div container tag.
+- name: caller
+  type: nunjucks-block
+  required: true
+  description: Not strictly a parameter but [Nunjucks code convention](https://mozilla.github.io/nunjucks/templating.html#call). Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire item component in a `call` block.
