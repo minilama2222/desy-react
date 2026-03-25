@@ -1,1 +1,8 @@
-@import "tailwindcss";
+@import "desy-html/src/css/styles.css";
+
+/* Safelist for dynamic classes used by desy-html components */
+@layer utilities {
+  .ds-focus { }
+  .ds-hover { }
+  .ds-active { }
+}
