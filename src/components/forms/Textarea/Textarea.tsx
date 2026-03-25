@@ -110,11 +110,12 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     const ariaDescribedBy = [describedBy, hintIdResult, errorIdResult].filter(Boolean).join(' ') || undefined;
 
     const textareaClasses = clsx(
+      'c-textarea',
       'block',
       'mt-sm',
       'px-base',
       'py-sm',
-      'border-black',
+      hasError ? 'border-alert-base ring-2 ring-alert-base' : 'border-black',
       'rounded-sm',
       'font-semibold',
       'leading-normal',
@@ -125,7 +126,6 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       'focus:ring-warning-base',
       'disabled:bg-neutral-light',
       'disabled:border-neutral-base',
-      hasError && 'border-alert-base ring-2 ring-alert-base',
       className
     );
 
@@ -143,7 +143,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     };
 
     return (
-      <div className={clsx('c-form-group', formGroupClasses)}>
+      <div className={clsx('c-form-group', hasError && 'c-form-group--error', formGroupClasses)}>
         {/* Label */}
         {renderLabel()}
 

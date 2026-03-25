@@ -212,7 +212,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     };
 
     return (
-      <div className={clsx('c-form-group', formGroupClasses)}>
+      <div className={clsx('c-form-group', hasError && 'c-form-group--error', formGroupClasses)}>
         {/* Label */}
         {renderLabel()}
 

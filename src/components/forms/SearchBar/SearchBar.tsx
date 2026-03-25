@@ -152,7 +152,7 @@ export const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(
     const inputClasses = clsx(
       'c-input',
       'block',
-      'border-black',
+      hasError ? 'border-alert-base ring-2 ring-alert-base' : 'border-black',
       'rounded-sm',
       'font-semibold',
       'placeholder-neutral-dark',
@@ -181,7 +181,7 @@ export const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(
     };
 
     return (
-      <div className={clsx('c-form-group', formGroupClasses)}>
+      <div className={clsx('c-form-group', hasError && 'c-form-group--error', formGroupClasses)}>
         {/* Label */}
         {(labelText || labelHtml) && (
           <label
@@ -212,7 +212,7 @@ export const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(
             type="search"
             value={value}
             disabled={disabled}
-            className={clsx(inputClasses, hasError && 'border-alert-base ring-2 ring-alert-base')}
+            className={inputClasses}
             aria-describedby={describedBy}
             aria-errormessage={errorIdResult || undefined}
             aria-invalid={hasError || undefined}

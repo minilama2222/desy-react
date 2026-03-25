@@ -114,7 +114,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       'c-input',
       'block',
       'mt-sm',
-      'border-black',
+      hasError ? 'border-alert-base ring-2 ring-alert-base' : 'border-black',
       'rounded-sm',
       'font-semibold',
       'placeholder-neutral-dark',
@@ -124,12 +124,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       'focus:ring-warning-base',
       'disabled:bg-neutral-light',
       'disabled:border-neutral-base',
-      hasError && 'border-alert-base ring-2 ring-alert-base',
       className
     );
 
     return (
-      <div className={clsx('c-form-group', formGroupClasses)}>
+      <div className={clsx('c-form-group', hasError && 'c-form-group--error', formGroupClasses)}>
         {/* Label */}
         {(labelText || labelHtml) && (
           <label
