@@ -4,6 +4,7 @@ import { SkipLink } from './SkipLink';
 const meta: Meta<typeof SkipLink> = {
   title: 'Nav/SkipLink',
   component: SkipLink,
+  tags: ['autodocs'],
 };
 
 export default meta;

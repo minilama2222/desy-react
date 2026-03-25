@@ -4,6 +4,7 @@ import { MenuNavigation } from './MenuNavigation';
 const meta: Meta<typeof MenuNavigation> = {
   title: 'Nav/MenuNavigation',
   component: MenuNavigation,
+  tags: ['autodocs'],
 };
 
 export default meta;

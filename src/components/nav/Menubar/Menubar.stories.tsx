@@ -4,6 +4,7 @@ import { Menubar } from './Menubar';
 const meta: Meta<typeof Menubar> = {
   title: 'Nav/Menubar',
   component: Menubar,
+  tags: ['autodocs'],
 };
 
 export default meta;

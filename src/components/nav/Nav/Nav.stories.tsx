@@ -4,6 +4,7 @@ import { Nav } from './Nav';
 const meta: Meta<typeof Nav> = {
   title: 'Nav/Nav',
   component: Nav,
+  tags: ['autodocs'],
 };
 
 export default meta;

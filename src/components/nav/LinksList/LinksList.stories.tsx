@@ -4,6 +4,7 @@ import { LinksList } from './LinksList';
 const meta: Meta<typeof LinksList> = {
   title: 'Nav/LinksList',
   component: LinksList,
+  tags: ['autodocs'],
 };
 
 export default meta;

@@ -4,6 +4,7 @@ import { MenuHorizontal } from './MenuHorizontal';
 const meta: Meta<typeof MenuHorizontal> = {
   title: 'Nav/MenuHorizontal',
   component: MenuHorizontal,
+  tags: ['autodocs'],
 };
 
 export default meta;

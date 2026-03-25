@@ -5,6 +5,7 @@ import { SkipLink } from '../SkipLink/SkipLink';
 const meta: Meta<typeof HeaderAdvanced> = {
   title: 'Nav/HeaderAdvanced',
   component: HeaderAdvanced,
+  tags: ['autodocs'],
 };
 
 export default meta;

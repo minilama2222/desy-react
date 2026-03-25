@@ -4,6 +4,7 @@ import { HeaderMini } from './HeaderMini';
 const meta: Meta<typeof HeaderMini> = {
   title: 'Nav/HeaderMini',
   component: HeaderMini,
+  tags: ['autodocs'],
 };
 
 export default meta;

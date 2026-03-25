@@ -4,6 +4,7 @@ import { Notification } from './Notification';
 const meta: Meta<typeof Notification> = {
   title: 'Nav/Notification',
   component: Notification,
+  tags: ['autodocs'],
 };
 
 export default meta;
