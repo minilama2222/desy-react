@@ -1,0 +1,193 @@
+{% set idPrefix = params.idPrefix %}
+{% set conditionalValue = false %}
+{% for item in params.items %}
+  {% if item %}
+    {%- if item.id -%}
+      {%- set id = item.id -%}
+    {%- else -%}
+      {%- set id = idPrefix + "-" + loop.index -%}
+    {%- endif -%}
+    {%- if item.open -%}
+      {%- set conditionalValue = id -%}
+    {%- endif -%}
+  {% endif %}
+{% endfor %}
+
+{#- This solution must be redone well because it has bugs:
+    1. If there are multiple opened items at init, it will only open the last one. It should open all of them marked as open.
+    2. If there are one item opened at init and allowToggle=true, the button text ('Mostrar/Ocultar') only shows 'Ocultar' without changing to 'Mostrar'. It should change to 'Mostrar' when closed.
+-#}
+<!-- accordion-history -->
+<div class="c-accordion {%- if params.classes %} {{ params.classes }} {% endif %}"
+{%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %} {%- if params.allowToggle == true %} data-allow-toggle{% endif %} {%- if params.allowMultiple == true %} data-allow-multiple{% endif %}>
+  <div class="flex justify-between">
+    {% if params.heading.html or params.heading.text %}
+      {% set headingAttributes %}class="{% if params.heading.classes %}{{ params.heading.classes }}{% else %}c-h2 mb-base{% endif %}"{% endset %}
+      {% set headingContent %}{{ params.heading.html | filterquotes | safe if params.heading.html else params.heading.text }}{% endset %}
+      {% if params.headingLevel == "1" %}
+    <h1 {{ headingAttributes | safe }} id="{{ idPrefix }}-heading">{{ headingContent | safe }}</h1>
+      {% elseif params.headingLevel == "2" %}
+    <h2 {{ headingAttributes | safe }} id="{{ idPrefix }}-heading">{{ headingContent | safe }}</h2>
+      {% elseif params.headingLevel == "3" %}
+    <h3 {{ headingAttributes | safe }} id="{{ idPrefix }}-heading">{{ headingContent | safe }}</h3>
+      {% elseif params.headingLevel == "4" %}
+    <h4 {{ headingAttributes | safe }} id="{{ idPrefix }}-heading">{{ headingContent | safe }}</h4>
+      {% elseif params.headingLevel == "5" %}
+    <h5 {{ headingAttributes | safe }} id="{{ idPrefix }}-heading">{{ headingContent | safe }}</h5>
+      {% else %}
+    <h2 {{ headingAttributes | safe }} id="{{ idPrefix }}-heading">{{ headingContent | safe }}</h2>
+      {% endif %}
+    {% endif %}
+    {% if params.showControl %}
+    <button id="{{ idPrefix }}" class="c-accordion__toggle-all ml-auto py-base text-sm text-neutral-dark underline focus:text-black focus:bg-warning-base focus:outline-hidden focus:shadow-outline-focus text-right" type="button" aria-labelledby="{{ idPrefix }}{% if params.heading.html or params.heading.text %} {{ idPrefix }}-heading{% endif %}">
+      Mostrar todo
+    </button>
+    {% endif %}
+  </div>
+  <div class="pl-lg">
+    {%- for item in params.items %}
+      {% if item %}
+      {%- if item.id -%}
+        {%- set id = item.id -%}
+      {%- else -%}
+        {%- set id = idPrefix + "-" + loop.index -%}
+      {%- endif %}
+
+    <div class="relative -my-px px-xs py-sm border-t border-b border-neutral-base">
+        {% set insideContent %}
+
+        <button
+        id="{{ id }}-title"
+        type="button"
+        class="c-accordion__trigger group relative w-full py-sm font-semibold text-left cursor-pointer focus:bg-warning-base focus:outline-hidden focus:shadow-outline-focus focus:text-black {%- if item.disabled %} cursor-not-allowed{% endif %}"
+        aria-controls="{{ id }}"
+        {% if item.open %}
+          aria-expanded = "true"
+        {% else %}
+          aria-expanded = "false"
+        {% endif %}
+        {% if item.disabled %} disabled{% endif %}
+        >
+          {{ item.headerHtml | safe if item.headerHtml else item.headerText }}
+          {% if item.status == 'current' %}
+          <span class="sr-only" id="{{ id }}-status">(Estado: actual) </span>
+          {% elseif item.status == 'pending' %}
+          <span class="sr-only" id="{{ id }}-status">(Estado: pendiente) </span>
+          {% elseif item.status == 'muted' %}
+          <span class="sr-only" id="{{ id }}-status">(Estado: muteado) </span>
+          {% elseif item.status == 'currentmuted' %}
+          <span class="sr-only" id="{{ id }}-status">(Estado: actual muteado) </span>
+          {% else %}
+          <span class="sr-only" id="{{ id }}-status">(Estado: pasado) </span>
+          {% endif %}
+          <span class="absolute inset-y-0 right-0 py-sm font-normal text-sm text-neutral-dark underline group-focus:text-black pointer-events-none {%- if item.disabled %} hidden{% endif %}" aria-hidden="true">
+            <span class="c-accordion__show {%- if item.open %} hidden{%else%}{%endif%} {%- if item.show.classes %} {{ item.show.classes }}{%endif%}">
+              {% if item.show %}
+                {{ item.show.html | filterquotes | safe if item.show.html else item.show.text }}
+              {% else %}
+                Mostrar
+              {% endif %}
+            </span>
+            <span class="c-accordion__hide {%- if item.open %}{%else%} hidden{%endif%} {%- if item.hide.classes %} {{ item.hide.classes }}{%endif%}">
+              {% if item.hide %}
+                {{ item.hide.html | filterquotes | safe if item.hide.html else item.hide.text }}
+              {% else %}
+                Ocultar
+              {% endif %}
+            </span>
+          </span>
+        </button>
+        {% endset %}
+      {% if params.headingLevel == "1" %}
+      <h2>
+        {{ insideContent | safe }}
+      </h2>
+      {% elseif params.headingLevel == "2" %}
+      <h3>
+        {{ insideContent | safe }}
+      </h3>
+      {% elseif params.headingLevel == "3" %}
+      <h4>
+        {{ insideContent | safe }}
+      </h4>
+      {% elseif params.headingLevel == "4" %}
+      <h5>
+        {{ insideContent | safe }}
+      </h5>
+      {% elseif params.headingLevel == "5" %}
+      <h6>
+        {{ insideContent | safe }}
+      </h6>
+      {% else %}
+      <h3>
+        {{ insideContent | safe }}
+      </h3>
+      {% endif %}
+      <p class="sr-only" aria-hidden="true">Haz click en el botón anterior para mostrar u ocultar</p>
+      {% if not loop.first %}
+        {% if item.status == 'current' %}
+      <div class="absolute -top-px -left-5 h-6 border-2 border-primary-base"></div>
+        {% elseif item.status == 'pending' %}
+      <div class="absolute -top-px -left-5 h-6 border-2 border-neutral-base border-dashed"></div>
+        {% elseif item.status == 'muted' %}
+      <div class="absolute -top-px -left-5 h-6 border-2 border-neutral-base"></div>
+         {% elseif item.status == 'currentmuted' %}
+      <div class="absolute -top-px -left-5 h-6 border-2 border-neutral-base"></div>
+        {% else %}
+      <div class="absolute -top-px -left-5 h-6 border-2 border-primary-base"></div>
+        {% endif %}
+      {% endif %}
+      {% if not loop.last %}
+        {% if item.status == 'current' %}
+      <div class="absolute top-6 bottom-0 -left-5 border-2 border-neutral-base border-dashed"></div>
+        {% elseif item.status == 'pending' %}
+      <div class="absolute top-6 bottom-0 -left-5 border-2 border-neutral-base border-dashed"></div>
+        {% elseif item.status == 'muted' %}
+      <div class="absolute top-6 bottom-0 -left-5 border-2 border-neutral-base"></div>
+        {% elseif item.status == 'currentmuted' %}
+      <div class="absolute top-6 bottom-0 -left-5 border-2 border-neutral-base"></div>
+        {% else %}
+      <div class="absolute top-6 bottom-0 -left-5 border-2 border-primary-base"></div>
+        {% endif %}
+      {% endif %}
+      {% if item.status == 'current' %}
+      <div class="absolute top-5 -left-6 w-3 h-3 bg-white ring-2 ring-primary-base rounded-full" role="img" aria-labelledby="{{ id }}-title"></div>
+      {% elseif item.status == 'pending' %}
+      <div class="absolute top-5 -left-6 w-3 h-3 bg-white border-2 border-neutral-base rounded-full" role="img" aria-labelledby="{{ id }}-title"></div>
+      {% elseif item.status == 'muted' %}
+      <div class="absolute top-5 -left-6 w-3 h-3 bg-neutral-base border-2 border-neutral-base rounded-full" role="img" aria-labelledby="{{ id }}-title"></div>
+      {% elseif item.status == 'currentmuted' %}
+      <div class="absolute top-5 -left-6 w-3 h-3 bg-neutral-base ring-2 ring-neutral-base rounded-full" role="img" aria-labelledby="{{ id }}-title"></div>
+      {% else %}
+      <div class="absolute top-5 -left-6 w-3 h-3 bg-primary-base border-2 border-primary-base rounded-full" role="img" aria-labelledby="{{ id }}-title"></div>
+      {% endif %}
+      <div
+      {% if not item.open %}
+        hidden=""
+      {% endif %}
+      {%- if id %}
+        id="{{ id }}"
+      {% endif %}
+        class="c-accordion__panel relative {%- if item.classes %} {{ item.classes }}{% endif %}"
+        {%- for attribute, value in item.attributes %} {{attribute}}="{{value}}"{% endfor %}>
+        {% if not loop.last %}
+          {% if item.status == 'current' %}
+        <div class="absolute top-4 bottom-0 -left-6 -my-sm border-2 border-neutral-base border-dashed"></div>
+          {% elseif item.status == 'pending' %}
+        <div class="absolute top-4 bottom-0 -left-6 -my-sm border-2 border-neutral-base border-dashed"></div>
+          {% elseif item.status == 'muted' %}
+        <div class="absolute top-4 bottom-0 -left-6 -my-sm border-2 border-neutral-base"></div>
+          {% elseif item.status == 'currentmuted' %}
+        <div class="absolute top-4 bottom-0 -left-6 -my-sm border-2 border-neutral-base"></div>
+          {% else %}
+        <div class="absolute top-4 bottom-0 -left-6 -my-sm border-2 border-primary-base"></div>
+          {% endif %}
+        {% endif %}
+        {{ item.html | filterquotes | safe if item.html else item.text }}
+      </div>
+    </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+<!-- /accordion-history -->

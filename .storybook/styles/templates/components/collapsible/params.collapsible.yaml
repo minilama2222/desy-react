@@ -1,0 +1,49 @@
+params:
+- name: headerText
+  type: string
+  required: true
+  description: If `headerHtml` is set, this is not required. Text to use within the header element (the visible part of the collapsible element). If `headerHtml` is provided, the `headerText` argument will be ignored.
+- name: headerHtml
+  type: string
+  required: true
+  description: If `headerText` is set, this is not required. HTML to use within the header element (the visible part of the collapsible element). If `headerHtml` is provided, the `headerText` argument will be ignored.
+- name: text
+  type: string
+  required: true
+  description: If `html` is set, this is not required. Text to use within the disclosed part of the collapsible element. If `html` is provided, the `text` argument will be ignored.
+- name: html
+  type: string
+  required: true
+  description: If `text` is set, this is not required. HTML to use within the disclosed part of the collapsible element. If `html` is provided, the `text` argument will be ignored.
+- name: id
+  type: string
+  required: false
+  description: Id to add to the collapsible element. Not required, but recommended to improve the accessibility.
+- name: open
+  type: boolean
+  required: false
+  description: If true, collapsible element will be expanded.
+- name: buttonClasses
+  type: string
+  required: false
+  description: Classes to add to the button element.
+- name: showClasses
+  type: string
+  required: false
+  description: Classes to add to the show element.
+- name: hideClasses
+  type: string
+  required: false
+  description: Classes to add to the hide element.
+- name: contentClasses
+  type: string
+  required: false
+  description: Classes to add to the content element.
+- name: classes
+  type: string
+  required: false
+  description: Classes to add to the collapsible container element.
+- name: attributes
+  type: object
+  required: false
+  description: HTML attributes (for example data attributes) to add to the collapsible container element.

@@ -1,0 +1,130 @@
+params:
+- name: id
+  type: string
+  required: true
+  description: menubar unique id.
+- name: idPrefix
+  type: string
+  required: false
+  description: String to prefix id for each item if no id is specified on each item.
+- name: ariaLabel
+  type: text
+  required: true
+  description: aria-label for menubar. Should be a description of the menubar.
+- name: label
+  type: object
+  required: true
+  description: Label text or HTML by specifying value for either text or html keys.
+  - name: text
+    type: string
+    required: true
+    description: If `html` is set, this is not required. Text for the button. If `html` is provided, the `text` argument will be ignored.
+  - name: html
+    type: string
+    required: true
+    description: If `text` is set, this is not required. HTML for the button. If `html` is provided, the `text` argument will be ignored.
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the element that acts as label.
+- name: items
+  type: array
+  required: true
+  description: Array of items objects.
+  params:
+  - name: href
+    type: string
+    required: false
+    description: Item link.
+  - name: target
+    type: string
+    required: false
+    description: The target where the item should link to.
+  - name: text
+    type: string
+    required: true
+    description: If `html` is set, this is not required. Text to use within each item label. If `html` is provided, the `text` argument will be ignored.
+  - name: html
+    type: string
+    required: true
+    description: If `text` is set, this is not required. HTML to use within each item label. If `html` is provided, the `text` argument will be ignored.
+  - name: id
+    type: string
+    required: false
+    description: Specific id attribute for the item. If omitted, then idPrefix option will be applied.
+  - name: ariaLabel
+    type: text
+    required: true
+    description: aria-label for parent items. Should be similar as item text or item html text content.
+  - name: disabled
+    type: boolean
+    required: false
+    description: If disabled, the item will be disabled
+  - name: active
+    type: boolean
+    required: false
+    description: If active, the item will be with primary color
+  - name: sub
+    type: boolean
+    required: false
+    description: If true, content provided will be revealed when the item is expanded.
+    - name: classes
+      type: string
+      required: false
+      description: Classes to add to the sub container.
+    - name: items
+      type: array
+      required: false
+      description: Provide subitems for the sub reveal.
+      - name: role
+        type: string
+        required: false
+        description: Defaults to `none`. Allowed values are `none`, `group`, `menuitem`, `menuitemcheckbox` and `separator`. Use the `group` role to group menuitems, menuitemcheckbox or menuitemradio sub-subitems.
+      - name: ariaLabel
+        type: text
+        required: false
+        description: aria-label for parent role `group` items. Should be descriptive of group.
+      - name: text
+        type: string
+        required: true
+        description: Text to use within each item.
+      - name: html
+        type: string
+        required: true
+        description: Only can be used in menuitems with role=`none`. If `text` is set, this is not required. HTML to use within each item label. If `html` is provided, the `text` argument will be ignored.
+      - name: checked
+        type: boolean
+        required: false
+        description: If true, not grouped `menuitemcheckbox` will be checked.
+      - name: items
+        type: array
+        required: false
+        description: Optional array for `role=menuitemradio` sub-subitems, that should be nested in a `role=group` subitem.
+        - name: role
+          type: string
+          required: false
+          description: Defaults to `none`. Allowed values are `none`, `menuitem`, `menuitemcheckbox` and `menuitemradio`.
+        - name: text
+          type: string
+          required: true
+          description: Text to use within each item label.
+        - name: checked
+          type: boolean
+          required: false
+          description: If true, `menuitemradio` will be checked.
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the item.
+  - name: attributes
+    type: object
+    required: false
+    description: HTML attributes (for example data attributes) to add to the item.
+- name: classes
+  type: string
+  required: false
+  description: Classes to add to the menubar container.
+- name: attributes
+  type: object
+  required: false
+  description: HTML attributes (for example data attributes) to add to the menubar container.

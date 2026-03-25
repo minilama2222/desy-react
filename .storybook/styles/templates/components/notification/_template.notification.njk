@@ -1,0 +1,86 @@
+<!-- notification -->
+<div id="{{ params.id }}" data-module="c-notification" class="c-notification {%- if params.classes %} {{ params.classes }}{% elseif params.type=="success" %} c-notification--success{% elseif params.type=="alert" %} c-notification--alert{% elseif params.type=="info" %} c-notification--primary{% else %} c-notification--primary{% endif %}"
+{%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
+  {% if params.icon or params.type %}
+  <div class="h-full mr-base">
+    {% if params.icon.html %}
+    {{ params.icon.html | filterquotes | safe }}
+    {% elseif params.type == 'success' %}
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="1em" height="1em" class="w-5 h-5 text-success-dark" aria-label="Éxito" focusable="false" role="img"><path d="M39.94 125a19.88 19.88 0 01-15.53-7.81L2.48 92.26a10 10 0 0115-13.2l20.55 23.39a2.5 2.5 0 003.68.08l81-84.42a10.002 10.002 0 1114.5 13.78l-82.02 86.33A19.41 19.41 0 0139.94 125z" fill="currentColor"/></svg>
+    {% elseif params.type == 'alert' %}
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="1em" height="1em" class="w-5 h-5 text-alert-base" aria-label="Error" focusable="false" role="img"><path d="M138.42 118.29l-55-110a15 15 0 00-26.84 0l-55 110A15 15 0 0015 140h110a15 15 0 0013.42-21.71zM62.5 50a7.5 7.5 0 0115 0v30a7.5 7.5 0 01-15 0zm7.5 70a10 10 0 1110-10 10 10 0 01-10 10z" fill="currentColor"/></svg>
+    {% elseif params.type == 'info' %}
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="1em" height="1em" class="w-5 h-5 text-primary-base" aria-label="Información" focusable="false" role="img"><path d="M70 0a70 70 0 1070 70A70.08 70.08 0 0070 0zm7.5 105a7.5 7.5 0 01-15 0V70a7.5 7.5 0 0115 0zM70 50a10 10 0 1110-10 10 10 0 01-10 10z" fill="currentColor"/></svg>
+    {% endif %}
+  </div>
+  {% endif %}
+  <div class="lg:flex flex-1 self-center">
+    <div class="lg:flex-1 lg:self-center">
+    {% set titleAttributes %}id="{{ params.id }}-title"  class="font-bold pr-base focus:outline-hidden focus:underline {%- if params.title.classes %} {{ params.title.classes }}{% endif %}" tabindex="-1"{% endset %}
+    {% if params.headingLevel == "1" %}
+      <h1 {{ titleAttributes | safe }}>
+        {{ params.title.html | filterquotes | safe if params.title.html else params.title.text }}
+      </h1>
+    {% elseif params.headingLevel == "2" %}
+      <h2 {{ titleAttributes | safe }}>
+        {{ params.title.html | filterquotes | safe if params.title.html else params.title.text }}
+      </h2>
+    {% elseif params.headingLevel == "3" %}
+      <h3 {{ titleAttributes | safe }}>
+        {{ params.title.html | filterquotes | safe if params.title.html else params.title.text }}
+      </h3>
+    {% elseif params.headingLevel == "4" %}
+      <h4 {{ titleAttributes | safe }}>
+        {{ params.title.html | filterquotes | safe if params.title.html else params.title.text }}
+      </h4>
+    {% elseif params.headingLevel == "5" %}
+      <h5 {{ titleAttributes | safe }}>
+        {{ params.title.html | filterquotes | safe if params.title.html else params.title.text }}
+      </h5>
+    {% else %}
+      <p {{ titleAttributes | safe }}>
+        {{ params.title.html | filterquotes | safe if params.title.html else params.title.text }}
+      </p>
+    {% endif %}
+    {% if params.description.html %}
+      <div {%- if params.description.classes %} class="{{ params.description.classes }}"{% endif %}>
+        {{ params.description.html | filterquotes | safe }}
+      </div>
+    {% elseif params.description.text %}
+      <p {%- if params.description.classes %} class="{{ params.description.classes }}"{% endif %}>
+        {{ params.description.text }}
+      </p>
+    {% endif %}
+    {% if params.items %}
+      <ul class="mt-base">
+        {% for item in params.items %}
+        <li>
+        {% if item.href %}
+          <a href="{{ item.href }}" class="inline-block pb-sm c-link {% if params.type == "alert" %} c-link--alert{% endif %}" {%- for attribute, value in item.attributes %} {{attribute}}="{{value}}"{% endfor %}>{{ item.html | filterquotes | safe if item.html else item.text }}</a>
+        {% else %}
+          {{ item.html | filterquotes | safe if item.html else item.text }}
+        {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% if params.content.html %}
+      <div class="{% if params.content.classes %}{{ params.content.classes }}{% else %}text-sm{% endif %}">
+        {{ params.content.html | filterquotes | safe }}
+      </div>
+    {% elseif params.content.text %}
+      <p class="{% if params.content.classes %}{{ params.content.classes }}{% else %}text-sm{% endif %}">
+        {{ params.content.text }}
+      </p>
+    {% endif %}
+    </div>
+    {% if params.isDismissible %}
+    <div class="absolute top-0 right-0 p-sm">
+      <button type="button" class="c-notification-button__close p-sm focus:bg-warning-base focus:border-warning-base focus:shadow-outline-black focus:text-black focus:outline-hidden" aria-label="X: Cerrar notificación">
+        <svg class="w-4 h-4 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="1em" height="1em" aria-hidden="true" role="presentation"><path d="M85.91 71.77a2.5 2.5 0 010-3.54l46.16-46.16a10 10 0 10-14.14-14.14L71.77 54.09a2.5 2.5 0 01-3.54 0L22.07 7.93A10 10 0 007.93 22.07l46.16 46.16a2.5 2.5 0 010 3.54L7.93 117.93a10 10 0 0014.14 14.14l46.16-46.16a2.5 2.5 0 013.54 0l46.16 46.16a10 10 0 0014.14-14.14z" fill="currentColor"/></svg>
+      </button>
+    </div>
+    {% endif %}
+  </div>
+</div>
+<!-- /notification -->

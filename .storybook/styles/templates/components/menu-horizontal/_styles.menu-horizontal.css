@@ -1,0 +1,167 @@
+/* ==========================================================================
+   _styles.menu-horizontal.css
+   ========================================================================== */
+
+@layer components {
+  .c-menu-horizontal--links {
+    .c-menu-horizontal__link {
+      @apply text-primary-base!;
+
+      &[disabled],
+      &[disabled]:hover,
+      &[disabled]:focus {
+        @apply opacity-50;
+        @apply text-black;
+        @apply cursor-not-allowed;
+      }
+    }
+  }
+
+  .c-menu-horizontal--navigation-bar {
+    @apply border-l-0;
+    @apply border-b;
+    @apply border-b-neutral-dark;
+
+    .c-menu-horizontal__link {
+      @apply border-none;
+      @apply no-underline;
+      @apply hover:bg-neutral-lighter;
+
+      &.c-menu-horizontal__active {
+        @apply hover:no-underline;
+        @apply font-bold;
+      }
+
+      &:hover:not(:disabled) {
+        @apply bg-neutral-light;
+      }
+
+      &[disabled],
+      &[disabled]:hover,
+      &[disabled]:focus {
+        @apply bg-white;
+        @apply opacity-50;
+        @apply cursor-not-allowed;
+      }
+    }
+
+    .c-menu-horizontal__list {
+      @apply flex;
+      @apply flex-wrap;
+      @apply relative;
+      @apply w-full;
+    }
+
+    .c-menu-horizontal__active {
+      @apply hover:no-underline;
+      @apply relative;
+
+      &::after {
+        content: '';
+        @apply block;
+        @apply absolute;
+        @apply left-0;
+        @apply right-0;
+        @apply top-auto;
+        @apply bottom-0;
+        @apply w-auto;
+        @apply h-xs;
+        @apply bg-neutral-dark;
+      }
+    }
+  }
+
+  .c-menu-horizontal--tabs {
+    @apply lg:border-b;
+    @apply lg:border-neutral-dark;
+
+    .c-menu-horizontal__list {
+      @apply lg:relative;
+      @apply lg:w-full;
+      @apply lg:flex;
+      @apply lg:flex-nowrap;
+      @apply lg:snap-x;
+      @apply lg:overflow-x-auto;
+      @apply lg:-mb-0.5;
+    }
+
+    .c-menu-horizontal__active {
+      @apply lg:bg-white;
+      @apply lg:border-neutral-base!;
+      @apply lg:border-b-0!;
+      @apply lg:rounded-t-sm!;
+      @apply no-underline!;
+
+      strong {
+        @apply font-bold;
+        @apply lg:font-normal!;
+      }
+    }
+  }
+
+  .c-menu-horizontal--tabs-mobile {
+    @apply w-full;
+    @apply border-b;
+    @apply border-neutral-dark;
+
+    .c-menu-horizontal__list {
+      @apply relative;
+      @apply w-full;
+      @apply flex!;
+      @apply flex-nowrap;
+      @apply snap-x;
+      @apply overflow-x-auto;
+      @apply -mb-0.5!;
+    }
+
+    .c-menu-horizontal__active {
+      @apply px-base;
+      @apply py-base;
+      @apply bg-white!;
+      @apply border-neutral-base!;
+      @apply border-b-0!;
+      @apply rounded-t-sm;
+      @apply no-underline;
+
+      strong {
+        @apply font-normal;
+      }
+    }
+
+    .c-menu-horizontal__link {
+      @apply px-base;
+      @apply py-base;
+    }
+  }
+
+  .c-menu-horizontal__link {
+    &:focus > span,
+    &:focus > strong {
+      @apply bg-warning-base;
+      @apply shadow-outline-focus;
+      @apply text-black;
+      @apply outline-hidden;
+    }
+
+    &.c-menu-horizontal__active {
+      @apply no-underline!;
+      @apply hover:underline!;
+    }
+  }
+
+  .c-menu-horizontal--scroll {
+    .c-menu-horizontal__list {
+      @apply relative;
+      @apply w-full;
+      @apply flex! flex-nowrap!;
+      @apply snap-x;
+      @apply overflow-x-auto;
+
+      & > li {
+        @apply snap-start;
+      }
+    }
+  }
+}
+
+

@@ -1,0 +1,135 @@
+{% set exampleComponent = "tooltip" %}
+{% set examples =  [
+  {
+    "name": "por defecto (sólo icono)",
+    "data": {
+      "id": "example-default",
+      "icon": {
+        "type": "question"
+      },
+      "caller": "<p class='c-paragraph-base mb-0'>Esto es un tooltip</p>"
+    },
+    "visualDescription": "Contenedor rectangular con fondo blanco y borde gris claro de 1px. Título \"por defecto (sólo icono)\" en texto negro de peso normal. Icono circular azul con símbolo de información en color blanco centrado.",
+    "_generated": {
+      "hash": "303b04446da33cfd53d35edd79c4a6df",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:17:40.512Z"
+    }
+  },
+  {
+    "name": "sólo texto",
+    "data": {
+      "id": "example-text",
+      "text": "Sólo texto",
+      "caller": "<p class='c-paragraph-base mb-0'>Esto es un tooltip</p>"
+    },
+    "visualDescription": "Contenedor rectangular con fondo blanco y borde gris claro de 1px. Título \"sólo texto\" en texto negro de peso normal en la parte superior. Texto \"Sólo texto\" en color negro de tamaño estándar alineado a la izquierda.",
+    "_generated": {
+      "hash": "93322d72d4fbde426a0113a49f0f62ad",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:17:40.512Z"
+    }
+  },
+  {
+    "name": "con html",
+    "data": {
+      "id": "example-html",
+      "html": "<p class='inline-flex items-center'><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140' width='1em' height='1em' class='w-4 h-4 mr-xs text-primary-base' aria-hidden='true' focusable='false'><path d='M70 0a70 70 0 1070 70A70.08 70.08 0 0070 0zm0 117.51a10 10 0 1110-10 10 10 0 01-10 10zm9.17-39.08a2.5 2.5 0 00-1.67 2.36v1.71a7.5 7.5 0 01-15 0v-10A7.5 7.5 0 0170 65a12.5 12.5 0 10-12.5-12.5 7.5 7.5 0 01-15 0 27.5 27.5 0 1136.67 25.93z' fill='currentColor'/></svg><span>Sólo <strong>html</strong> con icono custom a la izquierda</span></p>",
+      "caller": "<p class='c-paragraph-base mb-0'>Si este contenido tiene texto extenso o con código, mira el ejemplo 'complex' más abajo.</p>"
+    },
+    "visualDescription": "Contenedor rectangular con fondo blanco y borde gris claro de 1px. Título \"con html\" en texto negro de peso normal en la parte superior. Fila con icono circular azul con símbolo de información seguido de texto \"Sólo html con icono custom a la izquierda\" en color negro.",
+    "_generated": {
+      "hash": "aa0a431fc8415ee5f5aff8c32ed74469",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:17:40.512Z"
+    }
+  },
+  {
+    "name": "pregunta",
+    "data": {
+      "id": "example-question",
+      "text": "Pregunta",
+      "icon": {
+        "type": "question"
+      },
+      "caller": "<div class=' w-48 p-2 '><div class=' border-4 border-dashed border-gray-200 rounded-lg h-40 '></div></div>"
+    },
+    "visualDescription": "Caja rectangular con borde gris claro de 1px y fondo blanco. Contiene un título en negro en peso normal arriba, seguido de un texto en azul con ícono de información circular azul a la derecha. Padding interno visible alrededor del contenido.",
+    "_generated": {
+      "hash": "c3b0db65a3d5374c451c0c3a1d92e7b1",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:17:48.409Z"
+    }
+  },
+  {
+    "name": "info",
+    "data": {
+      "id": "example-info",
+      "text": "Información",
+      "icon": {
+        "type": "info"
+      },
+      "caller": "<div class=' w-48 p-2 '><div class=' border-4 border-dashed border-gray-200 rounded-lg h-40 '></div></div>"
+    },
+    "visualDescription": "Caja rectangular con borde gris claro de 1px y fondo blanco. Contiene un título en negro en peso normal arriba, seguido de un texto en azul con ícono de información circular azul a la derecha. Padding interno visible alrededor del contenido.",
+    "_generated": {
+      "hash": "d4b618c41b037ab9ac00f90ac54e9eba",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:17:48.409Z"
+    }
+  },
+  {
+    "name": "alerta",
+    "data": {
+      "id": "example-alert",
+      "text": "Alerta",
+      "icon": {
+        "type": "alert"
+      },
+      "classes": "text-alert-base",
+      "caller": "<div class=' w-48 p-2 '><div class=' border-4 border-dashed border-gray-200 rounded-lg h-40 '></div></div>"
+    },
+    "visualDescription": "Caja rectangular con borde gris claro de 1px y fondo blanco. Contiene un título en negro en peso normal arriba, seguido de un texto en rojo con ícono de advertencia triangular rojo a la derecha. Padding interno visible alrededor del contenido.",
+    "_generated": {
+      "hash": "3d404bf07ccf4e91f722b95b02e0e81f",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:17:48.409Z"
+    }
+  },
+  {
+    "name": "icono personalizado",
+    "data": {
+      "id": "example-custom-icon",
+      "text": "Icono personalizado",
+      "icon": {
+        "html": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140' width='1em' height='1em' class='w-4 h-4 text-neutral-dark' role='img' aria-label='Ayuda'><path d='M140 15a15 15 0 00-15-15H15A15 15 0 000 15v110a15 15 0 0015 15h110a15 15 0 0015-15zM70 117.51a10 10 0 1110-10 10 10 0 01-10 10zm9.17-39.08a2.5 2.5 0 00-1.67 2.36v1.71a7.5 7.5 0 01-15 0v-10A7.5 7.5 0 0170 65a12.5 12.5 0 10-12.5-12.5 7.5 7.5 0 01-15 0 27.5 27.5 0 1136.67 25.93z' fill='currentColor'/></svg>"
+      },
+      "classes": "text-neutral-dark",
+      "caller": "<p class='c-paragraph-base mb-0'>1520 - Subvención para actividades de educación de personas adultas</p>"
+    },
+    "visualDescription": "Tooltip rectangular con fondo blanco, borde gris claro de 1px, y sombra sutil. Contiene texto en color negro tamaño pequeño alineado a la izquierda, seguido de un icono cuadrado pequeño con fondo oscuro que muestra una \"X\" en blanco.",
+    "_generated": {
+      "hash": "40643a99ab800bd45b8ad155b1196bca",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:17:56.137Z"
+    }
+  },
+  {
+    "name": "complejo",
+    "description": "Usa <code>'complex': true</code> para que el contenido del tooltip tenga textos largos o contenido mixto.",
+    "data": {
+      "id": "complex-html",
+      "icon": {
+        "type": "question"
+      },
+      "complex": true,
+      "caller": "<p class='c-paragraph-base mb-0'>El código CVV se encuentra situado en la tarjeta por detrás. <strong>¡Compruébalo!</strong></p>"
+    },
+    "visualDescription": "Tooltip rectangular con fondo blanco, borde gris claro de 1px, y sombra sutil. Presenta un icono circular azul con signo de interrogación en la esquina superior izquierda, sin texto visible adicional. Dimensiones compactas de aproximadamente 30x30 píxeles.",
+    "_generated": {
+      "hash": "e1de9bc537dcbfe843d2a0f6a6504f98",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:17:56.137Z"
+    }
+  }
+] %}

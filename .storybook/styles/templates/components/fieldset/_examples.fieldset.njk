@@ -1,0 +1,80 @@
+{% from "components/input/_macro.input.njk" import componentInput %}
+
+{% macro callerExample(id='id') %}
+{{ componentInput({
+  "label": {
+    "text": "Número de teléfono"
+  },
+  "id": "tel-id-" + id,
+  "name": "tel-name-" + id
+})  }}
+{% endmacro %}
+
+{% macro callerErrorExample(id='id') %}
+{{ componentInput({
+  "label": {
+    "text": "Número de teléfono"
+  },
+  "id": "tel-error-id-" + id,
+  "name": "tel-error-name-" + id,
+  "errorMessage": {
+    "text": "Mensaje de error aqui"
+  }
+})  }}
+{% endmacro %}
+
+
+{% set exampleComponent = "fieldset" %}
+{% set examples =  [
+  {
+    "name": "por defecto",
+    "data": {
+      "legend": {
+        "text": "¿Cuál es tu número de teléfono?",
+        "classes": "mb-sm"
+      },
+      "caller": callerExample('1').val
+    },
+    "visualDescription": "Fieldset con borde gris claro de 1px y fondo blanco. Contiene un label en texto negro regular, seguido de un campo de entrada de texto con borde gris de 1px y fondo blanco. El input tiene dimensiones estándar de aproximadamente 100px de ancho.",
+    "_generated": {
+      "hash": "4579013d15d9e0fe90959ea84ed8ed22",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:57:41.145Z"
+    }
+  },
+  {
+    "name": "con error",
+    "description": "Mostrar código para visualizar el <code>aria-describedby</code>, el <code>aria-errormessage</code> y <code>aria-invalid='true'</code> aplicado en el HTML. El <code>aria-errormessage</code> se asocia al fieldset, en vez de a un campo concreto, cuando el error hace referencia a los elementos en su conjunto. Debería apuntar al id de un mensaje de error que describa el problema general del fieldset.",
+    "data": {
+      "legend": {
+        "text": "¿Cuál es tu número de teléfono?",
+        "classes": "mb-sm"
+      },
+      "errorId": "error-id",
+      "caller": callerErrorExample('1').val
+    },
+    "visualDescription": "Fieldset con borde gris claro de 1px y fondo blanco. Incluye un label en texto negro regular, un sublabel en texto negro regular, un mensaje de error en texto rojo, y un campo de entrada con borde rojo de aproximadamente 2px y fondo blanco. El input mantiene dimensiones estándar de aproximadamente 100px de ancho.",
+    "_generated": {
+      "hash": "62df4723ee23a40d28fff0283b35e4bd",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:57:41.145Z"
+    }
+  },
+  {
+    "name": "con clases de css aplicadas",
+    "data": {
+      "legend": {
+        "text": "¿Cuál es tu número de teléfono?",
+        "classes": "mb-sm -ml-base px-base bg-white"
+      },
+      "classes": "p-lg border border-neutral-base",
+      "caller": callerExample('4').val
+    },
+    "visualDescription": "Fieldset con borde gris claro de 1px, fondo gris muy claro (casi blanco), y padding interno visible. Contiene un label en texto negro regular, seguido de un segundo label en texto negro regular, y un campo de entrada con borde gris de 1px y fondo blanco. El input tiene dimensiones estándar de aproximadamente 100px de ancho.",
+    "_generated": {
+      "hash": "82583d54e8964c1f02d2cc2bad614326",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:57:41.145Z"
+    }
+  }
+] %}

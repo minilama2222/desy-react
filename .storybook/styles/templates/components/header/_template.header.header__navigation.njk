@@ -1,0 +1,26 @@
+{%- from "components/menu-navigation/_macro.menu-navigation.njk" import componentMenuNavigation -%}
+
+{%- set navigationConfig = {
+  "classes": params.classes if params.classes else "hidden lg:block",
+  "idPrefix": params.idPrefix if params.idPrefix else "header-nav-item",
+  "items": [],
+  "attributes": params.attributes if params.attributes
+} -%}
+
+{%- for item in params.items -%}
+  {%- if item -%}
+    {%- set itemConfig = {
+      "text": item.text,
+      "html": item.html,
+      "href": item.href,
+      "target": item.target,
+      "active": item.active,
+      "attributes": item.attributes,
+      "id": item.id if item.id else (navigationConfig.idPrefix + "-" + loop.index),
+      "classes": "c-menu-navigation__button--header -mr-base"
+    } -%}
+   {%- set _ = navigationConfig.items.push(itemConfig) -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{{ componentMenuNavigation(navigationConfig) }}

@@ -1,0 +1,36 @@
+{#- If an id 'prefix' is not passed, fall back to using the name attribute
+   instead. We need this for error messages and hints as well -#}
+{% set idPrefix = params.idPrefix if params.idPrefix else "menu-item" %}
+
+<!-- menu-horizontal -->
+<nav data-module="c-menu-horizontal" class="c-menu-horizontal {%- if params.classes %} {{ params.classes }}{% endif -%}"
+{%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor -%}>
+  <ul class="c-menu-horizontal__list lg:flex lg:flex-wrap">
+    {% for item in params.items %}
+    {% if item %}
+    {#- If the user explicitly sets an id, use this instead of the regular idPrefix -#}
+    {% if item.id %}
+    {% set id = item.id %}
+    {% else %}
+    {% set id = idPrefix + "-" + loop.index %}
+    {% endif %}
+    <li>
+    {% if item.active %}
+      <a {%- if id %} id="{{ id }}"{% endif %} {%- if not item.disabled %} href="{{ item.href }}"{% endif %} class="c-menu-horizontal__link c-menu-horizontal__active relative flex items-center px-base py-sm lg:py-base border border-transparent text-black hover:text-primary-base underline truncate focus:outline-hidden
+          {%- if item.disabled %} no-underline! pointer-events-none{% endif -%} {%- if item.classes %} {{ item.classes }}{% endif -%}" {%- if item.title %} title="{{ item.title }}"{% endif -%} {%- if item.target %} target="{{ item.target }}"{% endif %} aria-current="page" {%- for attribute, value in item.attributes %} {{ attribute }}="{{ value }}"{% endfor -%}>
+        <strong class="flex items-center pointer-events-none font-bold">{{ item.html | filterquotes | safe if item.html else item.text }}</strong>
+      </a>
+    {% else %}
+      <a {%- if id %} id="{{ id }}"{% endif %} {%- if not item.disabled %} href="{{ item.href }}"{% endif %} class="c-menu-horizontal__link relative flex items-center px-base py-sm lg:py-base border border-transparent text-black hover:text-primary-base underline truncate focus:outline-hidden
+          {%- if item.disabled %} no-underline! pointer-events-none{% endif -%} {%- if item.classes %} {{ item.classes }}{% endif -%}" {%- if item.title %} title="{{ item.title }}"{% endif -%} {%- if item.target %} target="{{ item.target }}"{% endif %} {%- for attribute, value in item.attributes %} {{ attribute }}="{{ value }}"{% endfor -%}>
+        <span class="flex items-center pointer-events-none">
+          {{ item.html | filterquotes | safe if item.html else item.text }}
+        </span>
+      </a>
+    {% endif %}
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</nav>
+<!-- /menu-horizontal -->

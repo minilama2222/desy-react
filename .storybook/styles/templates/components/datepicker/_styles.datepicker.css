@@ -1,0 +1,87 @@
+/* ==========================================================================
+   _styles.datepicker.css
+   ========================================================================== */
+
+@layer components {
+  .c-datepicker {
+    calendar-month {
+      --color-accent: var(--color-primary-base);
+      --color-text-on-accent: var(--color-white);
+
+      &::part(button) {
+        @apply mx-px;
+        @apply rounded;
+
+        &:focus-visible {
+          @apply focus:bg-warning-base;
+          @apply focus:border-warning-base;
+          @apply focus:shadow-outline-black;
+          @apply focus:text-black;
+          @apply focus:outline-hidden;
+        }
+      }
+
+      &::part(today){
+        @apply font-bold;
+        @apply underline;
+      }
+    }
+
+    calendar-date,
+    calendar-range,
+    calendar-multi {
+      &::part(header) {
+        @apply flex;
+        @apply flex-wrap;
+        @apply gap-base;
+      }
+
+      &::part(next),
+      &::part(previous) {
+        @apply inline-flex;
+        @apply items-baseline;
+        @apply px-2;
+        @apply py-1;
+        @apply bg-white;
+        @apply border;
+        @apply border-primary-base;
+        @apply rounded;
+        @apply align-baseline;
+        @apply font-semibold;
+        @apply text-sm;
+        @apply text-primary-base;
+        @apply transition-all;
+        @apply duration-100;
+        @apply ease-out;
+        @apply whitespace-nowrap;
+        @apply cursor-pointer;
+
+        @apply focus:bg-warning-base;
+        @apply focus:border-warning-base;
+        @apply focus:shadow-outline-black;
+        @apply focus:text-black;
+        @apply focus:outline-hidden;
+
+        &:hover:not(:disabled),
+        &:active:not(:disabled) {
+          @apply bg-neutral-light;
+          @apply border-primary-base;
+          @apply text-primary-base;
+        }
+
+        &:active:not(:disabled) {
+          @apply relative;
+          @apply top-px;
+        }
+
+        &[disabled],
+        &[disabled]:hover,
+        &[disabled]:focus {
+          @apply bg-white;
+          @apply opacity-50;
+          @apply cursor-not-allowed;
+        }
+      }
+    }
+  }
+}

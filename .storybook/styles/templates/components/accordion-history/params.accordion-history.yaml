@@ -1,0 +1,129 @@
+params:
+- name: idPrefix
+  type: string
+  required: true
+  description: String to prefix id for each accordion item if no id is specified on each item.
+- name: headingLevel
+  type: number
+  required: false
+  description: If headingLevel is 1, the parent heading tag needed inside this component will be a h1, if 2 will be a h2, and so on.
+- name: allowToggle
+  type: boolean
+  required: false
+  description: Defaults to `false`. Allow for each toggle to both open and close its section. Makes it possible for all sections to be closed. Assumes only one section may be open.
+- name: allowMultiple
+  type: boolean
+  required: false
+  description: Defaults to `false`. Allow for multiple accordion sections to be expanded at the same time. Assumes data-allow-toggle otherwise the toggle on open sections would be disabled.
+- name: heading
+  type: object
+  required: false
+  description: Options for the heading
+  params:
+  - name: text
+    type: string
+    required: true
+    description: If `html` is set, this is not required. Text to use within the heading. If `html` is provided, the `text` argument will be ignored.
+  - name: html
+    type: string
+    required: true
+    description: If `text` is set, this is not required. HTML to use within the heading. If `html` is provided, the `text` argument will be ignored.
+  - name: id
+    type: string
+    required: false
+    description: Id to add to the item. Not required, but recommended to improve the accessibility.
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the heading.
+- name: showControl
+  type: boolean
+  required: false
+  description: Defaults to `false`. If `true` a Show/Hide all button is displayed on top
+- name: items
+  type: array
+  required: true
+  description: Array of accordion items objects.
+  params:
+  - name: headerText
+    type: string
+    required: true
+    description: If `summmaryHtml` is set, this is not required. Text to use within the header element (the visible part of the accordion item element). If `headerHtml` is provided, the `headerText` argument will be ignored.
+  - name: headerHtml
+    type: string
+    required: true
+    description: If `summmaryText` is set, this is not required. HTML to use within the header element (the visible part of the accordion item element). If `headerHtml` is provided, the `headerText` argument will be ignored.
+  - name: text
+    type: string
+    required: true
+    description: If `html` is set, this is not required. Text to use within the disclosed part of the accordion item element. If `html` is provided, the `text` argument will be ignored.
+  - name: html
+    type: string
+    required: true
+    description: If `text` is set, this is not required. HTML to use within the disclosed part of the accordion item element. If `html` is provided, the `text` argument will be ignored.
+  - name: id
+    type: string
+    required: false
+    description: Id to add to the item. Not required, but recommended to improve the accessibility.
+  - name: open
+    type: boolean
+    required: false
+    description: If true, accordion item will be expanded.
+  - name: disabled
+    type: boolean
+    required: false
+    description: If true, accordion item will be disabled and will not show the show/hide control.
+  - name: status
+    type: string
+    required: false
+    description: Available values: `current`,`past`,`pending`,`muted`, `currentmuted`. Defaults to `past`. If `current`, the item will show with primary border and white background. If `past`, the item will show with primary color. If `pending` the item has neutral color and dashed line. If `muted` the item has neutral color and background. `currentmuted` is like `current` but with `muted` styles.
+  - name: show
+    type: object
+    required: false
+    description: Options to customize the show info
+    params:
+    - name: text
+      type: string
+      required: true
+      description: If `html` is set, this is not required. Text to use in show info. If `html` is provided, the `text` argument will be ignored.
+    - name: html
+      type: string
+      required: true
+      description: If `text` is set, this is not required. HTML to use within the show info. If `html` is provided, the `text` argument will be ignored.
+    - name: classes
+      type: string
+      required: false
+      description: Classes to add to the show info.
+  - name: hide
+    type: object
+    required: false
+    description: Options to customize the hide info
+    params:
+    - name: text
+      type: string
+      required: true
+      description: If `html` is set, this is not required. Text to use in hide info. If `html` is provided, the `text` argument will be ignored.
+    - name: html
+      type: string
+      required: true
+      description: If `text` is set, this is not required. HTML to use within the hide info. If `html` is provided, the `text` argument will be ignored.
+    - name: classes
+      type: string
+      required: false
+      description: Classes to add to the hide info.
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the accordion item element.
+  - name: attributes
+    type: object
+    required: false
+    description: HTML attributes (for example data attributes) to add to the accordion item.
+- name: classes
+  type: string
+  required: false
+  description: Classes to add to the accordion container.
+- name: attributes
+  type: object
+  required: false
+  description: HTML attributes (for example data attributes) to add to the accordion container.

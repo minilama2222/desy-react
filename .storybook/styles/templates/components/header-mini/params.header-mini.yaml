@@ -1,0 +1,91 @@
+params:
+- name: logoSrc
+  type: string
+  required: false
+  default: branding.logos.organization.mini
+  description: URL del logo de la organización. Por defecto usa el valor de branding.logos.organization.mini
+- name: logoAlt
+  type: string
+  required: false
+  default: branding.logos.organization.alt
+  description: Texto alternativo del logo. Por defecto usa el valor de branding.logos.organization.alt
+- name: homepageUrl
+  type: string
+  required: false
+  description: The url of the logo link. Defaults to the homepage URL configured in branding or `/`.
+- name: customNavigationHtml
+  type: string
+  required: false
+  description: HTML for the custom navigation area. If provided there will appear an embed area after the logo.
+- name: hasContainer
+  type: boolean
+  required: false
+  description: Defaults to `true`. If `false` the header won't use container class.
+- name: containerClasses
+  type: string
+  required: false
+  description: Classes for the container, useful if you want to make the header fixed width.
+- name: super
+  type: object
+  required: false
+  description: This is an area over the container
+  - name: customNavigationHtml
+    type: string
+    required: false
+    description: HTML for the custom navigation area. If provided there will appear an embed area where you can nest custom navigation under the logo area.
+  - name: backgroundFullColor
+    type: string
+    required: true
+    description: The css color used in the background image that fills all the super area.
+  - name: backgroundFullUrl
+    type: string
+    required: false
+    description: Url used in the background image that fills all the super area.
+  - name: backgroundContainerUrl
+    type: string
+    required: false
+    description: Url used in the background image in the container of the super area and over the backgroundFull.
+  - name: customHtml
+    type: string
+    required: false
+    description: If provided, the default super content will be replaced with this.
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the super.
+- name: sub
+  type: object
+  required: false
+  description: This is an area under the container
+  - name: customNavigationHtml
+    type: string
+    required: false
+    description: HTML for the custom navigation area. If provided there will appear an embed area where you can nest custom navigation under the logo area.
+  - name: backgroundFullColor
+    type: string
+    required: true
+    description: The css color used in the background image that fills all the sub area.
+  - name: backgroundFullUrl
+    type: string
+    required: false
+    description: Url used in the background image that fills all the sub area.
+  - name: backgroundContainerUrl
+    type: string
+    required: false
+    description: Url used in the background image in the container of the sub area and over the backgroundFull.
+  - name: customHtml
+    type: string
+    required: false
+    description: If provided, the default sub content will be replaced with this.
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the sub.
+- name: classes
+  type: string
+  required: false
+  description: Classes to add to the header-mini.
+- name: attributes
+  type: object
+  required: false
+  description: HTML attributes (for example data attributes) to add to the header-mini.

@@ -1,0 +1,132 @@
+/* ==========================================================================
+   _styles.tabs.css
+   ========================================================================== */
+
+@layer components {
+  .c-tabs:not(.c-tabs--reset) .c-tabs__heading {
+    @apply mb-sm
+           text-sm
+           lg:sr-only;
+  }
+
+  .c-tabs:not(.c-tabs--reset) .c-tabs__tabs {
+    @apply lg:relative
+           lg:w-full
+           lg:flex
+           lg:snap-x
+           lg:overflow-x-auto
+           lg:-mb-0.5;
+  }
+
+  .c-tabs:not(.c-tabs--reset) .c-tabs__link {
+    @apply relative
+           flex-none
+           flex
+           items-center
+           py-sm
+           border
+           text-black
+           underline
+           truncate
+           hover:text-primary-base
+           focus:outline-hidden
+           border-transparent
+           lg:px-base
+           lg:py-base
+           lg:snap-start;
+  }
+
+  .c-tabs:not(.c-tabs--reset) .c-tabs__link--is-active {
+    @apply no-underline
+           lg:bg-white
+           lg:border-neutral-base
+           lg:border-b-0
+           lg:rounded-t;
+  }
+
+  .c-tabs:not(.c-tabs--reset) .c-tabs__panel {
+    @apply p-base
+           mt-base
+           border
+           border-neutral-base
+           focus:outline-hidden
+           focus:border-black
+           focus:shadow-outline-focus-input
+           focus:ring-4
+           focus:ring-warning-base
+           lg:mt-px;
+  }
+
+  .c-tabs:not(.c-tabs--reset) .c-tabs__panel-heading {
+    @apply lg:sr-only;
+  }
+
+  .c-tabs--scroll:not(.c-tabs--reset) {
+    .c-tabs__heading {
+      @apply sr-only;
+    }
+
+    .c-tabs__tabs {
+      @apply relative
+             w-full
+             flex
+             snap-x
+             overflow-x-auto
+             -mb-0.5;
+    }
+
+    .c-tabs__link {
+      @apply snap-start
+             px-lg
+             py-base
+             border;
+    }
+
+    .c-tabs__link--is-active {
+      @apply no-underline
+             bg-white
+             border-neutral-base
+             border-b-0
+             rounded-t;
+    }
+
+    .c-tabs__panel {
+      @apply mt-px;
+    }
+
+    .c-tabs__panel-heading {
+      @apply sr-only;
+    }
+  }
+
+  .c-tabs--list {
+    .c-tabs__heading {
+      @apply mb-sm
+             text-sm
+             lg:sr-only;
+    }
+
+    .c-tabs__link {
+      @apply relative
+             focus:outline-hidden
+             lg:px-base;
+
+      & > span,
+      & > strong {
+        @apply flex
+               items-center
+               flex-1
+               py-sm
+               lg:py-base;
+
+        & > span {
+          @apply w-full;
+        }
+      }
+    }
+
+    .c-tabs__panel-heading {
+      @apply sr-only;
+    }
+  }
+}

@@ -1,0 +1,559 @@
+{% set exampleComponent = "input-group" %}
+{% set examples =  [
+  {
+    "name": "por defecto",
+    "data": {
+      "id": "doc-identidad-1",
+      "namePrefix": "doc-identidad",
+      "fieldset": {
+        "legend": {
+          "text": "Documento de identidad"
+        }
+      },
+      "items": [
+        {
+          "name": "tipo-doc",
+          "formGroup": {
+            "classes": "mr-base"
+          },
+          "classes": "w-full lg:w-auto",
+          "label": {
+            "text": "Tipo"
+          },
+          "isSelect": true,
+          "selectItems": [
+            {
+              "value": 1,
+              "text": "NIF",
+              "selected": true
+            },
+            {
+              "value": 2,
+              "text": "Pasaporte"
+            }
+          ]
+        },
+        {
+          "name": "num-doc",
+          "classes": "w-full lg:w-64",
+          "label": {
+            "text": "Número"
+          },
+          "placeholder": "Ej: 28999876V"
+        }
+      ]
+    },
+    "visualDescription": "Sección con título en negrita negro arriba. Contiene label negro, dropdown con borde gris de 1px y fondo blanco, e input de texto con borde gris de 1px y fondo blanco mostrando placeholder. Los campos están alineados horizontalmente en una fila.",
+    "_generated": {
+      "hash": "07bdad60b63d8db9def45298dd26187c",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:00:55.072Z"
+    }
+  },
+  {
+    "name": "con pista",
+    "data": {
+      "id": "doc-identidad-2",
+      "namePrefix": "doc-identidad",
+      "fieldset": {
+        "legend": {
+          "text": "Documento de identidad"
+        }
+      },
+      "hint": {
+        "text": "Selecciona tu tipo de documento e introduce el número de documento sin espacios"
+      },
+      "items": [
+        {
+          "name": "tipo-doc",
+          "formGroup": {
+            "classes": "mr-base"
+          },
+          "classes": "w-full lg:w-auto",
+          "label": {
+            "text": "Tipo"
+          },
+          "isSelect": true,
+          "selectItems": [
+            {
+              "value": 1,
+              "text": "NIF",
+              "selected": true
+            },
+            {
+              "value": 2,
+              "text": "Pasaporte"
+            }
+          ]
+        },
+        {
+          "name": "num-doc",
+          "classes": "w-full lg:w-64",
+          "label": {
+            "text": "Número"
+          },
+          "placeholder": "Ej: 28999876V"
+        }
+      ]
+    },
+    "visualDescription": "Sección con título en negrita negro arriba seguido de texto descriptivo gris claro en dos líneas. Contiene label negro, dropdown con borde gris de 1px y fondo blanco, e input de texto con borde gris de 1px y fondo blanco mostrando placeholder. Los campos están alineados horizontalmente.",
+    "_generated": {
+      "hash": "d7e68d8683fe1823d682559bebb22f19",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:00:55.072Z"
+    }
+  },
+  {
+    "name": "con divisor",
+    "data": {
+      "id": "with-divider",
+      "namePrefix": "with-divider",
+      "fieldset": {
+        "legend": {
+          "text": "Introduce cantidad"
+        }
+      },
+      "items": [
+        {
+          "name": "num-doc-A",
+          "classes": "w-full lg:w-64 lg:flex-1",
+          "formGroup": {
+            "classes": "lg:flex lg:flex-wrap lg:items-center lg:gap-x-base lg:mb-0"
+          },
+          "label": {
+            "text": "Desde:",
+            "classes": "lg:py-sm lg:mt-sm"
+          },
+          "placeholder": "Ej: 0"
+        },
+        {
+          "divider": {
+            "html": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140' class='self-center ml-2' aria-hidden='true' focusable='false' width='1em' height='1em'><path d='M102.07 27.93l35 35a10 10 0 010 14.14l-35 35a10 10 0 01-14.14-14.14l13.66-13.66A2.5 2.5 0 0099.82 80H10a10 10 0 010-20h89.82a2.5 2.5 0 001.77-4.27L87.93 42.07a10 10 0 0114.14-14.14z' fill='currentColor'></path></svg>",
+            "classes": "hidden lg:block mt-sm"
+          }
+        },
+        {
+          "name": "num-doc-B",
+          "classes": "w-full lg:w-64 lg:flex-1",
+          "formGroup": {
+            "classes": "lg:flex lg:flex-wrap lg:items-center lg:gap-x-base"
+          },
+          "label": {
+            "text": "Hasta:",
+            "classes": "lg:py-sm lg:mt-sm"
+          },
+          "placeholder": "Ej: 600"
+        }
+      ],
+      "classes": "lg:flex lg:flex-wrap lg:items-center lg:gap-x-base"
+    },
+    "visualDescription": "Sección con título en negrita negro arriba y subtítulo negro debajo. Contiene label negro, input de texto con borde gris de 1px y fondo blanco, flecha negra como separador, otro label negro, e input de texto con borde gris de 1px y fondo blanco. Los elementos están alineados horizontalmente en secuencia.",
+    "_generated": {
+      "hash": "01a63db5bc3c89ea80ca7b86aee9a42e",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:00:55.072Z"
+    }
+  },
+  {
+    "name": "con errores",
+    "data": {
+      "id": "datos-errors",
+      "fieldset": {
+        "legend": {
+          "text": "Datos del solicitante"
+        }
+      },
+      "hint": {
+        "text": "Necesitamos tus datos para identificarte posteriormente."
+      },
+      "errorMessage": {
+        "text": "El campo Nombre y el campo Apellidos no pueden estar vacíos."
+      },
+      "items": [
+        {
+          "isSelect": true,
+          "name": "titulo",
+          "label": {
+            "text": "Titulo"
+          },
+          "formGroup": {
+            "classes": "mr-base"
+          },
+          "classes": "w-20",
+          "isSelect": true,
+          "selectItems": [
+            {
+              "value": 1,
+              "text": "Sr.",
+              "selected": true
+            },
+            {
+              "value": 2,
+              "text": "Sra."
+            }
+          ]
+        },
+        {
+          "name": "nombre",
+          "label": {
+            "text": "Nombre"
+          },
+          "formGroup": {
+            "classes": "mr-base"
+          },
+          "classes": "w-full lg:w-40 border-alert-base ring-2 ring-alert-base",
+          "attributes": {
+            "aria-describedby": "datos-errors-hint datos-errors-error",
+            "aria-errormessage": "datos-errors-error",
+            "aria-invalid": "true"
+          }
+        },
+        {
+          "name": "apellidos",
+          "label": {
+            "text": "Apellidos"
+          },
+          "classes": "w-full lg:w-40 border-alert-base ring-2 ring-alert-base",
+          "attributes": {
+            "aria-describedby": "datos-errors-hint datos-errors-error",
+            "aria-errormessage": "datos-errors-error",
+            "aria-invalid": "true"
+          }
+        }
+      ]
+    },
+    "visualDescription": "Formulario con encabezado negro, texto descriptivo gris, y mensaje de error en rojo indicando que dos campos no pueden estar vacíos. Tres campos de entrada: un dropdown con fondo gris claro, y dos campos de texto vacíos con bordes rojos de 2px. Labels en negro posicionados sobre cada campo.",
+    "_generated": {
+      "hash": "98642d6b98ec5de65e7da1ee0f982ee7",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:01:04.723Z"
+    }
+  },
+  {
+    "name": "con error en el nombre",
+    "data": {
+      "id": "datos-error-nombre-a",
+      "fieldset": {
+        "legend": {
+          "text": "Datos del solicitante"
+        }
+      },
+      "hint": {
+        "text": "Necesitamos tus datos para identificarte posteriormente."
+      },
+      "errorMessage": {
+        "text": "El campo Nombre no puede estar vacío."
+      },
+      "items": [
+        {
+          "isSelect": true,
+          "name": "titulo",
+          "label": {
+            "text": "Titulo"
+          },
+          "formGroup": {
+            "classes": "mr-base"
+          },
+          "classes": "w-20",
+          "isSelect": true,
+          "selectItems": [
+            {
+              "value": 1,
+              "text": "Sr.",
+              "selected": true
+            },
+            {
+              "value": 2,
+              "text": "Sra."
+            }
+          ]
+        },
+        {
+          "name": "nombre",
+          "label": {
+            "text": "Nombre"
+          },
+          "formGroup": {
+            "classes": "mr-base"
+          },
+          "classes": "w-full lg:w-40 border-alert-base ring-2 ring-alert-base",
+          "attributes": {
+            "aria-describedby": "datos-error-nombre-a-hint datos-error-nombre-a-error",
+            "aria-errormessage": "datos-error-nombre-a-error",
+            "aria-invalid": "true"
+          }
+        },
+        {
+          "name": "apellidos",
+          "label": {
+            "text": "Apellidos"
+          },
+          "classes": "w-full lg:w-auto"
+        }
+      ]
+    },
+    "visualDescription": "Formulario con encabezado negro, texto descriptivo gris, y mensaje de error en rojo indicando que un campo no puede estar vacío. Tres campos de entrada: un dropdown con fondo gris claro, un campo de texto vacío con borde rojo de 2px, y un campo de texto vacío con borde gris estándar. Labels en negro sobre cada campo.",
+    "_generated": {
+      "hash": "a379cedc1068c0db35ca5e20fa9b9e77",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:01:04.723Z"
+    }
+  },
+  {
+    "name": "con error en los apellidos",
+    "data": {
+      "id": "datos-error-nombre-b",
+      "fieldset": {
+        "legend": {
+          "text": "Datos del solicitante"
+        }
+      },
+      "hint": {
+        "text": "Necesitamos tus datos para identificarte posteriormente."
+      },
+      "errorMessage": {
+        "text": "El campo Apellidos no puede esta vacío."
+      },
+      "items": [
+        {
+          "isSelect": true,
+          "name": "titulo",
+          "label": {
+            "text": "Titulo"
+          },
+          "formGroup": {
+            "classes": "mr-base"
+          },
+          "classes": "w-20",
+          "isSelect": true,
+          "selectItems": [
+            {
+              "value": 1,
+              "text": "Sr.",
+              "selected": true
+            },
+            {
+              "value": 2,
+              "text": "Sra."
+            }
+          ]
+        },
+        {
+          "name": "nombre",
+          "label": {
+            "text": "Nombre"
+          },
+          "formGroup": {
+            "classes": "mr-base"
+          },
+          "classes": "w-full lg:w-auto"
+        },
+        {
+          "name": "apellidos",
+          "label": {
+            "text": "Apellidos"
+          },
+          "classes": "w-full lg:w-40 border-alert-base ring-2 ring-alert-base",
+          "attributes": {
+            "aria-describedby": "datos-error-nombre-b-hint datos-error-nombre-b-error",
+            "aria-errormessage": "datos-error-nombre-b-error",
+            "aria-invalid": "true"
+          }
+        }
+      ]
+    },
+    "visualDescription": "Formulario con encabezado negro, texto descriptivo gris, y mensaje de error en rojo indicando que un campo no puede estar vacío. Tres campos de entrada: un dropdown con fondo gris claro, un campo de texto vacío con borde gris estándar, y un campo de texto vacío con borde rojo de 2px. Labels en negro posicionados sobre cada campo respectivo.",
+    "_generated": {
+      "hash": "d71542f407ca2646b7d41cd5899a766e",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:01:04.723Z"
+    }
+  },
+  {
+    "name": "Con clases de form-group opcionales y más clases",
+    "data": {
+      "id": "doc-identidad-classes",
+      "namePrefix": "doc-identidad-classes",
+      "fieldset": {
+        "legend": {
+          "text": "Documento de identidad",
+          "classes": "c-h2"
+        }
+      },
+      "formGroup": {
+        "classes": "p-base bg-primary-light"
+      },
+      "classes": "grid grid-cols-2 gap-lg",
+      "items": [
+        {
+          "name": "tipo-doc",
+          "formGroup": {
+            "classes": "lg:border-r lg:border-neutral-base mb-0"
+          },
+          "classes": "w-full lg:w-40",
+          "label": {
+            "text": "Tipo",
+            "classes": "text-sm"
+          },
+          "isSelect": true,
+          "selectItems": [
+            {
+              "value": 1,
+              "text": "NIF",
+              "selected": true
+            },
+            {
+              "value": 2,
+              "text": "Pasaporte"
+            }
+          ]
+        },
+        {
+          "name": "num-doc",
+          "classes": "w-full lg:w-64",
+          "label": {
+            "text": "Número",
+            "classes": "text-sm"
+          },
+          "placeholder": "Ej: 28999876V"
+        }
+      ]
+    },
+    "visualDescription": "Sección con fondo azul claro conteniendo un formulario de documento de identidad. Incluye dropdown con fondo blanco y borde gris, campo de texto con placeholder numérico de ejemplo con borde gris. Labels en texto negro pequeño, disposición horizontal de los campos.",
+    "_generated": {
+      "hash": "54183d8d313da2f3d5c1fad3c46d79ff",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:01:15.085Z"
+    }
+  },
+  {
+    "name": "con autocompletado",
+    "description": "Usa el parámetro <code>autocomplete</code> en los campos que piden datos del usuario para cumplir con las especificaciones de accesibilidad.",
+    "data": {
+      "id": "datos-autocomplete",
+      "fieldset": {
+        "legend": {
+          "text": "Datos del solicitante"
+        }
+      },
+      "items": [
+        {
+          "isSelect": true,
+          "name": "titulo",
+          "label": {
+            "text": "Titulo"
+          },
+          "formGroup": {
+            "classes": "mr-base"
+          },
+          "classes": "w-20",
+          "isSelect": true,
+          "selectItems": [
+            {
+              "value": 1,
+              "text": "Sr.",
+              "selected": true
+            },
+            {
+              "value": 2,
+              "text": "Sra."
+            }
+          ]
+        },
+        {
+          "name": "nombre",
+          "label": {
+            "text": "Nombre"
+          },
+          "formGroup": {
+            "classes": "mr-base"
+          },
+          "classes": "w-full lg:w-auto",
+          "autocomplete": "given-name"
+        },
+        {
+          "name": "apellidos",
+          "label": {
+            "text": "Apellidos"
+          },
+          "classes": "w-full lg:w-auto",
+          "autocomplete": "family-name"
+        }
+      ]
+    },
+    "visualDescription": "Formulario con fondo blanco y título h3 negro. Contiene dropdown \"Sr.\" con borde gris oscuro, dos campos de texto rectangulares con bordes grises para nombre y apellidos. Labels en texto negro pequeño posicionados encima de cada campo, layout horizontal de inputs.",
+    "_generated": {
+      "hash": "19f397b54c17cd0d0398a39fbbf5a273",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:01:15.085Z"
+    }
+  },
+  {
+    "name": "con atributos de input",
+    "data": {
+      "id": "datos-attributes",
+      "fieldset": {
+        "legend": {
+          "text": "Datos del solicitante"
+        }
+      },
+      "items": [
+        {
+          "isSelect": true,
+          "name": "titulo",
+          "label": {
+            "text": "Titulo"
+          },
+          "formGroup": {
+            "classes": "mr-base"
+          },
+          "classes": "w-20",
+          "attributes": {
+            "data-title": "titulo"
+          },
+          "isSelect": true,
+          "selectItems": [
+            {
+              "value": 1,
+              "text": "Sr.",
+              "selected": true
+            },
+            {
+              "value": 2,
+              "text": "Sra."
+            }
+          ]
+        },
+        {
+          "name": "nombre",
+          "label": {
+            "text": "Nombre"
+          },
+          "formGroup": {
+            "classes": "mr-base"
+          },
+          "classes": "w-full lg:w-auto",
+          "attributes": {
+            "data-name": "nombre"
+          }
+        },
+        {
+          "name": "apellidos",
+          "label": {
+            "text": "Apellidos"
+          },
+          "classes": "w-full lg:w-auto",
+          "attributes": {
+            "data-surname": "apellidos"
+          }
+        }
+      ]
+    },
+    "visualDescription": "Sección con fondo blanco y encabezado h3 en texto negro. Presenta dropdown \"Sr.\" con borde gris oscuro de 1px, dos campos de entrada de texto blancos con bordes grises para datos personales. Labels negros pequeños sobre cada campo, disposición en fila de los elementos del formulario.",
+    "_generated": {
+      "hash": "37883fe43c1f5355d8d1bb8f13ba5fc8",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:01:15.085Z"
+    }
+  }
+] %}

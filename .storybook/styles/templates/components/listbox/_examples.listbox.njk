@@ -1,0 +1,812 @@
+{% set exampleComponent = "listbox" %}
+{% set examples =  [
+    {
+      "name": "por defecto",
+      "data": {
+        "id": "default",
+        "text": "Por defecto",
+        "label": {
+          "text": "Esto es un label"
+        },
+        "items": [
+          {
+            "href": "#",
+            "html": "Option 1"
+          },
+          {
+            "href": "#",
+            "text": "Opción 2"
+          },
+          {
+            "href": "#",
+            "text": "Opción 3"
+          },
+          {
+            "href": "#",
+            "text": "Opción 4"
+          },
+          {
+            "href": "#",
+            "text": "Opción 5"
+          }
+        ]
+      },
+    "visualDescription": "Listbox con borde gris de 1px y fondo blanco. Contiene un título en texto negro tamaño estándar, un label descriptivo en texto negro regular, y un botón dropdown con texto en negro con flecha hacia abajo. El botón tiene borde gris claro y esquinas redondeadas.",
+    "_generated": {
+      "hash": "b56179415d13699c386407c4f144b21a",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:04:29.014Z"
+    }
+    },
+    {
+      "name": "con estado activo",
+      "description": "Simula activar la pseudo-clase de CSS <code>:active</code>. En realidad sólo se usa para documentar estos ejemplos.",
+      "data": {
+        "id": "with-active-state",
+        "text": "Activo",
+        "label": {
+          "text": "Esto es un label"
+        },
+        "classes": "ds-active",
+        "items": [
+          {
+            "href": "#",
+            "text": "Opción 1"
+          },
+          {
+            "href": "#",
+            "text": "Opción 2"
+          },
+          {
+            "href": "#",
+            "text": "Opción 3"
+          },
+          {
+            "href": "#",
+            "text": "Opción 4"
+          },
+          {
+            "href": "#",
+            "text": "Opción 5"
+          }
+        ]
+      },
+    "visualDescription": "Listbox con borde gris de 1px y fondo blanco. Contiene un título en texto negro tamaño estándar, un label descriptivo en texto negro regular, y un botón dropdown con texto en azul con flecha hacia abajo. El botón tiene borde azul y esquinas redondeadas, indicando selección activa.",
+    "_generated": {
+      "hash": "e113cf3a8c6b3da9de4d0c4d3960157c",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:04:29.014Z"
+    }
+    },
+    {
+      "name": "con estado hover",
+      "description": "Simula activar la pseudo-clase de CSS <code>:hover</code>. En realidad sólo se usa para documentar estos ejemplos.",
+      "data": {
+        "id": "with-hover-state",
+        "text": "Hover",
+        "label": {
+          "text": "Esto es un label"
+        },
+        "classes": "ds-hover",
+        "items": [
+          {
+            "href": "#",
+            "text": "Opción 1"
+          },
+          {
+            "href": "#",
+            "text": "Opción 2"
+          },
+          {
+            "href": "#",
+            "text": "Opción 3"
+          },
+          {
+            "href": "#",
+            "text": "Opción 4"
+          },
+          {
+            "href": "#",
+            "text": "Opción 5"
+          }
+        ]
+      },
+    "visualDescription": "Listbox con borde gris de 1px y fondo blanco. Contiene un título en texto negro tamaño estándar, un label descriptivo en texto negro regular, y un botón dropdown con texto en negro con flecha hacia abajo. El botón tiene borde gris y esquinas redondeadas en estado de interacción al pasar cursor.",
+    "_generated": {
+      "hash": "41d78ff6a7234333c40613dee1a72cf4",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:04:29.014Z"
+    }
+    },
+    {
+      "name": "con estado focus",
+      "description": "Simula activar la pseudo-clase de CSS <code>:focus</code>. En realidad sólo se usa para documentar estos ejemplos.",
+      "data": {
+        "id": "with-focus-state",
+        "text": "Focus",
+        "label": {
+          "text": "Esto es un label"
+        },
+        "classes": "ds-focus",
+        "items": [
+          {
+            "href": "#",
+            "text": "Opción 1"
+          },
+          {
+            "href": "#",
+            "text": "Opción 2"
+          },
+          {
+            "href": "#",
+            "text": "Opción 3"
+          },
+          {
+            "href": "#",
+            "text": "Opción 4"
+          },
+          {
+            "href": "#",
+            "text": "Opción 5"
+          }
+        ]
+      },
+    "visualDescription": "Listbox con borde gris claro, fondo blanco, label en texto negro arriba del componente. Botón rectangular con texto negro sobre fondo amarillo intenso, borde negro fino, esquinas ligeramente redondeadas. El botón muestra indicador de desplegable.",
+    "_generated": {
+      "hash": "456df9bd7520f6b8920ff7c19892614d",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:04:37.062Z"
+    }
+    },
+    {
+      "name": "primario",
+      "description": "Para acciones primarias.",
+      "data": {
+        "id": "primary",
+        "text": "Primario",
+        "label": {
+          "text": "Esto es un label"
+        },
+        "classes": "c-listbox--primary",
+        "items": [
+          {
+            "href": "#",
+            "text": "Opción 1"
+          },
+          {
+            "href": "#",
+            "text": "Opción 2"
+          },
+          {
+            "href": "#",
+            "text": "Opción 3"
+          },
+          {
+            "href": "#",
+            "text": "Opción 4"
+          },
+          {
+            "href": "#",
+            "text": "Opción 5"
+          }
+        ]
+      },
+    "visualDescription": "Listbox con borde gris claro, fondo blanco, label en texto negro arriba del componente. Botón rectangular con texto blanco sobre fondo azul oscuro(teal/petróleo) , esquinas ligeramente redondeadas. El botón muestra indicador de desplegable.",
+    "_generated": {
+      "hash": "5967e56ef0d923f90eefe8164cf7b0cd",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:04:37.062Z"
+    }
+    },
+    {
+      "name": "transparente",
+      "data": {
+        "id": "transparent",
+        "text": "Transparente",
+        "label": {
+          "text": "Esto es un label"
+        },
+        "classes": "c-listbox--transparent",
+        "items": [
+          {
+            "href": "#",
+            "text": "Opción 1"
+          },
+          {
+            "href": "#",
+            "text": "Opción 2"
+          },
+          {
+            "href": "#",
+            "text": "Opción 3"
+          },
+          {
+            "href": "#",
+            "text": "Opción 4"
+          },
+          {
+            "href": "#",
+            "text": "Opción 5"
+          }
+        ]
+      },
+    "visualDescription": "Listbox con borde gris claro, fondo blanco, label en texto negro arriba del componente. Enlace de texto en color azul(teal) con indicador de desplegable, sin fondo ni borde visible. El enlace aparece subrayado indicando interactividad.",
+    "_generated": {
+      "hash": "c8c22c0daf0639cf13f219d880229db1",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:04:37.062Z"
+    }
+    },
+    {
+      "name": "Con estilos de cabecera",
+      "data": {
+        "id": "header",
+        "text": "Header",
+        "label": {
+          "text": "Esto es un label",
+          "classes": "sr-only"
+        },
+        "classes": "c-listbox--header",
+        "items": [
+          {
+            "href": "#",
+            "text": "Opción 1"
+          },
+          {
+            "href": "#",
+            "text": "Opción 2"
+          },
+          {
+            "href": "#",
+            "text": "Opción 3"
+          },
+          {
+            "href": "#",
+            "text": "Opción 4"
+          },
+          {
+            "href": "#",
+            "text": "Opción 5"
+          }
+        ]
+      },
+    "visualDescription": "Listbox con borde gris claro de 1px, fondo blanco, conteniendo un label en texto negro regular pequeño arriba. Botón desplegable en texto negro con fondo blanco y borde gris de 1px, incluyendo un ícono de flecha hacia abajo a la derecha.",
+    "_generated": {
+      "hash": "804758f035b36dc3cb7866f8f2d1e80e",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:04:45.911Z"
+    }
+    },
+    {
+      "name": "peque",
+      "description": "Label solo visible para lectores de pantalla.",
+      "data": {
+        "id": "small",
+        "text": "Peque con texto muy largo",
+        "label": {
+          "text": "Esto es un label",
+          "classes": "sr-only"
+        },
+        "classes": "c-listbox--sm",
+        "items": [
+          {
+            "href": "#",
+            "text": "Opción 1"
+          },
+          {
+            "href": "#",
+            "text": "Opción 2"
+          },
+          {
+            "href": "#",
+            "text": "Opción 3"
+          },
+          {
+            "href": "#",
+            "text": "Opción 4"
+          },
+          {
+            "href": "#",
+            "text": "Opción 5"
+          }
+        ]
+      },
+    "visualDescription": "Listbox con borde gris claro de 1px, fondo blanco, conteniendo un label en texto negro regular pequeño arriba. Botón desplegable con texto largo en negro sobre fondo blanco, borde gris de 1px, y flecha hacia abajo a la derecha del texto.",
+    "_generated": {
+      "hash": "23632c5d8946a2323576ae4a83a8af54",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:04:45.911Z"
+    }
+    },
+    {
+      "name": "grande",
+      "description": "Label solo visible para lectores de pantalla.",
+      "data": {
+        "id": "large",
+        "text": "Grande",
+        "label": {
+          "text": "Esto es un label",
+          "classes": "sr-only"
+        },
+        "classes": "c-listbox--lg",
+        "items": [
+          {
+            "href": "#",
+            "text": "Opción 1"
+          },
+          {
+            "href": "#",
+            "text": "Opción 2"
+          },
+          {
+            "href": "#",
+            "text": "Opción 3"
+          },
+          {
+            "href": "#",
+            "text": "Opción 4"
+          },
+          {
+            "href": "#",
+            "text": "Opción 5"
+          }
+        ]
+      },
+    "visualDescription": "Listbox con borde gris claro de 1px, fondo blanco, conteniendo un label en texto negro regular pequeño arriba. Botón desplegable en texto negro sobre fondo blanco con borde gris de 1px y ícono de flecha hacia abajo a la derecha.",
+    "_generated": {
+      "hash": "4869e9f41ccf8a26329492063207a5dd",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:04:45.911Z"
+    }
+    },
+    {
+      "name": "peque tiene selección",
+      "description": "Un botón con una selección aplicada se muestra con color. Label solo visible para lectores de pantalla.",
+      "data": {
+        "id": "small-has-selection",
+        "text": "Peque con texto muy largo",
+        "label": {
+          "text": "Esto es un label",
+          "classes": "sr-only"
+        },
+        "classes": "c-listbox--has-selection c-listbox--sm",
+        "items": [
+          {
+            "href": "#",
+            "text": "Opción 1"
+          },
+          {
+            "href": "#",
+            "text": "Opción 2"
+          },
+          {
+            "href": "#",
+            "text": "Opción 3"
+          },
+          {
+            "href": "#",
+            "text": "Opción 4"
+          },
+          {
+            "href": "#",
+            "text": "Opción 5"
+          }
+        ]
+      },
+    "visualDescription": "Listbox con fondo blanco y borde gris de 1px. Contiene un botón desplegable con texto azul oscuro y un ícono de flecha hacia abajo a la derecha. El botón tiene padding interno y esquinas ligeramente redondeadas.",
+    "_generated": {
+      "hash": "2be911291033ff8f5a16ab598f9e6811",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:04:55.744Z"
+    }
+    },
+    {
+      "name": "deshabilitado",
+      "data": {
+        "id": "disabled",
+        "text": "Deshabilitado",
+        "label": {
+          "text": "Esto es un label"
+        },
+        "disabled": true,
+        "items": [
+          {
+            "href": "#",
+            "text": "Opción 1"
+          },
+          {
+            "href": "#",
+            "text": "Opción 2"
+          },
+          {
+            "href": "#",
+            "text": "Opción 3"
+          },
+          {
+            "href": "#",
+            "text": "Opción 4"
+          },
+          {
+            "href": "#",
+            "text": "Opción 5"
+          }
+        ]
+      },
+    "visualDescription": "Listbox con encabezado en texto gris oscuro y subtexto descriptivo en gris medio debajo. Contiene un botón desplegable con texto gris claro, fondo gris muy tenue, y flecha hacia abajo desaturada. El botón aparece sin interactividad visual, con opacidad reducida.",
+    "_generated": {
+      "hash": "66b18da8f5ddd34b734c365189624fb4",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:04:55.744Z"
+    }
+    },
+    {
+      "name": "Con clases de css aplicadas al container",
+      "description": "Tanto el botón como los elementos del tooltip están rodeados de un div contenedor al que se le pueden aplicar estilos de CSS.",
+      "data": {
+        "id": "classes-applied-to-container-element",
+        "text": "Clases en container",
+        "label": {
+          "text": "Esto es un label"
+        },
+        "classesContainer": "inline-block p-base bg-primary-light",
+        "items": [
+          {
+            "href": "#",
+            "text": "Opción 1"
+          },
+          {
+            "href": "#",
+            "text": "Opción 2"
+          },
+          {
+            "href": "#",
+            "text": "Opción 3"
+          },
+          {
+            "href": "#",
+            "text": "Opción 4"
+          },
+          {
+            "href": "#",
+            "text": "Opción 5"
+          }
+        ]
+      },
+    "visualDescription": "Listbox con encabezado en texto negro y subtexto descriptivo en gris oscuro debajo. Contiene un botón desplegable con texto en color turquesa/cyan, fondo cyan muy claro, y flecha hacia abajo del mismo color turquesa. El botón tiene borde cyan de 1px y padding interno visible.",
+    "_generated": {
+      "hash": "d36f38a4497ea12d11a18253d7611653",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:04:55.744Z"
+    }
+    },
+    {
+      "name": "Clases aplicadas al contenido del tooltip",
+      "description": "El contenido del tooltip puede tener clases adicionales aplicadas. En este ejemplo se le ha aplicado una altura máxima y scroll vertical si el contenido se desborda.",
+      "data": {
+        "id": "classes-applied-to-tooltip-content",
+        "text": "Clases al contenido del tooltip",
+        "label": {
+          "text": "Esto es un label"
+        },
+        "classesTooltip": "max-h-24 overflow-y-auto",
+        "items": [
+          {
+            "href": "#",
+            "text": "Opción 1"
+          },
+          {
+            "href": "#",
+            "text": "Opción 2"
+          },
+          {
+            "href": "#",
+            "text": "Opción 3"
+          },
+          {
+            "href": "#",
+            "text": "Opción 4"
+          },
+          {
+            "href": "#",
+            "text": "Opción 5"
+          }
+        ]
+      },
+    "visualDescription": "Sección con borde gris claro de 1px y fondo blanco. Título en negro tamaño mediano, seguido de label en texto negro regular. Botón dropdown con texto azul y flecha hacia abajo a la derecha.",
+    "_generated": {
+      "hash": "825faf59d2e0cec20bb4aee58c108159",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:05:04.650Z"
+    }
+    },
+    {
+      "name": "Clases aplicadas a varios elementos",
+      "description": "En este ejemplo, usando clases de CSS, la anchura del contenido establece la anchura del tooltip.",
+      "data": {
+        "id": "classes-applied-to-various-elements",
+        "text": "Listbox de anchura completa",
+        "label": {
+          "text": "Esto es un label",
+          "classes": "font-semibold text-sm"
+        },
+        "classes": "w-full justify-between",
+        "classesTooltip": "w-max max-h-64 overflow-y-auto",
+        "items": [
+          {
+            "href": "#",
+            "text": "Opción 1"
+          },
+          {
+            "href": "#",
+            "text": "Opción 2"
+          },
+          {
+            "href": "#",
+            "text": "Opción 3"
+          },
+          {
+            "href": "#",
+            "text": "Opción 4"
+          },
+          {
+            "href": "#",
+            "text": "Opción 5"
+          }
+        ]
+      },
+    "visualDescription": "Sección con borde gris claro de 1px y fondo blanco. Título en negro tamaño mediano, seguido de label en texto negro regular. Campo de entrada tipo combobox con texto negro y flecha hacia abajo a la derecha, ocupando ancho completo.",
+    "_generated": {
+      "hash": "fc6f9c72554f4571d1c4599cf7fb7cdc",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:05:04.651Z"
+    }
+    },
+    {
+      "name": "con item activo",
+      "description": "Podemos seleccionar inicialmente un item si le añadimos el parámetro <code>'active': true</code>. También puedes usar con javascript la función global <code>activateItemListBox(elementMenu, activeItemId)</code> para seleccionar un item, usando sus ids. Ej: Abre la consola del navegador y escribe <code>activateItemListBox('listbox', 'with-active-item-listbox-item-2')</code> para seleccionar el segundo item de este ejemplo.",
+      "data": {
+        "id": "with-active-item",
+        "text": "con item activo",
+        "label": {
+          "text": "Esto es un label"
+        },
+        "items": [
+          {
+            "href": "#",
+            "text": "Opción 1"
+          },
+          {
+            "href": "#",
+            "text": "Opción 2"
+          },
+          {
+            "href": "#",
+            "text": "Opción 3"
+          },
+          {
+            "href": "#",
+            "text": "Opción 4 activa",
+            "active": true
+          },
+          {
+            "href": "#",
+            "text": "Opción 5"
+          }
+        ],
+        "attributes": {
+          "id": "listbox"
+        }
+      },
+    "visualDescription": "Sección con borde gris claro de 1px y fondo blanco. Label en texto negro regular. Botón dropdown con texto azul y flecha hacia abajo a la derecha, formato compacto.",
+    "_generated": {
+      "hash": "867896813517c7e5619284e8b91517b4",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:05:04.651Z"
+    }
+    },
+    {
+      "name": "Permite selecciones múltiples",
+      "description": "Usa el parámetro <code>'isMultiselectable': true</code>. En este caso al seleccionar un item el elemento no se cerrará. También puedes usar con javascript la función global <code>activateItemListBox(elementMenu, activeItemId)</code> para seleccionar varios items, usando sus ids. Ej: Abre la consola del navegador y escribe <code>activateItemListBox('listbox-multiple', ['is-multiselectable-listbox-item-2', 'is-multiselectable-listbox-item-3'])</code> para seleccionar el segundo y el tercer item de este ejemplo.",
+      "data": {
+        "id": "is-multiselectable",
+        "isMultiselectable": true,
+        "text": "Selecciones múltiples",
+        "label": {
+          "text": "Esto es un label"
+        },
+        "items": [
+          {
+            "href": "#",
+            "text": "Opción 1"
+          },
+          {
+            "href": "#",
+            "text": "Opción 2"
+          },
+          {
+            "href": "#",
+            "text": "Opción 3"
+          },
+          {
+            "href": "#",
+            "text": "Opción 4"
+          },
+          {
+            "href": "#",
+            "text": "Opción 5"
+          }
+        ],
+        "attributes": {
+          "id": "listbox-multiple"
+        }
+      },
+    "visualDescription": "Rectángulo con borde gris de 1px y fondo blanco contiene un label en texto gris oscuro tamaño pequeño seguido de un botón desplegable azul con flecha hacia abajo. El componente ocupa ancho completo del contenedor con padding interno y el botón tiene bordes redondeados suaves.",
+    "_generated": {
+      "hash": "2e33191fe8d3cbbf23893a4287d65b12",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:05:14.275Z"
+    }
+    },
+    {
+      "name": "Cambia el texto del botón",
+      "description": "Usa el parámetro <code>'doesChangeButtonText': true</code> para hacer que el texto del botón se actualice al seleccionar un item. Si <code>'doesChangeButtonText': true</code>, entonces no tiene efecto",
+      "data": {
+        "id": "does-change-button-text",
+        "text": "Opción 1",
+        "label": {
+          "text": "Esto es un label"
+        },
+        "doesChangeButtonText": true,
+        "items": [
+          {
+            "href": "#",
+            "html": "Option 1"
+          },
+          {
+            "href": "#",
+            "text": "Opción 2"
+          },
+          {
+            "href": "#",
+            "text": "Opción 3"
+          },
+          {
+            "href": "#",
+            "text": "Opción 4"
+          },
+          {
+            "href": "#",
+            "text": "Opción 5"
+          }
+        ]
+      },
+    "visualDescription": "Rectángulo con borde gris de 1px y fondo blanco contiene un label en texto gris oscuro tamaño pequeño seguido de un botón desplegable azul con flecha hacia abajo. El componente ocupa ancho completo del contenedor con padding interno y el botón tiene bordes redondeados suaves.",
+    "_generated": {
+      "hash": "bba5a8decae1dedb9652d9df7b1496e4",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:05:14.275Z"
+    }
+    },
+    {
+      "name": "Con iconos en items",
+      "data": {
+        "id": "icons",
+        "text": "Iconos en items",
+        "label": {
+          "text": "Esto es un label"
+        },
+        "items": [
+          {
+            "href": "#",
+            "html": "Opción 1 <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 14 14' width='1em' height='1em' class='inline-block align-baseline ml-sm' aria-label='Archivo' focusable='false' role='img'><g id='new-file--empty-common-file-content'><path id='Subtract' fill='currentColor' fill-rule='evenodd' d='M7.875 0H2.5C2.10218 0 1.72064 0.158035 1.43934 0.43934C1.15804 0.720644 1 1.10218 1 1.5V12.5C1 12.8978 1.15804 13.2794 1.43934 13.5607C1.72064 13.842 2.10217 14 2.5 14H11.5C11.8978 14 12.2794 13.842 12.5607 13.5607C12.842 13.2794 13 12.8978 13 12.5V5.125H8.5C8.15482 5.125 7.875 4.84518 7.875 4.5V0ZM12.5821 3.875L9.125 0.417893V3.875H12.5821Z' clip-rule='evenodd'></path></g></svg>"
+          },
+          {
+            "href": "#",
+            "html": "Opción 2 <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 14 14'  width='1em' height='1em' class='inline-block align-baseline ml-sm' aria-label='Link' focusable='false' role='img'><g id='link-chain--create-hyperlink-link-make-unlink-connection-chain'><path id='Union-1' fill='currentColor' fill-rule='evenodd' d='M7.6715 2.7426L7.67146 2.74264L6.70715 3.70707C6.31665 4.09761 5.68348 4.09765 5.29293 3.70715C4.90239 3.31665 4.90235 2.68348 5.29285 2.29293L6.25721 1.32847L6.25725 1.32843C8.02849 -0.442809 10.9002 -0.442809 12.6715 1.32843C14.4427 3.09965 14.4427 5.97136 12.6715 7.7426L12.6715 7.74264L11.7071 8.70707C11.3166 9.09761 10.6835 9.09765 10.2929 8.70715C9.90239 8.31664 9.90235 7.68348 10.2929 7.29293L11.2572 6.32847L11.2572 6.32843C12.2474 5.33824 12.2474 3.73283 11.2572 2.74264C10.2671 1.75247 8.66169 1.75245 7.6715 2.7426ZM3.70696 5.29285C4.0975 5.68335 4.09754 6.31652 3.70704 6.70707L2.74268 7.67153L2.74264 7.67157C1.75245 8.66176 1.75245 10.2672 2.74264 11.2574C3.73282 12.2475 5.33819 12.2475 6.32839 11.2574L6.32843 11.2574L7.29274 10.2929C7.68324 9.90239 8.31641 9.90235 8.70696 10.2929C9.0975 10.6834 9.09754 11.3165 8.70704 11.7071L7.74268 12.6715L7.74264 12.6716C5.9714 14.4428 3.09966 14.4428 1.32843 12.6716C-0.442796 10.9003 -0.442809 8.02864 1.32839 6.2574L1.32843 6.25736L2.29274 5.29293C2.68324 4.90239 3.31641 4.90235 3.70696 5.29285ZM9.20711 6.20711C9.59763 5.81658 9.59763 5.18342 9.20711 4.79289C8.81658 4.40237 8.18342 4.40237 7.79289 4.79289L4.79289 7.79289C4.40237 8.18342 4.40237 8.81658 4.79289 9.20711C5.18342 9.59763 5.81658 9.59763 6.20711 9.20711L9.20711 6.20711Z' clip-rule='evenodd'></path></g></svg>"
+          },
+          {
+            "href": "#",
+            "html": "Opción 3 <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 14 14' width='1em' height='1em' class='inline-block align-baseline ml-sm' aria-label='Solicitud' focusable='false' role='img'><g id='clipboard-text--edition-form-task-checklist-edit-clipboard'><path id='Union-2' fill='currentColor' fill-rule='evenodd' d='M5.5 0C4.94772 0 4.5 0.447716 4.5 1V1.5C4.5 2.05229 4.94772 2.5 5.5 2.5H8.5C9.05229 2.5 9.5 2.05229 9.5 1.5V1C9.5 0.447715 9.05229 0 8.5 0H5.5ZM2.75 1H3.25V1.5C3.25 2.74264 4.25736 3.75 5.5 3.75H8.5C9.74264 3.75 10.75 2.74264 10.75 1.5V1H11.25C12.0784 1 12.75 1.67157 12.75 2.5V12.5C12.75 13.3284 12.0784 14 11.25 14H2.75C1.92157 14 1.25 13.3284 1.25 12.5V2.5C1.25 1.67157 1.92157 1 2.75 1ZM3.875 8.50049C3.875 8.15531 4.15482 7.87549 4.5 7.87549H9.5C9.84518 7.87549 10.125 8.15531 10.125 8.50049C10.125 8.84567 9.84518 9.12549 9.5 9.12549H4.5C4.15482 9.12549 3.875 8.84567 3.875 8.50049ZM4.5 10.3755C4.15482 10.3755 3.875 10.6553 3.875 11.0005C3.875 11.3457 4.15482 11.6255 4.5 11.6255H9.5C9.84518 11.6255 10.125 11.3457 10.125 11.0005C10.125 10.6553 9.84518 10.3755 9.5 10.3755H4.5Z' clip-rule='evenodd'></path></g></svg>"
+          }
+        ]
+      },
+    "visualDescription": "Rectángulo con borde gris de 1px y fondo blanco contiene un label en texto gris oscuro tamaño pequeño seguido de un botón desplegable azul con flecha hacia abajo. El componente ocupa ancho completo del contenedor con padding interno y el botón tiene bordes redondeados suaves.",
+    "_generated": {
+      "hash": "63269c0e21c0e2df131a129a2b623858",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:05:14.275Z"
+    }
+    },
+    {
+      "name": "con párrafos en items",
+      "data": {
+        "id": "paragraphs",
+        "text": "Párrafos en items",
+        "label": {
+          "text": "Esto es un label"
+        },
+        "items": [
+          {
+            "href": "#",
+            "html": "Actuaciones previas/preparatorias <p class='text-xs font-normal pointer-events-none'>Consulta previa, actos preparatorios de expediente, bases reguladoras...</p>",
+            "classes": "flex-wrap"
+          },
+          {
+            "href": "#",
+            "html": "Inicio de la tramitación <p class='text-xs font-normal pointer-events-none'>Solicitud, subsanación, declaración responsable, aprobación expediente...</p>",
+            "classes": "flex-wrap"
+          },
+          {
+            "href": "#",
+            "html": "Otros trámites en fase de inicio <p class='text-xs font-normal pointer-events-none'>Documentos que no se puedan asociar a ningún otro tramite en fase de inicio</p>",
+            "classes": "flex-wrap"
+          },
+          {
+            "href": "#",
+            "html": "Participación pública <p class='text-xs font-normal pointer-events-none'>Información pública, alegaciones, audiencia...</p>",
+            "classes": "flex-wrap"
+          },
+          {
+            "href": "#",
+            "html": "Informes sectoriales <p class='text-xs font-normal pointer-events-none'>Informes sectoriales que se emiten en la tramitación por órganos distintos del instructor...</p>",
+            "classes": "flex-wrap"
+          },
+          {
+            "href": "#",
+            "html": "Valoración/Prueba/Licitación <p class='text-xs font-normal pointer-events-none'>Informe de valoración, documentos técnicos de evaluación, peticiones de prueba, documentos fase de licitación, informes propuesta...</p>",
+            "classes": "flex-wrap"
+          }
+        ],
+        classesTooltip: "w-xs!"
+      },
+    "visualDescription": "Componente listbox con borde gris de 1px, fondo blanco, y esquinas ligeramente redondeadas. Contiene un título h3 en negro, seguido de un label en negro tamaño pequeño, y un botón dropdown con texto en azul oscuro con flecha hacia abajo.",
+    "_generated": {
+      "hash": "85cca125cbe408b2d7397b5fa39aea31",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:05:22.468Z"
+    }
+    },
+    {
+      "name": "Menú abierto o cerrado con Javascript",
+      "description": "Podemos abrir o cerrar un menú usando con javascript la función global <code>toggleMenuListbox(elementMenu, open)</code> para abrir o cerrar un menú, usando su id. El parámetro <code>open</code> admite <code>true</code> o <code>false</code>, si le pasamos <code>true</code> abrirá el menú, y si le pasamos <code>false</code> cerrará el menú. Ej: Abre la consola del navegador y escribe <code>toggleMenuListbox('listbox-javascript', true)</code> para abrir el menú de este ejemplo.",
+      "data": {
+        "id": "with-active-unactive-item",
+        "text": "con item activo",
+        "label": {
+          "text": "Esto es un label"
+        },
+        "items": [
+          {
+            "href": "#",
+            "text": "Opción 1"
+          },
+          {
+            "href": "#",
+            "text": "Opción 2"
+          },
+          {
+            "href": "#",
+            "text": "Opción 3"
+          },
+          {
+            "href": "#",
+            "text": "Opción 4"
+          },
+          {
+            "href": "#",
+            "text": "Opción 5",
+            "active": true
+          }
+        ],
+        "attributes": {
+          "id": "listbox-javascript"
+        }
+      },
+    "visualDescription": "Componente listbox con borde gris de 1px, fondo blanco, y esquinas ligeramente redondeadas. Incluye un título h3 en negro, un label en negro tamaño pequeño debajo, y un botón dropdown con texto en azul oscuro acompañado de una flecha hacia abajo a la derecha.",
+    "_generated": {
+      "hash": "d4ae482982aee942093356db02f9127c",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:05:22.468Z"
+    }
+    }
+] %}

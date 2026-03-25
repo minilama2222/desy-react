@@ -1,0 +1,156 @@
+{% from "components/modal/_macro.modal.njk" import componentModal %}
+
+{% set defaultExample %}
+  {{ componentModal({
+    "id": "default-example",
+    "title": {
+      "text": "Aviso"
+    },
+    "description": {
+      "text": "Estamos realizando labores de mantenimiento en el sistema. Es posible que algunos procesos tarden más de lo esperado. Rogamos disculpas."
+    },
+    "itemsPrimary": [
+      {
+        "text": "De acuerdo, continuar",
+        "classes": "c-button--primary",
+        "attributes": {
+          "onclick": "closeDialog(this)"
+        }
+      }
+    ],
+    "isDismissible": true
+  })  }}
+{% endset %}
+
+{% set secondaryExample %}
+  {{ componentModal({
+    "id": "secondary-action-example",
+    "title": {
+      "text": "Editar servicio publicado"
+    },
+    "description": {
+      "text": "Actualmente este servicio está publicado. Los cambios realizados no serán visibles hasta que sean validados"
+    },
+    "itemsPrimary": [
+      {
+        "text": "Editar servicio",
+        "classes": "c-button--primary"
+      }
+    ],
+    "itemsSecondary": [
+      {
+        "html": "Cancelar <span class='sr-only'>y cerrar la ventana modal</span>",
+        "attributes": {
+          "onclick": "closeDialog(this)"
+        }
+      }
+    ],
+    "isDismissible": true
+  })  }}
+{% endset %}
+
+{% set javascriptExample %}
+  {{ componentModal({
+    "id": "javascript-action-example",
+    "title": {
+      "text": "Servicio publicado"
+    },
+    "description": {
+      "text": "Actualmente este servicio está publicado. Los cambios realizados no serán visibles hasta que sean validados"
+    },
+    "itemsSecondary": [
+      {
+        "html": "Cerrar",
+        "attributes": {
+          "onclick": "closeDialog(this)"
+        }
+      }
+    ],
+    "isDismissible": true
+  })  }}
+{% endset %}
+
+
+{% set exampleComponent = "dialog" %}
+{% set examples =  [
+  {
+    "name": "Modal lanzado con un Dialog",
+    "description": "Un dialog es un componente que permite mostrar otro componente que se muestra sobre la página, con una capa negra semitransparente por debajo. Se utiliza para mostrar modales o para mostrar el menú móvil de la cabecera. Si haces click en la capa negra de debajo o si pulsas la tecla Esc se cierra el contenido del Dialog. Mira el código para ver cómo usamos la función <code>openDialog</code>, el primer parámetro es el id del contenido a mostrar, el segundo parámetro es el nodo que debe tomar foco al cerrar el dialog, y el tercer elemento es el id del elemento al que se le da el foco al abrir el contenido. En este ejemplo de modal usamos los atributos de accesibilidad: <code>'role':'dialog'</code> y <code>'aria-modal': true</code>",
+    "data": {
+      "button": {
+        "text": "Abrir modal",
+        "attributes": {
+          "onclick": "openDialog('default', this, 'label-default-example')",
+          "id": "button-label-default-example"
+        }
+      },
+      "id": "default",
+      "classes": "hidden lg:absolute lg:inset-0 min-h-screen",
+      "attributes": {
+        "role": "dialog",
+        "aria-labelledby": "label-default-example",
+        "aria-modal": true
+      },
+      "caller": defaultExample
+    },
+    "visualDescription": "Sección rectangular con fondo gris muy claro y borde gris medio de 1px. Contiene título en texto negro de peso regular, alineado a la izquierda. Botón con texto azul \"Abrir modal\", borde azul de 1px, fondo transparente, esquinas ligeramente redondeadas, ubicado debajo del título.",
+    "_generated": {
+      "hash": "9a0a0b1d95255904f1837581630760c6",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:56:28.446Z"
+    }
+  },
+  {
+    "name": "Modal lanzado con un Dialog con acciones secundarias",
+    "data": {
+      "button": {
+        "text": "Abrir modal con acciones secundarias",
+        "attributes": {
+          "onclick": "openDialog('secondary', this, 'label-secondary-action-example')",
+          "id": "button-label-secondary-action-example"
+        }
+      },
+      "id": "secondary",
+      "classes": "hidden lg:absolute lg:inset-0 min-h-screen",
+      "attributes": {
+        "role": "dialog",
+        "aria-labelledby": "secondary-action-example",
+        "aria-modal": true
+      },
+      "caller": secondaryExample
+    },
+    "visualDescription": "Sección rectangular con fondo gris muy claro y borde gris medio de 1px. Contiene título en texto negro de peso regular, alineado a la izquierda. Botón con texto azul \"Abrir modal con acciones secundarias\", borde azul de 1px, fondo transparente, esquinas ligeramente redondeadas, ubicado debajo del título.",
+    "_generated": {
+      "hash": "3ab3fe4bfc63f129d5204da7f2f1f5ba",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:56:28.446Z"
+    }
+  },
+  {
+    "name": "Modal lanzado con un Dialog con JavaScript",
+    "description": "También puedes usar con javascript la función global <code>openDialog(dialog, focusAfterClosed, focusFirst)</code>,  para abrir la modal usando su id. La función admite tres parámetros <code>dialog</code>, que es el id de la modal que queremos abrir, <code>focusAfterClosed</code>, el elemento que tendrá el foco cuando cerremos la modal, y <code>focusFirst</code>, el elemento que tendra el foco al abrir la modal. Ej: Abre la consola del navegador y escribe <code>openDialog('modal-javascript', 'button-javascript-action-example', 'label-javascript-action-example')</code> para mostrar la modal.",
+    "data": {
+      "button": {
+        "text": "Abrir modal con JavaScript",
+        "attributes": {
+          "onclick": "openDialog('modal-javascript', this, 'label-javascript-action-example')",
+          "id": "button-javascript-action-example"
+        }
+      },
+      "id": "modal-javascript",
+      "classes": "hidden lg:absolute lg:inset-0 min-h-screen",
+      "attributes": {
+        "role": "dialog",
+        "aria-labelledby": "javascript-action-example",
+        "aria-modal": true
+      },
+      "caller": javascriptExample
+    },
+    "visualDescription": "Sección rectangular con fondo gris muy claro y borde gris medio de 1px. Contiene título en texto negro de peso regular, alineado a la izquierda. Botón con texto azul \"Abrir modal con JavaScript\", borde azul de 1px, fondo transparente, esquinas ligeramente redondeadas, ubicado debajo del título.",
+    "_generated": {
+      "hash": "f0663669cc4aa00796d3f3a445bda4f6",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:56:28.446Z"
+    }
+  }
+] %}

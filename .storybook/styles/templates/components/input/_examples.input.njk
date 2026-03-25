@@ -1,0 +1,394 @@
+{% set exampleComponent = "input" %}
+{% set examples =  [
+  {
+    "name": "por defecto",
+    "data": {
+      "label": {
+        "text": "Esto es un label"
+      },
+      "id": "input-example-a",
+      "name": "test-name"
+    },
+    "visualDescription": "Campo de entrada con borde gris de 1px y esquinas redondeadas, fondo blanco. Label en texto negro de peso regular posicionado arriba del input. Altura del campo aproximadamente 35-40px, ancho de 100px.",
+    "_generated": {
+      "hash": "2cd04835a9255d69bd6e1723b1e80db8",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:01:22.540Z"
+    }
+  },
+  {
+    "name": "deshabilitado",
+    "data": {
+      "label": {
+        "text": "Esto es un label"
+      },
+      "id": "input-example-b",
+      "name": "test-name",
+      "disabled": true
+    },
+    "visualDescription": "Campo de entrada con borde gris claro de 1px y esquinas redondeadas, fondo blanco. Label en texto negro de peso regular posicionado arriba del input. Altura del campo aproximadamente 35-40px, ancho de 100px, apariencia visual sin interacción activa.",
+    "_generated": {
+      "hash": "354ed129c3ad1cce3997b2964d2d13ff",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:01:22.540Z"
+    }
+  },
+  {
+    "name": "con pista",
+    "data": {
+      "label": {
+        "text": "Esto es un label"
+      },
+      "hint": {
+        "text": "Esto es una pista."
+      },
+      "id": "input-with-hint-text",
+      "name": "test-name"
+    },
+    "visualDescription": "Campo de entrada con borde gris de 1px y esquinas redondeadas, fondo blanco. Label en texto negro de peso regular arriba, seguido de texto secundario en gris oscuro debajo del label. Campo de entrada con altura aproximadamente 35-40px, ancho de 100px, posicionado debajo del texto secundario.",
+    "_generated": {
+      "hash": "c3df5434b5b8149c6e3a3f5ce477e726",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:01:22.540Z"
+    }
+  },
+  {
+    "name": "con mensaje de error",
+    "description": "Por accesibilidad, los mensajes de error deben incluir la palabra \"error\", para que no recaiga tan sólo en el color el hecho de que es un mensaje de error.",
+    "data": {
+      "label": {
+        "text": "Esto es un label"
+      },
+      "hint": {
+        "text": "Esto es una pista."
+      },
+      "id": "input-with-error-message-a",
+      "name": "test-name",
+      "errorMessage": {
+        "text": "Esto es un mensaje de error"
+      }
+    },
+    "visualDescription": "Campo de entrada de texto con borde rojo de 2px, fondo blanco, y esquinas ligeramente redondeadas. Incluye label negro en peso normal, texto de pista rojo debajo del label, y mensaje de error rojo debajo del campo. Ancho del input es estrecho (aproximadamente 100px).",
+    "_generated": {
+      "hash": "1ffb25c5ea4ce3a32cae47affbfd7dee",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:01:31.259Z"
+    }
+  },
+  {
+    "name": "con mensaje de error con id personalizado",
+    "description": "Por accesibilidad, los mensajes de error deben incluir la palabra \"error\", para que no recaiga tan sólo en el color el hecho de que es un mensaje de error.",
+    "data": {
+      "label": {
+        "text": "Esto es un label"
+      },
+      "hint": {
+        "text": "Esto es una pista."
+      },
+      "id": "input-with-error-message-b",
+      "name": "test-name",
+      "errorId": "custom-error-id",
+      "errorMessage": {
+        "text": "Esto es un mensaje de error"
+      }
+    },
+    "visualDescription": "Campo de entrada de texto con borde rojo de 2px, fondo blanco, y esquinas ligeramente redondeadas. Incluye label negro en peso normal arriba, texto de pista rojo debajo del label, y mensaje de error rojo debajo del campo. Ancho del input es estrecho (aproximadamente 100px).",
+    "_generated": {
+      "hash": "4ba8bf3975c3d0f2c1e1ea4dc26d65da",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:01:31.259Z"
+    }
+  },
+  {
+    "name": "con clase de anchura completa",
+    "description": "Este ejemplo usa todo el ancho disponible. Mira el archivo tailwind.config.js para una lista completa de anchuras disponibles.",
+    "data": {
+      "label": {
+        "text": "Esto es un label"
+      },
+      "hint": {
+        "text": "Esto es una pista."
+      },
+      "id": "input-width-full",
+      "name": "test-width-full",
+      "classes": "w-full"
+    },
+    "visualDescription": "Campo de entrada de texto con borde gris de 1px, fondo blanco, y esquinas ligeramente redondeadas ocupando el ancho completo del contenedor. Incluye label negro en peso normal arriba y texto de pista gris oscuro debajo del label. El input se extiende horizontalmente de borde a borde del área disponible.",
+    "_generated": {
+      "hash": "31643bdd218b7f66477b8d3411e7a6a2",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:01:31.259Z"
+    }
+  },
+  {
+    "name": "con clase de anchura 1/2",
+    "description": "Este ejemplo usa la mitad del ancho disponible por su contenedor. Mira el archivo tailwind.config.js para una lista completa de anchuras disponibles.",
+    "data": {
+      "label": {
+        "text": "Esto es un label"
+      },
+      "hint": {
+        "text": "Esto es una pista."
+      },
+      "id": "input-width-half",
+      "name": "test-width-half",
+      "classes": "w-1/2"
+    },
+    "visualDescription": "Input de texto con borde gris de 1px, fondo blanco, ocupando aproximadamente la mitad del ancho del contenedor. Label en texto negro normal arriba del campo, seguido de texto auxiliar gris claro debajo del label. Campo de entrada rectangular con altura estándar y esquinas ligeramente redondeadas.",
+    "_generated": {
+      "hash": "47bec2abeaab53af8981a185425f94e9",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:01:40.052Z"
+    }
+  },
+  {
+    "name": "con clase width-32",
+    "description": "Este ejemplo usa una anchura predefinida de DESY. Mira el archivo tailwind.config.js para una lista completa de anchuras disponibles",
+    "data": {
+      "label": {
+        "text": "Esto es un label"
+      },
+      "hint": {
+        "text": "Esto es una pista."
+      },
+      "id": "input-width-32",
+      "name": "test-width-32",
+      "classes": "w-32"
+    },
+    "visualDescription": "Input de texto con borde gris de 1px, fondo blanco, ocupando un ancho fijo reducido (aproximadamente 150-200px). Label en texto negro normal posicionado arriba del campo, seguido de texto auxiliar gris claro debajo del label. Campo de entrada rectangular compacto con altura estándar y esquinas ligeramente redondeadas.",
+    "_generated": {
+      "hash": "3e7b239babe30d2f7549da6dfeda47f3",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:01:40.052Z"
+    }
+  },
+  {
+    "name": "con clases de form-group opcionales",
+    "data": {
+      "label": {
+        "text": "Esto es un label"
+      },
+      "id": "input-example-c",
+      "name": "test-name",
+      "formGroup": {
+        "classes": "p-base bg-primary-light"
+      }
+    },
+    "visualDescription": "Input de texto con borde gris de 1px, fondo blanco, dentro de un contenedor con fondo celeste/azul claro que ocupa todo el ancho disponible. Label en texto negro normal posicionado arriba del campo dentro del área celeste. Campo de entrada rectangular con altura estándar, esquinas ligeramente redondeadas, rodeado de padding generoso del contenedor de fondo celeste.",
+    "_generated": {
+      "hash": "7eb20253c754d72a6927e109e79d7426",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:01:40.052Z"
+    }
+  },
+  {
+    "name": "con valores de autocompletado",
+    "data": {
+      "label": {
+        "text": "Código postal"
+      },
+      "id": "input-with-autocomplete-attribute",
+      "name": "postcode",
+      "autocomplete": "postal-code"
+    },
+    "visualDescription": "Campo de entrada de texto con borde gris de 1px y esquinas redondeadas, fondo blanco. Label en texto negro regular posicionado arriba del campo. Dimensiones aproximadas de 100px de ancho por 30px de alto para el input.",
+    "_generated": {
+      "hash": "84615125a7220b332c8bbcfed3615c46",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:01:47.632Z"
+    }
+  },
+  {
+    "name": "con al atributo pattern",
+    "description": "Usa el atributo <code>pattern</code> para elegir un patrón de entrada de datos nativo del navegador.",
+    "data": {
+      "label": {
+        "text": "Solo números"
+      },
+      "id": "input-with-pattern-attribute",
+      "name": "numbers-only",
+      "type": "tel",
+      "pattern": "[0-9]*"
+    },
+    "visualDescription": "Campo de entrada de texto con borde gris de 1px y esquinas redondeadas, fondo blanco. Label en texto negro regular posicionado arriba del campo. Dimensiones aproximadas de 100px de ancho por 30px de alto para el input.",
+    "_generated": {
+      "hash": "520213e7df8c9f6452cdb2870e6d479d",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:01:47.632Z"
+    }
+  },
+  {
+    "name": "campo obligatorio",
+    "description": "El formulario debe comenzar con un párrafo que ponga: <em>* Todos los campos marcados con asterisco son obligatorios.</em>",
+    "data": {
+      "label": {
+        "text": "Campo obligatorio *"
+      },
+      "id": "input-with-required-attribute",
+      "name": "input-with-required-attribute",
+      "attributes": {
+        "required": ""
+      }
+    },
+    "visualDescription": "Campo de entrada de texto con borde gris de 1px y esquinas redondeadas, fondo blanco. Label en texto negro regular con asterisco rojo posicionado arriba del campo. Dimensiones aproximadas de 100px de ancho por 30px de alto para el input.",
+    "_generated": {
+      "hash": "da28dc1ba3d34f5fb30851a59b91d7a5",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:01:47.632Z"
+    }
+  },
+  {
+    "name": "peque",
+    "data": {
+      "label": {
+        "text": "Input peque"
+      },
+      "id": "classes-applied-a",
+      "name": "classes-applied-a",
+      "classes": "c-input--sm"
+    },
+    "visualDescription": "Campo de entrada de texto con label \"Input peque\" en texto negro de peso normal. Borde gris delgado de 1px, fondo blanco, tamaño reducido del input. El campo presenta esquinas ligeramente redondeadas.",
+    "_generated": {
+      "hash": "28796c67f6b332f63b2a938f5be72684",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:01:55.148Z"
+    }
+  },
+  {
+    "name": "Con clases de css aplicadas",
+    "description": "Label en linea + Input flexible y mensaje de error",
+    "data": {
+      "formGroup": {
+        "classes": "lg:flex lg:flex-wrap lg:items-center lg:gap-x-base"
+      },
+      "label": {
+        "text": "Label en línea:",
+        "classes": "lg:py-sm lg:mt-sm"
+      },
+      "id": "classes-applied-b",
+      "name": "classes-applied-b",
+      "errorMessage": {
+        "text": "Esto es un mensaje de error",
+        "classes": "order-1 w-full pt-sm"
+      },
+      "classes": "lg:flex-1"
+    },
+    "visualDescription": "Campo de entrada de texto con label en texto negro de peso normal. Borde rojo grueso de 2-3px, fondo blanco del input. Mensaje de error en texto rojo debajo del campo.",
+    "_generated": {
+      "hash": "74459351a7413ce629b8094f1cd74b83",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:01:55.148Z"
+    }
+  },
+  {
+    "name": "Tipo personalizado",
+    "description": "Si no se espacifica, el tipo por defecto es <code>text</code>. Este Input tiene un <code>type='number'</code>",
+    "data": {
+      "label": {
+        "text": "Input de tipo número"
+      },
+      "id": "custom-type",
+      "name": "custom-type",
+      "type": "number"
+    },
+    "visualDescription": "Campo de entrada de texto con label en texto negro de peso normal. Borde gris delgado de 1px, fondo blanco, tamaño estándar del input. El campo presenta esquinas ligeramente redondeadas.",
+    "_generated": {
+      "hash": "c134a44062cc090af6c1d9e346d6278f",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:01:55.148Z"
+    }
+  },
+  {
+    "name": "valor",
+    "data": {
+      "label": {
+        "text": "Esto es un label"
+      },
+      "id": "value",
+      "name": "valor",
+      "value": "Esto es un valor"
+    },
+    "visualDescription": "Campo de entrada de texto con borde gris de 1px y esquinas redondeadas, fondo blanco. Título en texto negro estándar arriba, seguido de label en negro. Input contiene texto en negro estándar, tamaño mediano.",
+    "_generated": {
+      "hash": "ef77aa32e4ab25812e142eafb706c3a1",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:02:03.403Z"
+    }
+  },
+  {
+    "name": "placeholder",
+    "description": "El atributo <code>placeholder</code> proporciona un texto de ejemplo que se muestra en el campo de entrada cuando está vacío. Intenta usar la pista con el atributo <code>hint</code> en su lugar ya que es más accesible. El placeholder debe ser un apoyo a la pista, no un sustituto.",
+    "data": {
+      "label": {
+        "text": "Esto es un label"
+      },
+      "hint": {
+        "text": "Esto es una pista."
+      },
+      "id": "con-placeholder",
+      "name": "placeholder",
+      "placeholder": "Esto es un placeholder"
+    },
+    "visualDescription": "Campo de entrada de texto con borde gris de 1px y esquinas redondeadas, fondo blanco. Título en texto negro estándar arriba, seguido de dos líneas de texto en negro. Input muestra texto placeholder en gris claro, tamaño mediano.",
+    "_generated": {
+      "hash": "696b5f65cfe3821c920a063ca0f83cd2",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:02:03.403Z"
+    }
+  },
+  {
+    "name": "con describedBy",
+    "data": {
+      "label": {
+        "text": "Con describedBy"
+      },
+      "id": "with-describedby-a",
+      "name": "with-describedby-a",
+      "describedBy": "input-example-a"
+    },
+    "visualDescription": "Campo de entrada de texto con borde gris de 1px y esquinas redondeadas, fondo blanco vacío. Título en texto negro estándar arriba, seguido de label en negro. Input de tamaño mediano sin contenido visible ni placeholder.",
+    "_generated": {
+      "hash": "b475c8c9eef660e628173e63b331a600",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:02:03.403Z"
+    }
+  },
+  {
+    "name": "Pista con describedBy",
+    "data": {
+      "label": {
+        "text": "Pista con describedBy"
+      },
+      "hint": {
+        "text": "Esto es una pista."
+      },
+      "id": "with-describedby-b",
+      "name": "with-describedby-b",
+      "describedBy": "input-example-a"
+    },
+    "visualDescription": "Campo de entrada de texto rectangular con borde gris de 1px y fondo blanco. Incluye un label negro en peso normal arriba y texto descriptivo gris claro debajo del label indicando \"Este es una pista\". Ancho aproximado de 100px, altura estándar de input.",
+    "_generated": {
+      "hash": "a4436e7c86171811433072d28131f38c",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:02:11.286Z"
+    }
+  },
+  {
+    "name": "inputmode",
+    "description": "Este atributo proporciona información al navegador para que se pueda mostrar el teclado virtual apropiado, especialmente en dispositivos móviles. Este input tiene un <code>inputmode='email'</code>",
+    "data": {
+      "label": {
+        "text": "Inputmode"
+      },
+      "id": "con-inputmode",
+      "name": "inputmode",
+      "inputmode": "email"
+    },
+    "visualDescription": "Campo de entrada de texto rectangular con borde gris de 1px y fondo blanco. Presenta un label negro en peso normal posicionado arriba del campo. Ancho aproximado de 100px, altura estándar de input, sin elementos adicionales de ayuda o descripción.",
+    "_generated": {
+      "hash": "37b760563da7dbc89420b602d161f912",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:02:11.286Z"
+    }
+  }
+] %}

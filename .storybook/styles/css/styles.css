@@ -1,0 +1,247 @@
+@charset "UTF-8";
+
+/* Framework base */
+@import "tailwindcss";
+/* Custom base */
+@import './base.css';
+
+/* Custom components */
+@import './component.text.css';
+
+/* Components */
+@import '../templates/components/alert/_styles.alert.css';
+@import '../templates/components/breadcrumbs/_styles.breadcrumbs.css';
+@import '../templates/components/button/_styles.button.css';
+@import '../templates/components/button-loader/_styles.button-loader.css';
+@import '../templates/components/checkboxes/_styles.checkboxes.css';
+@import '../templates/components/collapsible/_styles.collapsible.css';
+@import '../templates/components/datepicker/_styles.datepicker.css';
+@import '../templates/components/dialog/_styles.dialog.css';
+@import '../templates/components/dropdown/_styles.dropdown.css';
+@import '../templates/components/footer/_styles.footer.css';
+@import '../templates/components/header/_styles.header.css';
+@import '../templates/components/input/_styles.input.css';
+@import '../templates/components/listbox/_styles.listbox.css';
+@import '../templates/components/menubar/_styles.menubar.css';
+@import '../templates/components/menu-navigation/_styles.menu-navigation.css';
+@import '../templates/components/menu-horizontal/_styles.menu-horizontal.css';
+@import '../templates/components/notification/_styles.notification.css';
+@import '../templates/components/pill/_styles.pill.css';
+@import '../templates/components/radios/_styles.radios.css';
+@import '../templates/components/select/_styles.select.css';
+@import '../templates/components/spinner/_styles.spinner.css';
+@import '../templates/components/skip-link/_styles.skip-link.css';
+@import '../templates/components/table/_styles.table.css';
+@import '../templates/components/table-advanced/_styles.table-advanced.css';
+@import '../templates/components/tabs/_styles.tabs.css';
+@import '../templates/components/toggle/_styles.toggle.css';
+@import '../templates/components/tooltip/_styles.tooltip.css';
+@import '../templates/components/tree/_styles.tree.css';
+@import '../templates/components/treegrid/_styles.treegrid.css';
+
+/* Utilities */
+@import './component.form-group.css';
+@import './component.headroom.css';
+
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+@source inline("dev");
+
+@theme {
+  /* Breakpoints */
+  --breakpoint-sm: 40rem;   /* 640px */
+  --breakpoint-md: 48rem;   /* 768px */
+  --breakpoint-lg: 64rem;   /* 1024px */
+  --breakpoint-xl: 80rem;   /* 1280px */
+
+  /* Colors */
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-white: #ffffff;
+  --color-black: #1f2331;
+
+  --color-neutral-dark: #5e616b;
+  --color-neutral-base: #92949b;
+  --color-neutral-light: #ededec;
+  --color-neutral-lighter: #f6f6f5;
+
+  /* Brand primary colors - Customize these values for your organization */
+  /* To change colors, edit these hex values directly */
+  --color-primary-base: #00607a;
+  --color-primary-light: #d6eaf0;
+  --color-primary-dark: #00475c;
+
+  --color-success-base: #24d14c;
+  --color-success-light: #dcf8e2;
+  --color-success-dark: #1aa23a;
+
+  --color-warning-base: #fdcb33;
+  --color-warning-light: #fef6b2;
+  --color-warning-dark: #b88e12;
+
+  --color-info-base: #fa9902;
+  --color-info-light: #feebcc;
+  --color-info-dark: #c97a00;
+
+  --color-alert-base: #d22333;
+  --color-alert-light: #fbd3ce;
+  --color-alert-dark: #a40014;
+
+  --color-heading-base: #3c4c5c;
+  --color-heading-dark: #26374a;
+
+  --color-code: #c10007;
+
+  /* Brand colors (mapped directly from primary colors) */
+  --color-brand-primary: var(--color-primary-base);
+  --color-brand-primary-light: var(--color-primary-light);
+  --color-brand-primary-dark: var(--color-primary-dark);
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-base: 1rem;
+  --spacing-lg: 1.75rem;
+  --spacing-xl: 2.5rem;
+  --spacing-2xl: 5rem;
+  --spacing-3xl: 10rem;
+  --spacing-offcanvas: 83.333333%;
+  --spacing-offcanvas-negative: 16.666667%;
+
+  /* Radius */
+  --radius-DEFAULT: 0.1875rem;
+
+  /* Border-width */
+  --border-width-0\.125em: 0.125em;
+
+  /* Box-shadow */
+  --shadow-outline-warning: 0 0 0 3px var(--color-warning-base);
+  --shadow-outline-alert: 0 0 0 2px var(--color-alert-base);
+  --shadow-solid-primary-base: 0 1px 0 0 var(--color-primary-base);
+  --shadow-solid-primary-light: 0 1px 0 0 var(--color-primary-light);
+  --shadow-solid-primary-dark: 0 1px 0 0 var(--color-primary-dark);
+  --shadow-solid-alert-base: 0 1px 0 0 var(--color-alert-base);
+  --shadow-solid-alert-dark: 0 1px 0 0 var(--color-alert-dark);
+  --shadow-solid-neutral-base: 0 1px 0 0 var(--color-neutral-base);
+  --shadow-solid-black: 0 1px 0 0 var(--color-black);
+  --shadow-outline-black: 0 0 0 3px var(--color-black);
+  --shadow-outline-focus: inset 0 -2px 0 0 var(--color-black);
+  --shadow-outline-focus-input: inset 0 0 0 3px var(--color-black);
+
+  /* Typography - Configurable via branding/branding.config.js */
+  --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-sans);
+
+  /* Fixed widths */
+  --width-xs: 20rem;
+  --width-sm: 24rem;
+  --width-md: 28rem;
+  --width-lg: 32rem;
+  --width-xl: 36rem;
+  --width-offcanvas: var(--spacing-offcanvas);
+
+  /* Max widths */
+  --max-width-xs: var(--width-xs);
+  --max-width-sm: var(--width-sm);
+  --max-width-md: var(--width-md);
+  --max-width-lg: var(--width-lg);
+  --max-width-xl: var(--width-xl);
+  --max-width-offcanvas: var(--width-offcanvas);
+
+  /* Grid template columns */
+  --grid-template-cols-max-content-1: repeat(1, minmax(0, max-content));
+  --grid-template-cols-max-content-2: repeat(2, minmax(0, max-content));
+  --grid-template-cols-max-content-3: repeat(3, minmax(0, max-content));
+  --grid-template-cols-max-content-4: repeat(4, minmax(0, max-content));
+  --grid-template-cols-max-content-5: repeat(5, minmax(0, max-content));
+  --grid-template-cols-max-content-6: repeat(6, minmax(0, max-content));
+  --grid-template-cols-max-content-7: repeat(7, minmax(0, max-content));
+  --grid-template-cols-max-content-8: repeat(8, minmax(0, max-content));
+
+  /* Grid template rows */
+  --grid-template-rows-7: repeat(7, minmax(0, 1fr));
+  --grid-template-rows-8: repeat(8, minmax(0, 1fr));
+  --grid-template-rows-9: repeat(9, minmax(0, 1fr));
+  --grid-template-rows-10: repeat(10, minmax(0, 1fr));
+
+  /* Background images */
+  --background-image-general-lg: url('/images/header-background-lg.svg');
+  --background-image-general: url('/images/header-background.svg');
+}
+
+/* Typography plugin customization */
+@utility prose {
+  --tw-prose-body: var(--color-black);
+  --tw-prose-code: var(--color-code);
+  --tw-prose-bullets: var(--color-black);
+  --tw-prose-hr: var(--color-neutral-base);
+  --tw-prose-quote-borders: var(--color-neutral-base);
+  --tw-prose-th-borders: var(--color-neutral-base);
+  --tw-prose-td-borders: var(--color-neutral-base);
+
+  line-height: 1.5rem;
+
+  /* Reset margin-top for first direct child to prevent extra spacing */
+  :where(.prose > :first-child):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+
+
+  a {
+    color: var(--color-primary-base);
+
+    &:hover {
+      color: var(--color-primary-dark);
+    }
+
+    &:focus {
+      color: var(--color-black);
+      background-color: var(--color-warning-base);
+      box-shadow: var(--shadow-outline-focus);
+      outline: none;
+      text-decoration: none;
+    }
+  }
+
+  h1 {
+    font-family: var(--font-heading);
+    font-size: 1.875em;
+    margin-top: 0;
+    margin-bottom: 0.9333333em;
+    line-height: 1.2666667;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-family: var(--font-heading);
+    font-size: 1.5em;
+    margin-top: 1.3333333em;
+    margin-bottom: 0.6666667em;
+    line-height: 1.25;
+  }
+
+  h3 {
+    font-family: var(--font-heading);
+    font-size: 1.125em;
+    margin-top: 1.3333333em;
+    margin-bottom: 0.4444444em;
+    line-height: 1.2222222;
+    font-weight: 700;
+  }
+
+  h4 {
+    font-family: var(--font-heading);
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    line-height: 1.25;
+    font-weight: 700;
+  }
+
+  ul > li::before {
+    background-color: var(--color-black);
+  }
+
+  ol > li::before {
+    color: var(--color-black);
+  }
+}

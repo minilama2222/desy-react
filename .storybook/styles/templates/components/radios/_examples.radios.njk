@@ -1,0 +1,698 @@
+{% from "components/fieldset/_macro.fieldset.njk" import componentFieldset %}
+{% from "components/input/_macro.input.njk" import componentInput %}
+{% from "components/radios/_macro.radios.njk" import componentRadios %}
+
+{% macro telefonoContent(id='id') %}
+  {% call componentFieldset({
+    "legend": {
+      "text": "¿Cuál es tu número de teléfono fijo?",
+      "classes": "mb-sm sr-only"
+    }
+  }) %}
+    <div class="c-form-group">
+    {{ componentInput({
+        "label": {
+          "text": "Número de teléfono fijo"
+        },
+        "id": "telefono-" + id,
+        "name": "telefono-name-" + id
+      })  }}
+    </div>
+  {% endcall  %}
+{% endmacro %}
+
+{% macro mobileContent(id='id') %}
+  {% call componentFieldset({
+    "legend": {
+      "text": "¿Cuál es tu número de teléfono móvil?",
+      "classes": "mb-sm sr-only"
+    }
+    }) %}
+    <div class="c-form-group">
+    {{ componentInput({
+        "label": {
+          "text": "Número de teléfono móvil"
+        },
+        "id": "mobile-" + id,
+        "name": "mobile-name-" + id
+      })  }}
+    </div>
+  {% endcall  %}
+{% endmacro %}
+
+{% macro mobileErrorContent(id='id') %}
+  {% call componentFieldset({
+    "legend": {
+      "text": "¿Cuál es tu número de teléfono móvil?",
+      "classes": "mb-sm sr-only"
+    }
+    }) %}
+    <div class="c-form-group">
+      {{ componentInput({
+        "label": {
+          "text": "Número de teléfono móvil"
+        },
+        "id": "input-with-error-message-" + id,
+        "name": "test-name-" + id,
+        "errorMessage": {
+          "text": "Este campo no puede estar vacío"
+        }
+        })  }}
+    </div>
+  {% endcall  %}
+{% endmacro %}
+
+{% macro grandchildContent(id='id') %}
+  {{ componentRadios({
+    "idPrefix": "grandchild-" + id,
+    "name": "grandchild-" + id,
+    "items": [
+      {
+        "name": "oficina-principal-" + id,
+        "id": "oficina-principal-id-" + id,
+        "value": "oficina-principal-" + id,
+        "checked": true,
+        "html": "Oficina principal"
+      },
+      {
+        "name": "oficina-secundaria-" + id,
+        "id": "oficina-secundaria-id-" + id,
+        "value": "oficina-secundaria-" + id,
+        "html": "Oficina secundaria"
+      }
+    ]
+  }) }}
+{% endmacro %}
+
+{% macro nestedContent(id='id') %}
+  {{ componentRadios({
+    "idPrefix": "with-conditional-items-checked-nested-" + id,
+    "name": "with-conditional-items-checked-nested-" + id,
+    "items": [
+      {
+        "value": "oficinas-de-registro",
+        "text": "Oficinas de registro",
+        "checked": true,
+        "conditional": {
+          "html": grandchildContent('oficinas-de-registro-' + id).val
+        }
+      },
+      {
+        "value": "oficinas-locales",
+        "text": "Oficinas locales",
+        "conditional": {
+          "html": grandchildContent('oficinas-locales-' + id).val
+        }
+      }
+    ]
+  }) }}
+{% endmacro %}
+
+{% set exampleComponent = "radios" %}
+{% set examples =  [
+  {
+    "name": "por defecto",
+    "data": {
+      "idPrefix": "default",
+      "name": "por defecto",
+      "fieldset": {
+        "legend": {
+          "text": "¿Quieres que te contactemos por correo electrónico?"
+        }
+      },
+      "hint": {
+        "text": "Sólo puedes seleccionar un elemento."
+      },
+      "items": [
+        {
+          "value": "si",
+          "text": "Si"
+        },
+        {
+          "value": "no",
+          "text": "No",
+          "checked": true
+        }
+      ]
+    },
+    "visualDescription": "Grupo de radio buttons con pregunta en negro bold, subtexto en gris debajo. Dos opciones apiladas verticalmente: \"Sí\" con círculo vacío blanco con borde gris, \"No\" con círculo relleno azul oscuro indicando selección. Fondo blanco con borde gris claro rodeando todo el componente.",
+    "_generated": {
+      "hash": "c0661da8ddbe3c662dd90dd77321057d",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:11:59.793Z"
+    }
+  },
+  {
+    "name": "En línea",
+    "data": {
+      "idPrefix": "inline",
+      "classes": "flex",
+      "name": "inline",
+      "fieldset": {
+        "legend": {
+          "text": "¿Quieres que te contactemos por correo electrónico?"
+        }
+      },
+      "hint": {
+        "text": "Sólo puedes seleccionar un elemento."
+      },
+      "items": [
+        {
+          "value": "si",
+          "text": "Si",
+          "classes": "mr-sm"
+        },
+        {
+          "value": "no",
+          "text": "No",
+          "classes": "mr-sm",
+          "checked": true
+        }
+      ]
+    },
+    "visualDescription": "Grupo de radio buttons con pregunta en negro bold, subtexto en gris debajo. Dos opciones dispuestas horizontalmente: \"Sí\" con círculo vacío blanco con borde gris, \"No\" con círculo relleno azul con marca de selección blanca. Fondo blanco sin borde visible.",
+    "_generated": {
+      "hash": "89b65d904ea4cd559f9055034b3948f0",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:11:59.793Z"
+    }
+  },
+  {
+    "name": "Con deshabilitado",
+    "data": {
+      "idPrefix": "example-disabled",
+      "name": "example-disabled",
+      "fieldset": {
+        "legend": {
+          "text": "¿Quieres que te contactemos por correo electrónico?"
+        }
+      },
+      "hint": {
+        "text": "Sólo puedes seleccionar un elemento."
+      },
+      "items": [
+        {
+          "value": "si",
+          "text": "Si",
+          "disabled": true,
+          "checked": true
+        },
+        {
+          "value": "no",
+          "text": "No",
+          "disabled": true
+        }
+      ]
+    },
+    "visualDescription": "Grupo de radio buttons con pregunta en negro bold, subtexto en gris debajo. Dos opciones apiladas verticalmente en estado inactivo: ambos círculos en gris claro con borde gris tenue, uno con relleno gris y otro vacío. Fondo blanco con borde gris claro rodeando el componente, toda la sección presenta opacidad reducida.",
+    "_generated": {
+      "hash": "76d3dd45ed46bacb0935f0492fe74b22",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:11:59.793Z"
+    }
+  },
+  {
+    "name": "con un legend como encabezado",
+    "description": "Usa el parámetro <code>'heading'</code> para añadir un encabezado asociado al componente. Usa el parámetro <code>'headingLevel'</code> para establecer el nivel del encabezado. Por ejemplo: <code>'headingLevel': 3</code> creará un encabezado <code>&lt;h3&gt;</code>.",
+    "data": {
+      "idPrefix": "legend-as-page-heading",
+      "name": "legend-as-page-heading",
+      "fieldset": {
+        "legend": {
+          "text": "¿Cómo prefieres que te contactemos?",
+          "classes": "c-h2",
+          "isPageHeading": true
+        },
+        "headingLevel": 2
+      },
+      "hint": {
+        "text": "Selecciona una de las opciones."
+      },
+      "items": [
+        {
+          "value": "part-2",
+          "text": "Por correo electrónico",
+          "hint": {
+            "text": "Asegúrate de que nuestros correos no lleguen a la bandeja de spam."
+          }
+        },
+        {
+          "value": "part-3",
+          "text": "Por correo postal",
+          "hint": {
+            "text": "Asegúrate de haber introducido correctamente tu dirección."
+          }
+        }
+      ]
+    },
+    "visualDescription": "Grupo de radio buttons con borde gris de 1px y esquinas redondeadas, fondo blanco. Título en negro tamaño mediano peso normal, pregunta en negro peso negrita, dos opciones con círculos vacíos alineados verticalmente, labels en negro peso normal y texto descriptivo gris claro debajo de cada opción.",
+    "_generated": {
+      "hash": "de3c20041e27faeae9f61e568dbd2654",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:12:09.514Z"
+    }
+  },
+  {
+    "name": "con un legend del tamaño de un encabezado h2",
+    "data": {
+      "idPrefix": "medium-legend",
+      "name": "medium-legend",
+      "fieldset": {
+        "legend": {
+          "text": "¿Cómo prefieres que te contactemos?",
+          "classes": "c-h2"
+        }
+      },
+      "hint": {
+        "text": "Selecciona una de las opciones."
+      },
+      "items": [
+        {
+          "value": "part-2",
+          "text": "Por correo electrónico",
+          "hint": {
+            "text": "Asegúrate de que nuestros correos no lleguen a la bandeja de spam."
+          }
+        },
+        {
+          "value": "part-3",
+          "text": "Por correo postal",
+          "hint": {
+            "text": "Asegúrate de haber introducido correctamente tu dirección."
+          }
+        }
+      ]
+    },
+    "visualDescription": "Grupo de radio buttons con borde gris de 1px y esquinas redondeadas, fondo blanco. Título en gris tamaño pequeño peso normal arriba, pregunta en negro tamaño grande peso negrita, dos opciones con círculos vacíos alineados verticalmente, labels en negro peso normal y texto descriptivo gris claro debajo de cada opción.",
+    "_generated": {
+      "hash": "b56321221bce74c0f9bf1cb04441eb60",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:12:09.514Z"
+    }
+  },
+  {
+    "name": "con un divisor",
+    "data": {
+      "idPrefix": "example-divider",
+      "name": "example-divider",
+      "fieldset": {
+        "legend": {
+          "text": "¿Cómo prefieres que te contactemos?"
+        }
+      },
+      "items": [
+        {
+          "value": "correo-electronico",
+          "text": "Correo electrónico"
+        },
+        {
+          "value": "correo-postal",
+          "text": "Correo postal"
+        },
+        {
+          "divider": "o bien"
+        },
+        {
+          "value": "telefono",
+          "text": "Teléfono"
+        }
+      ]
+    },
+    "visualDescription": "Grupo de radio buttons con borde gris de 1px y esquinas redondeadas, fondo blanco. Título en gris tamaño pequeño peso normal arriba, pregunta en negro peso negrita debajo, cuatro opciones con círculos vacíos alineados verticalmente, labels en negro peso normal. Línea horizontal gris tenue separa visualmente la tercera y cuarta opción.",
+    "_generated": {
+      "hash": "74a74b319adb3a404bb7a5952619f265",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:12:09.514Z"
+    }
+  },
+  {
+    "name": "Con pistas en los items",
+    "data": {
+      "idPrefix": "hints-on-items",
+      "name": "hints-on-items",
+      "fieldset": {
+        "legend": {
+          "text": "¿Cómo prefieres que te contactemos?",
+          "isPageHeading": true
+        }
+      },
+      "items": [
+        {
+          "value": "correo-electronico",
+          "text": "Correo electrónico",
+          "hint": {
+            "text": "Asegúrate de que el correo no llega a la bandeja de spam."
+          }
+        },
+        {
+          "value": "correo-postal",
+          "text": "Correo postal",
+          "hint": {
+            "text": "Asegúrate de haber introducido la dirección postal correctamente."
+          }
+        }
+      ]
+    },
+    "visualDescription": "Grupo de dos radio buttons con círculos vacíos color gris oscuro a la izquierda. Cada opción tiene un label en negro peso normal y texto de ayuda en gris peso normal debajo del label. Fondo blanco sin bordes divisores entre opciones, espaciado vertical generoso.",
+    "_generated": {
+      "hash": "5d302782a8e83b6f03f6f95638d8ee1b",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:12:18.726Z"
+    }
+  },
+  {
+    "name": "con líneas divisorias",
+    "data": {
+      "idPrefix": "has-dividers",
+      "name": "has-dividers",
+      "fieldset": {
+        "legend": {
+          "text": "¿Cómo prefieres que te contactemos?"
+        }
+      },
+      "hint": {
+        "text": "Sólo puedes elegir un elemento."
+      },
+      "hasDividers": true,
+      "items": [
+        {
+          "value": "correo-electronico",
+          "text": "Correo electrónico",
+          "classes": "font-normal",
+          "hint": {
+            "text": "Asegúrate de que el correo no llega a la bandeja de spam."
+          }
+        },
+        {
+          "value": "correo-postal",
+          "text": "Correo postal",
+          "hint": {
+            "text": "Asegúrate de haber introducido la dirección postal correctamente."
+          }
+        }
+      ]
+    },
+    "visualDescription": "Grupo de dos radio buttons con círculos vacíos color gris oscuro a la izquierda. Cada opción tiene un label en negro peso normal y texto de ayuda en gris peso normal debajo del label. Línea divisora horizontal gris clara separa las dos opciones, fondo blanco, espaciado vertical generoso.",
+    "_generated": {
+      "hash": "b17432d8429d47b713eaf3e8954a1835",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:12:18.726Z"
+    }
+  },
+  {
+    "name": "Con clases de CSS aplicadas",
+    "description": "Los parámetros <code>classes</code> nos permiten aplicar clases de Tailwind CSS a nuestro componente.",
+    "data": {
+      "idPrefix": "classes",
+      "name": "classes",
+      "fieldset": {
+        "legend": {
+          "text": "¿Cómo prefieres que te contactemos?",
+          "isPageHeading": true
+        }
+      },
+      "items": [
+        {
+          "value": "correo-electronico",
+          "text": "Correo electrónico",
+          "hint": {
+            "text": "Asegúrate de que el correo no llega a la bandeja de spam."
+          },
+          "classes": "bg-primary-light"
+        },
+        {
+          "value": "correo-postal",
+          "text": "Correo postal",
+          "hint": {
+            "text": "Asegúrate de haber introducido la dirección postal correctamente."
+          },
+          "classes": "bg-neutral-lighter"
+        }
+      ]
+    },
+    "visualDescription": "Grupo de dos radio buttons con círculos vacíos color gris oscuro a la izquierda sobre fondo celeste claro. Cada opción tiene un label en negro peso normal y texto de ayuda en gris peso normal debajo del label. Línea divisora horizontal gris clara separa las dos opciones, espaciado vertical generoso.",
+    "_generated": {
+      "hash": "d00c76a8f4bdd98118baca3781c2efb8",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:12:18.726Z"
+    }
+  },
+  {
+    "name": "sin fieldset",
+    "description": "Usa este ejemplo si vas a escribir tú mismo un fieldset, rodeándolo. Recuerda que el uso de fieldset es necesario por accesibilidad.",
+    "data": {
+      "idPrefix": "without-fieldset",
+      "name": "without-fieldset",
+      "items": [
+        {
+          "value": "correo-electronico",
+          "text": "Correo electrónico"
+        },
+        {
+          "value": "correp-postal",
+          "text": "Correo postal"
+        },
+        {
+          "value": "telefono",
+          "text": "Teléfono"
+        }
+      ]
+    },
+    "visualDescription": "Grupo de tres radio buttons circulares no seleccionados con labels en texto negro tamaño regular. Fondo blanco sin contenedor visible. Título superior en negro pequeño.",
+    "_generated": {
+      "hash": "4290d8a36fbe37307edb99f35b807694",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:12:27.479Z"
+    }
+  },
+  {
+    "name": "con fieldset y mensaje de error",
+    "data": {
+      "idPrefix": "fieldset-and-error",
+      "name": "fieldset-and-error",
+      "errorMessage": {
+        "text": "Tienes que seleccionar al menos una opción"
+      },
+      "fieldset": {
+        "legend": {
+          "text": "¿Quieres que te contactemos por correo electrónico?"
+        }
+      },
+      "items": [
+        {
+          "value": "si",
+          "text": "Si"
+        },
+        {
+          "value": "no",
+          "text": "No",
+          "checked": true
+        }
+      ]
+    },
+    "visualDescription": "Fieldset con borde gris de 1px conteniendo pregunta en texto negro peso normal, mensaje de error rojo debajo, y dos radio buttons circulares donde el segundo está seleccionado con punto azul central. Fondo blanco y título superior en negro pequeño.",
+    "_generated": {
+      "hash": "9da9c1e5fd363b09b674d053e7ee9801",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:12:27.479Z"
+    }
+  },
+  {
+    "name": "con un texto de item muy largo",
+    "data": {
+      "idPrefix": "very-long",
+      "name": "very-long",
+      "hint": {
+        "text": "Nullam id dolor id nibh ultricies vehicula ut id elit."
+      },
+      "errorMessage": {
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      },
+      "fieldset": {
+        "legend": {
+          "text": "Maecenas faucibus mollis interdum?"
+        }
+      },
+      "items": [
+        {
+          "value": "nullam",
+          "text": "Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum. Donec id elit non mi porta gravida at eget metus."
+        },
+        {
+          "value": "aenean",
+          "text": "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cras mattis consectetur purus sit amet fermentum."
+        },
+        {
+          "value": "fusce",
+          "text": "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Etiam porta sem malesuada magna mollis euismod. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. Sed posuere consectetur est at lobortis."
+        }
+      ]
+    },
+    "visualDescription": "Pregunta en texto negro peso negrita seguida de subtexto gris claro tamaño pequeño. Advertencia en texto rojo debajo del subtexto. Tres radio buttons circulares no seleccionados con labels extensos en texto negro tamaño regular ocupando múltiples líneas. Fondo blanco y borde gris delgado alrededor del contenedor.",
+    "_generated": {
+      "hash": "3150ae62c72805a0b6d63bb1296dc5a2",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:12:27.479Z"
+    }
+  },
+  {
+    "name": "con items condicionales",
+    "description": "El contenido de cada condicional es una agrupación, y como tal, se deben agrupar con una etiqueta <code>&lt;fieldset&gt;</code> o bien de una etiqueta <code>&lt;div&gt;</code> con <code>role=\"group\"</code> que tenga un <code>aria-label</code> o <code>aria-labelledby</code>.",
+    "data": {
+      "idPrefix": "conditional-items",
+      "name": "conditional-items",
+      "fieldset": {
+        "legend": {
+          "text": "¿Cómo quieres que te contactemos?"
+        }
+      },
+      "items": [
+        {
+          "value": "correo-electronico",
+          "text": "Correo electrónico",
+          "conditional": {
+            "html": mobileContent('1').val
+          }
+        },
+        {
+          "value": "telefono",
+          "text": "Teléfono",
+          "checked": true,
+          "conditional": {
+            "html": telefonoContent('2').val
+          }
+        },
+        {
+          "value": "mensaje-SMS",
+          "text": "Sin conditional"
+        }
+      ]
+    },
+    "visualDescription": "Grupo de radio buttons con pregunta en texto negro regular arriba. Tres opciones verticales: primera sin seleccionar, segunda seleccionada en azul con círculo relleno y campo de texto con label gris y borde gris de 1px indentado debajo, tercera sin seleccionar. Fondo blanco, espaciado vertical consistente entre opciones.",
+    "_generated": {
+      "hash": "470864e9ae3ad08027bd0a55ad4e8f19",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:12:38.592Z"
+    }
+  },
+  {
+    "name": "con item condicional seleccionado",
+    "description": "Usa el parámetro <code>'checked': true</code> para mostrar un item condicional seleccionado. El contenido de cada condicional es una agrupación, y como tal, se deben agrupar con una etiqueta <code>&lt;fieldset&gt;</code> o bien de una etiqueta <code>&lt;div&gt;</code> con <code>role=\"group\"</code> que tenga un <code>aria-label</code> o <code>aria-labelledby</code>.",
+    "data": {
+      "idPrefix": "conditional-item-checked",
+      "name": "conditional-item-checked",
+      "fieldset": {
+        "legend": {
+          "text": "¿Cómo quieres que te contactemos?"
+        }
+      },
+      "items": [
+        {
+          "value": "correo-electronico",
+          "text": "Correo electrónico",
+          "conditional": {
+            "html": telefonoContent('4').val
+          }
+        },
+        {
+          "value": "telefono",
+          "text": "Teléfono",
+          "checked": true,
+          "conditional": {
+            "html": mobileContent('5').val
+          }
+        },
+        {
+          "value": "mensaje-SMS",
+          "text": "Mensaje SMS",
+          "conditional": {
+            "html": mobileContent('6').val
+          }
+        }
+      ]
+    },
+    "visualDescription": "Grupo de radio buttons con pregunta en texto negro regular arriba. Tres opciones verticales: primera sin seleccionar, segunda seleccionada con círculo azul relleno y campo de texto con label gris y borde gris de 1px indentado debajo, tercera sin seleccionar. Fondo blanco con borde gris claro envolviendo todo el grupo.",
+    "_generated": {
+      "hash": "6d91710ed77fa48707b34ce9df67c197",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:12:38.593Z"
+    }
+  },
+  {
+    "name": "con clases opcionales del form-group mostrando un error del grupo",
+    "data": {
+      "idPrefix": "classes-group-error",
+      "name": "classes-group-error",
+      "formGroup": {
+        "classes": "c-form-group--error"
+      },
+      "fieldset": {
+        "legend": {
+          "text": "¿Cómo quieres que te contactemos?"
+        }
+      },
+      "items": [
+        {
+          "value": "correo-electronico",
+          "text": "Correo electrónico",
+          "conditional": {
+            "html": telefonoContent('5').val
+          }
+        },
+        {
+          "value": "telefono",
+          "text": "Teléfono",
+          "checked": true,
+          "conditional": {
+            "html": mobileErrorContent('1').val
+          }
+        },
+        {
+          "value": "mensaje-SMS",
+          "text": "Mensaje SMS",
+          "conditional": {
+            "html": mobileContent('7').val
+          }
+        }
+      ]
+    },
+    "visualDescription": "Grupo de radio buttons con pregunta en texto negro regular arriba. Tres opciones verticales: primera sin seleccionar, segunda seleccionada con círculo azul relleno y campo de texto con borde rojo de 2px más mensaje de error en texto rojo pequeño debajo, tercera con círculo rojo en estado error. Fondo blanco con borde gris claro envolviendo el grupo.",
+    "_generated": {
+      "hash": "fcc9b7451829b59a5fd3746bebf3a50d",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:12:38.593Z"
+    }
+  },
+  {
+    "name": "peque",
+    "data": {
+      "idPrefix": "small",
+      "name": "peque",
+      "classes": "c-radios--sm",
+      "items": [
+        {
+          "value": "si",
+          "text": "Si",
+          "classes": "-mt-base",
+          "label": {
+            "classes": "text-sm -mt-1"
+          }
+        },
+        {
+          "value": "no",
+          "text": "No",
+          "classes": "-mt-base",
+          "label": {
+            "classes": "text-sm -mt-1"
+          }
+        }
+      ]
+    },
+    "visualDescription": "Grupo de dos radio buttons con labels \"Si\" y \"No\" en texto negro de tamaño pequeño. Fondo blanco, radio buttons circulares con borde gris, espaciado vertical compacto entre opciones. Título \"peque\" en negro arriba del grupo.",
+    "_generated": {
+      "hash": "a01fcfd4da2fc1243bb0b1883e4df2ce",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:12:44.531Z"
+    }
+  }
+] %}

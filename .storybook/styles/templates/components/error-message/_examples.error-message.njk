@@ -1,0 +1,29 @@
+{% set exampleComponent = "error-message" %}
+{% set examples =  [
+  {
+    "name": "por defecto",
+    "description": "Por accesibilidad, los mensajes de error deben incluir la palabra \"error\", para que no recaiga tan sólo en el color el hecho de que es un mensaje de error.",
+    "data": {
+      "text": "Esto es un mensaje de error"
+    },
+    "visualDescription": "Mensaje de error con fondo blanco, borde gris claro de 1px, y esquinas redondeadas. Contiene un título en negro peso normal arriba y texto en rojo debajo. Padding generoso alrededor del contenido.",
+    "_generated": {
+      "hash": "f1044fcd67e3fad409982f937cbed6eb",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:57:17.425Z"
+    }
+  },
+  {
+    "name": "con HTML",
+    "description": "Por accesibilidad, los mensajes de error deben incluir la palabra \"error\", para que no recaiga tan sólo en el color el hecho de que es un mensaje de error.",
+    "data": {
+      "html": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140' width='1em' height='1em' class='w-4 h-4 mr-xs align-baseline text-alert-base inline-block' role='img' aria-label='Alerta'><path d='M138.42 118.29l-55-110a15 15 0 00-26.84 0l-55 110A15 15 0 0015 140h110a15 15 0 0013.42-21.71zM62.5 50a7.5 7.5 0 0115 0v30a7.5 7.5 0 01-15 0zm7.5 70a10 10 0 1110-10 10 10 0 01-10 10z' fill='currentColor' /></svg>Esto es un mensaje de error con HTML"
+    },
+    "visualDescription": "Mensaje de error con fondo blanco, borde gris claro de 1px, y esquinas redondeadas. Contiene un título en negro peso normal arriba y texto en rojo con icono de advertencia triangular rojo a la izquierda debajo. Padding generoso alrededor del contenido.",
+    "_generated": {
+      "hash": "da463a15bc5ce8083452e0ca3de34903",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:57:17.425Z"
+    }
+  }
+] %}
