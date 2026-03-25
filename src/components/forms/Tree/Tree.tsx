@@ -229,7 +229,7 @@ function TreeItem({
             checked={checked}
             disabled={item.disabled}
             onChange={handleCheckedChange}
-            className="c-tree-checkbox mr-2"
+            className="w-6 h-6 transition duration-150 ease-in-out border-black focus:border-black focus:shadow-outline-focus-input focus:ring-4 focus:ring-offset-0 focus:ring-warning-base disabled:bg-neutral-base disabled:border-neutral-base text-primary-base mr-2"
             aria-describedby={item.id ? `${item.id}-hint` : undefined}
           />
         )}
@@ -243,7 +243,7 @@ function TreeItem({
             checked={checked}
             disabled={item.disabled}
             onChange={handleCheckedChange}
-            className="c-tree-radio mr-2"
+            className="w-6 h-6 transition duration-150 ease-in-out border-black focus:border-black focus:shadow-outline-focus-input focus:ring-4 focus:ring-offset-0 focus:ring-warning-base disabled:bg-neutral-base disabled:border-neutral-base text-primary-base mr-2"
           />
         )}
 
@@ -277,7 +277,7 @@ function TreeItem({
 
       {/* Nested items */}
       {hasChildren && expanded && (
-        <ul role="group" className="c-tree-sub">
+        <ul role="group" className="c-tree__itemgroup">
           {item.items!.map((child, index) => (
             <TreeItem
               key={child.id ?? index}

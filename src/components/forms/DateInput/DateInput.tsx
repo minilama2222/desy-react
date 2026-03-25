@@ -167,7 +167,7 @@ export function DateInput({
               placeholder={item.placeholder}
               disabled={disabled || item.disabled}
               defaultValue={item.value}
-              className={clsx('c-input form-input mb-0', hasError && 'border-alert-base')}
+              className={clsx('c-input block mt-sm mb-0', hasError && 'border-alert-base')}
               aria-invalid={hasError || undefined}
               aria-errormessage={hasError ? errorId : undefined}
               onFocus={onFocus}

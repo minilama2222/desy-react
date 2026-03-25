@@ -158,19 +158,19 @@ export function Modal({
       {isDismissible && <div className="absolute top-0 right-0 p-sm lg:p-base"><CloseButton onClose={onClose} /></div>}
 
       {(title || titleHtml) && (
-        headingLevel === 1 ? <h1 id={`label-${id}`} className={clsx(titleClasses)} tabIndex={-1}>{titleHtml ? <span dangerouslySetInnerHTML={{ __html: titleHtml }} /> : title}</h1> :
-        headingLevel === 2 ? <h2 id={`label-${id}`} className={clsx(titleClasses)} tabIndex={-1}>{titleHtml ? <span dangerouslySetInnerHTML={{ __html: titleHtml }} /> : title}</h2> :
-        headingLevel === 3 ? <h3 id={`label-${id}`} className={clsx(titleClasses)} tabIndex={-1}>{titleHtml ? <span dangerouslySetInnerHTML={{ __html: titleHtml }} /> : title}</h3> :
-        headingLevel === 4 ? <h4 id={`label-${id}`} className={clsx(titleClasses)} tabIndex={-1}>{titleHtml ? <span dangerouslySetInnerHTML={{ __html: titleHtml }} /> : title}</h4> :
-        headingLevel === 5 ? <h5 id={`label-${id}`} className={clsx(titleClasses)} tabIndex={-1}>{titleHtml ? <span dangerouslySetInnerHTML={{ __html: titleHtml }} /> : title}</h5> :
-        <h2 id={`label-${id}`} className={clsx(titleClasses)} tabIndex={-1}>{titleHtml ? <span dangerouslySetInnerHTML={{ __html: titleHtml }} /> : title}</h2>
+        headingLevel === 1 ? <h1 id={`label-${id}`} className={clsx('c-h2 px-base text-center focus:outline-hidden focus:underline', titleClasses)} tabIndex={-1}>{titleHtml ? <span dangerouslySetInnerHTML={{ __html: titleHtml }} /> : title}</h1> :
+        headingLevel === 2 ? <h2 id={`label-${id}`} className={clsx('c-h2 px-base text-center focus:outline-hidden focus:underline', titleClasses)} tabIndex={-1}>{titleHtml ? <span dangerouslySetInnerHTML={{ __html: titleHtml }} /> : title}</h2> :
+        headingLevel === 3 ? <h3 id={`label-${id}`} className={clsx('c-h2 px-base text-center focus:outline-hidden focus:underline', titleClasses)} tabIndex={-1}>{titleHtml ? <span dangerouslySetInnerHTML={{ __html: titleHtml }} /> : title}</h3> :
+        headingLevel === 4 ? <h4 id={`label-${id}`} className={clsx('c-h2 px-base text-center focus:outline-hidden focus:underline', titleClasses)} tabIndex={-1}>{titleHtml ? <span dangerouslySetInnerHTML={{ __html: titleHtml }} /> : title}</h4> :
+        headingLevel === 5 ? <h5 id={`label-${id}`} className={clsx('c-h2 px-base text-center focus:outline-hidden focus:underline', titleClasses)} tabIndex={-1}>{titleHtml ? <span dangerouslySetInnerHTML={{ __html: titleHtml }} /> : title}</h5> :
+        <h2 id={`label-${id}`} className={clsx('c-h2 px-base text-center focus:outline-hidden focus:underline', titleClasses)} tabIndex={-1}>{titleHtml ? <span dangerouslySetInnerHTML={{ __html: titleHtml }} /> : title}</h2>
       )}
 
       {(description || descriptionHtml) && (
         descriptionHtml ? (
-          <div id={`desc-${id}`} className={clsx('mt-sm', descriptionClasses)}><span dangerouslySetInnerHTML={{ __html: descriptionHtml }} /></div>
+          <div id={`desc-${id}`} className={clsx('c-paragraph-base my-base text-center', descriptionClasses)}><span dangerouslySetInnerHTML={{ __html: descriptionHtml }} /></div>
         ) : (
-          <p id={`desc-${id}`} className={clsx('mt-sm', descriptionClasses)}>{description}</p>
+          <p id={`desc-${id}`} className={clsx('c-p my-base text-center', descriptionClasses)}>{description}</p>
         )
       )}
 
