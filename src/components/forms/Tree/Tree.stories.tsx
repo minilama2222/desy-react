@@ -26,37 +26,6 @@ const meta: Meta<typeof Tree> = {
 export default meta;
 type Story = StoryObj<typeof Tree>;
 
-const checkboxItems = [
-  {
-    id: 'opt-1',
-    name: 'Opción 1',
-    value: 'opt1',
-    checked: false,
-    items: [
-      { id: 'opt-1-1', name: 'Sub-opción 1.1', value: 'opt1-1', checked: false },
-      { id: 'opt-1-2', name: 'Sub-opción 1.2', value: 'opt1-2', checked: false },
-    ],
-  },
-  {
-    id: 'opt-2',
-    name: 'Opción 2',
-    value: 'opt2',
-    checked: true,
-    expanded: true,
-    items: [
-      { id: 'opt-2-1', name: 'Sub-opción 2.1', value: 'opt2-1', checked: true },
-      { id: 'opt-2-2', name: 'Sub-opción 2.2', value: 'opt2-2', checked: false },
-    ],
-  },
-  {
-    id: 'opt-3',
-    name: 'Opción 3 (deshabilitada)',
-    value: 'opt3',
-    disabled: true,
-    checked: false,
-  },
-];
-
 // Helper to update a nested item in the tree
 function updateNestedItem(items: TreeItemData[], targetId: string, updates: Partial<TreeItemData>): TreeItemData[] {
   return items.map((item) => {
@@ -70,7 +39,50 @@ function updateNestedItem(items: TreeItemData[], targetId: string, updates: Part
   });
 }
 
-export const Default: Story = {
+const simpleTreeItems: TreeItemData[] = [
+  {
+    id: 'tree-checkbox-1-row-1',
+    name: 'Opción 1',
+    value: 'opcion-1',
+    items: [
+      { id: 'tree-checkbox-1-row-2', name: 'Opción 1.1', value: 'opcion-1-1' },
+      { id: 'tree-checkbox-1-row-3', name: 'Opción 1.2', value: 'opcion-1-2' },
+    ],
+  },
+  {
+    id: 'tree-checkbox-1-row-4',
+    name: 'Opción 2',
+    value: 'opcion-2',
+    items: [
+      { id: 'tree-checkbox-1-row-5', name: 'Opción 2.1', value: 'opcion-2-1' },
+      { id: 'tree-checkbox-1-row-6', name: 'Opción 2.2', value: 'opcion-2-2' },
+    ],
+  },
+];
+
+const simpleTreeDisabledItems: TreeItemData[] = [
+  {
+    id: 'tree-checkbox-2-row-1',
+    name: 'Opción 1',
+    value: 'opcion-1',
+    disabled: true,
+    items: [
+      { id: 'tree-checkbox-2-row-2', name: 'Opción 1.1', value: 'opcion-1-1', disabled: true },
+      { id: 'tree-checkbox-2-row-3', name: 'Opción 1.2', value: 'opcion-1-2', disabled: true },
+    ],
+  },
+  {
+    id: 'tree-checkbox-2-row-4',
+    name: 'Opción 2',
+    value: 'opcion-2',
+    items: [
+      { id: 'tree-checkbox-2-row-5', name: 'Opción 2.1', value: 'opcion-2-1' },
+      { id: 'tree-checkbox-2-row-6', name: 'Opción 2.2', value: 'opcion-2-2' },
+    ],
+  },
+];
+
+export const ArbolSimple: Story = {
   render: (args) => {
     const [items, setItems] = useState<TreeItemData[]>(args.items || []);
     return (
@@ -84,22 +96,45 @@ export const Default: Story = {
     );
   },
   args: {
-    id: 'tree-checkbox',
-    name: 'tree-options',
+    id: 'tree-checkbox-1',
+    name: 'tree-options-1',
     type: 'checkbox',
-    items: checkboxItems,
-    hasDividers: true,
+    items: simpleTreeItems,
     expandedFirstLevel: true,
+    hasDividers: true,
   },
 };
 
-export const Radio: Story = {
+export const ArbolSimpleDisabled: Story = {
+  render: (args) => {
+    const [items, setItems] = useState<TreeItemData[]>(args.items || []);
+    return (
+      <Tree
+        {...args}
+        items={items}
+        onChange={(changedItem) => {
+          setItems((prev) => updateNestedItem(prev, changedItem.id || '', { checked: changedItem.checked }));
+        }}
+      />
+    );
+  },
+  args: {
+    id: 'tree-checkbox-2',
+    name: 'tree-options-2',
+    type: 'checkbox',
+    items: simpleTreeDisabledItems,
+    expandedFirstLevel: true,
+    hasDividers: true,
+  },
+};
+
+export const ArbolSimpleConTodosLosElementosInicialExpandidos: Story = {
   render: (args) => {
     const [items, setItems] = useState<TreeItemData[]>(
       (args.items || []).map((item: TreeItemData) => ({
         ...item,
-        checked: false,
-        items: item.items?.map((c: TreeItemData) => ({ ...c, checked: false })),
+        expanded: true,
+        items: item.items?.map((c: TreeItemData) => ({ ...c, expanded: true })),
       }))
     );
     return (
@@ -113,81 +148,10 @@ export const Radio: Story = {
     );
   },
   args: {
-    id: 'tree-radio',
-    name: 'tree-radio-options',
-    type: 'radio',
-    items: checkboxItems,
-    expandedFirstLevel: true,
-  },
-};
-
-export const Navigation: Story = {
-  args: {
-    id: 'tree-navigation',
-    type: 'navigation',
-    items: [
-      {
-        id: 'nav-1',
-        name: 'Inicio',
-        value: 'home',
-        href: '/',
-        expanded: true,
-        items: [
-          { id: 'nav-1-1', name: 'Sub-página 1', value: 'sub1', href: '/sub1' },
-          { id: 'nav-1-2', name: 'Sub-página 2', value: 'sub2', href: '/sub2' },
-        ],
-      },
-      {
-        id: 'nav-2',
-        name: 'Servicios',
-        value: 'services',
-        href: '/services',
-        items: [
-          { id: 'nav-2-1', name: 'Servicio A', value: 'service-a', href: '/services/a' },
-          { id: 'nav-2-2', name: 'Servicio B', value: 'service-b', href: '/services/b' },
-        ],
-      },
-    ],
-  },
-};
-
-export const ThreeLevels: Story = {
-  render: (args) => {
-    const [items, setItems] = useState<TreeItemData[]>(args.items || []);
-    return (
-      <Tree
-        {...args}
-        items={items}
-        onChange={(changedItem) => {
-          setItems((prev) => updateNestedItem(prev, changedItem.id || '', { checked: changedItem.checked }));
-        }}
-      />
-    );
-  },
-  args: {
-    id: 'tree-three-levels',
+    id: 'tree-checkbox-3',
+    name: 'tree-options-3',
     type: 'checkbox',
-    name: 'three-levels',
-    expandedFirstLevel: true,
+    items: simpleTreeItems,
     hasDividers: true,
-    items: [
-      {
-        id: 'level-1',
-        name: 'Nivel 1',
-        value: 'level1',
-        items: [
-          {
-            id: 'level-1-1',
-            name: 'Nivel 2 - A',
-            value: 'level1-a',
-            items: [
-              { id: 'level-1-1-a', name: 'Nivel 3 - A', value: 'level1-a-a' },
-              { id: 'level-1-1-b', name: 'Nivel 3 - B', value: 'level1-a-b' },
-            ],
-          },
-          { id: 'level-1-2', name: 'Nivel 2 - B', value: 'level1-b' },
-        ],
-      },
-    ],
   },
 };

@@ -10,39 +10,40 @@ const meta: Meta<typeof FileUpload> = {
 export default meta;
 type Story = StoryObj<typeof FileUpload>;
 
-export const Default: Story = {
+export const PorDefecto: Story = {
   args: {
-    id: 'file-upload',
-    name: 'document',
-    labelText: 'Upload a document',
+    id: 'file-upload-1',
+    name: 'file-upload-1',
+    labelText: 'Sube un archivo',
+    hintText: 'Tamaño máximo: 50MB',
   },
 };
 
-export const WithAccept: Story = {
+export const ConError: Story = {
   args: {
-    id: 'pdf-upload',
-    name: 'pdf-file',
-    labelText: 'Upload PDF',
-    accept: '.pdf',
-    hintText: 'Only PDF files are accepted',
+    id: 'file-upload-2',
+    name: 'file-upload-2',
+    labelText: 'Sube un archivo',
+    errorMessageText: 'El archivo no es válido.',
   },
 };
 
-export const WithError: Story = {
+export const ConAccept: Story = {
   args: {
-    id: 'error-upload',
-    name: 'file',
-    labelText: 'Upload your CV',
-    errorMessageText: 'Please upload a file',
+    id: 'file-upload-3',
+    name: 'file-upload-3',
+    labelText: 'Sube tu CV',
+    hintText: 'Tamaño máximo: 2MB',
+    accept: '.pdf,.doc,.docx',
   },
 };
 
-export const WithMultipleTypes: Story = {
+export const ConHintPersonalizado: Story = {
   args: {
-    id: 'multi-upload',
-    name: 'attachments',
-    labelText: 'Upload files',
-    accept: '.pdf,.doc,.docx,.txt',
-    hintText: 'Accepted formats: PDF, DOC, DOCX, TXT',
+    id: 'file-upload-4',
+    name: 'file-upload-4',
+    labelText: 'Sube tu fotografía',
+    hintText: 'Formatos permitidos: JPG, PNG. Tamaño máximo: 5MB',
+    accept: '.jpg,.jpeg,.png',
   },
 };
