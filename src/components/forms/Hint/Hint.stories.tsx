@@ -10,27 +10,14 @@ const meta: Meta<typeof Hint> = {
 export default meta;
 type Story = StoryObj<typeof Hint>;
 
-export const Default: Story = {
+export const PorDefecto: Story = {
   args: {
-    children: 'This is a helpful hint text.',
+    text: 'Esto es una pista o hint.',
   },
 };
 
-export const WithTextProp: Story = {
+export const ConHtml: Story = {
   args: {
-    text: 'Hint text via prop.',
-  },
-};
-
-export const WithHtml: Story = {
-  args: {
-    html: 'Hint with <strong>bold</strong> text.',
-  },
-};
-
-export const WithCustomClass: Story = {
-  args: {
-    children: 'Custom styled hint',
-    className: 'text-sm',
+    html: 'Esto es una <strong>pista</strong> o <em>hint</em>.',
   },
 };

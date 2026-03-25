@@ -21,7 +21,7 @@ const meta: Meta<typeof Accordion> = {
     },
     showControl: { control: 'boolean', description: 'Show expand/collapse all button' },
     allowToggle: { control: 'boolean', description: 'Allow toggling individual items' },
-    showAll: { control: 'boolean', description: 'All items expanded initially' },
+    allowMultiple: { control: 'boolean', description: 'Allow multiple items open' },
   },
 };
 
@@ -30,115 +30,205 @@ type Story = StoryObj<typeof Accordion>;
 
 const sampleItems = [
   {
-    id: 'item-1',
-    headerText: '¿Qué es el sistema de大衣建筑设计?',
-    text: 'El sistema de大衣建筑设计 es un conjunto de herramientas y servicios que...',
-    open: true,
+    headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón 1</span>',
+    html: '<p>Contenido del item 1</p>',
   },
   {
-    id: 'item-2',
-    headerText: '¿Cómo puedo registrar una solicitud?',
-    headerHtml: '<strong>¿Cómo puedo</strong> registrar una solicitud?',
-    text: 'Para registrar una solicitud, debe seguir los pasos indicados en el portal.',
+    headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón 2</span>',
+    html: '<p>Contenido del item 2</p>',
   },
   {
-    id: 'item-3',
-    headerText: '¿Necesito certificado digital?',
-    text: 'Sí, es necesario disponer de un certificado digital válido.',
-    disabled: true,
-  },
-  {
-    id: 'item-4',
-    headerText: '¿Cuánto tarda el proceso?',
-    html: '<p>El proceso suele tardar entre <strong>5 y 10 días hábiles</strong>.</p>',
+    headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón 3</span>',
+    html: '<p>Contenido del item 3</p>',
   },
 ];
 
-export const Default: Story = {
+export const PorDefecto: Story = {
   args: {
     idPrefix: 'accordion-example',
-    heading: { text: 'Preguntas frecuentes' },
-    headingLevel: 2,
+    headingLevel: 3,
     items: sampleItems,
-    showControl: true,
-    allowToggle: true,
   },
 };
 
-export const WithNumberedItems: Story = {
+export const PermiteMultiples: Story = {
   args: {
-    idPrefix: 'accordion-numbered',
-    heading: { text: 'Pasos del procedimiento' },
-    headingLevel: 2,
-    items: sampleItems.map((item, i) => ({
-      ...item,
-      headerHtml: `<span class="mr-2 font-bold text-primary-base">${i + 1}.</span> ${item.headerText}`,
-    })),
-    showControl: false,
-    allowToggle: true,
-  },
-};
-
-export const InitiallyExpanded: Story = {
-  args: {
-    idPrefix: 'accordion-expanded',
-    heading: { text: 'Acordeón expandido' },
-    headingLevel: 2,
+    idPrefix: 'allowmultiple-example',
+    headingLevel: 3,
+    allowMultiple: true,
     items: sampleItems,
-    showControl: true,
-    allowToggle: true,
-    showAll: true,
   },
 };
 
-export const WithHtmlContent: Story = {
+export const PermiteCerrar: Story = {
   args: {
-    idPrefix: 'accordion-html',
-    heading: { text: 'Información técnica' },
-    headingLevel: 2,
+    idPrefix: 'allowtoggle-example',
+    headingLevel: 3,
+    allowToggle: true,
+    items: sampleItems,
+  },
+};
+
+export const ConUnItemAbierto: Story = {
+  args: {
+    idPrefix: 'with-one-item-opened-example',
+    headingLevel: 3,
+    allowToggle: true,
+    items: [
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón 1</span>', html: '<p>Contenido del item 1</p>' },
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón 2</span>', html: '<p>Contenido del item 2</p>', open: true },
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón 3</span>', html: '<p>Contenido del item 3</p>' },
+    ],
+  },
+};
+
+export const Con2ItemsAbiertos: Story = {
+  args: {
+    idPrefix: 'with-2-items-opened-example',
+    headingLevel: 3,
+    allowMultiple: true,
+    items: [
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón 1</span>', html: '<p>Contenido del item 1</p>', open: true },
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón 2</span>', html: '<p>Contenido del item 2</p>' },
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón 3</span>', html: '<p>Contenido del item 3</p>', open: true },
+    ],
+  },
+};
+
+export const DeshabilitadosConAllowToggleYAllowMultiple: Story = {
+  args: {
+    idPrefix: 'accordion-disabled',
+    headingLevel: 3,
+    allowToggle: true,
+    allowMultiple: true,
+    items: [
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón no deshabilitado</span>', html: '<p>Contenido</p>' },
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón deshabilitado</span>', html: '<p>Contenido</p>', disabled: true },
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón deshabilitado y abierto</span>', html: '<p>Contenido</p>', disabled: true, open: true },
+    ],
+  },
+};
+
+export const ConEncabezado: Story = {
+  args: {
+    idPrefix: 'heading-example',
+    headingLevel: 3,
+    heading: { text: 'Encabezado de acordeón' },
+    items: sampleItems,
+  },
+};
+
+export const ConEncabezadoDeNivel4: Story = {
+  args: {
+    idPrefix: 'accordion-heading-level-example',
+    headingLevel: 4,
+    heading: { text: 'Este encabezado con <h4>' },
+    items: [
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Este Item 1 con h5</span>', html: '<p>Contenido del item 1</p>' },
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Este Item 2 con h5</span>', html: '<p>Contenido del item 2</p>' },
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Este Item 3 con h5</span>', html: '<p>Contenido del item 3</p>' },
+    ],
+  },
+};
+
+export const ConEncabezadoYControlesDeMostrarTodo: Story = {
+  args: {
+    idPrefix: 'heading-and-show-controls-example',
+    headingLevel: 3,
+    heading: { text: 'Encabezado de acordeón' },
+    showControl: true,
+    allowMultiple: true,
+    items: [
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón 1</span>', html: '<p>Contenido del item 1</p>' },
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón 2</span>', html: '<p>Contenido del item 2</p>', open: true },
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón 3</span>', html: '<p>Contenido del item 3</p>' },
+    ],
+  },
+};
+
+export const MostrarTodoUOcultarTodoConJavaScript: Story = {
+  args: {
+    idPrefix: 'show-all-accordion-example-js',
+    headingLevel: 3,
+    heading: { text: 'Encabezado de acordeón' },
+    showControl: true,
+    allowMultiple: true,
+    items: [
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón 1</span>', html: '<p>Contenido del item 1</p>' },
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón 2</span>', html: '<p>Contenido del item 2</p>', open: true },
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón 3</span>', html: '<p>Contenido del item 3</p>' },
+    ],
+  },
+};
+
+export const ConControlesPersonalizadosParaMostrarOcultar: Story = {
+  args: {
+    idPrefix: 'accordion-show-hide',
+    headingLevel: 3,
+    allowMultiple: true,
     items: [
       {
-        id: 'html-1',
-        headerText: 'Requisitos del sistema',
-        html: `<ul class="list-disc pl-4">
-          <li>Navegador compatible (Chrome, Firefox, Edge, Safari)</li>
-          <li>JavaScript habilitado</li>
-          <li>Conexión a internet estable</li>
-        </ul>`,
-        open: true,
+        headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón 1</span>',
+        html: '<p>Contenido del item 1</p>',
+        show: { text: 'Expandir detalles' },
+        hide: { text: 'Contraer' },
       },
       {
-        id: 'html-2',
-        headerText: 'Contacto de soporte',
-        html: `<p>Para más información, contacte con <a href="mailto:soporte@ejemplo.es" class="c-link">soporte@ejemplo.es</a></p>`,
+        headerHtml: '<span class="block pr-lg pointer-events-none">Item de acordeón 2</span>',
+        html: '<p>Contenido del item 2</p>',
+        show: { html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-4 h-4"><path d="M14 7a1 1 0 0 0-1-1H8.25A.25.25 0 0 1 8 5.75V1a1 1 0 0 0-2 0v4.75a.25.25 0 0 1-.25.25H1a1 1 0 0 0 0 2h4.75a.25.25 0 0 1 .25.25V13a1 1 0 0 0 2 0V8.25A.25.25 0 0 1 8.25 8H13a1 1 0 0 0 1-1Z" fill="currentColor" transform="scale(3.42857)"/></svg>' },
+        hide: { html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-4 h-4"><path d="M13 8H1a1 1 0 0 1 0-2h12a1 1 0 0 1 0 2Z" fill="currentColor" transform="scale(3.42857)"/></svg>' },
+      },
+      {
+        headerHtml: '<span class="block pr-lg pointer-events-none">Item de acordeón 3</span>',
+        html: '<p>Contenido del item 3</p>',
+        show: { html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="w-4 h-4"><path d="M7.5 12.1875c-.4375 0-.8125-.1875-1.0625-.5L.25 4.75c-.375-.5-.3125-1.25.1875-1.625.5-.375 1.1875-.375 1.5625.125l5.375 6.125c.0625.0625.125.0625.25 0l5.375-6.125c.4375-.5 1.125-.5625 1.625-.125s.5625 1.125.125 1.625l-6.125 6.9375c-.25.25-.6875.4375-1.0625.4375z" fill="currentColor"/></svg>' },
+        hide: { html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="w-4 h-4"><path d="M7.5625 2.8125c.4375 0 .8125.1875 1.0625.5l6.0625 6.875c.4375.4375.375 1.1875-.0625 1.625s-1.1875.375-1.625-.0625L7.5625 5.9375c-.0625-.0625-.125-.0625-.25 0l-5.3125 6c-.4375.5-1.125.5625-1.625.125s-.5625-1.125-.125-1.625l6.0625-6.875c.3125-.25.6875-.4375 1.125-.4375z" fill="currentColor"/></svg>' },
+      },
+      {
+        headerHtml: 'Item de acordeón 4',
+        html: '<p>Contenido del item 4</p>',
+        show: { text: '' },
+        hide: { text: '' },
       },
     ],
   },
 };
 
-export const WithDisabledItem: Story = {
+export const ConHtmlEnLasCabecerasDeLosItems: Story = {
   args: {
-    idPrefix: 'accordion-disabled',
-    heading: { text: 'Accordion con item deshabilitado' },
-    headingLevel: 2,
+    idPrefix: 'accordion-example-pointer-events-none',
+    headingLevel: 3,
     items: [
-      {
-        id: 'enabled-1',
-        headerText: 'Opción disponible',
-        text: 'Esta opción está disponible para su selección.',
-        open: true,
-      },
-      {
-        id: 'disabled-1',
-        headerText: 'Opción temporalmente no disponible',
-        text: 'Esta opción está temporalmente deshabilitada.',
-        disabled: true,
-      },
-      {
-        id: 'enabled-2',
-        headerText: 'Otra opción disponible',
-        text: 'Puede seleccionar esta opción.',
-      },
+      { headerHtml: '<span class="block pointer-events-none">Item de acordeón 1</span><span class="block pointer-events-none font-normal">El subelemento también recibe eventos</span>', html: '<p>Contenido del item 1</p>' },
+      { headerHtml: '<span class="block pointer-events-none">Item de acordeón 2</span><span class="block pointer-events-none font-normal">El subelemento también recibe eventos</span>', html: '<p>Contenido del item 2</p>' },
+      { headerHtml: '<span class="block pointer-events-none">Item de acordeón 3</span><span class="block pointer-events-none font-normal">El subelemento también recibe eventos</span>', html: '<p>Contenido del item 3</p>' },
+    ],
+  },
+};
+
+export const ConClasesDeCssAplicadas: Story = {
+  args: {
+    idPrefix: 'classes-example',
+    headingLevel: 3,
+    classes: 'px-lg pt-base border-t border-b border-neutral-base',
+    heading: { text: 'Accordion example', classes: 'c-h2 mb-lg uppercase' },
+    items: [
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón 1</span>', html: '<p>Contenido del item 1</p>' },
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón 2</span>', html: '<p>Contenido del item 2</p>', classes: 'p-sm bg-primary-light', open: true },
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón 3</span>', html: '<p>Contenido del item 3</p>' },
+    ],
+  },
+};
+
+export const ConAtributosAplicados: Story = {
+  args: {
+    idPrefix: 'attributes-example',
+    headingLevel: 3,
+    items: [
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón 1</span>', html: '<p>Contenido del item 1</p>', attributes: { 'data-attr': 'accordion-item-test-a' } },
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón 2</span>', html: '<p>Contenido del item 2</p>', attributes: { 'data-attr': 'accordion-item-test-b' } },
+      { headerHtml: '<span class="block pr-2xl pointer-events-none">Item de acordeón 3</span>', html: '<p>Contenido del item 3</p>', attributes: { 'data-attr': 'accordion-item-test-c' } },
     ],
   },
 };

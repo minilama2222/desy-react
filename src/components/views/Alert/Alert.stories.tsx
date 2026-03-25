@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { useState } from 'react';
 import { Alert } from './Alert';
-import { Button } from '../../buttons/Button/Button';
+import { Notification } from '../../nav/Notification/Notification';
 
 const meta: Meta<typeof Alert> = {
   title: 'Views/Alert',
@@ -12,39 +11,37 @@ const meta: Meta<typeof Alert> = {
 export default meta;
 type Story = StoryObj<typeof Alert>;
 
-export const Inactive: Story = {
+export const AlertMostrandoUnaNotificacionDeExito: Story = {
   args: {
-    id: 'inactive-alert',
-    active: false,
-    children: <p>Alert content</p>,
-  },
-};
-
-export const Active: Story = {
-  args: {
-    id: 'active-alert',
+    id: 'success-id',
     active: true,
-    children: <p>Alert content</p>,
+    children: (
+      <Notification
+        id="default-id"
+        titleText="El documento se ha cargado correctamente"
+        type="success"
+        isDismissible
+      />
+    ),
   },
 };
 
-export const Controlled: Story = {
-  render: () => {
-    const [active, setActive] = useState(false);
-    return (
-      <div>
-        <Button onClick={() => setActive(true)} disabled={active}>
-          Show Alert
-        </Button>
-        <Alert id="controlled-alert" active={active}>
-          <div className="p-4 bg-blue-100 border border-blue-400 rounded">
-            <p>This is an alert message!</p>
-            <button onClick={() => setActive(false)} className="mt-2 text-sm underline">
-              Dismiss
-            </button>
-          </div>
-        </Alert>
-      </div>
-    );
+export const AlertMostrandoUnaNotificacionDeAlerta: Story = {
+  args: {
+    id: 'alert-id',
+    active: true,
+    children: (
+      <Notification
+        id="secondary-id"
+        titleText="Problemas encontrados"
+        items={[
+          { text: 'Campo Nombre de la empresa está vacío', href: '#empresa' },
+          { text: 'Campo Fecha de inicio de la actividad está vacío', href: '#actividad' },
+          { text: 'El formato de correo electrónico es incorrecto', href: '#email' },
+        ]}
+        type="alert"
+        isDismissible
+      />
+    ),
   },
 };

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Dropdown, DropdownItem } from './Dropdown';
+import { Dropdown } from './Dropdown';
 
 const meta: Meta<typeof Dropdown> = {
   title: 'Buttons/Dropdown',
@@ -23,87 +23,109 @@ const meta: Meta<typeof Dropdown> = {
 export default meta;
 type Story = StoryObj<typeof Dropdown>;
 
-export const Default: Story = {
-  render: (args) => (
-    <div className="flex justify-center p-8">
-      <Dropdown {...args}>
-        <DropdownItem text="Opción 1" href="#" />
-        <DropdownItem text="Opción 2" href="#" />
-        <DropdownItem text="Opción 3" href="#" />
-      </Dropdown>
-    </div>
-  ),
+export const PorDefecto: Story = {
   args: {
-    id: 'dropdown-default',
-    text: 'Abrir menú',
-    placement: 'bottom-start',
+    text: 'Por defecto',
   },
 };
 
-export const WithHtmlContent: Story = {
-  render: (args) => (
-    <div className="flex justify-center p-8">
-      <Dropdown {...args}>
-        <DropdownItem html='<strong>Opción en negrita</strong>' href="#" />
-        <DropdownItem html='<em>Opción en cursiva</em>' href="#" />
-      </Dropdown>
-    </div>
-  ),
+export const ConEstadoActivo: Story = {
   args: {
-    id: 'dropdown-html',
-    html: '<span>Menú <b>especial</b></span>',
-    placement: 'bottom-start',
+    text: 'Activo',
+    classes: 'ds-active',
   },
 };
 
-export const WithDisabledItems: Story = {
-  render: (args) => (
-    <div className="flex justify-center p-8">
-      <Dropdown {...args}>
-        <DropdownItem text="Opción disponible" href="#" />
-        <DropdownItem text="Opción deshabilitada" disabled />
-        <DropdownItem text="Otra opción" href="#" />
-      </Dropdown>
-    </div>
-  ),
+export const ConEstadoHover: Story = {
   args: {
-    id: 'dropdown-disabled',
-    text: 'Menú con deshabilitados',
-    placement: 'bottom-start',
+    text: 'Hover',
+    classes: 'ds-hover',
   },
 };
 
-export const WithOnClick: Story = {
-  render: (args) => (
-    <div className="flex justify-center p-8">
-      <Dropdown
-        {...args}
-        onClick={() => console.log('Dropdown clicked!')}
-      >
-        <DropdownItem text="Aceptar" onClick={() => console.log('Accept clicked!')} />
-        <DropdownItem text="Cancelar" onClick={() => console.log('Cancel clicked!')} />
-      </Dropdown>
-    </div>
-  ),
+export const ConEstadoFocus: Story = {
   args: {
-    id: 'dropdown-onclick',
-    text: 'Acciones',
-    placement: 'bottom-start',
+    text: 'Focus',
+    classes: 'ds-focus',
   },
 };
 
-export const Disabled: Story = {
-  render: (args) => (
-    <div className="flex justify-center p-8">
-      <Dropdown {...args}>
-        <DropdownItem text="No se mostrará" />
-      </Dropdown>
-    </div>
-  ),
+export const Primario: Story = {
   args: {
-    id: 'dropdown-disabled',
-    text: 'Menú deshabilitado',
+    text: 'Primario',
+    classes: 'c-dropdown--primary',
+  },
+};
+
+export const Transparente: Story = {
+  args: {
+    text: 'Transparente',
+    classes: 'c-dropdown--transparent',
+  },
+};
+
+export const ConEstilosDeCabecera: Story = {
+  args: {
+    text: 'Header',
+    classes: 'c-dropdown--header',
+  },
+};
+
+export const Grande: Story = {
+  args: {
+    text: 'Grande',
+    classes: 'c-dropdown--lg',
+  },
+};
+
+export const Pequeno: Story = {
+  args: {
+    text: 'Botón pequeño con texto muy largo',
+    classes: 'c-dropdown--sm',
+  },
+};
+
+export const PequenoTieneSeleccion: Story = {
+  args: {
+    text: 'Botón pequeño con texto muy largo',
+    classes: 'c-dropdown--has-selection c-dropdown--sm',
+  },
+};
+
+export const Deshabilitado: Story = {
+  args: {
+    text: 'Deshabilitado',
     disabled: true,
-    placement: 'bottom-start',
+  },
+};
+
+export const ConClasesCssAplicadasAlContainer: Story = {
+  args: {
+    text: 'Clases en container',
+    classesContainer: 'inline-block p-base bg-primary-light',
+  },
+};
+
+export const ClasesAplicadasAlContenidoDelTooltip: Story = {
+  args: {
+    text: 'Clases al contenido del tooltip',
+    classesTooltip: 'max-h-64 overflow-y-auto',
+  },
+};
+
+export const ClasesAplicadasAVariosElementos: Story = {
+  args: {
+    text: 'Dropdown anchura completa',
+    classes: 'w-full justify-between',
+    classesTooltip: 'w-max max-h-40 overflow-y-auto',
+  },
+};
+
+export const ConRoleDialog: Story = {
+  args: {
+    text: 'Marta Pérez',
+    contentAriaLabel: 'Información adicional',
+    contentAriaModal: 'false',
+    contentRole: 'dialog',
   },
 };

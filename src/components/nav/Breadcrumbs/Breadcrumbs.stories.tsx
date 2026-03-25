@@ -4,57 +4,117 @@ import { Breadcrumbs } from './Breadcrumbs';
 const meta: Meta<typeof Breadcrumbs> = {
   title: 'Nav/Breadcrumbs',
   component: Breadcrumbs,
-  tags: ['autodocs'],
-  parameters: {
-    docs: {
-      description: {
-        component: 'Displays a navigation breadcrumb trail showing the user\'s location within the site hierarchy.',
-      },
-    },
-  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Breadcrumbs>;
 
-export const Default: Story = {
+export const PorDefecto: Story = {
   args: {
     items: [
-      { text: 'Inicio', routerLink: '/' },
-      { text: 'Trámites', routerLink: '/tramites' },
-      { text: 'Empresas', routerLink: '/tramites/empresas' },
-      { text: 'Alta de empresa' },
+      {
+        href: '#',
+        text: 'Inicio',
+      },
+      {
+        href: '#',
+        text: 'Categoría',
+      },
+      {
+        text: 'Página actual',
+      },
     ],
+    attributes: {
+      'aria-label': 'Breadcrumb',
+    },
   },
 };
 
-export const WithBackButton: Story = {
+export const ConInicio: Story = {
   args: {
-    hasBackButton: true,
     items: [
-      { text: 'Inicio', routerLink: '/' },
-      { text: 'Servicios' },
+      {
+        href: '#',
+        text: 'Inicio',
+      },
+      {
+        text: 'Página actual',
+      },
     ],
+    attributes: {
+      'aria-label': 'Breadcrumb',
+    },
   },
 };
 
-export const InlineOnDesktop: Story = {
+export const ConMuchosNiveles: Story = {
   args: {
-    inlineOnDesktop: true,
     items: [
-      { text: 'Inicio', routerLink: '/' },
-      { text: 'Ayuda', routerLink: '/ayuda' },
-      { text: 'FAQ' },
+      {
+        href: '#',
+        text: 'Inicio',
+      },
+      {
+        href: '#',
+        text: 'Nivel 1',
+      },
+      {
+        href: '#',
+        text: 'Nivel 2',
+      },
+      {
+        href: '#',
+        text: 'Nivel 3',
+      },
+      {
+        text: 'Página actual',
+      },
     ],
+    attributes: {
+      'aria-label': 'Breadcrumb',
+    },
   },
 };
 
-export const WithHtmlItems: Story = {
+export const ConIconoInicioPersonalizado: Story = {
   args: {
     items: [
-      { text: 'Inicio', routerLink: '/' },
-      { html: '<span>Sección</span>', routerLink: '/seccion' },
-      { text: 'Página actual' },
+      {
+        href: '#',
+        html: '<span>Inicio personalizado</span>',
+      },
+      {
+        href: '#',
+        text: 'Categoría',
+      },
+      {
+        text: 'Página actual',
+      },
     ],
+    attributes: {
+      'aria-label': 'Breadcrumb',
+    },
+  },
+};
+
+export const ConTextoOcultoEnPrimerElemento: Story = {
+  args: {
+    items: [
+      {
+        href: '#',
+        text: 'Inicio',
+        hiddenText: 'Ir a ',
+      },
+      {
+        href: '#',
+        text: 'Categoría',
+      },
+      {
+        text: 'Página actual',
+      },
+    ],
+    attributes: {
+      'aria-label': 'Breadcrumb',
+    },
   },
 };

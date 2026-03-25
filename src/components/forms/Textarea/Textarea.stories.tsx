@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { useState } from 'react';
 import { Textarea } from './Textarea';
 
 const meta: Meta<typeof Textarea> = {
@@ -11,80 +10,88 @@ const meta: Meta<typeof Textarea> = {
 export default meta;
 type Story = StoryObj<typeof Textarea>;
 
-export const Default: Story = {
+export const PorDefecto: Story = {
   args: {
-    id: 'default-textarea',
-    labelText: 'Default Textarea',
-    placeholder: 'Enter some text...',
+    name: 'more-detail-a',
+    id: 'more-detail-a',
+    labelText: 'Esto es un label',
+    hintText: 'Esto es una pista o texto descriptivo.',
   },
 };
 
-export const WithHint: Story = {
+export const Deshabilitado: Story = {
   args: {
-    id: 'hint-textarea',
-    labelText: 'Textarea with Hint',
-    hintText: 'This is a helpful hint message',
-    placeholder: 'Enter some text...',
-  },
-};
-
-export const WithError: Story = {
-  args: {
-    id: 'error-textarea',
-    labelText: 'Textarea with Error',
-    errorMessageText: 'This field is required',
-    placeholder: 'Enter some text...',
-  },
-};
-
-export const WithMaxLength: Story = {
-  args: {
-    id: 'maxlength-textarea',
-    labelText: 'Textarea with Max Length',
-    maxlength: 100,
-    placeholder: 'Enter some text...',
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    id: 'disabled-textarea',
-    labelText: 'Disabled Textarea',
-    value: 'This is disabled text',
+    name: 'more-detail-b',
+    id: 'more-detail-b',
     disabled: true,
+    labelText: 'Esto es un label',
+    hintText: 'Esto es una pista o texto descriptivo.',
   },
 };
 
-export const WithRows: Story = {
+export const ConMensajeDeError: Story = {
   args: {
-    id: 'rows-textarea',
-    labelText: 'Textarea with 10 Rows',
-    rows: 10,
-    placeholder: 'Enter some longer text...',
+    name: 'no-ni-reason',
+    id: 'no-ni-reason',
+    labelText: 'Esto es un label',
+    errorMessageText: 'Esto es un mensaje de error',
   },
 };
 
-export const Controlled: Story = {
-  render: () => {
-    const [value, setValue] = useState('');
-    return (
-      <Textarea
-        id="controlled-textarea"
-        labelText="Controlled Textarea"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        placeholder="Type something..."
-      />
-    );
-  },
-};
-
-export const AsPageHeading: Story = {
+export const ConValorPorDefecto: Story = {
   args: {
-    id: 'heading-textarea',
-    labelText: 'Form Title as Page Heading',
-    labelIsPageHeading: true,
-    labelHeadingLevel: 2,
-    placeholder: 'Enter some text...',
+    id: 'full-address-a',
+    name: 'address-a',
+    value: 'Calle Rosales 25. 2 izda',
+    labelText: 'Dirección completa',
+  },
+};
+
+export const ConNumeroDeFilasPersonalizada: Story = {
+  args: {
+    id: 'full-address-b',
+    name: 'address-b',
+    labelText: 'Dirección completa',
+    rows: 8,
+  },
+};
+
+export const ConClasesDeFormGroupOpcionales: Story = {
+  args: {
+    id: 'textarea-with-page-heading-b',
+    name: 'address',
+    labelText: 'Dirección completa',
+    formGroupClasses: 'p-base bg-primary-light',
+  },
+};
+
+export const ConValoresDeAutocompletado: Story = {
+  args: {
+    id: 'textarea-with-autocomplete-attribute',
+    name: 'address',
+    labelText: 'Dirección completa',
+    autoComplete: 'street-address',
+  },
+};
+
+export const Placeholder: Story = {
+  args: {
+    id: 'con-placeholder',
+    name: 'placeholder',
+    labelText: 'Valor',
+    placeholder: 'Esto es un placeholder',
+  },
+};
+
+export const ConClasesDeCssAplicadas: Story = {
+  args: {
+    formGroupClasses: 'lg:flex lg:flex-wrap lg:items-start lg:gap-x-base',
+    labelText: 'Label inline:',
+    labelClasses: 'lg:py-sm lg:mt-sm',
+    id: 'classes-applied-b',
+    name: 'classes-applied-b',
+    errorMessageText: 'Esto es un mensaje de error',
+    errorMessageClasses: 'order-1 w-full pt-sm',
+    className: 'lg:flex-1',
   },
 };

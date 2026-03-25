@@ -10,35 +10,60 @@ const meta: Meta<typeof Collapsible> = {
 export default meta;
 type Story = StoryObj<typeof Collapsible>;
 
-export const Default: Story = {
+const longText = `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
+
+export const PorDefecto: Story = {
   args: {
-    id: 'collapsible-1',
-    headerText: 'Click to expand',
-    text: 'This is the collapsible content. It can contain any HTML or React components.',
+    id: 'collapsible-default',
+    headerText: 'Cabecera del collapsible',
+    text: longText,
   },
 };
 
-export const InitiallyOpen: Story = {
+export const Expandido: Story = {
   args: {
-    id: 'collapsible-2',
-    headerText: 'Already open',
+    id: 'collapsible-initially-expanded',
+    headerText: 'Cabecera del collapsible',
+    text: longText,
     open: true,
-    text: 'This content is visible by default.',
   },
 };
 
-export const WithHtmlHeader: Story = {
+export const ExpandidoConJavaScript: Story = {
   args: {
-    id: 'collapsible-3',
-    headerHtml: '<strong>Bold</strong> and <em>italic</em> header text',
-    text: 'Content for the HTML header variant.',
+    id: 'collapsible-expanded',
+    headerText: 'Cabecera del collapsible',
+    text: longText,
   },
 };
 
-export const Controlled: Story = {
+export const ConHTML: Story = {
   args: {
-    id: 'collapsible-4',
-    headerText: 'Controlled collapsible',
-    text: 'This one is controlled externally.',
+    id: 'collapsible-html',
+    headerText: 'Cabecera del collapsible',
+    html: `<p>Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipisicing elit, sed do eiusmod
+    tempor <em>incididunt</em> ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in <strong>reprehenderit</strong> in voluptate velit esse
+    cillum dolore eu fugiat nulla <em>pariatur</em>. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>`,
+  },
+};
+
+export const ConClasesAplicadas: Story = {
+  args: {
+    id: 'collapsible-classes',
+    headerText: 'Cabecera del collapsible',
+    text: longText,
+    className: 'p-base bg-primary-light flex flex-wrap gap-base',
+    buttonClasses: 'c-button self-start',
+    showClasses: 'hidden!',
+    hideClasses: 'hidden!',
+    contentClasses: 'flex-1 border border-neutral-base p-base bg-white rounded-sm',
   },
 };

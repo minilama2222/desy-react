@@ -4,91 +4,694 @@ import { Menubar } from './Menubar';
 const meta: Meta<typeof Menubar> = {
   title: 'Nav/Menubar',
   component: Menubar,
-  tags: ['autodocs'],
-  parameters: {
-    docs: {
-      description: {
-        component: 'Menu bar with keyboard navigation, dropdown sub-menus, and support for checkbox/radio menu items.',
-      },
-    },
-  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Menubar>;
 
-export const Default: Story = {
+export const PorDefecto: Story = {
   args: {
-    id: 'main-menubar',
+    id: 'with-all-parent-items-1',
+    idPrefix: 'parent-example',
+    ariaLabel: 'Menubar descrición',
     items: [
-      { text: 'Inicio', href: '/' },
-      { text: 'Servicios', href: '/servicios' },
-      { text: 'Empresa', href: '/empresa' },
-      { text: 'Contacto', href: '/contacto' },
-    ],
-  },
-};
-
-export const WithSubMenu: Story = {
-  args: {
-    id: 'menu-submenu',
-    ariaLabel: 'Menú principal con submenús',
-    items: [
-      { text: 'Trámites', href: '/tramites' },
       {
-        text: 'Empresas',
-        href: '/empresas',
+        text: 'Menuitem',
+        ariaLabel: 'Menuitem',
+        id: 'menuitems-example-item-1-1',
         sub: {
           items: [
-            { id: 'alta', text: 'Alta de empresa', role: 'menuitem' },
-            { id: 'modificar', text: 'Modificar datos', role: 'menuitem' },
-            { id: 'sep1', text: '', role: 'separator' },
-            { id: 'certificados', text: 'Certificados', role: 'menuitem' },
+            {
+              role: 'menuitem',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 2',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 3',
+            },
+          ],
+        },
+        classes: 'mb-base mr-base',
+      },
+      {
+        text: 'Menuitemcheckbox',
+        ariaLabel: 'Menuitemcheckbox',
+        id: 'menuitems-example-item-2-1',
+        classes: 'mb-base mr-base',
+        sub: {
+          items: [
+            {
+              role: 'menuitemcheckbox',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'menuitemcheckbox',
+              text: 'Subitem 2',
+            },
+            {
+              role: 'menuitemcheckbox',
+              text: 'Subitem 3',
+            },
           ],
         },
       },
-      { text: 'Ayuda', href: '/ayuda' },
-    ],
-  },
-};
-
-export const WithCheckboxItems: Story = {
-  args: {
-    id: 'menu-checkbox',
-    ariaLabel: 'Menú con casillas de verificación',
-    items: [
       {
-        text: 'Preferencias',
+        text: 'Menuitemradio',
+        ariaLabel: 'Menuitemradio',
+        id: 'menuitems-example-item-3-1',
+        classes: 'mb-base mr-base',
         sub: {
           items: [
-            { id: 'notif', text: 'Recibir notificaciones', role: 'menuitemcheckbox', checked: true },
-            { id: 'newsletter', text: 'Suscribirse a newsletter', role: 'menuitemcheckbox', checked: false },
+            {
+              role: 'menuitemradio',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'menuitemradio',
+              text: 'Subitem 2',
+            },
+            {
+              role: 'menuitemradio',
+              text: 'Subitem 3',
+            },
           ],
         },
       },
-      { text: 'Salir', href: '/logout' },
+      {
+        text: 'Separator',
+        ariaLabel: 'Separator',
+        id: 'menuitems-example-item-4-1',
+        sub: {
+          items: [
+            {
+              role: 'menuitem',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'separator',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 2',
+            },
+          ],
+        },
+      },
     ],
   },
 };
 
-export const WithActiveItem: Story = {
+export const TieneSeleccionEnItemsPadres: Story = {
   args: {
-    id: 'menu-active',
+    id: 'with-all-parent-items-2',
+    idPrefix: 'parent-example',
+    ariaLabel: 'Menubar descrición',
     items: [
-      { text: 'Inicio', href: '/' },
-      { text: 'Trámites', href: '/tramites' },
-      { text: 'Empresas', href: '/empresas', active: true },
+      {
+        text: 'Menuitem',
+        ariaLabel: 'Menuitem',
+        id: 'menuitems-example-item-1-2',
+        sub: {
+          items: [
+            {
+              role: 'menuitem',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 2',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 3',
+            },
+          ],
+        },
+        classes: 'mb-base mr-base',
+      },
+      {
+        text: 'Menuitemcheckbox',
+        ariaLabel: 'Menuitemcheckbox',
+        id: 'menuitems-example-item-2-2',
+        classes: 'mb-base mr-base',
+        sub: {
+          items: [
+            {
+              role: 'menuitemcheckbox',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'menuitemcheckbox',
+              text: 'Subitem 2',
+            },
+            {
+              role: 'menuitemcheckbox',
+              text: 'Subitem 3',
+            },
+          ],
+        },
+      },
+      {
+        text: 'Menuitemradio',
+        ariaLabel: 'Menuitemradio',
+        id: 'menuitems-example-item-3-2',
+        active: true,
+        classes: 'mb-base mr-base',
+        sub: {
+          items: [
+            {
+              role: 'menuitemradio',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'menuitemradio',
+              text: 'Subitem 2',
+            },
+            {
+              role: 'menuitemradio',
+              text: 'Subitem 3',
+            },
+          ],
+        },
+      },
+      {
+        text: 'Separator',
+        ariaLabel: 'Separator',
+        id: 'menuitems-example-item-4-2',
+        sub: {
+          items: [
+            {
+              role: 'menuitem',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'separator',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 2',
+            },
+          ],
+        },
+      },
     ],
   },
 };
 
-export const WithDisabledItem: Story = {
+export const ConSubItemActivo: Story = {
   args: {
-    id: 'menu-disabled',
+    id: 'with-all-parent-items-3',
+    idPrefix: 'parent-example',
+    ariaLabel: 'Menubar descrición',
     items: [
-      { text: 'Activo', href: '#' },
-      { text: 'Deshabilitado', href: '#', disabled: true },
-      { text: 'Otro', href: '#' },
+      {
+        text: 'Menuitem',
+        ariaLabel: 'Menuitem',
+        id: 'menuitems-example-item-1-3',
+        sub: {
+          items: [
+            {
+              role: 'menuitem',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 2',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 3',
+            },
+          ],
+        },
+        classes: 'mb-base mr-base',
+      },
+      {
+        text: 'Menuitemcheckbox',
+        ariaLabel: 'Menuitemcheckbox',
+        id: 'menuitems-example-item-2-3',
+        classes: 'mb-base mr-base',
+        sub: {
+          items: [
+            {
+              role: 'menuitemcheckbox',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'menuitemcheckbox',
+              text: 'Subitem 2',
+              checked: true,
+            },
+            {
+              role: 'menuitemcheckbox',
+              text: 'Subitem 3',
+            },
+          ],
+        },
+      },
+      {
+        text: 'Menuitemradio',
+        ariaLabel: 'Menuitemradio',
+        id: 'menuitems-example-item-3-3',
+        classes: 'mb-base mr-base',
+        sub: {
+          items: [
+            {
+              role: 'menuitemradio',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'menuitemradio',
+              text: 'Subitem 2',
+              checked: true,
+            },
+            {
+              role: 'menuitemradio',
+              text: 'Subitem 3',
+            },
+          ],
+        },
+      },
+      {
+        text: 'Separator',
+        ariaLabel: 'Separator',
+        id: 'menuitems-example-item-4-3',
+        sub: {
+          items: [
+            {
+              role: 'menuitem',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'separator',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 2',
+            },
+          ],
+        },
+      },
+    ],
+  },
+};
+
+export const ConUnItemPadreDeshabilitado: Story = {
+  args: {
+    id: 'disabled-parent-item-example',
+    idPrefix: 'parent-example',
+    ariaLabel: 'Menubar descrición',
+    items: [
+      {
+        text: 'Menuitem activo',
+        ariaLabel: 'Menuitem activo',
+        id: 'menuitems-example-item-1-4',
+        active: true,
+        sub: {
+          items: [
+            {
+              role: 'menuitem',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 2',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 3',
+            },
+          ],
+        },
+        classes: 'mb-base mr-base',
+      },
+      {
+        text: 'Menuitem deshabilitado',
+        ariaLabel: 'Menuitem deshabilitado',
+        id: 'menuitems-example-item-2-4',
+        disabled: true,
+        classes: 'mb-base mr-base',
+      },
+      {
+        text: 'Menuitem',
+        ariaLabel: 'Menuitem',
+        id: 'menuitems-example-item-3-4',
+        sub: {
+          items: [
+            {
+              role: 'menuitem',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 2',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 3',
+            },
+          ],
+        },
+        classes: 'mb-base mr-base',
+      },
+    ],
+  },
+};
+
+export const ConUnItemPadreActivo: Story = {
+  args: {
+    id: 'active-parent-item-example',
+    idPrefix: 'parent-example',
+    ariaLabel: 'Menubar descrición',
+    items: [
+      {
+        text: 'Menuitem',
+        ariaLabel: 'Menuitem',
+        id: 'menuitems-example-item-1-5',
+        sub: {
+          items: [
+            {
+              role: 'menuitem',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 2',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 3',
+            },
+          ],
+        },
+        classes: 'mb-base mr-base',
+      },
+      {
+        text: 'Menuitem activo',
+        ariaLabel: 'Menuitem activo',
+        id: 'menuitems-example-item-2-5',
+        active: true,
+        classes: 'mb-base mr-base',
+      },
+      {
+        text: 'Menuitem',
+        ariaLabel: 'Menuitem',
+        id: 'menuitems-example-item-3-5',
+        sub: {
+          items: [
+            {
+              role: 'menuitem',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 2',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 3',
+            },
+          ],
+        },
+        classes: 'mb-base mr-base',
+      },
+    ],
+  },
+};
+
+export const Grande: Story = {
+  args: {
+    id: 'large-example',
+    idPrefix: 'parent-example',
+    ariaLabel: 'Menubar descrición',
+    items: [
+      {
+        text: 'Menuitem 1',
+        ariaLabel: 'Menuitem 1',
+        id: 'menuitems-example-item-1-6',
+        sub: {
+          items: [
+            {
+              role: 'menuitem',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 2',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 3',
+            },
+          ],
+        },
+        classes: 'c-menubar__button--lg mb-base mr-base',
+      },
+      {
+        text: 'Menuitem 2',
+        ariaLabel: 'Menuitem 2',
+        id: 'menuitems-example-item-2-6',
+        sub: {
+          items: [
+            {
+              role: 'menuitem',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 2',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 3',
+            },
+          ],
+        },
+        classes: 'c-menubar__button--lg mb-base mr-base',
+      },
+    ],
+  },
+};
+
+export const Pequeno: Story = {
+  args: {
+    id: 'small-example',
+    idPrefix: 'parent-example',
+    ariaLabel: 'Menubar descrición',
+    items: [
+      {
+        text: 'Menuitem 1',
+        ariaLabel: 'Menuitem 1',
+        id: 'menuitems-example-item-1-7',
+        sub: {
+          items: [
+            {
+              role: 'menuitem',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 2',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 3',
+            },
+          ],
+        },
+        classes: 'c-menubar__button--sm mb-base mr-base',
+      },
+      {
+        text: 'Menuitem 2',
+        ariaLabel: 'Menuitem 2',
+        id: 'menuitems-example-item-2-7',
+        sub: {
+          items: [
+            {
+              role: 'menuitem',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 2',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 3',
+            },
+          ],
+        },
+        classes: 'c-menubar__button--sm mb-base mr-base',
+      },
+    ],
+  },
+};
+
+export const Transparente: Story = {
+  args: {
+    id: 'transparent-example',
+    idPrefix: 'parent-example',
+    ariaLabel: 'Menubar descrición',
+    items: [
+      {
+        text: 'Menuitem 1',
+        ariaLabel: 'Menuitem 1',
+        id: 'menuitems-example-item-1-8',
+        sub: {
+          items: [
+            {
+              role: 'menuitem',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 2',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 3',
+            },
+          ],
+        },
+        classes: 'c-menubar__button--transparent mb-base mr-base',
+      },
+      {
+        text: 'Menuitem 2',
+        ariaLabel: 'Menuitem 2',
+        id: 'menuitems-example-item-2-8',
+        sub: {
+          items: [
+            {
+              role: 'menuitem',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 2',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 3',
+            },
+          ],
+        },
+        classes: 'c-menubar__button--transparent mb-base mr-base',
+      },
+    ],
+  },
+};
+
+export const EjemploDeFiltros: Story = {
+  args: {
+    id: 'filters-example',
+    idPrefix: 'filters-example',
+    ariaLabel: 'Menubar descrición',
+    items: [
+      {
+        text: 'Seleccionar todos',
+        ariaLabel: 'Seleccionar todos',
+        id: 'filters-example-item-1',
+        sub: {
+          items: [
+            {
+              role: 'menuitemcheckbox',
+              text: 'Seleccionar todos',
+              checked: true,
+            },
+            {
+              role: 'menuitemcheckbox',
+              text: 'Activos',
+            },
+            {
+              role: 'menuitemcheckbox',
+              text: 'Inactivos',
+            },
+          ],
+        },
+        classes: 'mb-base mr-base',
+      },
+      {
+        text: 'Ordenar por',
+        ariaLabel: 'Ordenar por',
+        id: 'filters-example-item-2',
+        sub: {
+          items: [
+            {
+              role: 'menuitemradio',
+              text: 'Nombre',
+              checked: true,
+            },
+            {
+              role: 'menuitemradio',
+              text: 'Fecha',
+            },
+            {
+              role: 'menuitemradio',
+              text: 'Estado',
+            },
+          ],
+        },
+        classes: 'mb-base mr-base',
+      },
+    ],
+  },
+};
+
+export const ConLabel: Story = {
+  args: {
+    id: 'label-example',
+    idPrefix: 'parent-example',
+    ariaLabel: 'Menubar descrición',
+    label: 'Mi label',
+    items: [
+      {
+        text: 'Menuitem',
+        ariaLabel: 'Menuitem',
+        id: 'menuitems-example-item-1-9',
+        sub: {
+          items: [
+            {
+              role: 'menuitem',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 2',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 3',
+            },
+          ],
+        },
+        classes: 'mb-base mr-base',
+      },
+      {
+        text: 'Menuitem',
+        ariaLabel: 'Menuitem',
+        id: 'menuitems-example-item-2-9',
+        sub: {
+          items: [
+            {
+              role: 'menuitem',
+              text: 'Subitem 1',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 2',
+            },
+            {
+              role: 'menuitem',
+              text: 'Subitem 3',
+            },
+          ],
+        },
+        classes: 'mb-base mr-base',
+      },
     ],
   },
 };

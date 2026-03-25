@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { useState } from 'react';
 import { Details } from './Details';
 
 const meta: Meta<typeof Details> = {
@@ -11,65 +10,35 @@ const meta: Meta<typeof Details> = {
 export default meta;
 type Story = StoryObj<typeof Details>;
 
-export const Default: Story = {
+export const PorDefecto: Story = {
   args: {
-    summaryText: 'What is a monarch?',
-    children: <p>A monarch is a sovereign head of state, typically a king, queen, or emperor.</p>,
+    summaryHtml: 'Más información',
+    children: <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid distinctio mollitia itaque placeat voluptatibus, veritatis recusandae odio facere corporis laboriosam quam quia sequi, possimus consequatur enim veniam eius soluta esse.</p>,
   },
 };
 
-export const OpenByDefault: Story = {
+export const Expandido: Story = {
   args: {
-    summaryText: 'What is a monarch?',
+    id: 'mas-informacion',
+    summaryText: 'Más información',
     open: true,
-    children: <p>A monarch is a sovereign head of state, typically a king, queen, or emperor.</p>,
+    children: <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates eum cupiditate quod minima consequuntur, eveniet aspernatur eius, consectetur ad, a enim atque dicta, repellat voluptatum iusto hic perspiciatis laboriosam unde.</p>,
   },
 };
 
-export const WithHtmlSummary: Story = {
+export const ConHTML: Story = {
   args: {
-    summaryHtml: '<strong>Important</strong> Information',
-    children: <p>This is some important information that can be expanded or collapsed.</p>,
+    summaryHtml: 'Más información <em>actualizada</em>',
+    children: <p>Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Quae omnis ipsa eius dolorum, maiores! Labore quaerat nam pariatur minima consectetur, tempora magnam. At sequi quidem exercitationem velit id, pariatur, animi.</p>,
   },
 };
 
-export const Controlled: Story = {
-  render: () => {
-    const [isOpen, setIsOpen] = useState(false);
-    return (
-      <div>
-        <p className="mb-4">Currently: {isOpen ? 'Open' : 'Closed'}</p>
-        <Details
-          summaryText="Click to toggle"
-          open={isOpen}
-          onOpenChange={setIsOpen}
-        >
-          <p>This content is controlled by the parent component.</p>
-        </Details>
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="mt-4 px-4 py-2 bg-blue-600 text-white rounded"
-        >
-          Toggle Details
-        </button>
-      </div>
-    );
-  },
-};
-
-export const WithStyledSummary: Story = {
+export const ConClases: Story = {
   args: {
-    summaryText: 'Learn more about our services',
-    summaryClasses: 'c-link text-primary-600 hover:underline',
-    children: (
-      <div>
-        <p className="mb-2">Our services include:</p>
-        <ul className="list-disc pl-6">
-          <li>Consulting</li>
-          <li>Development</li>
-          <li>Training</li>
-        </ul>
-      </div>
-    ),
+    summaryHtml: 'Más información <em>actualizada</em>',
+    summaryClasses: 'hover:underline',
+    classes: 'p-base bg-primary-light text-primary-base',
+    containerClasses: 'p-base',
+    children: <p>Lorem ipsum dolor, sit amet <strong>consectetur</strong>, adipisicing elit. Quae omnis ipsa eius dolorum, maiores! Labore quaerat nam pariatur minima consectetur, tempora magnam. At sequi quidem exercitationem velit id, pariatur, animi.</p>,
   },
 };

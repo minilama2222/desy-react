@@ -4,85 +4,120 @@ import { LinksList } from './LinksList';
 const meta: Meta<typeof LinksList> = {
   title: 'Nav/LinksList',
   component: LinksList,
-  tags: ['autodocs'],
-  parameters: {
-    docs: {
-      description: {
-        component: 'Displays a styled list of links with optional icons and sub-content.',
-      },
-    },
-  },
 };
 
 export default meta;
 type Story = StoryObj<typeof LinksList>;
 
-export const Default: Story = {
-  args: {
-    items: [
-      { text: 'Visión general', href: '#vision' },
-      { text: 'Organización', href: '#organizacion' },
-      { text: 'Transparencia', href: '#transparencia' },
-      { text: 'Contratación pública', href: '#contratacion' },
-    ],
-  },
-};
-
-export const WithActiveItem: Story = {
-  args: {
-    items: [
-      { text: 'Visión general', href: '#vision' },
-      { text: 'Organización', href: '#organizacion', active: true },
-      { text: 'Transparencia', href: '#transparencia' },
-    ],
-  },
-};
-
-export const WithDisabledItem: Story = {
-  args: {
-    items: [
-      { text: 'Sección activa', href: '#active' },
-      { text: 'Sección deshabilitada', href: '#disabled', disabled: true },
-    ],
-  },
-};
-
-export const WithSubContent: Story = {
+export const PorDefecto: Story = {
   args: {
     items: [
       {
-        text: 'Registro de Empresas',
-        href: '#registro',
-        sub: {
-          content: 'Consulte el estado de su solicitud de registro',
-        },
+        href: '#',
+        text: 'Enlace 1',
       },
       {
-        text: 'Normativa',
-        href: '#normativa',
-        sub: {
-          content: 'Reglamentos y leyes aplicables',
+        href: '#',
+        text: 'Enlace 2',
+      },
+      {
+        href: '#',
+        text: 'Enlace 3',
+      },
+    ],
+    attributes: {
+      'aria-label': 'Lista de enlaces',
+    },
+  },
+};
+
+export const ConEnlaceActivo: Story = {
+  args: {
+    items: [
+      {
+        href: '#',
+        text: 'Enlace 1',
+      },
+      {
+        href: '#',
+        text: 'Enlace 2',
+        active: true,
+      },
+      {
+        href: '#',
+        text: 'Enlace 3',
+      },
+    ],
+    attributes: {
+      'aria-label': 'Lista de enlaces',
+    },
+  },
+};
+
+export const ConEnlaceDeshabilitado: Story = {
+  args: {
+    items: [
+      {
+        href: '#',
+        text: 'Enlace 1',
+      },
+      {
+        text: 'Enlace 2',
+        disabled: true,
+      },
+      {
+        href: '#',
+        text: 'Enlace 3',
+      },
+    ],
+    attributes: {
+      'aria-label': 'Lista de enlaces',
+    },
+  },
+};
+
+export const ConEnlaceExterno: Story = {
+  args: {
+    items: [
+      {
+        href: '#',
+        text: 'Enlace interno',
+      },
+      {
+        href: 'https://www.aragon.es/',
+        text: 'Enlace externo',
+        attributes: {
+          target: '_blank',
+          rel: 'noopener noreferrer',
+          title: 'Se abre en ventana nueva',
         },
       },
     ],
+    attributes: {
+      'aria-label': 'Lista de enlaces',
+    },
   },
 };
 
-export const WithChevronIcon: Story = {
+export const ConSeparador: Story = {
   args: {
     items: [
-      { text: 'Ir a procedimientos', href: '#', iconRight: { type: 'chevron' } },
-      { text: 'Ir a servicios', href: '#', iconRight: { type: 'chevron' } },
+      {
+        href: '#',
+        text: 'Enlace 1',
+      },
+      {
+        href: '#',
+        text: 'Enlace 2',
+        divider: true,
+      },
+      {
+        href: '#',
+        text: 'Enlace 3',
+      },
     ],
-  },
-};
-
-export const WithoutNav: Story = {
-  args: {
-    hasNav: false,
-    items: [
-      { text: 'Elemento 1', href: '#' },
-      { text: 'Elemento 2', href: '#' },
-    ],
+    attributes: {
+      'aria-label': 'Lista de enlaces',
+    },
   },
 };

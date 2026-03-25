@@ -24,72 +24,73 @@ const meta: Meta<typeof Tooltip> = {
 export default meta;
 type Story = StoryObj<typeof Tooltip>;
 
-export const Default: Story = {
+export const PorDefectoSoloIcono: Story = {
   args: {
-    id: 'tooltip-default',
-    text: 'Este es un tooltip informativo.',
-    icon: { type: 'help' },
+    id: 'example-default',
+    icon: { type: 'question' },
     children: <span className="c-link underline cursor-help">Pase el ratón</span>,
   },
 };
 
-export const WithText: Story = {
+export const SoloTexto: Story = {
   args: {
-    id: 'tooltip-text',
-    text: 'La solicitud ha sido procesada correctamente.',
+    id: 'example-text',
+    text: 'Esto es un tooltip',
+    children: <span className="c-link underline cursor-help">Pase el ratón</span>,
+  },
+};
+
+export const ConHtml: Story = {
+  args: {
+    id: 'example-html',
+    html: '<p>contenido html del tooltip</p>',
+    children: <span className="c-link underline cursor-help">Ver tooltip</span>,
+  },
+};
+
+export const Pregunta: Story = {
+  args: {
+    id: 'example-question',
+    text: 'Pregunta',
+    icon: { type: 'question' },
     children: <span className="c-link underline cursor-help">Más información</span>,
   },
 };
 
-export const WithHtml: Story = {
+export const Info: Story = {
   args: {
-    id: 'tooltip-html',
-    html: '<p><strong>Nota importante:</strong> El plazo de presentación finaliza el <em>15 de marzo</em>.</p>',
-    children: <span className="c-link underline cursor-help">Ver aviso</span>,
-  },
-};
-
-export const WithInfoIcon: Story = {
-  args: {
-    id: 'tooltip-info',
-    text: 'Información de ayuda contextual.',
+    id: 'example-info',
+    text: 'Información',
     icon: { type: 'info' },
     children: <span className="c-link underline cursor-help">Ayuda</span>,
   },
 };
 
-export const WithAlertIcon: Story = {
+export const Alerta: Story = {
   args: {
-    id: 'tooltip-alert',
-    text: 'Atención: datos requeridos.',
+    id: 'example-alert',
+    text: 'Alerta',
     icon: { type: 'alert' },
+    classes: 'text-alert-base',
     children: <span className="c-link underline cursor-help">Alerta</span>,
   },
 };
 
-export const ComplexWithContent: Story = {
+export const IconoPersonalizado: Story = {
   args: {
-    id: 'tooltip-complex',
-    complex: true,
-    children: <span className="c-link underline cursor-help">Detalles</span>,
-    content: (
-      <div>
-        <p className="font-semibold">Información detallada</p>
-        <ul className="list-disc pl-4 mt-2">
-          <li>Elemento 1</li>
-          <li>Elemento 2</li>
-          <li>Elemento 3</li>
-        </ul>
-      </div>
-    ),
+    id: 'example-custom-icon',
+    text: 'Icono personalizado',
+    icon: { html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="1em" height="1em" class="w-4 h-4 text-neutral-dark" role="img" aria-label="Ayuda"><path d="M140 15a15 15 0 00-15-15H15A15 15 0 000 15v110a15 15 0 0015 15h110a15 15 0 0015-15zM70 117.51a10 10 0 1110-10 10 10 0 01-10 10zm9.17-39.08a2.5 2.5 0 00-1.67 2.36v1.71a7.5 7.5 0 01-15 0v-10A7.5 7.5 0 0170 65a12.5 12.5 0 10-12.5-12.5 7.5 7.5 0 01-15 0 27.5 27.5 0 1136.67 25.93z" fill="currentColor"/></svg>' },
+    classes: 'text-neutral-dark',
+    children: <span className="c-link underline cursor-help">Subvención para actividades</span>,
   },
 };
 
-export const WithButton: Story = {
+export const Complejo: Story = {
   args: {
-    id: 'tooltip-button',
-    text: '¿Está seguro de que desea continuar?',
-    icon: { type: 'alert' },
-    children: <button className="c-button c-button--primary">Confirmar</button>,
+    id: 'complex-html',
+    icon: { type: 'question' },
+    complex: true,
+    children: <span className="c-link underline cursor-help">El código CVV</span>,
   },
 };

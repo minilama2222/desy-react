@@ -17,46 +17,55 @@ const meta: Meta<typeof ErrorSummary> = {
 export default meta;
 type Story = StoryObj<typeof ErrorSummary>;
 
-export const Default: Story = {
+export const PorDefecto: Story = {
   args: {
-    titleText: 'Hay un problema',
+    titleText: 'Problemas encontrados',
+    headingLevel: 2,
     errorList: [
-      { text: 'El campo NIF es obligatorio', fragment: 'nif' },
-      { text: 'La dirección de correo electrónico no es válida', fragment: 'email' },
-      { text: 'Debe aceptar los términos y condiciones', fragment: 'terminos' },
+      { text: 'El campo de Nombre no puede estar vacío.', href: '#example-error-1' },
+      { text: 'El campo de Teléfono no es correcto. Introduce una cifra de, al menos, 9 dígitos.', href: '#example-error-2' },
     ],
   },
 };
 
-export const WithDescription: Story = {
+export const ConEncabezadoDeNivel3: Story = {
   args: {
-    titleText: 'Hay 3 errores',
-    descriptionText: 'Por favor, corrija los siguientes errores antes de enviar el formulario.',
-    errorList: [
-      { text: 'El campo nombre es obligatorio', fragment: 'nombre' },
-      { text: 'El campo apellidos es obligatorio', fragment: 'apellidos' },
-      { text: 'La fecha de nacimiento no es válida', fragment: 'fecha' },
-    ],
-  },
-};
-
-export const WithHtmlContent: Story = {
-  args: {
-    titleHtml: 'Hay <strong>2 problemas</strong>',
-    errorList: [
-      { html: 'El <em>teléfono</em> no es válido', fragment: 'telefono' },
-      { text: 'La contraseña es demasiado corta', fragment: 'password' },
-    ],
-  },
-};
-
-export const DifferentHeadingLevels: Story = {
-  args: {
+    titleText: 'Título con h3',
     headingLevel: 3,
-    titleText: 'Errores en el formulario',
     errorList: [
-      { text: 'Campo 1', fragment: 'campo1' },
-      { text: 'Campo 2', fragment: 'campo2' },
+      { text: 'El campo de Nombre no puede estar vacío.', href: '#example-error-1' },
+      { text: 'El campo de Teléfono no es correcto. Introduce una cifra de, al menos, 9 dígitos.', href: '#example-error-2' },
+    ],
+  },
+};
+
+export const SinEnlaces: Story = {
+  args: {
+    titleText: 'Problemas encontrados',
+    headingLevel: 2,
+    errorList: [{ text: 'Nombre de usuario o contraseña incorrectos.' }],
+  },
+};
+
+export const ConYSinEnlaces: Story = {
+  args: {
+    titleText: 'Problemas encontrados',
+    headingLevel: 2,
+    errorList: [
+      { text: 'Nombre de usuario o contraseña incorrectos.' },
+      { text: 'Acepta los términos del servicio para acceder.', href: '#example-error-1' },
+    ],
+  },
+};
+
+export const ConTodo: Story = {
+  args: {
+    titleText: 'Problemas encontrados',
+    headingLevel: 2,
+    descriptionText: 'Por favor, corrige los problemas siguientes.',
+    errorList: [
+      { text: 'Nombre de usuario o contraseña incorrectos.' },
+      { text: 'Acepta los términos del servicio para acceder.', href: '#example-error-1' },
     ],
   },
 };

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Fieldset } from './Fieldset';
+import { Input } from '../Input/Input';
 
 const meta: Meta<typeof Fieldset> = {
   title: 'Forms/Fieldset',
@@ -10,53 +11,53 @@ const meta: Meta<typeof Fieldset> = {
 export default meta;
 type Story = StoryObj<typeof Fieldset>;
 
-export const Default: Story = {
+export const PorDefecto: Story = {
   args: {
-    legendText: 'Please enter your contact details',
+    legendData: {
+      text: '¿Cuál es tu número de teléfono?',
+      classes: 'mb-sm',
+    },
     children: (
-      <div>
-        <p>Form fields would go here</p>
-      </div>
+      <Input
+        id="tel-id-1"
+        name="tel-name-1"
+        labelText="Número de teléfono"
+      />
     ),
   },
 };
 
-export const WithLegendData: Story = {
+export const ConError: Story = {
   args: {
     legendData: {
-      text: 'What is your phone number?',
-      classes: 'c-h1 mb-sm',
-      isPageHeading: true,
-      headingLevel: 1,
+      text: '¿Cuál es tu número de teléfono?',
+      classes: 'mb-sm',
     },
-    className: 'p-base bg-warning-light',
+    errorId: 'error-id',
     children: (
-      <div>
-        <label htmlFor="contact-phone" className="block mb-sm">Número de teléfono</label>
-        <input id="contact-phone" name="contact-phone" type="text" className="c-input form-input mt-sm" />
-      </div>
+      <Input
+        id="tel-error-id-1"
+        name="tel-error-name-1"
+        labelText="Número de teléfono"
+        errorMessageText="Mensaje de error aqui"
+      />
     ),
   },
 };
 
-export const WithFieldset: Story = {
+export const ConClasesDeCssAplicadas: Story = {
   args: {
     legendData: {
-      text: 'Address',
-      isPageHeading: true,
-      headingLevel: 2,
+      text: '¿Cuál es tu número de teléfono?',
+      classes: 'mb-sm -ml-base px-base bg-white',
     },
+    className: 'p-lg border border-neutral-base',
     children: (
-      <div>
-        <div className="mb-sm">
-          <label htmlFor="street" className="block mb-xs">Street</label>
-          <input id="street" name="street" type="text" className="c-input form-input" />
-        </div>
-        <div>
-          <label htmlFor="city" className="block mb-xs">City</label>
-          <input id="city" name="city" type="text" className="c-input form-input" />
-        </div>
-      </div>
+      <Input
+        id="tel-id-4"
+        name="tel-name-4"
+        labelText="Número de teléfono"
+      />
     ),
   },
 };

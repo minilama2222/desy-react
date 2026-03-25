@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { useState } from 'react';
 import { Pagination } from './Pagination';
 
 const meta: Meta<typeof Pagination> = {
@@ -11,73 +10,98 @@ const meta: Meta<typeof Pagination> = {
 export default meta;
 type Story = StoryObj<typeof Pagination>;
 
-export const Default: Story = {
+export const PorDefecto: Story = {
   args: {
-    totalItems: 100,
-    currentPage: 1,
+    idPrefix: 'pagination',
+    totalItems: 64,
+    currentPage: 2,
     itemsPerPage: 10,
   },
 };
 
-export const WithManyPages: Story = {
+export const EstiloSelect: Story = {
   args: {
-    totalItems: 500,
-    currentPage: 5,
-    itemsPerPage: 10,
-    maxShowPages: 5,
-  },
-};
-
-export const WithFirstLast: Story = {
-  args: {
-    totalItems: 100,
-    currentPage: 3,
-    itemsPerPage: 10,
-    showFirst: true,
-    showLast: true,
-  },
-};
-
-export const Controlled: Story = {
-  render: () => {
-    const [currentPage, setCurrentPage] = useState(1);
-    return (
-      <Pagination
-        totalItems={100}
-        currentPage={currentPage}
-        itemsPerPage={10}
-        onCurrentPageChange={setCurrentPage}
-      />
-    );
-  },
-};
-
-export const WithSelect: Story = {
-  args: {
-    totalItems: 100,
+    idPrefix: 'pagination-has-select',
+    totalItems: 64,
     currentPage: 2,
     itemsPerPage: 10,
     hasSelect: true,
-    showFirst: true,
-    showLast: true,
+    previousText: 'Anterior',
+    nextText: 'Siguiente',
   },
 };
 
-export const WithItemsPerPageSelect: Story = {
+export const ConPaginaPreviaDeshabilitada: Story = {
   args: {
-    totalItems: 100,
-    currentPage: 1,
-    itemsPerPage: 25,
-    hasSelectItemsPerPage: true,
-  },
-};
-
-export const DisabledNavigation: Story = {
-  args: {
-    totalItems: 100,
+    idPrefix: 'pagination-with-previous-page-disabled',
+    totalItems: 64,
     currentPage: 1,
     itemsPerPage: 10,
-    hasFirst: false,
+    hasSelect: true,
     hasPrevious: false,
+    previousText: 'Anterior',
+    nextText: 'Siguiente',
+  },
+};
+
+export const SinPaginaPrevia: Story = {
+  args: {
+    idPrefix: 'pagination-without-previous-page',
+    totalItems: 64,
+    currentPage: 1,
+    itemsPerPage: 10,
+    hasSelect: true,
+    showPrevious: false,
+    previousText: 'Anterior',
+    nextText: 'Siguiente',
+  },
+};
+
+export const ConPaginaPrimeraYUltima: Story = {
+  args: {
+    idPrefix: 'pagination-without-previous-page-disabled',
+    totalItems: 64,
+    currentPage: 2,
+    itemsPerPage: 10,
+    hasSelect: true,
+    previousText: 'Anterior',
+    nextText: 'Siguiente',
+    showFirst: true,
+    showLast: true,
+    firstText: 'Primera',
+    lastText: 'Última',
+  },
+};
+
+export const ConPaginaPrimeraDeshabilitadaYUltima: Story = {
+  args: {
+    idPrefix: 'pagination-has-select-2',
+    totalItems: 64,
+    currentPage: 1,
+    itemsPerPage: 10,
+    hasSelect: true,
+    hasPrevious: false,
+    previousText: 'Anterior',
+    nextText: 'Siguiente',
+    showFirst: true,
+    showLast: true,
+    hasFirst: false,
+    firstText: 'Primera',
+    lastText: 'Última',
+  },
+};
+
+export const ConItemsPerPageSelector: Story = {
+  args: {
+    idPrefix: 'with-items-per-page-selector',
+    totalItems: 64,
+    currentPage: 2,
+    itemsPerPage: 10,
+    hasSelect: true,
+    hasSelectItemsPerPage: true,
+    hasPrevious: false,
+    hasNext: true,
+    previousText: 'Anterior',
+    nextText: 'Siguiente',
   },
 };

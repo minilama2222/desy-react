@@ -10,43 +10,32 @@ const meta: Meta<typeof Label> = {
 export default meta;
 type Story = StoryObj<typeof Label>;
 
-export const Default: Story = {
+export const PorDefecto: Story = {
   args: {
-    children: 'Form label',
+    text: 'Esto es un label',
   },
 };
 
-export const WithTextProp: Story = {
+export const ConClasesDeCssAplicadas: Story = {
   args: {
-    text: 'Label via text prop',
+    className: 'inline-block p-base bg-primary-light',
+    text: 'Esto es un label',
   },
 };
 
-export const WithHtml: Story = {
+export const ConLabelComoEncabezado: Story = {
   args: {
-    html: 'Label with <em>italic</em> HTML',
-  },
-};
-
-export const PageHeading: Story = {
-  args: {
-    text: 'Page Heading Label',
+    text: 'Esto es un label',
+    className: 'c-h1',
     isPageHeading: true,
-    headingLevel: 1,
   },
 };
 
-export const PageHeadingH2: Story = {
+export const ConLabelComoEncabezadoConH3: Story = {
   args: {
-    text: 'Section Heading (h2)',
+    text: 'Esto es un label',
+    className: 'c-h3',
     isPageHeading: true,
-    headingLevel: 2,
-  },
-};
-
-export const WithCustomClass: Story = {
-  args: {
-    children: 'Label with custom class',
-    className: 'text-blue-600 font-semibold',
+    headingLevel: 3,
   },
 };

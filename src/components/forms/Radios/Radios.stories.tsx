@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { useState } from 'react';
-import { Radios, RadioItem } from './Radios';
+import { Radios } from './Radios';
 
 const meta: Meta<typeof Radios> = {
   title: 'Forms/Radios',
@@ -11,133 +10,238 @@ const meta: Meta<typeof Radios> = {
 export default meta;
 type Story = StoryObj<typeof Radios>;
 
-const radioItems = [
-  { id: 'radio-1', value: 'yes', text: 'Yes' },
-  { id: 'radio-2', value: 'no', text: 'No' },
-];
-
-export const Default: Story = {
+export const PorDefecto: Story = {
   args: {
-    name: 'default-radios',
-    legendText: 'Have you changed your name?',
-    items: radioItems,
+    id: 'default',
+    name: 'por defecto',
+    legendText: '¿Quieres que te contactemos por correo electrónico?',
+    hintText: 'Sólo puedes seleccionar un elemento.',
+    items: [
+      { value: 'si', text: 'Si' },
+      { value: 'no', text: 'No', checked: true },
+    ],
   },
 };
 
-export const WithHint: Story = {
+export const EnLinea: Story = {
   args: {
-    name: 'hint-radios',
-    legendText: 'Have you changed your name?',
-    hintText: 'This includes changing your last name or spelling your name differently.',
-    items: radioItems,
+    id: 'inline',
+    classes: 'flex',
+    name: 'inline',
+    legendText: '¿Quieres que te contactemos por correo electrónico?',
+    hintText: 'Sólo puedes seleccionar un elemento.',
+    items: [
+      { value: 'si', text: 'Si', classes: 'mr-sm' },
+      { value: 'no', text: 'No', classes: 'mr-sm', checked: true },
+    ],
   },
 };
 
-export const WithError: Story = {
+export const ConDeshabilitado: Story = {
   args: {
-    name: 'error-radios',
-    legendText: 'Have you changed your name?',
-    errorMessageText: 'Please select an option',
-    items: radioItems,
-    hasError: true,
+    id: 'example-disabled',
+    name: 'example-disabled',
+    legendText: '¿Quieres que te contactemos por correo electrónico?',
+    hintText: 'Sólo puedes seleccionar un elemento.',
+    items: [
+      { value: 'si', text: 'Si', disabled: true, checked: true },
+      { value: 'no', text: 'No', disabled: true },
+    ],
   },
 };
 
-export const Controlled: Story = {
-  render: () => {
-    const [value, setValue] = useState('');
-    return (
-      <Radios
-        name="controlled-radios"
-        legendText="Have you changed your name?"
-        value={value}
-        onChange={setValue}
-        items={radioItems}
-      />
-    );
-  },
-};
-
-export const AsPageHeading: Story = {
+export const ConUnLegendComoEncabezado: Story = {
   args: {
-    name: 'heading-radios',
-    legendText: 'Form Legend as Page Heading',
+    id: 'legend-as-page-heading',
+    name: 'legend-as-page-heading',
+    legendText: '¿Cómo prefieres que te contactemos?',
+    legendClasses: 'c-h2',
     legendIsPageHeading: true,
     legendHeadingLevel: 2,
-    items: radioItems,
-  },
-};
-
-export const WithDisabledOption: Story = {
-  args: {
-    name: 'disabled-radios',
-    legendText: 'Have you changed your name?',
+    hintText: 'Selecciona una de las opciones.',
     items: [
-      { id: 'radio-1', value: 'yes', text: 'Yes' },
-      { id: 'radio-2', value: 'no', text: 'No', disabled: true },
+      {
+        value: 'part-2',
+        text: 'Por correo electrónico',
+        hintText: 'Asegúrate de que nuestros correos no lleguen a la bandeja de spam.',
+      },
+      {
+        value: 'part-3',
+        text: 'Por correo postal',
+        hintText: 'Asegúrate de haber introducido correctamente tu dirección.',
+      },
     ],
   },
 };
 
-export const WithConditionalContent: Story = {
-  render: () => {
-    const [value, setValue] = useState('');
-    return (
-      <Radios
-        name="conditional-radios"
-        legendText="Have you changed your name?"
-        value={value}
-        onChange={setValue}
-        items={[
-          { id: 'radio-1', value: 'yes', text: 'Yes', conditionalHtml: '<p>Please provide your previous name</p>' },
-          { id: 'radio-2', value: 'no', text: 'No' },
-        ]}
-      />
-    );
-  },
-};
-
-export const WithDividers: Story = {
+export const ConUnLegendDelTamanoDeUnEncabezadoH2: Story = {
   args: {
-    name: 'divider-radios',
-    legendText: 'Select an option',
+    id: 'medium-legend',
+    name: 'medium-legend',
+    legendText: '¿Cómo prefieres que te contactemos?',
+    legendClasses: 'c-h2',
+    hintText: 'Selecciona una de las opciones.',
     items: [
-      { id: 'radio-1', value: 'option1', text: 'Option 1' },
-      { id: 'radio-divider', value: 'divider', divider: 'or' },
-      { id: 'radio-2', value: 'option2', text: 'Option 2' },
+      {
+        value: 'part-2',
+        text: 'Por correo electrónico',
+        hintText: 'Asegúrate de que nuestros correos no lleguen a la bandeja de spam.',
+      },
+      {
+        value: 'part-3',
+        text: 'Por correo postal',
+        hintText: 'Asegúrate de haber introducido correctamente tu dirección.',
+      },
     ],
   },
 };
 
-export const CompoundComponentPattern: Story = {
-  render: () => {
-    const [value, setValue] = useState('');
-    return (
-      <Radios
-        name="compound-radios"
-        legendText="Select a fruit"
-        value={value}
-        onChange={setValue}
-      >
-        <RadioItem
-          id="apple"
-          name="compound-radios"
-          value="apple"
-          text="Apple"
-        />
-        <RadioItem
-          id="banana"
-          name="compound-radios"
-          value="banana"
-          text="Banana"
-        />
-        <RadioItem
-          id="orange"
-          name="compound-radios"
-          value="orange"
-          text="Orange"
-        />
-      </Radios>
-    );
+export const ConUnDivisor: Story = {
+  args: {
+    id: 'example-divider',
+    name: 'example-divider',
+    legendText: '¿Cómo prefieres que te contactemos?',
+    items: [
+      { value: 'correo-electronico', text: 'Correo electrónico' },
+      { value: 'correo-postal', text: 'Correo postal' },
+      { divider: 'o bien' },
+      { value: 'telefono', text: 'Teléfono' },
+    ],
+  },
+};
+
+export const ConPistasEnLosItems: Story = {
+  args: {
+    id: 'hints-on-items',
+    name: 'hints-on-items',
+    legendText: '¿Cómo prefieres que te contactemos?',
+    legendIsPageHeading: true,
+    items: [
+      {
+        value: 'correo-electronico',
+        text: 'Correo electrónico',
+        hintText: 'Asegúrate de que el correo no llega a la bandeja de spam.',
+      },
+      {
+        value: 'correo-postal',
+        text: 'Correo postal',
+        hintText: 'Asegúrate de haber introducido la dirección postal correctamente.',
+      },
+    ],
+  },
+};
+
+export const ConLineasDivisorias: Story = {
+  args: {
+    id: 'has-dividers',
+    name: 'has-dividers',
+    legendText: '¿Cómo prefieres que te contactemos?',
+    hintText: 'Sólo puedes elegir un elemento.',
+    hasDividers: true,
+    items: [
+      {
+        value: 'correo-electronico',
+        text: 'Correo electrónico',
+        classes: 'font-normal',
+        hintText: 'Asegúrate de que el correo no llega a la bandeja de spam.',
+      },
+      {
+        value: 'correo-postal',
+        text: 'Correo postal',
+        hintText: 'Asegúrate de haber introducido la dirección postal correctamente.',
+      },
+    ],
+  },
+};
+
+export const ConClasesDeCssAplicadas: Story = {
+  args: {
+    id: 'classes',
+    name: 'classes',
+    legendText: '¿Cómo prefieres que te contactemos?',
+    legendIsPageHeading: true,
+    items: [
+      {
+        value: 'correo-electronico',
+        text: 'Correo electrónico',
+        hintText: 'Asegúrate de que el correo no llega a la bandeja de spam.',
+        classes: 'bg-primary-light',
+      },
+      {
+        value: 'correo-postal',
+        text: 'Correo postal',
+        hintText: 'Asegúrate de haber introducido la dirección postal correctamente.',
+        classes: 'bg-neutral-lighter',
+      },
+    ],
+  },
+};
+
+export const SinFieldset: Story = {
+  args: {
+    id: 'without-fieldset',
+    name: 'without-fieldset',
+    items: [
+      { value: 'correo-electronico', text: 'Correo electrónico' },
+      { value: 'correp-postal', text: 'Correo postal' },
+      { value: 'telefono', text: 'Teléfono' },
+    ],
+  },
+};
+
+export const ConFieldsetYMensajeDeError: Story = {
+  args: {
+    id: 'fieldset-and-error',
+    name: 'fieldset-and-error',
+    errorMessageText: 'Tienes que seleccionar al menos una opción',
+    legendText: '¿Quieres que te contactemos por correo electrónico?',
+    items: [
+      { value: 'si', text: 'Si' },
+      { value: 'no', text: 'No', checked: true },
+    ],
+  },
+};
+
+export const ConUnTextoDeItemMuyLargo: Story = {
+  args: {
+    id: 'very-long',
+    name: 'very-long',
+    hintText: 'Nullam id dolor id nibh ultricies vehicula ut id elit.',
+    errorMessageText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    legendText: 'Maecenas faucibus mollis interdum?',
+    items: [
+      {
+        value: 'nullam',
+        text: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum. Donec id elit non mi porta gravida at eget metus.',
+      },
+      {
+        value: 'aenean',
+        text: 'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cras mattis consectetur purus sit amet fermentum.',
+      },
+      {
+        value: 'fusce',
+        text: 'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Etiam porta sem malesuada magna mollis euismod. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. Sed posuere consectetur est at lobortis.',
+      },
+    ],
+  },
+};
+
+export const Pequen: Story = {
+  args: {
+    id: 'small',
+    name: 'peque',
+    classes: 'c-radios--sm',
+    items: [
+      {
+        value: 'si',
+        text: 'Si',
+        classes: '-mt-base',
+      },
+      {
+        value: 'no',
+        text: 'No',
+        classes: '-mt-base',
+      },
+    ],
   },
 };
