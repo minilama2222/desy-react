@@ -14,11 +14,12 @@ export const PorDefecto: Story = {
   args: {
     id: 'default',
     name: 'por defecto',
+    value: 'no',
     legendText: '¿Quieres que te contactemos por correo electrónico?',
     hintText: 'Sólo puedes seleccionar un elemento.',
     items: [
       { value: 'si', text: 'Si' },
-      { value: 'no', text: 'No', checked: true },
+      { value: 'no', text: 'No' },
     ],
   },
 };
@@ -28,11 +29,12 @@ export const EnLinea: Story = {
     id: 'inline',
     classes: 'flex',
     name: 'inline',
+    value: 'no',
     legendText: '¿Quieres que te contactemos por correo electrónico?',
     hintText: 'Sólo puedes seleccionar un elemento.',
     items: [
       { value: 'si', text: 'Si', classes: 'mr-sm' },
-      { value: 'no', text: 'No', classes: 'mr-sm', checked: true },
+      { value: 'no', text: 'No', classes: 'mr-sm' },
     ],
   },
 };
@@ -41,10 +43,11 @@ export const ConDeshabilitado: Story = {
   args: {
     id: 'example-disabled',
     name: 'example-disabled',
+    value: 'si',
     legendText: '¿Quieres que te contactemos por correo electrónico?',
     hintText: 'Sólo puedes seleccionar un elemento.',
     items: [
-      { value: 'si', text: 'Si', disabled: true, checked: true },
+      { value: 'si', text: 'Si', disabled: true },
       { value: 'no', text: 'No', disabled: true },
     ],
   },
@@ -104,7 +107,7 @@ export const ConUnDivisor: Story = {
     items: [
       { value: 'correo-electronico', text: 'Correo electrónico' },
       { value: 'correo-postal', text: 'Correo postal' },
-      { divider: 'o bien' },
+      { value: 'divider-o-bien', divider: 'o bien' },
       { value: 'telefono', text: 'Teléfono' },
     ],
   },
@@ -120,29 +123,6 @@ export const ConPistasEnLosItems: Story = {
       {
         value: 'correo-electronico',
         text: 'Correo electrónico',
-        hintText: 'Asegúrate de que el correo no llega a la bandeja de spam.',
-      },
-      {
-        value: 'correo-postal',
-        text: 'Correo postal',
-        hintText: 'Asegúrate de haber introducido la dirección postal correctamente.',
-      },
-    ],
-  },
-};
-
-export const ConLineasDivisorias: Story = {
-  args: {
-    id: 'has-dividers',
-    name: 'has-dividers',
-    legendText: '¿Cómo prefieres que te contactemos?',
-    hintText: 'Sólo puedes elegir un elemento.',
-    hasDividers: true,
-    items: [
-      {
-        value: 'correo-electronico',
-        text: 'Correo electrónico',
-        classes: 'font-normal',
         hintText: 'Asegúrate de que el correo no llega a la bandeja de spam.',
       },
       {
@@ -193,11 +173,12 @@ export const ConFieldsetYMensajeDeError: Story = {
   args: {
     id: 'fieldset-and-error',
     name: 'fieldset-and-error',
+    value: 'no',
     errorMessageText: 'Tienes que seleccionar al menos una opción',
     legendText: '¿Quieres que te contactemos por correo electrónico?',
     items: [
       { value: 'si', text: 'Si' },
-      { value: 'no', text: 'No', checked: true },
+      { value: 'no', text: 'No' },
     ],
   },
 };

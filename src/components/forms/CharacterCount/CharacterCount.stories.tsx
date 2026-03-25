@@ -103,12 +103,10 @@ export const ConClasesDeCssAplicadas: Story = {
   args: {
     formGroupClasses: 'lg:flex lg:flex-wrap lg:items-start lg:gap-x-base mb-0',
     labelText: 'Inline label:',
-    labelClasses: 'lg:py-sm lg:mt-sm',
     id: 'classes-applied-b',
     name: 'classes-applied-b',
     maxlength: 250,
     errorMessageText: 'Esto es un mensaje de error',
-    errorMessageClasses: 'order-1 w-full pt-sm',
-    classes: 'lg:flex-1',
+    className: 'lg:flex-1',
   },
 };
