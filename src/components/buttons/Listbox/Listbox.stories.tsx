@@ -24,11 +24,11 @@ export default meta;
 type Story = StoryObj<typeof Listbox>;
 
 const defaultItems = [
-  { value: 'opt1', text: 'Opción 1', href: '#' },
-  { value: 'opt2', text: 'Opción 2', href: '#' },
-  { value: 'opt3', text: 'Opción 3', href: '#' },
-  { value: 'opt4', text: 'Opción 4', href: '#' },
-  { value: 'opt5', text: 'Opción 5', href: '#' },
+  { value: 'opt1', text: 'Opción 1' },
+  { value: 'opt2', text: 'Opción 2' },
+  { value: 'opt3', text: 'Opción 3' },
+  { value: 'opt4', text: 'Opción 4' },
+  { value: 'opt5', text: 'Opción 5' },
 ];
 
 export const PorDefecto: Story = {
@@ -177,11 +177,11 @@ export const ConItemActivo: Story = {
     text: 'con item activo',
     label: { text: 'Esto es un label' },
     items: [
-      { value: 'opt1', text: 'Opción 1', href: '#' },
-      { value: 'opt2', text: 'Opción 2', href: '#' },
-      { value: 'opt3', text: 'Opción 3', href: '#' },
-      { value: 'opt4', text: 'Opción 4 activa', href: '#', active: true },
-      { value: 'opt5', text: 'Opción 5', href: '#' },
+      { value: 'opt1', text: 'Opción 1' },
+      { value: 'opt2', text: 'Opción 2' },
+      { value: 'opt3', text: 'Opción 3' },
+      { value: 'opt4', text: 'Opción 4 activa', active: true },
+      { value: 'opt5', text: 'Opción 5' },
     ],
   },
 };
@@ -203,11 +203,11 @@ export const CambiaElTextoDelBoton: Story = {
     label: { text: 'Esto es un label' },
     doesChangeButtonText: true,
     items: [
-      { value: 'opt1', text: 'Opción 1', href: '#' },
-      { value: 'opt2', text: 'Opción 2', href: '#' },
-      { value: 'opt3', text: 'Opción 3', href: '#' },
-      { value: 'opt4', text: 'Opción 4', href: '#' },
-      { value: 'opt5', text: 'Opción 5', href: '#' },
+      { value: 'opt1', text: 'Opción 1' },
+      { value: 'opt2', text: 'Opción 2' },
+      { value: 'opt3', text: 'Opción 3' },
+      { value: 'opt4', text: 'Opción 4' },
+      { value: 'opt5', text: 'Opción 5' },
     ],
   },
 };
@@ -218,9 +218,9 @@ export const ConIconosEnItems: Story = {
     text: 'Iconos en items',
     label: { text: 'Esto es un label' },
     items: [
-      { value: 'opt1', text: 'Opción 1', href: '#' },
-      { value: 'opt2', text: 'Opción 2', href: '#' },
-      { value: 'opt3', text: 'Opción 3', href: '#' },
+      { value: 'opt1', text: 'Opción 1' },
+      { value: 'opt2', text: 'Opción 2' },
+      { value: 'opt3', text: 'Opción 3' },
     ],
   },
 };
@@ -232,12 +232,12 @@ export const ConParrafosEnItems: Story = {
     label: { text: 'Esto es un label' },
     classesTooltip: 'w-xs!',
     items: [
-      { value: 'opt1', text: 'Actuaciones previas/preparatorias', href: '#' },
-      { value: 'opt2', text: 'Inicio de la tramitación', href: '#' },
-      { value: 'opt3', text: 'Otros trámites en fase de inicio', href: '#' },
-      { value: 'opt4', text: 'Participación pública', href: '#' },
-      { value: 'opt5', text: 'Informes sectoriales', href: '#' },
-      { value: 'opt6', text: 'Valoración/Prueba/Licitación', href: '#' },
+      { value: 'opt1', text: 'Actuaciones previas/preparatorias' },
+      { value: 'opt2', text: 'Inicio de la tramitación' },
+      { value: 'opt3', text: 'Otros trámites en fase de inicio' },
+      { value: 'opt4', text: 'Participación pública' },
+      { value: 'opt5', text: 'Informes sectoriales' },
+      { value: 'opt6', text: 'Valoración/Prueba/Licitación' },
     ],
   },
 };
@@ -248,11 +248,11 @@ export const MenuAbiertoOCerradoConJavascript: Story = {
     text: 'con item activo',
     label: { text: 'Esto es un label' },
     items: [
-      { value: 'opt1', text: 'Opción 1', href: '#' },
-      { value: 'opt2', text: 'Opción 2', href: '#' },
-      { value: 'opt3', text: 'Opción 3', href: '#' },
-      { value: 'opt4', text: 'Opción 4', href: '#' },
-      { value: 'opt5', text: 'Opción 5', href: '#', active: true },
+      { value: 'opt1', text: 'Opción 1' },
+      { value: 'opt2', text: 'Opción 2' },
+      { value: 'opt3', text: 'Opción 3' },
+      { value: 'opt4', text: 'Opción 4' },
+      { value: 'opt5', text: 'Opción 5', active: true },
     ],
   },
 };

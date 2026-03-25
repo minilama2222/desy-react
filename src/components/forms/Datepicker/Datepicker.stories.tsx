@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Datepicker } from './Datepicker';
-import { Label } from '../Label/Label';
 
 const meta: Meta<typeof Datepicker> = {
   title: 'Forms/Datepicker',
@@ -11,43 +10,100 @@ const meta: Meta<typeof Datepicker> = {
 export default meta;
 type Story = StoryObj<typeof Datepicker>;
 
-export const Default: Story = {
+const datePattern = '(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))';
+
+export const PorDefecto: Story = {
   args: {
-    id: 'datepicker',
-    name: 'date',
+    id: 'datepicker-default',
+    name: 'test-name',
     placeholder: 'DD/MM/YYYY',
+    hintText: 'Usa el formato: DD-MM-AAAA (día-mes-año)',
+    pattern: datePattern,
   },
-  render: (args) => (
-    <Datepicker {...args}>
-      <Label htmlFor="datepicker" text="Select a date" />
-    </Datepicker>
-  ),
 };
 
-export const WithValue: Story = {
+export const FechasMultiples: Story = {
   args: {
-    id: 'birth-date',
-    name: 'birth-date',
-    value: '2024-03-15',
+    id: 'datepicker-multiple-dates',
+    name: 'test-name',
+    value: '10-01-2024 20-01-2024',
     placeholder: 'DD/MM/YYYY',
+    hintText: 'Para incluir las fechas en el campo de texto usa el formato DD-MM-AAAA.',
   },
-  render: (args) => (
-    <Datepicker {...args}>
-      <Label htmlFor="birth-date" text="Date of birth" />
-    </Datepicker>
-  ),
 };
 
-export const WithHint: Story = {
+export const RangoDeFechas: Story = {
   args: {
-    id: 'appointment-date',
-    name: 'appointment',
+    id: 'datepicker-range3',
+    name: 'test-name',
+    value: '10-01-2024/20-01-2024',
     placeholder: 'DD/MM/YYYY',
+    hintText: 'Para incluir el rango de fechas usa el formato DD-MM-AAAA/AAAA-MM-DD.',
   },
-  render: (args) => (
-    <Datepicker {...args}>
-      <Label htmlFor="appointment-date" text="Appointment date" />
-      <p id="appointment-date-hint" className="mt-xs text-sm text-neutral-dark">Select your preferred appointment date</p>
-    </Datepicker>
-  ),
+};
+
+export const RangoDeFechas2MesesYSelectorDeAno: Story = {
+  args: {
+    id: 'datepicker-with-hint-text-and-year',
+    name: 'test-name',
+    value: '16-01-2024/04-02-2024',
+    placeholder: 'DD/MM/YYYY',
+    hintText: 'Para incluir el rango de fechas usa el formato DD-MM-AAAA/AAAA-MM-DD.',
+  },
+};
+
+export const Deshabilitado: Story = {
+  args: {
+    id: 'datepicker-disabled',
+    name: 'test-name',
+    placeholder: 'DD/MM/YYYY',
+    disabled: true,
+    hintText: 'Usa el formato: DD-MM-AAAA (día-mes-año)',
+    pattern: datePattern,
+  },
+};
+
+export const ConMensajeDeError: Story = {
+  args: {
+    id: 'datepicker-with-error-message',
+    name: 'test-name',
+    placeholder: 'DD/MM/YYYY',
+    errorMessageText: 'Esto es un mensaje de error',
+    hintText: 'Usa el formato: DD-MM-AAAA (día-mes-año)',
+    pattern: datePattern,
+  },
+};
+
+export const Pequeno: Story = {
+  args: {
+    id: 'datepicker-small',
+    name: 'test-name',
+    placeholder: 'DD/MM/YYYY',
+    classes: 'c-input--sm',
+    dropdownClasses: 'c-dropdown--sm c-dropdown--transparent',
+    hintText: 'Usa el formato: DD-MM-AAAA (día-mes-año)',
+    pattern: datePattern,
+  },
+};
+
+export const BotonPersonalizado: Story = {
+  args: {
+    id: 'datepicker-with-personalized-button',
+    name: 'test-name',
+    placeholder: 'DD/MM/YYYY',
+    classes: 'flex-1',
+    hintText: 'Usa el formato: DD-MM-AAAA (día-mes-año)',
+    pattern: datePattern,
+  },
+};
+
+export const BotonPersonalizadoPequeno: Story = {
+  args: {
+    id: 'datepicker-with-button-small',
+    name: 'test-name',
+    placeholder: 'DD/MM/YYYY',
+    classes: 'flex-1 c-input--sm',
+    hintText: 'Usa el formato: DD-MM-AAAA (día-mes-año)',
+    pattern: datePattern,
+  },
 };
