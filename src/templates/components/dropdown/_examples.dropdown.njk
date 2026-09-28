@@ -1,0 +1,227 @@
+{% set exampleComponent = "dropdown" %}
+{% set examples =  [
+  {
+    "name": "por defecto",
+    "data": {
+      "text": "Por defecto",
+      "caller": "<div class=' w-48 p-2 '><div class=' border-4 border-dashed border-gray-200 rounded-lg h-40 '></div></div>"
+    },
+    "visualDescription": "Botón dropdown con texto en azul (color de enlace), seguido de un ícono de caret hacia abajo. Borde azul de 1px con esquinas redondeadas, fondo blanco. Tamaño compacto con padding interno moderado.",
+    "_generated": {
+      "hash": "eee3661d76bcedbe8940c9d65b3a6b5e",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:56:34.969Z"
+    }
+  },
+  {
+    "name": "con estado activo",
+    "description": "Simula activar la pseudo-clase de CSS <code>:active</code>. En realidad sólo se usa para documentar estos ejemplos.",
+    "data": {
+      "text": "Activo",
+      "classes": "ds-active",
+      "caller": "<div class=' w-48 p-2 '><div class=' border-4 border-dashed border-gray-200 rounded-lg h-40 '></div></div>"
+    },
+    "visualDescription": "Botón dropdown con texto en azul (color de enlace), seguido de un ícono de caret hacia abajo. Borde azul de 1px con esquinas redondeadas, fondo blanco. Tamaño compacto con padding interno moderado.",
+    "_generated": {
+      "hash": "f8c3fbfe2c8ec3e58f6c0dfb01761fcf",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:56:34.969Z"
+    }
+  },
+  {
+    "name": "con estado hover",
+    "description": "Simula activar la pseudo-clase de CSS <code>:hover</code>. En realidad sólo se usa para documentar estos ejemplos.",
+    "data": {
+      "text": "Hover",
+      "classes": "ds-hover",
+      "caller": "<div class=' w-48 p-2 '><div class=' border-4 border-dashed border-gray-200 rounded-lg h-40 '></div></div>"
+    },
+    "visualDescription": "Botón dropdown con texto en azul (color de enlace), seguido de un ícono de caret hacia abajo. Borde azul de 1px con esquinas redondeadas, fondo blanco. Tamaño compacto con padding interno moderado.",
+    "_generated": {
+      "hash": "72ae2e9faa49c39a7fea6436cb38c782",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:56:34.969Z"
+    }
+  },
+  {
+    "name": "con estado focus",
+    "description": "Simula activar la pseudo-clase de CSS <code>:focus</code>. En realidad sólo se usa para documentar estos ejemplos.",
+    "data": {
+      "text": "Focus",
+      "classes": "ds-focus",
+      "caller": "<div class=' w-48 p-2 '><div class=' border-4 border-dashed border-gray-200 rounded-lg h-40 '></div></div>"
+    },
+    "visualDescription": "Botón rectangular con fondo amarillo brillante, texto negro en peso medio, y borde amarillo oscuro de 2px. Incluye un icono de flecha hacia abajo a la derecha del texto. El botón tiene padding interno generoso y esquinas ligeramente redondeadas.",
+    "_generated": {
+      "hash": "ed4cd45f7add2c8e30765d9573b0461a",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:56:44.627Z"
+    }
+  },
+  {
+    "name": "primario",
+    "description": "Para acciones primarias.",
+    "data": {
+      "text": "Primario",
+      "classes": "c-dropdown--primary",
+      "caller": "<div class=' w-48 p-2 '><div class=' border-4 border-dashed border-gray-200 rounded-lg h-40 '></div></div>"
+    },
+    "visualDescription": "Botón rectangular con fondo azul oscuro sólido, texto blanco en peso medio, sin borde visible. Incluye un icono de flecha hacia abajo a la derecha del texto. El botón tiene padding interno generoso y esquinas ligeramente redondeadas.",
+    "_generated": {
+      "hash": "003a979bb14b955b7f4c7b34f93f6750",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:56:44.627Z"
+    }
+  },
+  {
+    "name": "transparente",
+    "data": {
+      "text": "Transparente",
+      "classes": "c-dropdown--transparent",
+      "caller": "<div class=' w-48 p-2 '><div class=' border-4 border-dashed border-gray-200 rounded-lg h-40 '></div></div>"
+    },
+    "visualDescription": "Botón rectangular con fondo transparente (blanco), texto azul en peso normal, sin borde visible. Incluye un icono de flecha hacia abajo a la derecha del texto. El botón tiene padding interno estándar y esquinas ligeramente redondeadas.",
+    "_generated": {
+      "hash": "d71157e76dd30d0fad13530154c73b12",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:56:44.627Z"
+    }
+  },
+  {
+    "name": "Con estilos de cabecera",
+    "data": {
+      "text": "Header",
+      "classes": "c-dropdown--header",
+      "caller": "<div class=' w-48 p-2 '><div class=' border-4 border-dashed border-gray-200 rounded-lg h-40 '></div></div>"
+    },
+    "visualDescription": "Dropdown con botón que muestra texto negro tamaño estándar, seguido de un ícono de caret descendente. El botón tiene fondo blanco, borde gris de 1px, padding moderado, y esquinas ligeramente redondeadas. El componente está contenido dentro de un rectángulo con borde gris claro.",
+    "_generated": {
+      "hash": "9039907d2361c9406e3da91fe723cec1",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:56:53.842Z"
+    }
+  },
+  {
+    "name": "grande",
+    "data": {
+      "text": "Grande",
+      "classes": "c-dropdown--lg",
+      "caller": "<div class=' w-48 p-2 '><div class=' border-4 border-dashed border-gray-200 rounded-lg h-40 '></div></div>"
+    },
+    "visualDescription": "Dropdown con botón que muestra texto azul mediano, seguido de un ícono de caret descendente. El botón tiene fondo blanco, borde azul de 1-2px, padding compacto, y esquinas redondeadas. Encima del botón aparece un label en texto negro pequeño.",
+    "_generated": {
+      "hash": "f388215b873fd00af81354e864f8867a",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:56:53.842Z"
+    }
+  },
+  {
+    "name": "peque",
+    "data": {
+      "text": "Botón pequeño con texto muy largo",
+      "classes": "c-dropdown--sm",
+      "caller": "<div class=' w-48 p-2 '><div class=' border-4 border-dashed border-gray-200 rounded-lg h-40 '></div></div>"
+    },
+    "visualDescription": "Dropdown con botón que muestra texto azul de tamaño pequeño con una línea larga de contenido, seguido de un ícono de caret descendente. El botón tiene fondo blanco, borde azul de 1-2px, padding compacto, y esquinas redondeadas. Encima del botón aparece un label en texto negro pequeño.",
+    "_generated": {
+      "hash": "29996df13651ec582e8940c7dc73d131",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:56:53.842Z"
+    }
+  },
+  {
+    "name": "peque tiene selección",
+    "description": "Un botón con una selección aplicada se muestra con color.",
+    "data": {
+      "text": "Botón pequeño con texto muy largo",
+      "classes": "c-dropdown--has-selection c-dropdown--sm",
+      "caller": "<div class=' w-48 p-2 '><div class=' border-4 border-dashed border-gray-200 rounded-lg h-40 '></div></div>"
+    },
+    "visualDescription": "Botón dropdown con texto azul y fondo blanco. Borde azul de 1px con esquinas redondeadas, ícono de flecha hacia abajo en el lado derecho. Altura compacta con padding ajustado alrededor del texto.",
+    "_generated": {
+      "hash": "fd973ca52fc60cbf2fc17b1db0440266",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:57:02.547Z"
+    }
+  },
+  {
+    "name": "deshabilitado",
+    "data": {
+      "text": "Deshabilitado",
+      "disabled": true,
+      "caller": "<div class=' w-48 p-2 '><div class=' border-4 border-dashed border-gray-200 rounded-lg h-40 '></div></div>"
+    },
+    "visualDescription": "Botón dropdown con texto gris claro y fondo gris muy claro. Borde gris claro de 1px con esquinas redondeadas, ícono de flecha hacia abajo gris en el lado derecho. Altura estándar con apariencia visual inactiva, sin interactividad disponible.",
+    "_generated": {
+      "hash": "d583f61e924e2fe38ed2de1ab7602c2d",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:57:02.547Z"
+    }
+  },
+  {
+    "name": "Con clases de css aplicadas al container",
+    "description": "Tanto el botón como los elementos del tooltip están rodeados de un div contenedor al que se le pueden aplicar estilos de CSS.",
+    "data": {
+      "text": "Clases en container",
+      "classesContainer": "inline-block p-base bg-primary-light",
+      "caller": "<div class=' w-48 p-2 '><div class=' border-4 border-dashed border-gray-200 rounded-lg h-40 '></div></div>"
+    },
+    "visualDescription": "Botón dropdown con texto azul y fondo blanco. Borde azul de 1px con esquinas redondeadas, ícono de flecha hacia abajo en el lado derecho. Altura estándar con padding uniforme alrededor del contenido.",
+    "_generated": {
+      "hash": "3e285b17d8635cdaf1ad7a7d2607029d",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:57:02.547Z"
+    }
+  },
+  {
+    "name": "clases aplicadas al contenido del tooltip",
+    "description": "El contenido del tooltip puede tener clases adicionales aplicadas. En este ejemplo se le ha aplicado una altura máxima y scroll vertical si el contenido se desborda.",
+    "data": {
+      "text": "Clases al contenido del tooltip",
+      "classesTooltip": "max-h-64 overflow-y-auto",
+      "caller": "<div class=' w-64 p-2 '><div class=' border-4 border-dashed border-gray-200 rounded-lg h-64 '></div></div>"
+    },
+    "visualDescription": "Contenedor rectangular con fondo blanco y borde gris claro de 1px. Botón dropdown con texto azul y flecha descendente, borde azul de 1px, fondo blanco. Label superior en texto gris oscuro, peso normal, tamaño pequeño.",
+    "_generated": {
+      "hash": "aac059a73763e993a75cb16b0c0b93af",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:57:11.543Z"
+    }
+  },
+  {
+    "name": "Clases aplicadas a varios elementos",
+    "description": "En este ejemplo, usando clases de CSS, la anchura del contenido establece la anchura del tooltip.",
+    "data": {
+      "text": "Dropdown anchura completa",
+      "classes": "w-full justify-between",
+      "classesTooltip": "w-max max-h-40 overflow-y-auto",
+      "caller": "<div class=' p-2 '><div class=' border-4 border-dashed border-gray-200 rounded-lg h-64 '><div style=' width:120px '></div></div></div>"
+    },
+    "visualDescription": "Contenedor rectangular con fondo gris muy claro y borde gris medio de 1px. Campo dropdown con texto negro, fondo blanco, borde gris oscuro de 1px, flecha arriba/abajo a la derecha. Label superior en texto negro, peso negrita, tamaño pequeño.",
+    "_generated": {
+      "hash": "97e9607a93b27a66e32da4373b49fd95",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:57:11.543Z"
+    }
+  },
+  {
+    "name": "Con role dialog",
+    "description": 'Usa los atributos <code>data-aria-haspopup="dialog" data-role="dialog" data-aria-modal="false" data-aria-label="Información adicional"</code> para abrir un desplegable que no contenga un menú, por ejemplo un panel informativo.',
+    "data": {
+      "text": "Marta Pérez",
+      "caller": "<div class=' w-48 p-2 '><div class=' border-4 border-dashed border-gray-200 rounded-lg h-40 '></div></div>",
+      "attributes": {
+        "data-aria-haspopup": "dialog",
+        "data-role": "dialog",
+        "data-aria-modal": "false",
+        "data-aria-label": "Información adicional"
+      }
+    },
+    "visualDescription": "Contenedor rectangular con fondo blanco y borde gris claro de 1px. Botón con texto azul seguido de símbolo más, borde azul de 1px, fondo blanco, esquinas redondeadas. Label superior en texto negro, peso normal, tamaño pequeño.",
+    "_generated": {
+      "hash": "73190343588ade90b3b32bf3f7d173e0",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:57:11.543Z"
+    }
+  }
+] %}

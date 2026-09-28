@@ -1,0 +1,113 @@
+params:
+- name: containerClasses
+  type: string
+  required: false
+  description: Classes that can be added to the inner container.
+- name: classes
+  type: string
+  required: false
+  description: Classes to add to the card component.
+- name: attributes
+  type: object
+  required: false
+  description: HTML attributes (for example data attributes) to add to the card component.
+- name: caller
+  type: nunjucks-block
+  required: false
+  description: Content in the flexible content area. Not strictly a parameter but [Nunjucks code convention](https://mozilla.github.io/nunjucks/templating.html#call). Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire media-object component in a `call` block.
+- name: super
+  type: object
+  required: false
+  description: This is an area over the card content
+  - name: backgroundFullColor
+    type: string
+    required: true
+    description: The css color used in the background image that fills all the super area.
+  - name: backgroundFullUrl
+    type: string
+    required: false
+    description: Url used in the background image that fills all the super area.
+  - name: html
+    type: string
+    required: false
+    description: HTML to use inside the super area.
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the super area.
+  - name: attributes
+    type: object
+    required: false
+    description: HTML attributes (for example data attributes) to add to the super area.
+- name: sub
+  type: object
+  required: false
+  description: This is an area under the card content
+  - name: backgroundFullColor
+    type: string
+    required: true
+    description: The css color used in the background image that fills all the sub area.
+  - name: backgroundFullUrl
+    type: string
+    required: false
+    description: Url used in the background image that fills all the sub area.
+  - name: html
+    type: string
+    required: false
+    description: HTML to use inside the sub area.
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the sub area.
+  - name: attributes
+    type: object
+    required: false
+    description: HTML attributes (for example data attributes) to add to the sub area.
+- name: left
+  type: object
+  required: false
+  description: This is an area over the card content
+  - name: backgroundFullColor
+    type: string
+    required: true
+    description: The css color used in the background image that fills all the left area.
+  - name: backgroundFullUrl
+    type: string
+    required: false
+    description: Url used in the background image that fills all the left area.
+  - name: html
+    type: string
+    required: false
+    description: HTML to use inside the left area.
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the left area.
+  - name: attributes
+    type: object
+    required: false
+    description: HTML attributes (for example data attributes) to add to the super area.
+- name: right
+  type: object
+  required: false
+  description: This is an area under the card content
+  - name: backgroundFullColor
+    type: string
+    required: true
+    description: The css color used in the background image that fills all the right area.
+  - name: backgroundFullUrl
+    type: string
+    required: false
+    description: Url used in the background image that fills all the right area.
+  - name: html
+    type: string
+    required: false
+    description: HTML to use inside the right area.
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the right area.
+  - name: attributes
+    type: object
+    required: false
+    description: HTML attributes (for example data attributes) to add to the right area.

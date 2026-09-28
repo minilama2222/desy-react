@@ -1,0 +1,705 @@
+{% set exampleComponent = "table" %}
+{% set examples =  [
+  {
+    "name": "tabla por defecto",
+    "data": {
+      "caption": "Caption de la tabla",
+      "captionClasses": "sr-only mb-base font-bold text-left text-lg",
+      "head": [
+        {
+          "text": "Mes de pago"
+        },
+        {
+          "text": "Primer pago",
+          "classes": "lg:text-right"
+        },
+        {
+          "text": "Segundo pago",
+          "classes": "lg:text-right"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "Enero"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          }
+        ],
+        [
+          {
+            "text": "Febrero"
+          },
+          {
+            "text": "75€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "55€",
+            "classes": "lg:text-right"
+          }
+        ],
+        [
+          {
+            "text": "Marzo"
+          },
+          {
+            "text": "165€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "125€",
+            "classes": "lg:text-right"
+          }
+        ]
+      ]
+    },
+    "visualDescription": "Tabla con encabezados de columna en texto gris oscuro, filas de datos con texto negro sobre fondo blanco. Bordes sutiles grises separan las celdas. Tres columnas de ancho variable contienen texto alineado a la izquierda.",
+    "_generated": {
+      "hash": "cf036a0003c6e657e630c6564978a471",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:15:42.810Z"
+    }
+  },
+  {
+    "name": "tabla con tfoot",
+    "data": {
+      "caption": "Caption de la tabla",
+      "captionClasses": "sr-only mb-base font-bold text-left text-lg",
+      "head": [
+        {
+          "text": "Mes de pago"
+        },
+        {
+          "text": "Primer pago",
+          "classes": "lg:text-right"
+        },
+        {
+          "text": "Segundo pago",
+          "classes": "lg:text-right"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "Enero"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          }
+        ],
+        [
+          {
+            "text": "Febrero"
+          },
+          {
+            "text": "75€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "55€",
+            "classes": "lg:text-right"
+          }
+        ],
+        [
+          {
+            "text": "Marzo"
+          },
+          {
+            "text": "165€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "125€",
+            "classes": "lg:text-right"
+          }
+        ]
+      ],
+      "foot": [
+        {
+          "text": "Suma",
+          "classes": "uppercase"
+        },
+        {
+          "text": "325€",
+          "classes": "lg:text-right"
+        },
+        {
+          "text": "275€",
+          "classes": "lg:text-right"
+        }
+      ]
+    },
+    "visualDescription": "Tabla con encabezados de columna en texto gris oscuro, filas de datos con texto negro, y fila final de totales en negrita. Fondo blanco uniforme con bordes grises sutiles entre celdas. Cuatro filas de contenido donde la última muestra valores sumados.",
+    "_generated": {
+      "hash": "59ab0eb7aea7d2c36aa967d1379fe50a",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:15:42.810Z"
+    }
+  },
+  {
+    "name": "tabla con caption visible",
+    "description": "Este ejemplo con caption visible se considera tabla compleja a nivel de accesibilidad. Así que tendría que tener una descripción con un details asociado a la tabla con el atributo aria-describedby.",
+    "data": {
+      "caption": "Caption 1: Meses y pagos",
+      "captionClasses": "mb-base font-bold text-left text-lg",
+      "firstCellIsHeader": true,
+      "head": [
+        {
+          "text": "Mes de pago"
+        },
+        {
+          "text": "Primer pago",
+          "classes": "lg:text-right"
+        },
+        {
+          "text": "Segundo pago",
+          "classes": "lg:text-right"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "Enero"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          }
+        ],
+        [
+          {
+            "text": "Febrero"
+          },
+          {
+            "text": "75€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "55€",
+            "classes": "lg:text-right"
+          }
+        ],
+        [
+          {
+            "text": "Marzo"
+          },
+          {
+            "text": "165€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "125€",
+            "classes": "lg:text-right"
+          }
+        ]
+      ]
+    },
+    "visualDescription": "Tabla precedida por título de encabezado en negrita negro. Encabezados de columna en gris oscuro, tres filas de datos con texto negro sobre fondo blanco. Bordes grises sutiles delimitan celdas con contenido alineado a la izquierda.",
+    "_generated": {
+      "hash": "98ac535474137642f2636a581a0506e3",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:15:42.810Z"
+    }
+  },
+  {
+    "name": "tabla con wrapper",
+    "description": "Usa el parámetro <code>wrapper</code> para rodear la tabla con un <code>&lt;div&gt;</code> y poder añadir clases, normalmente para hacer scroll horizontal en la tabla en anchuras pequeñas. Por accesibilidad, parámetro wrapper necesitará los atributos: tabindex=0, role=section y un aria-label o aria-labelledby.",
+    "data": {
+      "caption": "Caption 1: Meses y pagos",
+      "captionClasses": "sticky left-0 top-0 w-0 mb-base font-bold text-left text-lg lg:whitespace-nowrap",
+      "firstCellIsHeader": true,
+      "head": [
+        {
+          "text": "Mes de pago",
+          "classes": "lg:whitespace-nowrap"
+        },
+        {
+          "text": "Primer pago",
+          "classes": "lg:whitespace-nowrap lg:text-right"
+        },
+        {
+          "text": "Segundo pago",
+          "classes": "lg:whitespace-nowrap lg:text-right"
+        },
+        {
+          "text": "Rate for A",
+          "classes": "lg:whitespace-nowrap lg:text-right"
+        },
+        {
+          "text": "Rate for B",
+          "classes": "lg:whitespace-nowrap lg:text-right"
+        },
+        {
+          "text": "Rate for C",
+          "classes": "lg:whitespace-nowrap lg:text-right"
+        },
+        {
+          "text": "Rate for D",
+          "classes": "lg:whitespace-nowrap lg:text-right"
+        },
+        {
+          "text": "Rate for E",
+          "classes": "lg:whitespace-nowrap lg:text-right"
+        },
+        {
+          "text": "Rate for F",
+          "classes": "lg:whitespace-nowrap lg:text-right"
+        },
+        {
+          "text": "Rate for G",
+          "classes": "lg:whitespace-nowrap lg:text-right"
+        },
+        {
+          "text": "Rate for H",
+          "classes": "lg:whitespace-nowrap lg:text-right"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "Enero"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          }
+        ],
+        [
+          {
+            "text": "Febrero"
+          },
+          {
+            "text": "75€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "55€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          }
+        ],
+        [
+          {
+            "text": "Marzo"
+          },
+          {
+            "text": "165€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "125€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          }
+        ]
+      ],
+      "wrapper": {
+        "classes": "relative overflow-x-auto pb-base focus:outline-hidden focus:shadow-outline-black",
+        "attributes": {
+          "tabindex": "0",
+          "role": "region",
+          "aria-label": "Tabla con scroll del ejemplo Tabla con wrapper"
+        }
+      }
+    },
+    "visualDescription": "Tabla con fondo blanco, bordes grises claros de 1px separando celdas. Encabezados en texto negro normal, primera columna con etiquetas en negrita. Valores monetarios en cada celda con texto negro normal. Diseño de 11 columnas y 3 filas de datos.",
+    "_generated": {
+      "hash": "e4de44465c71632cadc9a7d573daa8c6",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:15:54.179Z"
+    }
+  },
+  {
+    "name": "tabla no responsive",
+    "description": "Usa la clase modificadora <code>.c-table--no-responsive</code> junto al parámetro <code>wrapper</code> para tablas que usen rowspan o colspan o tablas que no queremos que muestren sus celdas apiladas en móvil.",
+    "data": {
+      "classes": "c-table--no-responsive w-full",
+      "caption": "Caption 1: Meses y pagos",
+      "captionClasses": "mb-base font-bold text-left text-lg",
+      "firstCellIsHeader": true,
+      "head": [
+        {
+          "text": "Mes de pago",
+          "classes": "lg:whitespace-nowrap"
+        },
+        {
+          "text": "Primer pago",
+          "classes": "lg:whitespace-nowrap lg:text-right"
+        },
+        {
+          "text": "Segundo pago",
+          "classes": "lg:whitespace-nowrap lg:text-right"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "Enero"
+          },
+          {
+            "text": "85€",
+            "classes": "text-center",
+            "rowspan": 2,
+            "colspan": 2
+          }
+        ],
+        [
+          {
+            "text": "Febrero"
+          }
+        ],
+        [
+          {
+            "text": "Marzo"
+          },
+          {
+            "text": "165€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "125€",
+            "classes": "lg:text-right"
+          }
+        ]
+      ],
+      "wrapper": {
+        "classes": "relative overflow-x-auto pb-base focus:outline-hidden focus:shadow-outline-black",
+        "attributes": {
+          "tabindex": "0",
+          "role": "region",
+          "aria-label": "Tabla con scroll  del ejemplo Tabla no responsive"
+        }
+      }
+    },
+    "visualDescription": "Tabla con fondo blanco, sin bordes visibles entre celdas. Tres columnas con encabezados en texto gris. Tres filas de datos con etiquetas en la primera columna y valores monetarios alineados en las columnas centrales. Espaciado amplio entre columnas, texto negro normal para datos.",
+    "_generated": {
+      "hash": "ac1edb5e6a66f0788de919dd3c4cc939",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:15:54.179Z"
+    }
+  },
+  {
+    "name": "tabla con columnas sticky",
+    "description": "En este ejemplo la primera y última columna se mantienen fijas y el resto hacen scroll horizontal si la anchura es pequeña.",
+    "data": {
+      "caption": "Caption 1: Meses y pagos",
+      "captionClasses": "sticky top-0 left-0 w-0 mb-base font-bold text-left text-lg",
+      "firstCellIsHeader": true,
+      "head": [
+        {
+          "text": "Mes de pago",
+          "classes": "lg:whitespace-nowrap sticky left-0 w-60 bg-white"
+        },
+        {
+          "text": "Primer pago",
+          "classes": "lg:whitespace-nowrap lg:text-right"
+        },
+        {
+          "text": "Segundo pago",
+          "classes": "lg:whitespace-nowrap lg:text-right"
+        },
+        {
+          "text": "Rate for A",
+          "classes": "lg:whitespace-nowrap lg:text-right"
+        },
+        {
+          "text": "Rate for B",
+          "classes": "lg:whitespace-nowrap lg:text-right"
+        },
+        {
+          "text": "Rate for C",
+          "classes": "lg:whitespace-nowrap lg:text-right"
+        },
+        {
+          "text": "Rate for D",
+          "classes": "lg:whitespace-nowrap lg:text-right"
+        },
+        {
+          "text": "Rate for E",
+          "classes": "lg:whitespace-nowrap lg:text-right"
+        },
+        {
+          "text": "Rate for F",
+          "classes": "lg:whitespace-nowrap lg:text-right"
+        },
+        {
+          "text": "Rate for G",
+          "classes": "lg:whitespace-nowrap lg:text-right"
+        },
+        {
+          "text": "Rate for H",
+          "classes": "lg:whitespace-nowrap lg:text-right sticky right-0 w-60 bg-white"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "Enero",
+            "classes": "sticky left-0 w-60 bg-white"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right sticky right-0 w-60 bg-white"
+          }
+        ],
+        [
+          {
+            "text": "Febrero",
+            "classes": "sticky left-0 w-60 bg-white"
+          },
+          {
+            "text": "75€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "55€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right sticky right-0 w-60 bg-white"
+          }
+        ],
+        [
+          {
+            "text": "Marzo",
+            "classes": "sticky left-0 w-60 bg-white"
+          },
+          {
+            "text": "165€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "125€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "85€",
+            "classes": "lg:text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "lg:text-right sticky right-0 w-60 bg-white"
+          }
+        ]
+      ],
+      "wrapper": {
+        "classes": "overflow-x-auto pb-base focus:outline-hidden focus:shadow-outline-black",
+        "attributes": {
+          "tabindex": "0",
+          "role": "region",
+          "aria-label": "Tabla con scroll del ejemplo Tabla con columnas sticky"
+        }
+      },
+      "classes": "relative lg:whitespace-nowrap"
+    },
+    "visualDescription": "Tabla con fondo blanco, bordes grises de 1px delimitando celdas. Diez columnas con encabezados en texto negro. Tres filas de contenido mostrando valores monetarios distribuidos en celdas. Primera columna con etiquetas en texto negro normal.",
+    "_generated": {
+      "hash": "fc90630af4a95c6c93a40a8e9c2f5346",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:15:54.179Z"
+    }
+  }
+] %}

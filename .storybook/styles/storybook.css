@@ -1,14 +1,6 @@
-/* DESY React - Storybook CSS (pre-compiled desy-html) */
+/* DESY React - Storybook CSS */
 @import "./desy-html.css";
 
-/* Apply Open Sans font from desy-html CSS variables */
 body {
-  font-family: var(--font-family-sans), system-ui, sans-serif;
-}
-
-/* Safelist for dynamic classes */
-@layer utilities {
-  .ds-focus { }
-  .ds-hover { }
-  .ds-active { }
+  font-family: "Open Sans", ui-sans-serif, system-ui, sans-serif;
 }

@@ -1,0 +1,54 @@
+params:
+- name: idPrefix
+  type: string
+  required: false
+  description: String to prefix id for each nav item if no id is specified on each item. If not passed, fall back to using the name option instead.
+- name: items
+  type: array
+  required: true
+  description: Array of nav items objects.
+  params:
+  - name: href
+    type: string
+    required: true
+    description: Item link.
+  - name: target
+    type: string
+    required: false
+    description: The target where the item should link to.
+  - name: text
+    type: string
+    required: true
+    description: If `html` is set, this is not required. Text to use within each nav item. If `html` is provided, the `text` argument will be ignored.
+  - name: html
+    type: string
+    required: true
+    description: If `text` is set, this is not required. HTML to use within each nav item. If `html` is provided, the `text` argument will be ignored.
+  - name: id
+    type: string
+    required: false
+    description: Specific id attribute for the nav item. If omitted, then idPrefix option will be applied.
+  - name: active
+    type: boolean
+    required: false
+    description: If true, item will be active.
+  - name: disabled
+    type: boolean
+    required: false
+    description: If true, nav item will be disabled.
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the item.
+  - name: attributes
+    type: object
+    required: false
+    description: HTML attributes (for example data attributes) to add to the item.
+- name: classes
+  type: string
+  required: false
+  description: Classes to add to the nav.
+- name: attributes
+  type: object
+  required: false
+  description: HTML attributes (for example data attributes) to add to the nav tag.

@@ -1,0 +1,92 @@
+{% from "components/notification/_macro.notification.njk" import componentNotification %}
+
+{% set defaultExample %}
+  {{ componentNotification({
+    "title": {
+      "text": "El documento se ha cargado correctamente",
+      "classes": "outline-hidden"
+    },
+    "type": "success",
+    "isDismissible": true,
+    "id": "default-id"
+  })  }}
+{% endset %}
+
+{% set secondaryExample %}
+  {{ componentNotification({
+    "title": {
+      "text": "Problemas encontrados",
+      "classes": "mr-lg"
+    },
+    "items": [
+      {
+        "text": "Campo Nombre de la empresa está vacío",
+        "href": "#empresa"
+      },
+      {
+        "text": "Campo Fecha de inicio de la actividad está vacío",
+        "href": "#actividad"
+      },
+      {
+        "text": "El formato de correo electrónico es incorrecto",
+        "href": "#email"
+      }
+    ],
+    "type": "alert",
+    "isDismissible": true,
+    "id": "secondary-id"
+  })  }}
+{% endset %}
+
+
+{% set exampleComponent = "alert" %}
+{% set examples =  [
+  {
+    "name": "alert mostrando una notificación de éxito",
+    "description": "Utilizamos los atributos <code>'role': 'alert'</code> y  <code>'aria-live': 'assertive'</code> para que no pasen desapercibidas al lector de pantalla si no movemos el foco tras abrir la notificación. Si la notificación fuese de estado, como que la página se ha cargado, entonces se usará <code>'role': 'alert'</code> y  <code>'aria-live': 'polite'</code>. La función <code>openAlert</code> toma como primer argumento el <code>id</code> del elemento emergente a mostrar y como segundo argumento el nodo HTML que debe tomar foco al cerrar el elemento emergente.",
+    "data": {
+      "button": {
+        "text": "Abrir éxito",
+        "attributes": {
+          "onclick": "openAlert('success-id', this)"
+        }
+      },
+      "id": "success-id",
+      "attributes": {
+        "role": "alert",
+        "aria-live": "assertive"
+      },
+      "caller": defaultExample
+    },
+    "visualDescription": "Contenedor rectangular con fondo blanco, borde gris claro de 1px. Texto descriptivo negro arriba. Botón con texto azul oscuro, borde azul de 1px, fondo blanco, esquinas redondeadas.",
+    "_generated": {
+      "hash": "e9b09dbe7b16e7bac9e8296e52edcfea",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:47:42.215Z"
+    }
+  },
+  {
+    "name": "alert mostrando una notificación de alerta",
+    "description": "La función <code>openAlert</code> toma como primer argumento el <code>id</code> del elemento emergente a mostrar y como segundo argumento el nodo HTML que debe tomar foco al cerrar el elemento emergente. El tercer argumento es el <code>id</code> del elemento al que queremos que vaya el foco al abrir el elemento emergente, que suele ser el título de una notificación. Debido al uso de este argumento tras abrir este alert movemos el foco al título de la notificación, en este caso no es necesario usar los atributos <code>'role': 'alert'</code> y  <code>'aria-live': 'assertive'</code>.",
+    "data": {
+      "button": {
+        "text": "Abrir alerta",
+        "attributes": {
+          "onclick": "openAlert('alert-id', this, 'secondary-id-title');"
+        }
+      },
+      "id": "alert-id",
+      "attributes": {
+        "role": "alert",
+        "aria-live": "assertive"
+      },
+      "caller": secondaryExample
+    },
+    "visualDescription": "Contenedor rectangular con fondo blanco, borde gris claro de 1px. Texto descriptivo negro arriba. Botón con texto azul oscuro, borde azul de 1px, fondo blanco, esquinas redondeadas.",
+    "_generated": {
+      "hash": "1cf721fb2ee44ed7cc947463a6f51cf6",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:47:42.215Z"
+    }
+  }
+] %}

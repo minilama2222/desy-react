@@ -1,0 +1,352 @@
+params:
+- name: skipLink
+  type: component
+  required: false
+  description: The skipLink component parameters
+- name: headerMini
+  type: component
+  required: false
+  description: The headerMini component parameters
+- name: super
+  type: object
+  required: false
+  description: This is an area over the title
+  params:
+  - name: logo
+    type: object
+    required: false
+    description: options for the logo element
+    params:
+    - name: url
+      type: string
+      required: true
+      description: The logo url.
+    - name: alt
+      type: string
+      required: true
+      description: The logo alt text.
+    - name: href
+      type: string
+      required: true
+      description: The url of the homepage applied to logo. Defaults to /
+    - name: classes
+      type: string
+      required: false
+      description: Classes to add to the logo element.
+  - name: customNavigationHtml
+    type: string
+    required: false
+    description: HTML for the custom navigation area. If provided there will appear an embed area where you can nest custom navigation under the logo area.
+  - name: backgroundFullColor
+    type: string
+    required: true
+    description: The css color used in the background image that fills all the super area.
+  - name: backgroundFullUrl
+    type: string
+    required: false
+    description: Url used in the background image that fills all the super area.
+  - name: backgroundContainerUrl
+    type: string
+    required: false
+    description: Url used in the background image in the container of the super area and over the backgroundFull.
+  - name: customHtml
+    type: string
+    required: false
+    description: If provided, the default super content will be replaced with this.
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the super.
+- name: noTitle
+  type: boolean
+  required: false
+  description: If `true` the title area will be hidden.
+- name: titleContainer
+  type: object
+  required: false
+  description: params for the container that holds the logo, title and subtitle.
+  - name: backgroundColor
+    type: string
+    required: false
+    description: The css background color used in the titleContainer.
+  - name: classes
+    type: string
+    required: false
+    description: Classes for the title.
+- name: logo
+  type: object
+  required: true
+  description: options for the logo element inside the titleContainer.
+  - name: url
+    type: string
+    required: true
+    description: The logo url.
+  - name: alt
+    type: string
+    required: true
+    description: The logo alt text.
+  - name: href
+    type: string
+    required: true
+    description: The url of the homepage applied to logo. Defaults to /
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the logo element.
+- name: title
+  type: object
+  required: true
+  description: params for the title.
+  - name: homepageUrl
+    type: string
+    required: true
+    description: The url of the homepage applied to title. Defaults to /
+  - name: text
+    type: string
+    required: true
+    description: If `html` is set, this is not required. Text to use in the title. If `html` is provided, the `text` argument will be ignored.
+  - name: html
+    type: string
+    required: true
+    description: If `text` is set, this is not required. HTML to use in the title. If `html` is provided, the `text` argument will be ignored.
+  - name: headingLevel
+    type: number
+    required: false
+    description: If headingLevel is 1, the title heading tag will be a h1, if 2 will be a h2, and so on. Defaults to h2.
+  - name: customNavigationHtml
+    type: string
+    required: false
+    description: HTML for a custom navigation. If provided there will appear an embed area after the title.
+  - name: backgroundColor
+    type: string
+    required: false
+    description: The css color used in the background image that fills all the title area.
+  - name: classes
+    type: string
+    required: false
+    description: Classes for the title.
+- name: subtitle
+  type: object
+  required: false
+  description: An optional paragraph under the title.
+  - name: text
+    type: string
+    required: true
+    description: If `html` is set, this is not required. Text to use in the subtitle. If `html` is provided, the `text` argument will be ignored.
+  - name: html
+    type: string
+    required: true
+    description: If `text` is set, this is not required. HTML to use in the subtitle. If `html` is provided, the `text` argument will be ignored.
+  - name: classes
+    type: string
+    required: false
+    description: Classes for the subtitle.
+- name: dropdown
+  type: object
+  required: false
+  description: Options for the dropdown at right.
+  params:
+  - name: text
+    type: string
+    required: true
+    description: If `html` is set, this is not required. Text for the dropdown. If `html` is provided, the `text` argument will be ignored.
+  - name: html
+    type: string
+    required: true
+    description: If `text` is set, this is not required. HTML for the dropdown. If `html` is provided, the `text` argument will be ignored.
+  - name: hiddenText
+    type: string
+    required: false
+    description: Text for screenreaders only after the dropdown element.
+  - name: classesContainer
+    type: string
+    required: false
+    description: Classes to add to the container div of dropdown and tooltip elements. Defaults to 'hidden lg:block'
+  - name: classesTooltip
+    type: string
+    required: false
+    description: Classes to add to the tooltip content.
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the dropdown element.
+  - name: attributes
+    type: object
+    required: false
+    description: HTML attributes (for example data attributes) to add to the dropdown element.
+  - name: contentHtml
+    type: string
+    required: false
+    description: Html content inside the dropdown once opened.
+  - name: items
+    type: array
+    required: true
+    description: An array of navigation item objects in subnav dropdown. If `items` is provided, the `contentHtml` argument will be ignored.
+    params:
+    - name: href
+      type: string
+      required: true
+      description: Item link.
+    - name: target
+      type: string
+      required: false
+      description: The target where the item should link to.
+    - name: text
+      type: string
+      required: true
+      description: If `html` is set, this is not required. Text to use within each nav item. If `html` is provided, the `text` argument will be ignored.
+    - name: html
+      type: string
+      required: true
+      description: If `text` is set, this is not required. HTML to use within each nav item. If `html` is provided, the `text` argument will be ignored.
+    - name: id
+      type: string
+      required: false
+      description: Specific id attribute for the checkbox item. If omitted, then idPrefix option will be applied.
+    - name: active
+      type: boolean
+      required: false
+      description: If true, item will be active.
+    - name: disabled
+      type: boolean
+      required: false
+      description: If true, checkbox will be disabled.
+    - name: divider
+      type: boolean
+      required: false
+      description: If true, a divider border will be shown after the item.
+    - name: classes
+      type: string
+      required: false
+      description: Classes to add to the item.
+    - name: attributes
+      type: object
+      required: false
+      description: HTML attributes (for example data attributes) to add to the item.
+- name: navigation
+  type: object
+  required: false
+  description: Options for the navigation main menu.
+  params:
+  - name: classes
+    type: string
+    required: false
+    description: Classes for the navigation menu component. Defaults to 'hidden lg:block'
+  - name: items
+    type: array
+    required: true
+    description: An array of navigation item objects in main menu.
+    params:
+    - name: text
+      type: string
+      required: false
+      description: Text for the navigation item. If `html` is provided, the `text` argument will be ignored.
+    - name: html
+      type: string
+      required: false
+      description: HTML for the navigation item. If `html` is provided, the `text` argument will be ignored.
+    - name: href
+      type: string
+      required: false
+      description: Url of the navigation item anchor. Both `href` and `text` attributes for navigation items need to be provided to create an item.
+    - name: target
+      type: string
+      required: false
+      description: The target where the item should link to.
+    - name: active
+      type: boolean
+      required: false
+      description: Flag to mark the navigation item as active or not.
+    - name: attributes
+      type: object
+      required: false
+      description: HTML attributes (for example data attributes) to add to the navigation item anchor.
+- name: customNavigationHtml
+  type: string
+  required: false
+  description: HTML for the custom navigation area. If provided there will appear an embed area where you can nest custom navigation after the default one.
+- name: sub
+  type: object
+  required: false
+  description: This is an area under the title
+  - name: logo
+    type: object
+    required: false
+    description: options for the logo element
+    - name: url
+      type: string
+      required: true
+      description: The logo url.
+    - name: alt
+      type: string
+      required: true
+      description: The logo alt text.
+    - name: href
+      type: string
+      required: true
+      description: The url of the homepage applied to logo. Defaults to /
+    - name: classes
+      type: string
+      required: false
+      description: Classes to add to the logo element.
+  - name: customNavigationHtml
+    type: string
+    required: false
+    description: HTML for the custom navigation area. If provided there will appear an embed area where you can nest custom navigation under the logo area.
+  - name: backgroundFullColor
+    type: string
+    required: true
+    description: The css color used in the background image that fills all the sub area.
+  - name: backgroundFullUrl
+    type: string
+    required: false
+    description: Url used in the background image that fills all the super area.
+  - name: backgroundContainerUrl
+    type: string
+    required: false
+    description: Url used in the background image in the container of the super area and over the backgroundFull.
+  - name: customHtml
+    type: string
+    required: false
+    description: If provided, the default super content will be replaced with this.
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the sub.
+- name: offcanvas
+  type: object
+  required: false
+  description: Options for the offcanvas menu.
+  params:
+  - name: labelledId
+    type: string
+    required: false
+    description: ID para conectar con aria-labelledby del offcanvas. Útil para accesibilidad.
+  - name: text
+    type: string
+    required: true
+    description: Text for the offcanvas button.
+  - name: textClose
+    type: string
+    required: true
+    description: Text for the offcanvas button for close. Only visible in screenreaders.
+  - name: classes
+    type: string
+    required: false
+    description: Classes for the offcanvas component. Defaults to '-mr-2 flex lg:hidden'.
+- name: containerClasses
+  type: string
+  required: false
+  description: Classes for the container, useful if you want to make the header fixed width.
+- name: classes
+  type: string
+  required: false
+  description: Classes to add to the header container.
+- name: attributes
+  type: object
+  required: false
+  description: HTML attributes (for example data attributes) to add to the header container.
+- name: caller
+  type: nunjucks-block
+  required: false
+  description: Content inside the offcanvas. Not strictly a parameter but [Nunjucks code convention](https://mozilla.github.io/nunjucks/templating.html#call). Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire header component in a `call` block.

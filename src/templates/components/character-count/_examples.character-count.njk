@@ -1,0 +1,196 @@
+{% set exampleComponent = "character-count" %}
+{% set examples =  [
+  {
+    "name": "por defecto",
+    "data": {
+      "name": "more-detail-a",
+      "id": "more-detail-a",
+      "maxlength": 250,
+      "label": {
+        "text": "Esto es un label"
+      }
+    },
+    "visualDescription": "Textarea con borde gris medio de 1px, fondo blanco, esquinas redondeadas. Label negro en peso regular ubicado arriba. Contador de caracteres \"Puedes escribir hasta 250 caracteres\" en gris medio debajo del campo.",
+    "_generated": {
+      "hash": "280011d31f1d8090c2254c89c07bebc4",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:52:22.581Z"
+    }
+  },
+  {
+    "name": "placeholder",
+    "data": {
+      "name": "con-placeholder",
+      "id": "con-placeholder",
+      "maxlength": 250,
+      "placeholder": "Esto es un placeholder",
+      "label": {
+        "text": "Esto es un label"
+      }
+    },
+    "visualDescription": "Textarea con borde gris medio de 1px, fondo blanco, esquinas redondeadas. Label negro en peso regular ubicado arriba. Texto placeholder \"Esto es un placeholder\" en gris claro dentro del campo. Contador de caracteres \"Puedes escribir hasta 250 caracteres\" en gris medio debajo.",
+    "_generated": {
+      "hash": "53dfb0bc76601f445c5c54e7cb7790e6",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:52:22.581Z"
+    }
+  },
+  {
+    "name": "deshabilitado",
+    "data": {
+      "name": "more-detail-b",
+      "id": "more-detail-b",
+      "maxlength": 250,
+      "disabled": true,
+      "label": {
+        "text": "Esto es un label"
+      }
+    },
+    "visualDescription": "Textarea con borde gris claro de 1px, fondo gris muy claro, esquinas redondeadas. Label negro en peso regular ubicado arriba. Contador de caracteres \"Puedes escribir hasta 250 caracteres\" en gris medio debajo del campo. Apariencia visual de estado inactivo sin interacción posible.",
+    "_generated": {
+      "hash": "2b6bb817d339fded0b69001a2b6e104c",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:52:22.581Z"
+    }
+  },
+  {
+    "name": "con pista",
+    "data": {
+      "name": "with-hint",
+      "id": "with-hint",
+      "maxlength": 250,
+      "label": {
+        "text": "Esto es un label"
+      },
+      "hint": {
+        "text": "Esto es una pista."
+      }
+    },
+    "visualDescription": "Textarea con borde gris de 1px, fondo blanco, esquinas redondeadas. Incluye label negro en texto normal arriba, subtexto gris debajo del label, y contador gris pequeño bajo el campo indicando caracteres disponibles (hasta 250).",
+    "_generated": {
+      "hash": "9ec2a1f2083297c1e1e9fd46e393e9a4",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:52:31.289Z"
+    }
+  },
+  {
+    "name": "con valor por defecto",
+    "data": {
+      "id": "with-default-value",
+      "name": "default-value",
+      "maxlength": 100,
+      "label": {
+        "text": "Dirección completa"
+      },
+      "value": "Paseo María Agustín, 36,\n 50004 Zaragoza\n"
+    },
+    "visualDescription": "Textarea con borde gris de 1px, fondo blanco, esquinas redondeadas, contiene texto negro de dirección postal predefinido. Label negro en negrita arriba del campo, y contador gris pequeño bajo el textarea mostrando uso de caracteres (hasta 100).",
+    "_generated": {
+      "hash": "1d6bbc6799bd310e292689b0ca46df93",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:52:31.289Z"
+    }
+  },
+  {
+    "name": "con valor por defecto excediendo el límite",
+    "description": "Por accesibilidad, los mensajes de error deben incluir la palabra \"error\", para que no recaiga tan sólo en el color el hecho de que es un mensaje de error.",
+    "data": {
+      "id": "exceeding-characters",
+      "name": "exceeding",
+      "maxlength": 250,
+      "value": "Paseo María Agustín, 36,\n 50004 Zaragoza\n",
+      "label": {
+        "text": "Dirección completa"
+      },
+      "errorMessage": {
+        "text": "Por favor, no exceder el límite máximo. Error en el campo."
+      }
+    },
+    "visualDescription": "Textarea con borde rojo de 2px, fondo blanco, esquinas redondeadas, contiene texto negro de dirección postal predefinido. Label negro en negrita arriba, mensaje de error rojo debajo del label, y contador rojo pequeño bajo el textarea mostrando exceso de caracteres (hasta 250).",
+    "_generated": {
+      "hash": "9636636f48a71f5ec6cb7c3e7b20408f",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:52:31.289Z"
+    }
+  },
+  {
+    "name": "con número de filas (rows) personalizada",
+    "data": {
+      "id": "custom-rows",
+      "name": "custom",
+      "maxlength": 250,
+      "label": {
+        "text": "Dirección completa"
+      },
+      "rows": 8
+    },
+    "visualDescription": "Textarea con borde gris de 2px, fondo blanco, altura de aproximadamente 100px. Label \"Dirección completa\" en negro encima del campo. Texto contador \"Puedes escribir hasta 200 caracteres\" en gris claro debajo del textarea, alineado a la izquierda.",
+    "_generated": {
+      "hash": "c93b07854b908087a05d3cc2dad4f6bf",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:52:39.383Z"
+    }
+  },
+  {
+    "name": "con contador de palabras",
+    "data": {
+      "id": "word-count",
+      "name": "word-count",
+      "maxwords": 10,
+      "label": {
+        "text": "Dirección completa"
+      }
+    },
+    "visualDescription": "Textarea con borde gris de 2px, fondo blanco, altura de aproximadamente 60px. Label \"Dirección completa\" en negro encima del campo de entrada. Texto contador \"Puedes escribir hasta 10 palabras\" en gris claro debajo del textarea, alineado a la izquierda.",
+    "_generated": {
+      "hash": "602e604c19b1091e73ab88d5934f2022",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:52:39.383Z"
+    }
+  },
+  {
+    "name": "con threshold",
+    "data": {
+      "id": "with-threshold",
+      "name": "with-threshold",
+      "maxlength": 250,
+      "threshold": 75,
+      "label": {
+        "text": "Dirección completa"
+      }
+    },
+    "visualDescription": "Textarea con borde gris de 2px, fondo blanco, altura de aproximadamente 100px. Label \"Dirección completa\" en negro encima del campo de entrada. Texto contador \"Puedes escribir hasta 250 caracteres\" en gris claro debajo del textarea, alineado a la izquierda.",
+    "_generated": {
+      "hash": "529c3a2126914b9e8347a8b25ad014ca",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:52:39.383Z"
+    }
+  },
+  {
+    "name": "Con clases de css aplicadas",
+    "description": "Inline label + character-count flexible y mensaje de error",
+    "data": {
+      "formGroup": {
+        "classes": "lg:flex lg:flex-wrap lg:items-start lg:gap-x-base mb-0"
+      },
+      "label": {
+        "text": "Inline label:",
+        "classes": "lg:py-sm lg:mt-sm"
+      },
+      "id": "classes-applied-b",
+      "name": "classes-applied-b",
+      "maxlength": 250,
+      "errorMessage": {
+        "text": "Esto es un mensaje de error",
+        "classes": "order-1 w-full pt-sm"
+      },
+      "classes": "lg:flex-1"
+    },
+    "visualDescription": "Componente con label \"Intro label:\" en negro arriba a la izquierda, campo de texto grande con borde rojo grueso de 2-3px y fondo blanco. Debajo aparece mensaje de error \"Esto es un mensaje de error\" en rojo negrita, seguido de texto secundario \"Puedes escribir hasta 200 caracteres\" en gris.",
+    "_generated": {
+      "hash": "55d5d92ddf94c97e6ce6d21a1f9f138a",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T18:52:46.955Z"
+    }
+  }
+] %}

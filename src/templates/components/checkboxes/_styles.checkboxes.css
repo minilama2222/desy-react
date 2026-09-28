@@ -1,0 +1,30 @@
+/* ==========================================================================
+   _styles.checkboxes.css
+   ========================================================================== */
+@layer components {
+  .c-checkboxes--base {
+    input[type='checkbox'] {
+      @apply w-6;
+      @apply h-6;
+    }
+  }
+
+  .c-checkboxes--sm {
+    input[type='checkbox'] {
+      @apply w-base!;
+      @apply h-base!;
+    }
+  }
+
+  .c-checkboxes__conditional-active {
+    .c-checkboxes__conditional-item {
+      @apply block;
+    }
+  }
+
+  .c-checkboxes__conditional-hidden {
+    .c-checkboxes__conditional-item {
+      @apply hidden;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{% from "../error-message/_macro.error-message.njk" import componentErrorMessage -%}
+{% from "../hint/_macro.hint.njk" import componentHint %}
+{% from "../label/_macro.label.njk" import componentLabel %}
+
+{#- a record of other elements that we need to associate with the input using
+   aria-describedby – for example hints or error messages -#}
+{% set describedBy = params.describedBy if params.describedBy else "" %}
+<!-- file-upload -->
+<div class="c-form-group {%- if params.errorMessage %} c-form-group--error{% endif %} {%- if params.formGroup.classes %} {{ params.formGroup.classes }}{% endif %}">
+  {{ componentLabel({
+    html: params.label.html,
+    text: params.label.text,
+    classes: params.label.classes,
+    isPageHeading: params.label.isPageHeading,
+    attributes: params.label.attributes,
+    for: params.id
+  }) | indent(2) | trim }}
+{% if params.hint %}
+  {% set hintId = params.id + '-hint' %}
+  {% set describedBy = describedBy + ' ' + hintId if describedBy else hintId %}
+  {{ componentHint({
+    id: hintId,
+    classes: params.hint.classes,
+    attributes: params.hint.attributes,
+    html: params.hint.html,
+    text: params.hint.text
+  }) | indent(2) | trim }}
+{% endif %}
+{% if params.errorMessage %}
+  {% set errorId = params.id + '-error' %}
+  {{ componentErrorMessage({
+    id: errorId,
+    classes: params.errorMessage.classes,
+    attributes: params.errorMessage.attributes,
+    html: params.errorMessage.html,
+    text: params.errorMessage.text,
+    visuallyHiddenText: params.errorMessage.visuallyHiddenText
+  }) | indent(2) | trim }}
+{% endif %}
+  <input class="mt-sm p-xs file:mr-base focus:outline-hidden file:inline-flex file:items-baseline file:px-3 file:py-2 file:bg-white file:border file:border-solid file:border-primary-base file:rounded-sm file:align-baseline file:font-semibold file:text-primary-base file:transition-all file:duration-100 file:ease-out file:whitespace-nowrap file:cursor-pointer file:focus:bg-warning-base file:focus:border-warning-base file:focus:shadow-outline-black file:focus:text-black file:focus:outline-hidden file:hover:bg-neutral-light file:hover:border-primary-base file:hover:text-primary-base {%- if params.classes %} {{ params.classes }}{% endif %} {%- if params.errorMessage %} c-file-upload--error{% endif %}" id="{{ params.id }}" name="{{ params.name }}" type="file"
+  {%- if params.value %} value="{{ params.value }}"{% endif %}
+  {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
+  {%- if params.errorMessage %} aria-errormessage="{{ errorId }}" aria-invalid="true"{% endif %}
+  {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
+</div>
+<!-- /file-upload -->

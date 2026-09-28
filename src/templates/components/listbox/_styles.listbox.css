@@ -1,0 +1,218 @@
+/* ==========================================================================
+   _styles.listbox.css
+   ========================================================================== */
+@layer components {
+  .c-listbox {
+    @apply inline-flex;
+    @apply items-baseline;
+    @apply px-3;
+    @apply py-2;
+    @apply bg-white;
+    @apply border;
+    @apply border-primary-base;
+    @apply rounded;
+    @apply align-baseline;
+    @apply font-semibold;
+    @apply text-primary-base;
+    @apply transition-all;
+    @apply duration-100;
+    @apply ease-out;
+    @apply whitespace-nowrap;
+    @apply cursor-pointer;
+
+    @apply focus:bg-warning-base;
+    @apply focus:border-warning-base;
+    @apply focus:shadow-outline-black;
+    @apply focus:text-black;
+    @apply focus:outline-hidden;
+
+    &:hover:not(:disabled),
+    &:active:not(:disabled),
+    &.ds-hover:not(:disabled) {
+      @apply bg-neutral-light;
+      @apply border-primary-base;
+      @apply text-primary-base;
+    }
+
+    &:active:not(:disabled),
+    &.ds-active:not(:disabled) {
+      @apply relative;
+      @apply top-px;
+    }
+
+    &.ds-focus {
+      @apply bg-warning-base;
+      @apply border-warning-base;
+      @apply shadow-outline-black;
+      @apply text-black;
+      @apply outline-hidden;
+    }
+
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled]:focus,
+    &.c-listbox--disabled,
+    &.c-listbox--disabled:hover,
+    &.c-listbox--disabled:focus {
+      @apply bg-white;
+      @apply opacity-50;
+      @apply cursor-not-allowed;
+    }
+  }
+
+  .c-listbox__tooltip {
+    @apply hidden;
+
+    [role='option'] {
+      @apply relative;
+
+      &.focused,
+      &:focus,
+      &.ds-focus {
+        @apply bg-warning-base;
+        @apply border-warning-base;
+        @apply shadow-outline-black;
+        @apply text-black;
+        @apply outline-hidden;
+      }
+
+      &[aria-selected='true'] {
+        @apply font-bold;
+
+        &::before {
+          @apply bg-center bg-no-repeat bg-cover;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cg transform='matrix(3.4285714285714284,0,0,3.4285714285714284,0,0)'%3E%3Cpath d='M4,12.5a2,2,0,0,1-1.55-.78L.25,9.23A1,1,0,0,1,.34,7.81a1,1,0,0,1,1.41.1l2.06,2.33a.21.21,0,0,0,.18.09.23.23,0,0,0,.18-.08l8.11-8.44a1,1,0,0,1,1.44,1.38l-8.2,8.63A1.94,1.94,0,0,1,4,12.5Z' style='fill: %23000000'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+          content: '';
+          @apply w-3;
+          @apply h-3;
+          @apply absolute;
+          @apply top-3;
+          @apply left-2;
+        }
+      }
+    }
+  }
+
+  .c-listbox--base {
+    @apply px-3;
+    @apply py-2;
+    @apply text-base;
+  }
+
+  .c-listbox--lg {
+    @apply px-4;
+    @apply py-3;
+    @apply text-lg;
+  }
+
+  .c-listbox--sm {
+    @apply px-2;
+    @apply py-1;
+    @apply text-sm;
+  }
+
+  .c-listbox--primary {
+    @apply bg-primary-base;
+    @apply text-white;
+    @apply shadow-solid-primary-dark;
+
+    &:hover:not(:disabled),
+    &:active:not(:disabled),
+    &.ds-hover:not(:disabled) {
+      @apply bg-primary-dark;
+      @apply border-primary-dark;
+      @apply text-white;
+    }
+
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled]:focus,
+    &.c-listbox--disabled,
+    &.c-listbox--disabled:hover,
+    &.c-listbox--disabled:focus {
+      @apply bg-primary-base;
+    }
+  }
+
+  .c-listbox--has-selection {
+    @apply bg-primary-light;
+    @apply text-primary-dark;
+    @apply border-primary-base;
+    @apply shadow-none;
+    @apply font-bold;
+
+    &:hover:not(:disabled),
+    &:active:not(:disabled),
+    &.ds-hover:not(:disabled) {
+      @apply bg-primary-light/50;
+      @apply text-black;
+    }
+
+    &:active:not(:disabled),
+    &.ds-active:not(:disabled) {
+      @apply shadow-none;
+    }
+
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled]:focus,
+    &.c-listbox--disabled,
+    &.c-listbox--disabled:hover,
+    &.c-listbox--disabled:focus {
+      @apply bg-primary-light;
+    }
+  }
+
+  .c-listbox--transparent {
+    @apply bg-transparent;
+    @apply border-transparent;
+    @apply shadow-none;
+    @apply underline;
+
+    &:hover:not(:disabled),
+    &.ds-hover:not(:disabled) {
+      @apply text-primary-dark;
+      @apply border-neutral-base;
+      @apply shadow-none;
+    }
+
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled]:focus,
+    &.c-listbox--disabled,
+    &.c-listbox--disabled:hover,
+    &.c-listbox--disabled:focus {
+      @apply bg-transparent;
+      @apply border-transparent;
+      @apply no-underline;
+    }
+  }
+
+  .c-listbox--header {
+    @apply bg-transparent;
+    @apply border-none;
+    @apply rounded-none;
+    @apply shadow-none;
+    @apply font-normal;
+    @apply text-sm;
+    @apply text-black;
+
+    &:hover:not(:disabled),
+    &.ds-hover:not(:disabled) {
+      @apply bg-transparent;
+      @apply border-none;
+      @apply shadow-none;
+      @apply text-black;
+      @apply underline;
+    }
+
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled]:focus,
+    &.c-listbox--disabled,
+    &.c-listbox--disabled:hover,
+    &.c-listbox--disabled:focus {
+      @apply bg-transparent;
+    }
+  }
+}

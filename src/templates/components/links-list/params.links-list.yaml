@@ -1,0 +1,102 @@
+params:
+- name: idPrefix
+  type: string
+  required: false
+  description: String to prefix id for each item if no id is specified on each item.
+- name: hasNav
+  type: boolean
+  required: false
+  description: Defaults to `true`. If `false`, there will be no nav assuming the component will be wrapped with a custom nav with it's own aria-label.
+- name: items
+  type: array
+  required: true
+  description: Array of nav items objects.
+  params:
+  - name: href
+    type: string
+    required: false
+    description: Item link.
+  - name: target
+    type: string
+    required: false
+    description: The target where the item should link to.
+  - name: text
+    type: string
+    required: true
+    description: If `html` is set, this is not required. Text to use within each nav item label. If `html` is provided, the `text` argument will be ignored.
+  - name: html
+    type: string
+    required: true
+    description: If `text` is set, this is not required. HTML to use within each nav item label. If `html` is provided, the `text` argument will be ignored.
+  - name: id
+    type: string
+    required: false
+    description: Specific id attribute for the item. If omitted, then idPrefix option will be applied.
+  - name: disabled
+    type: boolean
+    required: false
+    description: If true, nav will be disabled.
+  - name: sub
+    type: boolean
+    required: false
+    description: If true, content provided will be revealed when the item is expanded.
+    - name: html
+      type: string
+      required: true
+      description: Provide content for the sub.
+    - name: classes
+      type: string
+      required: false
+      description: Classes to add to the sub container.
+  - name: iconRight
+    type: object
+    required: false
+    description: This is the optional icon at right. If this is not set, the icon at right will be a default right arrow.
+    - name: html
+      type: string
+      required: false
+      description: Use this html to insert a custom svg inline icon. If this is set, the type are not used.
+    - name: type
+      type: string
+      required: false
+      description: Predefined icon types are `arrow`, `chevron`, `none`.
+    - name: containerClasses
+      type: string
+      required: false
+      description: Classes applied to the parent div of icon. Useful to vertical align the icon.
+  - name: icon
+    type: object
+    required: false
+    description: This is the optional icon at left
+    - name: html
+      type: string
+      required: true
+      description: Use this html to insert a custom svg inline icon. If this is set, the type are not used.
+    - name: containerClasses
+      type: string
+      required: false
+      description: Classes applied to the parent div of icon. Useful to vertical align the icon.
+  - name: containerClasses
+    type: string
+    required: false
+    description: Classes to add to the parent `<li>` of the item.
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the item.
+  - name: attributes
+    type: object
+    required: false
+    description: HTML attributes (for example data attributes) to add to the item.
+- name: listClasses
+  type: string
+  required: false
+  description: Classes to add to the `<ul>` that holds the items.
+- name: classes
+  type: string
+  required: false
+  description: Classes to add to the nav container.
+- name: attributes
+  type: object
+  required: false
+  description: HTML attributes (for example data attributes) to add to the nav container.

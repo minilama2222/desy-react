@@ -1,0 +1,38 @@
+{% if params.html or params.text %}
+{% set labelHtml %}
+<label class="block {%- if params.classes %} {{ params.classes }}{% endif %}"
+  {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}
+  {%- if params.for %} for="{{ params.for }}"{% endif %}>{{ params.html | filterquotes | safe if params.html else params.text }}</label>{% endset %}
+
+<!-- label -->
+{% if params.isPageHeading %}
+  {% if params.headingLevel == "1" %}
+<h1 class="block ">
+  {{ labelHtml | safe }}
+</h1>
+{% elseif params.headingLevel == "2" %}
+<h2 class="block ">
+  {{ labelHtml | safe }}
+</h2>
+{% elseif params.headingLevel == "3" %}
+<h3 class="block ">
+  {{ labelHtml | safe }}
+</h3>
+{% elseif params.headingLevel == "4" %}
+<h4 class="block ">
+  {{ labelHtml | safe }}
+</h4>
+{% elseif params.headingLevel == "5" %}
+<h5 class="block ">
+  {{ labelHtml | safe }}
+</h5>
+{% else %}
+<h1 class="block ">
+  {{ labelHtml | safe }}
+</h1>
+{% endif %}
+{% else %}
+{{ labelHtml | safe }}
+{% endif %}
+{% endif %}
+<!-- /label -->

@@ -1,0 +1,20 @@
+<!-- header__offcanvas -->
+<div id="header-offcanvas" class="hidden" role="dialog" aria-labelledby="header-offcanvas-button-text" aria-modal="true">
+  <div class="left-0 fixed top-0 h-dvh w-offcanvas ml-offcanvas-negative">
+    <div class="h-full overflow-auto relative bg-white z-10">
+      <div class="text-right p-sm">
+        <button
+          onclick="closeDialog(this)"
+          id="header-offcanvas-button-close"
+          type="button"
+          class="c-button c-button--sm c-button--transparent m-sm">{{ params.text }} <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" width="14" height="14" class="self-center ml-2" aria-hidden="true"><path fill="currentColor" d="M8.591 7.177a.25.25 0 010-.354l4.616-4.616A1 1 0 1011.793.793L7.177 5.409a.25.25 0 01-.354 0L2.207.793A1 1 0 00.793 2.207l4.616 4.616a.25.25 0 010 .354L.793 11.793a1 1 0 001.414 1.414l4.616-4.616a.25.25 0 01.354 0l4.616 4.616a1 1 0 001.414-1.414z"/></svg></button>
+      </div>
+      {% if caller %}
+      {{ caller() }} {#- if statement allows usage of `call` to be optional -#}
+      {% elseif params.caller %}
+      {{ params.caller | safe }}
+      {% endif %}
+    </div>
+  </div>
+</div>
+<!-- /header__offcanvas -->

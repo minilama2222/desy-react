@@ -1,0 +1,30 @@
+/* ==========================================================================
+   _styles.notification.css
+   ========================================================================== */
+@layer components {
+  .c-notification {
+    @apply flex;
+    @apply flex-wrap;
+    @apply relative;
+    @apply overflow-hidden;
+    @apply p-base;
+    @apply bg-white;
+    @apply border-4;
+  }
+
+  .c-notification--primary {
+    @apply border-primary-base;
+  }
+
+  .c-notification--warning {
+    @apply border-warning-dark;
+  }
+
+  .c-notification--success {
+    @apply border-success-dark;
+  }
+
+  .c-notification--alert {
+    @apply border-alert-dark;
+  }
+}

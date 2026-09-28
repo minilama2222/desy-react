@@ -1,0 +1,54 @@
+{#- If an id 'prefix' is not passed, fall back to using a default one
+   instead -#}
+{% set idPrefix = params.idPrefix if params.idPrefix else "nav-item" %}
+
+{% set commonAttributes %} data-module="c-nav" class="text-sm{%- if params.classes %} {{ params.classes }}{% endif %}"
+{%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor -%}{% endset %}
+
+
+
+{#- Capture the HTML so we can optionally nest it in a fieldset -#}
+{% set innerHtml %}
+  {% for item in params.items %}
+  {% if item %}
+  {#- If the user explicitly sets an id, use this instead of the regular idPrefix -#}
+  {% if item.id %}
+  {% set id = item.id %}
+  {% else %}
+  {% set id = idPrefix + "-" + loop.index %}
+  {% endif %}
+  {% set commonItemAttributes %} {% if id %} id="{{ id }}"{% endif %} {%- if item.title %} title="{{ item.title }}"{% endif %} {%- for attribute, value in item.attributes %} {{ attribute }}="{{ value }}"{% endfor %}{% endset %}
+<li>
+  <a href="{{ item.href }}" class="flex items-center px-base py-sm hover:bg-primary-base hover:text-white focus:bg-warning-base focus:outline-hidden focus:shadow-outline-focus focus:text-black{%- if item.classes %} {{ item.classes }}{% endif -%} {%- if item.disabled %} pointer-events-none{% endif -%}" {%- if item.disabled %} aria-disabled="true" tabindex="-1"{% endif -%} {%- if item.target %} target="{{ item.target }}"{% endif %}  {% if item.active %} aria-current="page"{% endif %}{{- commonItemAttributes | safe }}>
+      {% if item.active %}
+      <strong class="font-bold">{{ item.html | filterquotes | safe if item.html else item.text }}</strong>
+      {% else %}
+      {{ item.html | filterquotes | safe if item.html else item.text }}
+      {% endif %}
+      {% if item.disabled %}
+      <svg viewBox="0 0 140 140" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" class="inline-block align-middle flex-initial ml-sm text-neutral-base fill-current" aria-hidden="true" focusable="false" ><path d="M70 0a70 70 0 1070 70A70.08 70.08 0 0070 0zM20 70a50 50 0 0174.8-43.4 2.51 2.51 0 011.23 1.84 2.48 2.48 0 01-.71 2.1L30.54 95.32a2.51 2.51 0 01-3.94-.52A49.63 49.63 0 0120 70zm100 0a50 50 0 01-74.8 43.4 2.51 2.51 0 01-1.23-1.84 2.48 2.48 0 01.71-2.1l64.78-64.78a2.51 2.51 0 013.94.52A49.63 49.63 0 01120 70z"/></svg>
+      {% endif %}
+  </a>
+</li>
+  {% if item.divider %}
+<li class="my-sm border-b border-neutral-base" role="none" aria-hidden="true">
+  <div class="sr-only">Separador</div>
+</li>
+  {% endif %}
+  {% endif %}
+  {% endfor %}
+{% endset -%}
+
+<!-- nav -->
+{% if params.hasNav == false %}
+<ul {{- commonAttributes | safe }}>
+  {{ innerHtml | safe | indent(2) }}
+</ul>
+{% else %}
+<nav {{- commonAttributes | safe }}>
+  <ul>
+    {{ innerHtml | safe | indent(4) }}
+  </ul>
+</nav>
+{% endif %}
+<!-- /nav -->

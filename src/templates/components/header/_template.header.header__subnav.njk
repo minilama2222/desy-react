@@ -1,0 +1,34 @@
+{% from "components/dropdown/_macro.dropdown.njk" import componentDropdown %}
+
+<!-- header__subnav -->
+{% if params.items %}
+<div class="hidden lg:flex items-center">
+  <div class="py-2 relative border-r border-l border-neutral-base">
+    <p class="sr-only">Aplicación actual: </p>
+    {% set dropdownContent %}
+    {% call componentDropdown({
+      "text": params.text,
+      "html": params.html,
+      "hiddenText": params.hiddenText,
+      "classesContainer": params.classesContainer,
+      "classesTooltip": params.classesTooltip,
+      "classes": params.classes,
+      "attributes": params.attributes
+    })  %}
+        {% if caller %}
+        {{ caller() | indent(4) }} {#- if statement allows usage of `call` to be optional -#}
+        {% elseif params.caller %}
+        {{ params.caller | safe | indent(4) }}
+        {% endif %}
+    {% endcall %}
+    {% endset %}
+    {{ dropdownContent | trim | safe | indent(4) }}
+  </div>
+</div>
+{% else %}
+<p class="hidden lg:inline-block align-middle px-3 py-4 border-r border-l border-neutral-base text-sm text-black">
+  <span class="sr-only">Aplicación actual: </span>
+  {{ params.html | filterquotes | safe if params.html else params.text }}
+</p>
+{% endif %}
+<!-- /header__subnav -->

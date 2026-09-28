@@ -1,0 +1,839 @@
+{% set exampleComponent = "table-advanced" %}
+{% set examples =  [
+  {
+    "name": "tabla por defecto",
+    "data": {
+      "idPrefix": "table-default",
+      "caption": "Caption de la tabla",
+      "captionClasses": "sr-only mb-base font-bold text-left text-lg",
+      "head": [
+        {
+          "text": "Mes de pago"
+        },
+        {
+          "text": "Primer pago",
+          "classes": "text-right"
+        },
+        {
+          "text": "Segundo pago",
+          "classes": "text-right"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "Enero"
+          },
+          {
+            "text": "85€",
+            "classes": "text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "text-right"
+          }
+        ],
+        [
+          {
+            "text": "Febrero"
+          },
+          {
+            "text": "75€",
+            "classes": "text-right"
+          },
+          {
+            "text": "55€",
+            "classes": "text-right"
+          }
+        ],
+        [
+          {
+            "text": "Marzo"
+          },
+          {
+            "text": "165€",
+            "classes": "text-right"
+          },
+          {
+            "text": "125€",
+            "classes": "text-right"
+          }
+        ]
+      ],
+      "classes": "min-w-full"
+    },
+    "visualDescription": "Tabla con encabezados en texto gris oscuro sobre fondo blanco, organizados en tres columnas. Filas de datos alternadas con fondo blanco, bordes horizontales grises claros de 1px separando cada fila. Datos numéricos con símbolo de euro alineados a la derecha, texto de meses alineado a la izquierda.",
+    "_generated": {
+      "hash": "64fea3cbdabfa03f1752565b7b8c3ce3",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:15:10.765Z"
+    }
+  },
+  {
+    "name": "tabla con tfoot",
+    "data": {
+      "idPrefix": "table-tfoot",
+      "caption": "Caption de la tabla",
+      "captionClasses": "sr-only mb-base font-bold text-left text-lg",
+      "head": [
+        {
+          "text": "Mes de pago"
+        },
+        {
+          "text": "Primer pago",
+          "classes": "text-right"
+        },
+        {
+          "text": "Segundo pago",
+          "classes": "text-right"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "Enero"
+          },
+          {
+            "text": "85€",
+            "classes": "text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "text-right"
+          }
+        ],
+        [
+          {
+            "text": "Febrero"
+          },
+          {
+            "text": "75€",
+            "classes": "text-right"
+          },
+          {
+            "text": "55€",
+            "classes": "text-right"
+          }
+        ],
+        [
+          {
+            "text": "Marzo"
+          },
+          {
+            "text": "165€",
+            "classes": "text-right"
+          },
+          {
+            "text": "125€",
+            "classes": "text-right"
+          }
+        ]
+      ],
+      "foot": [
+        [
+          {
+            "text": "Suma",
+            "classes": "uppercase"
+          },
+          {
+            "text": "325€",
+            "classes": "text-right"
+          },
+          {
+            "text": "275€",
+            "classes": "text-right"
+          }
+        ]
+      ],
+      "classes": "min-w-full"
+    },
+    "visualDescription": "Tabla con encabezados en texto gris oscuro sobre fondo blanco, estructura de tres columnas con bordes horizontales grises claros de 1px. Filas de datos con fondo blanco mostrando valores monetarios en euros alineados a la derecha. Fila final de totales con fondo blanco, texto en peso regular mostrando suma total de las columnas numéricas.",
+    "_generated": {
+      "hash": "816140ac55bf188f6f7a22ec006b29e1",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:15:10.765Z"
+    }
+  },
+  {
+    "name": "tabla con caption visible",
+    "description": "También con <code>'firstCellIsHeader': true</code>",
+    "data": {
+      "idPrefix": "table-with-caption",
+      "caption": "Caption 1: Meses y pagos",
+      "captionClasses": "mb-base font-bold text-left text-lg",
+      "firstCellIsHeader": true,
+      "head": [
+        {
+          "text": "Mes de pago"
+        },
+        {
+          "text": "Primer pago",
+          "classes": "text-right"
+        },
+        {
+          "text": "Segundo pago",
+          "classes": "text-right"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "Enero"
+          },
+          {
+            "text": "85€",
+            "classes": "text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "text-right"
+          }
+        ],
+        [
+          {
+            "text": "Febrero"
+          },
+          {
+            "text": "75€",
+            "classes": "text-right"
+          },
+          {
+            "text": "55€",
+            "classes": "text-right"
+          }
+        ],
+        [
+          {
+            "text": "Marzo"
+          },
+          {
+            "text": "165€",
+            "classes": "text-right"
+          },
+          {
+            "text": "125€",
+            "classes": "text-right"
+          }
+        ]
+      ],
+      "classes": "min-w-full"
+    },
+    "visualDescription": "Tabla precedida por título en texto negro en peso negrita sobre fondo blanco. Encabezados de columna en texto gris oscuro, estructura de tres columnas con bordes horizontales grises claros de 1px. Filas de datos con fondo blanco, valores monetarios en euros alineados a la derecha, texto de meses alineado a la izquierda.",
+    "_generated": {
+      "hash": "63ae217f0c53c62c689f31cadaba9bdc",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:15:10.765Z"
+    }
+  },
+  {
+    "name": "tabla con orderBy en columnas",
+    "description": "Con <code>'orderBy': none</code>, <code>asc</code>, <code>desc</code>",
+    "data": {
+      "idPrefix": "table-with-orderby",
+      "head": [
+        {
+          "text": "Mes de pago",
+          "orderBy": "none"
+        },
+        {
+          "text": "Primer pago",
+          "orderBy": "none",
+          "classes": "text-right"
+        },
+        {
+          "text": "Segundo pago",
+          "orderBy": "none",
+          "classes": "text-right"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "Enero"
+          },
+          {
+            "text": "85€",
+            "classes": "text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "text-right"
+          }
+        ],
+        [
+          {
+            "text": "Febrero"
+          },
+          {
+            "text": "75€",
+            "classes": "text-right"
+          },
+          {
+            "text": "55€",
+            "classes": "text-right"
+          }
+        ],
+        [
+          {
+            "text": "Marzo"
+          },
+          {
+            "text": "165€",
+            "classes": "text-right"
+          },
+          {
+            "text": "125€",
+            "classes": "text-right"
+          }
+        ]
+      ],
+      "foot": [
+        [
+          {
+            "text": "Suma",
+            "classes": "uppercase"
+          },
+          {
+            "text": "325€",
+            "classes": "text-right"
+          },
+          {
+            "text": "275€",
+            "classes": "text-right"
+          }
+        ]
+      ],
+      "classes": "min-w-full"
+    },
+    "visualDescription": "Tabla con tres columnas de datos numéricos en euros, encabezados de columna alineados a derecha. Filas de datos con fondo blanco alternado, valores monetarios en negro, fila de totales en negrita al final. Bordes grises claros separando celdas, diseño compacto y estructurado.",
+    "_generated": {
+      "hash": "c7b2e88b7adac474ee93be6fbf4d9644",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:15:20.510Z"
+    }
+  },
+  {
+    "name": "tabla con head y filtros",
+    "description": "Con <code>'hasFilter': true</code> y clases <code>text-right</code> en columnas numéricas.",
+    "data": {
+      "idPrefix": "table-with-head-and-filters",
+      "head": [
+        {
+          "text": "Mes de pago",
+          "hasFilter": true
+        },
+        {
+          "text": "Primer pago",
+          "classes": "text-right",
+          "hasFilter": true
+        },
+        {
+          "text": "Segundo pago",
+          "classes": "text-right",
+          "hasFilter": true
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "Enero"
+          },
+          {
+            "text": "85€",
+            "classes": "text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "text-right"
+          }
+        ],
+        [
+          {
+            "text": "Febrero"
+          },
+          {
+            "text": "75€",
+            "classes": "text-right"
+          },
+          {
+            "text": "55€",
+            "classes": "text-right"
+          }
+        ],
+        [
+          {
+            "text": "Marzo"
+          },
+          {
+            "text": "165€",
+            "classes": "text-right"
+          },
+          {
+            "text": "125€",
+            "classes": "text-right"
+          }
+        ]
+      ],
+      "classes": "min-w-full"
+    },
+    "visualDescription": "Tabla con tres columnas que incluyen campos de búsqueda en la fila superior con icono de lupa. Encabezados de columna en texto negro, inputs de filtro con borde gris y placeholder de texto claro. Datos monetarios en euros alineados a derecha en filas con fondo blanco, bordes grises definiendo estructura celular.",
+    "_generated": {
+      "hash": "d529644007fd1de475776306806f27e1",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:15:20.510Z"
+    }
+  },
+  {
+    "name": "tabla con head y filtros con texto personalizado",
+    "description": "Con <code>'hasFilter': true</code>, con parámetro <code>'filterText'</code> personalizado y clases <code>text-right</code> en columnas numéricas.",
+    "data": {
+      "idPrefix": "table-with-head-and-filters-personalized",
+      "head": [
+        {
+          "text": "Mes de pago",
+          "select": {
+            "items": [
+              {
+                "value": "",
+                "text": "Selecciona mes...",
+                "disabled": true,
+                "selected": true,
+                "hidden": true
+              },
+              {
+                "value": 1,
+                "text": "Enero"
+              },
+              {
+                "value": 2,
+                "text": "Febrero"
+              },
+              {
+                "value": 3,
+                "text": "Marzo"
+              }
+            ]
+          },
+          "filterText": "Filtrar por mes"
+        },
+        {
+          "text": "Primer pago",
+          "classes": "text-right",
+          "hasFilter": true,
+          "filterText": "Filtrar por pago en esta columna"
+        },
+        {
+          "text": "Segundo pago",
+          "classes": "text-right",
+          "hasFilter": true,
+          "filterText": "Filtrar por pago en esta columna"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "Enero"
+          },
+          {
+            "text": "85€",
+            "classes": "text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "text-right"
+          }
+        ],
+        [
+          {
+            "text": "Febrero"
+          },
+          {
+            "text": "75€",
+            "classes": "text-right"
+          },
+          {
+            "text": "55€",
+            "classes": "text-right"
+          }
+        ],
+        [
+          {
+            "text": "Marzo"
+          },
+          {
+            "text": "165€",
+            "classes": "text-right"
+          },
+          {
+            "text": "125€",
+            "classes": "text-right"
+          }
+        ]
+      ],
+      "classes": "min-w-full"
+    },
+    "visualDescription": "Tabla con tres columnas donde la primera contiene dropdown con flecha desplegable, las dos restantes tienen campos de búsqueda con icono de lupa. Encabezados en negro, inputs con borde gris de 1px y placeholder visible. Filas de datos con valores monetarios en euros alineados a derecha, fondo blanco y bordes grises separando contenido.",
+    "_generated": {
+      "hash": "88e86903d4c0efc7519bf20933b6b985",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:15:20.510Z"
+    }
+  },
+  {
+    "name": "tabla con head y selectores",
+    "description": "Selectores y clases de <code>text-right</code> en columnas numéricas.",
+    "data": {
+      "idPrefix": "table-with-head-and-selects",
+      "head": [
+        {
+          "text": "Mes de pago",
+          "select": {
+            "items": [
+              {
+                "value": "",
+                "text": "Filtrar por...",
+                "disabled": true,
+                "selected": true,
+                "hidden": true
+              },
+              {
+                "value": 1,
+                "text": "Opción 1"
+              },
+              {
+                "value": 2,
+                "text": "Opción 2"
+              },
+              {
+                "value": 3,
+                "text": "Opción 3"
+              }
+            ]
+          }
+        },
+        {
+          "text": "Primer pago",
+          "classes": "text-right",
+          "select": {
+            "items": [
+              {
+                "value": "",
+                "text": "Filtrar por...",
+                "disabled": true,
+                "selected": true,
+                "hidden": true
+              },
+              {
+                "value": 1,
+                "text": "Opción 1"
+              },
+              {
+                "value": 2,
+                "text": "Opción 2"
+              },
+              {
+                "value": 3,
+                "text": "Opción 3"
+              }
+            ]
+          }
+        },
+        {
+          "text": "Segundo pago",
+          "classes": "text-right",
+          "select": {
+            "items": [
+              {
+                "value": "",
+                "text": "Filtrar por...",
+                "disabled": true,
+                "selected": true,
+                "hidden": true
+              },
+              {
+                "value": 1,
+                "text": "Opción 1"
+              },
+              {
+                "value": 2,
+                "text": "Opción 2"
+              },
+              {
+                "value": 3,
+                "text": "Opción 3"
+              }
+            ]
+          }
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "Enero"
+          },
+          {
+            "text": "85€",
+            "classes": "text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "text-right"
+          }
+        ],
+        [
+          {
+            "text": "Febrero"
+          },
+          {
+            "text": "75€",
+            "classes": "text-right"
+          },
+          {
+            "text": "55€",
+            "classes": "text-right"
+          }
+        ],
+        [
+          {
+            "text": "Marzo"
+          },
+          {
+            "text": "165€",
+            "classes": "text-right"
+          },
+          {
+            "text": "125€",
+            "classes": "text-right"
+          }
+        ]
+      ],
+      "classes": "min-w-full"
+    },
+    "visualDescription": "Tabla con encabezados de columna en texto negro regular, filas con datos numéricos en gris oscuro (con símbolo €), y controles de filtrado mediante selectores dropdown con fondo blanco y borde gris. Tres columnas de datos alineadas: primera con labels de meses, segunda y tercera con valores monetarios. Bordes horizontales gris claro separando las filas, selectores dropdown posicionados en la fila superior para filtrado.",
+    "_generated": {
+      "hash": "120606675cbdc8fd92ee7815fa7a9d05",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:15:34.211Z"
+    }
+  },
+  {
+    "name": "tabla con checkboxes",
+    "data": {
+      "idPrefix": "table-with-checkboxes",
+      "hasCheckboxes": true,
+      "head": [
+        {
+          "text": "Mes de pago"
+        },
+        {
+          "text": "Primer pago",
+          "classes": "text-right"
+        },
+        {
+          "text": "Segundo pago",
+          "classes": "text-right"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "Enero"
+          },
+          {
+            "text": "85€",
+            "classes": "text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "text-right"
+          }
+        ],
+        [
+          {
+            "text": "Febrero"
+          },
+          {
+            "text": "75€",
+            "classes": "text-right"
+          },
+          {
+            "text": "55€",
+            "classes": "text-right"
+          }
+        ],
+        [
+          {
+            "text": "Marzo"
+          },
+          {
+            "text": "165€",
+            "classes": "text-right"
+          },
+          {
+            "text": "125€",
+            "classes": "text-right"
+          }
+        ]
+      ],
+      "classes": "min-w-full"
+    },
+    "visualDescription": "Tabla con checkboxes cuadrados sin marcar en la columna izquierda, encabezado de columnas en texto gris oscuro, y datos organizados en tres columnas. Filas con fondo blanco alternado, bordes horizontales gris tenue, y valores monetarios con símbolo € alineados a la derecha. Checkboxes de selección con borde gris oscuro, datos de meses en texto negro regular en la segunda columna.",
+    "_generated": {
+      "hash": "79d5c1483f9980abc0db8406016f4105",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:15:34.211Z"
+    }
+  },
+  {
+    "name": "tabla con todo",
+    "description": "Con <code>orderBy</code>, <code>hasCheckboxes</code>, <code>hasFilter</code>, selectores y <code>firstCellIsHeader</code>",
+    "data": {
+      "idPrefix": "table-with-all",
+      "hasCheckboxes": true,
+      "firstCellIsHeader": true,
+      "head": [
+        {
+          "text": "Identificador"
+        },
+        {
+          "text": "Mes de pago",
+          "orderBy": "none",
+          "hasFilter": true
+        },
+        {
+          "text": "Primer pago",
+          "orderBy": "none",
+          "classes": "text-right",
+          "select": {
+            "items": [
+              {
+                "value": "",
+                "text": "Filtrar por...",
+                "disabled": true,
+                "selected": true,
+                "hidden": true
+              },
+              {
+                "value": 1,
+                "text": "Opción 1"
+              },
+              {
+                "value": 2,
+                "text": "Opción 2"
+              },
+              {
+                "value": 3,
+                "text": "Opción 3"
+              }
+            ]
+          }
+        },
+        {
+          "text": "Segundo pago",
+          "orderBy": "none",
+          "classes": "text-right",
+          "hasFilter": true,
+          "select": {
+            "items": [
+              {
+                "value": "",
+                "text": "Filtrar por...",
+                "disabled": true,
+                "selected": true,
+                "hidden": true
+              },
+              {
+                "value": 1,
+                "text": "Opción 1"
+              },
+              {
+                "value": 2,
+                "text": "Opción 2"
+              },
+              {
+                "value": 3,
+                "text": "Opción 3"
+              }
+            ]
+          }
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "A"
+          },
+          {
+            "text": "Enero"
+          },
+          {
+            "text": "85€",
+            "classes": "text-right"
+          },
+          {
+            "text": "95€",
+            "classes": "text-right"
+          }
+        ],
+        [
+          {
+            "text": "B"
+          },
+          {
+            "text": "Febrero"
+          },
+          {
+            "text": "75€",
+            "classes": "text-right"
+          },
+          {
+            "text": "55€",
+            "classes": "text-right"
+          }
+        ],
+        [
+          {
+            "text": "C"
+          },
+          {
+            "text": "Marzo"
+          },
+          {
+            "text": "165€",
+            "classes": "text-right"
+          },
+          {
+            "text": "125€",
+            "classes": "text-right"
+          }
+        ]
+      ],
+      "foot": [
+        [
+          {
+            "text": "Suma",
+            "classes": "uppercase"
+          },
+          {
+            "text": ""
+          },
+          {
+            "text": "325€",
+            "classes": "text-right"
+          },
+          {
+            "text": "275€",
+            "classes": "text-right"
+          }
+        ]
+      ],
+      "classes": "min-w-full"
+    },
+    "visualDescription": "Tabla con columna inicial de checkboxes sin marcar, seguida de columna de identificadores alfabéticos, columna con campo de búsqueda con ícono de lupa, y dos columnas de datos con selectores dropdown. Encabezados de columna con íconos de ordenamiento (flechas), bordes gris claro, fila inferior con label de totales en negrita y valores totales. Campos de filtro con fondo blanco, bordes gris, y controles dropdown en columnas de valores monetarios.",
+    "_generated": {
+      "hash": "d8b5bae702b344629d637caf498d99d0",
+      "version": "15.0.3",
+      "timestamp": "2026-01-30T19:15:34.211Z"
+    }
+  }
+] %}

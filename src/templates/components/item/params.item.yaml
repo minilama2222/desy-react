@@ -1,0 +1,101 @@
+params:
+- name: headingLevel
+  type: number
+  required: false
+  description: If headingLevel is 1, the parent heading tag needed inside this component will be a h1, if 2 will be a h2, and so on. If no headingLevel is present the title will be a p tag.
+- name: title
+  type: object
+  required: true
+  description: This is the title
+  - name: text
+    type: string
+    required: true
+    description: If `html` is set, this is not required. Text to use within the title. If `html` is provided, the `text` argument will be ignored.
+  - name: html
+    type: string
+    required: true
+    description: If `text` is set, this is not required. HTML to use within the title. If `html` is provided, the `text` argument will be ignored.
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the item title.
+  - name: attributes
+    type: object
+    required: false
+    description: HTML attributes (for example data attributes) to add to the item title.
+- name: description
+  type: object
+  required: false
+  description: This is the optional description under title
+  - name: text
+    type: string
+    required: true
+    description: If `html` is set, this is not required. Text to use within the title. If `html` is provided, the `text` argument will be ignored.
+  - name: html
+    type: string
+    required: true
+    description: If `text` is set, this is not required. HTML to use within the title. If `html` is provided, the `text` argument will be ignored.
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the item description.
+- name: items
+  type: array
+  required: false
+  description: This is a list of metadata
+  - name: text
+    type: string
+    required: true
+    description: Text of the metadata item.
+- name: content
+  type: object
+  required: false
+  description: This is the bottom content
+  - name: text
+    type: string
+    required: true
+    description: If `html` is set, this is not required. Text to use within the title. If `html` is provided, the `text` argument will be ignored.
+  - name: html
+    type: string
+    required: true
+    description: If `text` is set, this is not required. HTML to use within the title. If `html` is provided, the `text` argument will be ignored.
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the content.
+- name: icon
+  type: object
+  required: false
+  description: This is the optional icon at left
+  - name: html
+    type: string
+    required: false
+    description: Use this html to insert a custom svg inline icon. If this is set, the type are not used.
+  - name: type
+    type: string
+    required: false
+    description: Predefined icon types are `document`, `link`, `clipboard`
+  - name: containerClasses
+    type: string
+    required: false
+    description: Classes applied to the parent div of icon. Useful to vertical align the icon.
+- name: isDraggable
+  type: boolean
+  required: false
+  description: If true, the item shows a handler icon on left.
+- name: id
+  type: string
+  required: false
+  description: Optional id attribute to add to the div container tag.
+- name: classes
+  type: string
+  required: false
+  description: Classes to add to the div container tag.
+- name: attributes
+  type: object
+  required: false
+  description: HTML attributes (for example data attributes) to add to the div container tag.
+- name: caller
+  type: nunjucks-block
+  required: false
+  description: Not strictly a parameter but [Nunjucks code convention](https://mozilla.github.io/nunjucks/templating.html#call). Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire item component in a `call` block.

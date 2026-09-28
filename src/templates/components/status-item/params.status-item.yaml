@@ -1,0 +1,107 @@
+params:
+- name: id
+  type: string
+  required: true
+  description: The id of the item.
+- name: title
+  type: object
+  required: false
+  description: This is the title
+  - name: text
+    type: string
+    required: true
+    description: If `html` is set, this is not required. Text to use within the title. If `html` is provided, the `text` argument will be ignored.
+  - name: html
+    type: string
+    required: true
+    description: If `text` is set, this is not required. HTML to use within the title. If `html` is provided, the `text` argument will be ignored.
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to the item title.
+- name: hint
+  type: object
+  required: false
+  description: Options for the hint component.
+  isComponent: true
+- name: errorMessage
+  type: object
+  required: false
+  description: Options for the error message component. The error message component will not display if you use a falsy value for `errorMessage`, for example `false` or `null`.
+- name: errorId
+  type: string
+  required: false
+  description: Custom ID to add to the `aria-errormessage` attribute, used to provide additional descriptive information for screenreader users.
+- name: describedBy
+  type: string
+  required: false
+  description: One or more element IDs to add to the `aria-describedby` attribute, used to provide additional descriptive information for screenreader users.
+- name: items
+  type: array
+  required: false
+  description: Description list items
+  params:
+  - name: term
+    type: object
+    required: true
+    description: term in dt.
+    - name: text
+      type: string
+      required: true
+      description: If `html` is set, this is not required. Text to use within each dt item. If `html` is provided, the `text` argument will be ignored.
+    - name: html
+      type: string
+      required: true
+      description: If `text` is set, this is not required. HTML to use within each dt item. If `html` is provided, the `text` argument will be ignored.
+    - name: classes
+      type: string
+      required: false
+      description: Classes to add to the dt.
+    - name: attributes
+      type: object
+      required: false
+      description: HTML attributes (for example data attributes) to add to the dt.
+  - name: definition
+    type: object
+    required: true
+    description: definition in dd.
+    - name: text
+      type: string
+      required: true
+      description: If `html` is set, this is not required. Text to use within each dd item. If `html` is provided, the `text` argument will be ignored.
+    - name: html
+      type: string
+      required: true
+      description: If `text` is set, this is not required. HTML to use within each dd item. If `html` is provided, the `text` argument will be ignored.
+    - name: classes
+      type: string
+      required: false
+      description: Classes to add to the dd.
+    - name: attributes
+      type: object
+      required: false
+      description: HTML attributes (for example data attributes) to add to the dd.
+  - name: classes
+    type: string
+    required: false
+    description: Classes to add to a div container that contain the dt/dd pair.
+  - name: attributes
+    type: object
+    required: false
+    description: HTML attributes (for example data attributes) to add to a div container that contain the dt/dd pair.
+- name: status
+  type: object
+  required: false
+  description: Options for the status component.
+- name: classes
+  type: string
+  required: false
+  description: Classes to add to the status container div tag.
+- name: attributes
+  type: object
+  required: false
+  description: HTML attributes (for example data attributes) to add to the container div tag.
+- name: caller
+  type: nunjucks-block
+  required: false
+  description: Not strictly a parameter but [Nunjucks code convention](https://mozilla.github.io/nunjucks/templating.html#call). Using a `call` block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire item component in a `call` block.
