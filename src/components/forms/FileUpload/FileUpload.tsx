@@ -17,6 +17,8 @@ export interface FileUploadProps extends Omit<InputHTMLAttributes<HTMLInputEleme
   name?: string;
   /** Accepted file types (e.g., '.pdf,.doc,.docx') */
   accept?: string;
+  /** Whether multiple files can be selected; when true `onChange` receives a `File[]`, otherwise a single `File | null`. Default: false. */
+  multiple?: boolean;
   /** CSS classes for the file input */
   className?: string;
   /** CSS classes for the form group */
@@ -51,8 +53,8 @@ export interface FileUploadProps extends Omit<InputHTMLAttributes<HTMLInputEleme
   onFocus?: (event: FocusEvent<HTMLInputElement>) => void;
   /** Blur event handler */
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
-  /** Change event handler */
-  onChange?: (event: ChangeEvent<HTMLInputElement>, file: File | null) => void;
+  /** Change event handler; `file` is a `File[]` when `multiple` is true, otherwise a single `File | null`. */
+  onChange?: (event: ChangeEvent<HTMLInputElement>, file: File | File[] | null) => void;
 }
 
 const FILE_INPUT_CLASSES = [
@@ -93,6 +95,7 @@ export function FileUpload({
   id,
   name,
   accept,
+  multiple,
   className,
   formGroupClasses,
   hintText,
@@ -123,7 +126,8 @@ export function FileUpload({
   const ariaDescribedBy = [describedBy, resolvedHintId].filter(Boolean).join(' ') || undefined;
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0] || null;
+    const files = e.target.files ? Array.from(e.target.files) : [];
+    const file = multiple ? files : files[0] || null;
     onChange?.(e, file);
   };
 
@@ -155,6 +159,7 @@ export function FileUpload({
         name={name}
         type="file"
         accept={accept}
+        multiple={multiple}
         disabled={disabled}
         className={clsx(FILE_INPUT_CLASSES, hasErrors && 'c-file-upload--error', className)}
         aria-describedby={ariaDescribedBy}
