@@ -13,6 +13,15 @@ type Story = StoryObj<typeof Footer>;
 export const PorDefecto: Story = {
   args: {
     classes: 'lg:mt-48',
+    meta: {
+      visuallyHiddenTitle: 'Enlaces a pie de página',
+      items: [
+        { href: '#aviso-legal', text: 'Aviso legal' },
+        { href: '#privacidad', text: 'Política de privacidad' },
+        { href: '#accesibilidad', text: 'Accesibilidad' },
+        { href: '#mapa-web', text: 'Mapa web' },
+      ],
+    },
   },
 };
 

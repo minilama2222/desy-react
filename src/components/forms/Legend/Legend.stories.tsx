@@ -21,6 +21,7 @@ type Story = StoryObj<typeof Legend>;
 export const PorDefecto: Story = {
   args: {
     text: 'Leyenda del fieldset',
+    classes: 'c-legend block mb-base font-bold',
   },
 };
 
