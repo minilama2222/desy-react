@@ -15,3 +15,5 @@ export { ErrorMessage } from './ErrorMessage/ErrorMessage';
 export { CharacterCount } from './CharacterCount/CharacterCount';
 export { InputGroup } from './InputGroup/InputGroup';
 export { Tree } from './Tree/Tree';
+export { Combobox } from './Combobox/Combobox';
+export { ComboboxItem } from './Combobox/ComboboxItem';

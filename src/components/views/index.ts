@@ -11,4 +11,6 @@ export { MediaObject } from './MediaObject/MediaObject';
 export { Status } from './Status/Status';
 export { StatusItem } from './StatusItem/StatusItem';
 export { Tabs } from './Tabs/Tabs';
+export { Panel } from './Tabs/Panel/Panel';
+export { Term } from './DescriptionList/Term/Term';
 export { Tooltip } from './Tooltip/Tooltip';

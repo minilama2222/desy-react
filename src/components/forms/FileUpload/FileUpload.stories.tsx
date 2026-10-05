@@ -47,3 +47,13 @@ export const ConHintPersonalizado: Story = {
     accept: '.jpg,.jpeg,.png',
   },
 };
+
+export const ConArchivosMultiples: Story = {
+  args: {
+    id: 'file-upload-5',
+    name: 'file-upload-5',
+    labelText: 'Sube varios archivos',
+    hintText: 'Puedes seleccionar varios archivos a la vez',
+    multiple: true,
+  },
+};
