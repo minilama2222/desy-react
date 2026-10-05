@@ -536,7 +536,7 @@ export function Combobox({
       'aria-selected': selectedFlag ? 'true' : 'false',
       onClick: () => onOptionClick(index),
       classes: clsx(
-        'flex items-center pr-base pl-lg py-sm cursor-pointer hover:bg-primary-base hover:text-white',
+        'flex items-center pr-base pl-lg py-base cursor-pointer hover:bg-primary-base hover:text-white',
         focusedFlag && 'bg-primary-base text-white',
         selectedFlag && isMultiselectable && 'bg-primary-base text-white',
         item.classes

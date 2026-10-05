@@ -64,7 +64,7 @@ const FILE_INPUT_CLASSES = [
   'file:inline-flex',
   'file:items-baseline',
   'file:px-3',
-  'file:py-2',
+  'file:py-3',
   'file:bg-white',
   'file:border',
   'file:border-solid',
