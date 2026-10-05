@@ -198,7 +198,7 @@ export function DropdownItem({
   target,
   children,
 }: DropdownItemProps) {
-  const baseClasses = 'flex items-center pr-base pl-lg py-sm hover:bg-primary-base hover:text-white focus:bg-warning-base focus:outline-hidden focus:shadow-outline-focus focus:text-black';
+  const baseClasses = 'flex items-center pr-base pl-lg py-base hover:bg-primary-base hover:text-white focus:bg-warning-base focus:outline-hidden focus:shadow-outline-focus focus:text-black';
 
   if (href && !disabled) {
     return (
