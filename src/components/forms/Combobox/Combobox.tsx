@@ -601,7 +601,7 @@ export function Combobox({
       ) : null}
 
       <div className={clsx('c-combobox relative', classesContainer)}>
-        <div className="c-combobox__input-wrapper">
+        <div className="c-combobox__input-wrapper relative">
           <input
             ref={(el) => {
               inputRef.current = el;
@@ -639,7 +639,7 @@ export function Combobox({
             aria-disabled={disabled}
             aria-expanded={isOpen}
             onClick={onToggleClick}
-            className={clsx('c-combobox__toggle', classes)}
+            className={clsx('c-combobox__toggle absolute inset-y-0 right-0 flex items-center pr-base', classes)}
           >
             <ChevronIcon />
           </button>
