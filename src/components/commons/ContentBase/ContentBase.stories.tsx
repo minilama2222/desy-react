@@ -13,6 +13,7 @@ type Story = StoryObj<typeof ContentBase>;
 export const PorDefecto: Story = {
   args: {
     text: 'Contenido base',
+    classes: 'c-content-base p-base border border-neutral-base rounded-sm',
   },
 };
 

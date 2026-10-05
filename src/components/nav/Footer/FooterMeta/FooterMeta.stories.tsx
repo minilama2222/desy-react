@@ -13,12 +13,14 @@ type Story = StoryObj<typeof FooterMeta>;
 
 export const PorDefecto: Story = {
   args: {
-    visuallyHiddenTitle: 'Enlaces de pie de página',
+    visuallyHiddenTitle: 'Enlaces a pie de página',
     items: [
-      { href: '#', text: 'Accesibilidad' },
-      { href: '#', text: 'Política de privacidad' },
-      { href: '#', text: 'Aviso legal' },
+      { href: '#aviso-legal', text: 'Aviso legal' },
+      { href: '#privacidad', text: 'Política de privacidad' },
+      { href: '#accesibilidad', text: 'Accesibilidad' },
+      { href: '#mapa-web', text: 'Mapa web' },
     ],
+    html: 'Todo el contenido bajo <a class="c-link c-link--neutral" href="https://creativecommons.org/licenses/by/4.0/deed.es" rel="license" target="_blank">licencia CC BY 4.0</a>. <a class="c-link c-link--neutral" href="https://www.aragon.es/">Gobierno de Aragón</a>.',
   },
 };
 
