@@ -64,6 +64,7 @@ export function Collapsible({
 
   return (
     <div
+      data-expanded={isOpen}
       className={clsx(
         className || '-my-px py-sm border-t border-b border-neutral-base'
       )}
@@ -147,6 +148,7 @@ export function Collapsible({
       {isOpen && (
         <div
           id={id || undefined}
+          aria-hidden={false}
           className={clsx(contentClasses || 'py-sm')}
         >
           {html && <div dangerouslySetInnerHTML={{ __html: html }} />}

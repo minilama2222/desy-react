@@ -48,6 +48,8 @@ export interface ComboboxProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onC
   noResultsText?: string;
   /** Whether multiple values can be selected (checkbox-like listbox) */
   isMultiselectable?: boolean;
+  /** Form field name; when set on a single-select combobox a hidden input carries the value for native form submit */
+  name?: string;
   /** Placeholder for the input */
   placeholder?: string;
   /** Options as data (alternative to ComboboxItem children) */
@@ -131,6 +133,7 @@ export function Combobox({
   toggleButtonLabel,
   noResultsText = 'No hay resultados',
   isMultiselectable = false,
+  name,
   placeholder,
   items,
   children,
@@ -601,6 +604,14 @@ export function Combobox({
       ) : null}
 
       <div className={clsx('c-combobox relative', classesContainer)}>
+        {!isMultiselectable && name ? (
+          <input
+            type="hidden"
+            name={name}
+            value={inputValue ?? ''}
+            data-module="c-combobox-hidden"
+          />
+        ) : null}
         <div className="c-combobox__input-wrapper relative">
           <input
             ref={(el) => {
@@ -632,9 +643,8 @@ export function Combobox({
             id={`${id}-button`}
             type={type}
             tabIndex={-1}
-            aria-haspopup="combobox"
             disabled={disabled}
-            aria-label={toggleButtonLabel}
+            aria-label={toggleButtonLabel ?? labelText ?? undefined}
             aria-controls={`${id}-listbox`}
             aria-disabled={disabled}
             aria-expanded={isOpen}

@@ -3,7 +3,6 @@ import {
   useFloating,
   useClick,
   useDismiss,
-  useRole,
   useInteractions,
   offset,
   shift,
@@ -98,9 +97,9 @@ export function Dropdown({
 
   const click = useClick(context, { enabled: !disabled });
   const dismiss = useDismiss(context);
-  const role = useRole(context, { role: 'listbox' });
-
-  const interactions = useInteractions([click, dismiss, role]);
+  // No role is forced by default: the reference renders a plain div for free content.
+  // The consumer opts in via `contentRole`.
+  const interactions = useInteractions([click, dismiss]);
 
   const handleClick = (e: React.MouseEvent) => {
     if (!disabled) {
@@ -148,7 +147,7 @@ export function Dropdown({
         <div
           ref={refs.setFloating}
           style={floatingStyles}
-          role={contentRole || 'listbox'}
+          role={contentRole}
           aria-label={contentAriaLabel}
           aria-modal={contentAriaModal === 'true' ? true : contentAriaModal === 'false' ? false : undefined}
           className={clsx(

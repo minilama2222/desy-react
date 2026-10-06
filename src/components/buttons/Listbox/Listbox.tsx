@@ -260,7 +260,7 @@ export function Listbox({
         aria-disabled={disabled}
         onClick={() => !disabled && setIsOpen(!isOpen)}
         onKeyDown={handleKeyDown}
-        className={clsx('c-listbox', classes)}
+        className={clsx('c-listbox', isOpen && 'open', classes)}
         {...interactions.getReferenceProps()}
       >
         <span className="inline-flex self-center align-middle">

@@ -438,7 +438,7 @@ export function MenuNavigation({
                 disabled={item.disabled ?? undefined}
                 aria-disabled={item.disabled ?? undefined}
                 aria-expanded={hasSub ? isOpen : undefined}
-                aria-haspopup={hasSub ? isOpen : undefined}
+                aria-haspopup={hasSub ? true : undefined}
                 aria-controls={hasSub ? `${id ?? 'menu-navigation'}-sub-list-${itemIndex}` : undefined}
                 tabIndex={item.disabled ? -1 : itemIndex === focusedItemIndex ? 0 : -1}
                 className={buttonClasses}

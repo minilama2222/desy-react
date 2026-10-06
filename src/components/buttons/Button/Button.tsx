@@ -24,6 +24,12 @@ type ButtonBaseProps = {
   routerLink?: string;
   /** Router link active CSS classes */
   routerLinkActiveClasses?: string | string[];
+  /** Visual variant, maps to the reference `c-button--*` modifiers */
+  variant?: 'base' | 'primary' | 'alert' | 'transparent';
+  /** Size modifier, maps to `c-button--sm` / `c-button--lg` */
+  size?: 'sm' | 'lg';
+  /** Whether the button has a selection (maps to `c-button--has-selection`) */
+  hasSelection?: boolean;
 };
 
 type ButtonAsButton = ButtonBaseProps &
@@ -79,14 +85,23 @@ function getElementType(props: ButtonProps): 'a' | 'button' | 'input' {
 }
 
 function getClassNames(props: ButtonProps, baseClass: string = 'c-button'): string {
-  let classNames = baseClass;
+  const classNames = [baseClass];
+  if ('variant' in props && props.variant) {
+    classNames.push(`c-button--${props.variant}`);
+  }
+  if ('size' in props && props.size) {
+    classNames.push(`c-button--${props.size}`);
+  }
+  if ('hasSelection' in props && props.hasSelection) {
+    classNames.push('c-button--has-selection');
+  }
   if ('classes' in props && props.classes) {
-    classNames += ' ' + props.classes;
+    classNames.push(props.classes);
   }
   if (props.disabled) {
-    classNames += ' c-button--disabled';
+    classNames.push('c-button--disabled');
   }
-  return classNames;
+  return classNames.join(' ');
 }
 
 /**

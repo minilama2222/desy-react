@@ -26,6 +26,8 @@ export interface ToggleProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
   classes?: string;
   /** Whether toggle is expandable */
   isExpandible?: boolean;
+  /** Id of the panel controlled by an expandable toggle (emits aria-controls) */
+  controlsId?: string;
   /** Content shown when toggled on */
   onState?: ReactNode;
   /** Content shown when toggled off */
@@ -57,6 +59,7 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
       pressed = false,
       classes,
       isExpandible,
+      controlsId,
       children,
       onState,
       offState,
@@ -78,11 +81,21 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
     const onContent = children || onState || onStateContent;
     const offContent = offState || offStateContent;
 
-    const buttonClassName = clsx('c-toggle__button', classes);
+    const buttonClassName = clsx(
+      'c-toggle__button',
+      // Non-switch toggles render as a button in the reference (`c-toggle__button c-button`);
+      // switches use their own look without `c-button`.
+      !isSwitch && 'c-button',
+      pressed && isExpandible && 'c-toggle--is-opened',
+      classes
+    );
 
-    const ariaPressed = !isExpandible ? (pressed ? 'true' : 'false') : undefined;
+    // `aria-pressed` must not be emitted together with `role="switch"`/`aria-checked`
+    // (a switch communicates its state via aria-checked only).
+    const ariaPressed = !isExpandible && !isSwitch ? (pressed ? 'true' : 'false') : undefined;
     const ariaChecked = isSwitch ? (pressed ? 'true' : 'false') : undefined;
     const ariaExpanded = isExpandible ? (pressed ? 'true' : 'false') : undefined;
+    const ariaControls = isExpandible ? controlsId : undefined;
 
     return (
       <div className="relative c-toggle" data-module="c-toggle">
@@ -94,6 +107,7 @@ export const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(
           aria-pressed={ariaPressed}
           aria-checked={ariaChecked}
           aria-expanded={ariaExpanded}
+          aria-controls={ariaControls}
           role={isSwitch ? 'switch' : undefined}
           onClick={handleClick}
           {...rest}
