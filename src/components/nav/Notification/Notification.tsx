@@ -119,7 +119,7 @@ function DismissButton({ onClick }: { onClick: () => void }) {
   return (
     <button
       onClick={onClick}
-      className="p-sm focus:bg-warning-base focus:border-warning-base focus:shadow-outline-black focus:text-black focus:outline-hidden"
+      className="c-notification-button__close p-sm focus:bg-warning-base focus:border-warning-base focus:shadow-outline-black focus:text-black focus:outline-hidden"
       aria-label="Cerrar notificación"
       type="button"
     >
@@ -225,9 +225,9 @@ export function Notification({
 
   const containerClassName = clsx(
     'c-notification',
-    !classes && !type ? 'c-notification c-notification--primary' : undefined,
-    type === 'success' && 'c-notification c-notification--success',
-    type === 'alert' && 'c-notification c-notification--alert',
+    !classes && !type ? 'c-notification--primary' : undefined,
+    type === 'success' && 'c-notification--success',
+    type === 'alert' && 'c-notification--alert',
     classes,
     className
   );

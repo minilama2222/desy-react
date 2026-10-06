@@ -7,5 +7,5 @@ export interface TableAdvancedProps {
 }
 
 export function TableAdvanced({ className, children, ...props }: TableAdvancedProps) {
-  return <div className={clsx(className)} {...props}>{children}</div>;
+  return <table className={clsx(className)} {...props}>{children}</table>;
 }
