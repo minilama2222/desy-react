@@ -183,9 +183,10 @@ export function Pagination({
 
   const containerClasses = clsx(
     'flex flex-wrap items-center flex-1 mb-base lg:mb-0 text-sm',
-    classes,
-    className
+    classes
   );
+
+  const wrapperClasses = clsx('lg:flex lg:flex-wrap lg:items-center lg:gap-base', className);
 
   const getButtonId = (index: number): string => `${idPrefix}-${index}`;
 
@@ -268,32 +269,45 @@ export function Pagination({
   }
 
   return (
-    <nav className={containerClasses} aria-label="Pagination">
-      <ul className="flex flex-wrap">
-        {items.map((item) => (
-          <li key={item.value}>
-            {item.selected ? (
-              <button
-                id={getButtonId(item.value)}
-                className="c-button c-button--primary c-button--disabled mb-sm mr-sm"
-                disabled
-                aria-current="page"
-              >
-                <strong>{prefix}{item.text}{getSuffix(item.value - 1)}</strong>
-              </button>
-            ) : (
-              <button
-                id={getButtonId(item.value)}
-                className="c-button mb-sm mr-sm"
-                onClick={() => handlePageChange(item.value)}
-                aria-label={`${prefix}${item.text}${getSuffixScreenReader(item.value - 1)}`}
-              >
-                {prefix}{item.text}{getSuffix(item.value - 1)}
-              </button>
-            )}
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <div id={idPrefix} className={wrapperClasses}>
+      <nav className={containerClasses} aria-label="Paginación">
+        <ul className="flex flex-wrap">
+          {items.map((item) => (
+            <li key={item.value}>
+              {item.selected ? (
+                <button
+                  id={getButtonId(item.value)}
+                  className="c-button c-button--primary c-button--disabled mb-sm mr-sm"
+                  disabled
+                  aria-current="page"
+                >
+                  <strong>{prefix}{item.text}{getSuffix(item.value - 1)}</strong>
+                </button>
+              ) : (
+                <button
+                  id={getButtonId(item.value)}
+                  className="c-button mb-sm mr-sm"
+                  onClick={() => handlePageChange(item.value)}
+                  aria-label={`${prefix}${item.text}${getSuffixScreenReader(item.value - 1)}`}
+                >
+                  {prefix}{item.text}{getSuffix(item.value - 1)}
+                </button>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <p
+        id={`${idPrefix}-status`}
+        className="block relative -top-xs lg:ml-auto text-sm text-neutral-dark"
+        role="status"
+        aria-live="polite"
+      >
+        <span className="sr-only">Posición de paginación: </span>
+        <span className="sr-only">resultados del </span>
+        {(safeCurrentPage - 1) * itemsPerPage + 1} <span aria-label="al">-</span>{' '}
+        {getLastItemNumber(safeCurrentPage - 1)} de {totalItems}
+      </p>
+    </div>
   );
 }

@@ -7,5 +7,5 @@ export interface TableProps {
 }
 
 export function Table({ className, children, ...props }: TableProps) {
-  return <div className={clsx(className)} {...props}>{children}</div>;
+  return <table className={clsx(className)} {...props}>{children}</table>;
 }

@@ -95,8 +95,10 @@ export const ButtonLoader = forwardRef<HTMLButtonElement, ButtonLoaderProps>(
 
     const spinnerContent = (
       <span className="c-button-loader__spinner flex items-center justify-center absolute inset-0">
-        <span className="sr-only" role="alert" aria-live="assertive">
-          {loaderText || DEFAULT_LOADER_TEXT}
+        <span className="c-spinner" data-module="c-spinner">
+          <span className="sr-only" role="alert" aria-live="assertive">
+            {loaderText || DEFAULT_LOADER_TEXT}
+          </span>
         </span>
       </span>
     );

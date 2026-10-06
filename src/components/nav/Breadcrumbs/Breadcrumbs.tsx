@@ -148,8 +148,8 @@ export function Breadcrumbs({
   const navClassName = clsx(
     'c-breadcrumbs',
     collapseOnMobile && 'c-breadcrumbs--collapse-on-mobile',
-    inlineOnMobile && 'c-breadcrumbs--inline-on-mobile',
-    inlineOnDesktop && 'c-breadcrumbs--inline-on-desktop',
+    inlineOnMobile !== false && 'c-breadcrumbs--inline-on-mobile',
+    inlineOnDesktop !== false && 'c-breadcrumbs--inline-on-desktop',
     classes,
     className
   );
@@ -181,6 +181,7 @@ export function Breadcrumbs({
                 'mb-sm',
                 'py-xs',
                 'text-neutral-dark',
+                'hover:text-black',
                 isLast && 'flex-1 font-semibold'
               )}
             >

@@ -11,7 +11,7 @@ const AragonLogoSVG = () => (
     viewBox="0 0 144 32"
     width="117"
     height="26"
-    className="inline-block fill-current"
+    className="inline-block h-[26px]"
     role="img"
   >
     <defs>

@@ -195,7 +195,7 @@ export function Footer({
   className,
 }: FooterProps) {
   const footerClassName = clsx(
-    'py-base bg-neutral-lighter border-t border-neutral-base text-xs lg:text-sm text-neutral-dark',
+    'py-base bg-neutral-lighter border-t border-neutral-base text-base lg:text-sm text-neutral-dark',
     classes,
     className
   );

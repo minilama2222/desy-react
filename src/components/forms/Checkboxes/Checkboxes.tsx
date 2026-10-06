@@ -158,6 +158,12 @@ export const CheckboxItem = forwardRef<HTMLInputElement, CheckboxItemProps>(
 
     const containerClasses = clsx(
       'block',
+      'c-checkboxes__conditional',
+      conditionalHtml
+        ? checked
+          ? 'c-checkboxes__conditional-active'
+          : 'c-checkboxes__conditional-hidden'
+        : 'c-checkboxes__conditional-hidden',
       hasDividers && 'border-t border-b border-neutral-base -mb-px',
       classes
     );
@@ -212,7 +218,7 @@ export const CheckboxItem = forwardRef<HTMLInputElement, CheckboxItemProps>(
         </div>
         {conditionalHtml && checked && (
           <div
-            className="mb-lg ml-5 pt-sm pb-base pl-6 origin-top-left border-l-2 border-primary-base"
+            className="mb-lg ml-5 pt-sm pb-base pl-6 origin-top-left border-l-2 border-primary-base c-checkboxes__conditional-item"
             id={`conditional-${id}`}
           >
             <span dangerouslySetInnerHTML={{ __html: conditionalHtml }} />
@@ -296,7 +302,7 @@ export const Checkboxes = forwardRef<HTMLDivElement, CheckboxesProps>(
         {/* Legend */}
         {legendText || legendHtml ? (
           <fieldset className="border-0 p-0 m-0">
-            <legend className="block font-semibold mb-sm">
+            <legend className="block font-bold mb-sm">
               {renderLegend()}
             </legend>
           </fieldset>

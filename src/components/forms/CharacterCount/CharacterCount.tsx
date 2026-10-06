@@ -159,7 +159,7 @@ export function CharacterCount({
       {displayCountMessage && (
         <p
           id={hintId}
-          className={clsx('mt-xs text-sm', countMessageClasses)}
+          className={clsx('mt-xs text-sm text-neutral-dark mb-0', countMessageClasses)}
           aria-live="polite"
         >
           Puedes escribir hasta {remaining} {maxlength ? 'caracteres' : 'palabras'}

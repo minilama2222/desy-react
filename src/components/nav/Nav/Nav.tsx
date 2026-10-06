@@ -186,5 +186,5 @@ export function Nav({
     return <>{inner}</>;
   }
 
-  return <nav id={id}>{inner}</nav>;
+  return (<nav id={id} className="text-sm">{inner}</nav>);
 }

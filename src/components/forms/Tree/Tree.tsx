@@ -210,11 +210,11 @@ function TreeItem({
         {hasChildren && type !== 'navigation' && (
           <button
             type="button"
-            className="absolute top-3 -left-4 flex items-center w-4 h-2.5 text-primary-base font-bold focus:outline-hidden"
+            className="c-tree__icon absolute top-3 -left-4 flex items-center w-4 h-2.5 text-primary-base font-bold focus:outline-hidden"
             onClick={handleToggleExpand}
             aria-label={expanded ? 'Contraer' : 'Expandir'}
           >
-            {expanded ? <MinusIcon /> : <PlusIcon />}
+            {expanded ? <MinusIcon className="c-tree__minus" /> : <PlusIcon className="c-tree__plus" />}
           </button>
         )}
 
@@ -317,12 +317,13 @@ export function Tree({
   children,
 }: TreeProps) {
   return (
-    <ul
-      id={id}
-      role="tree"
-      className={clsx('c-tree', classes)}
-      aria-multiselectable={type === 'checkbox'}
-    >
+    <div className="c-form-group">
+      <ul
+        id={id}
+        role="tree"
+        className={clsx('c-tree mt-base', classes)}
+        aria-multiselectable={type === 'checkbox'}
+      >
       {items.map((item, index) => (
         <TreeItem
           key={item.id ?? index}
@@ -339,6 +340,7 @@ export function Tree({
         />
       ))}
       {children}
-    </ul>
+      </ul>
+    </div>
   );
 }

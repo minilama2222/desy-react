@@ -132,19 +132,23 @@ export function InputGroup({
   };
 
   return (
-    <fieldset
+    <div
       id={fieldsetId}
       className={clsx('c-form-group', errorMessage && 'c-form-group--error', className)}
-      onChange={(e) => {
-        const target = e.target as unknown as HTMLInputElement | HTMLSelectElement;
-        if (target && 'name' in target && target.name) {
-          handleChange(target.name, (target as HTMLInputElement | HTMLSelectElement).value);
-        }
-      }}
     >
+      <fieldset
+        role="group"
+        aria-describedby={hint ? `${fieldsetId}-hint` : undefined}
+        onChange={(e) => {
+          const target = e.target as unknown as HTMLInputElement | HTMLSelectElement;
+          if (target && 'name' in target && target.name) {
+            handleChange(target.name, (target as HTMLInputElement | HTMLSelectElement).value);
+          }
+        }}
+      >
       {/* Legend */}
       {(legendText || legendHtml || fieldsetId) && (
-        <legend>
+        <legend className="font-bold">
           {legendHtml ? (
             <span dangerouslySetInnerHTML={{ __html: legendHtml }} />
           ) : legendText ? (
@@ -155,7 +159,7 @@ export function InputGroup({
 
       {/* Hint */}
       {hint && (
-        <p id={`${fieldsetId}-hint`} className="text-sm text-neutral-dark mb-2">
+        <p id={`${fieldsetId}-hint`} className="block text-neutral-dark">
           {hint}
         </p>
       )}
@@ -174,7 +178,10 @@ export function InputGroup({
       {/* Items container */}
       <div className={clsx('flex', direction === 'row' ? 'flex-row' : 'flex-col')}>
         {items.map((item, index) => (
-          <div key={item.id ?? index} className={clsx('flex items-center', item.classes)}>
+          <div
+            key={item.id ?? index}
+            className={clsx('flex items-center', 'c-form-group', direction === 'row' && 'mr-base', item.classes)}
+          >
             {/* Divider */}
             {item.divider && <InputGroupDivider divider={item.divider} />}
 
@@ -184,7 +191,7 @@ export function InputGroup({
                 {item.labelText && (
                   <label
                     htmlFor={item.id || `${fieldsetId}-${getItemName(item)}`}
-                    className="text-sm font-semibold mb-1"
+                    className="block"
                   >
                     {item.labelText}
                   </label>
@@ -194,7 +201,7 @@ export function InputGroup({
                   name={getItemName(item)}
                   disabled={item.disabled}
                   className={clsx(
-                    'c-select',
+                    'c-select block mt-sm transition duration-150 ease-in-out border-black rounded-sm font-semibold focus:border-black focus:shadow-outline-focus-input focus:ring-4 focus:ring-warning-base disabled:bg-neutral-light disabled:border-neutral-base mb-0 w-full lg:w-auto',
                     errorMessage && 'border-alert-base ring-2 ring-alert-base'
                   )}
                   defaultValue={item.value}
@@ -212,7 +219,7 @@ export function InputGroup({
                 {item.labelText && (
                   <label
                     htmlFor={item.id || `${fieldsetId}-${getItemName(item)}`}
-                    className="text-sm font-semibold mb-1"
+                    className="block"
                   >
                     {item.labelText}
                   </label>
@@ -225,7 +232,7 @@ export function InputGroup({
                   disabled={item.disabled}
                   defaultValue={item.value}
                   className={clsx(
-                    'c-input mb-0',
+                    'c-input block mt-sm border-black rounded-sm font-semibold placeholder-neutral-dark focus:border-black focus:shadow-outline-focus-input focus:ring-4 focus:ring-warning-base disabled:bg-neutral-light disabled:border-neutral-base mb-0 w-full lg:w-64',
                     errorMessage && 'border-alert-base ring-2 ring-alert-base'
                   )}
                   aria-describedby={hint ? `${fieldsetId}-hint` : undefined}
@@ -236,6 +243,7 @@ export function InputGroup({
           </div>
         ))}
       </div>
-    </fieldset>
+      </fieldset>
+    </div>
   );
 }

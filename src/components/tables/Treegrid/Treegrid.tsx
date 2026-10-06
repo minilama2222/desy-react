@@ -7,5 +7,15 @@ export interface TreegridProps {
 }
 
 export function Treegrid({ className, children, ...props }: TreegridProps) {
-  return <div className={clsx(className)} {...props}>{children}</div>;
+  return (
+    <div
+      className={clsx(
+        'relative overflow-x-auto pb-base focus:outline-hidden focus:shadow-outline-black',
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  );
 }
