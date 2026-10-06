@@ -443,7 +443,10 @@ export function HeaderAdvanced({
         <MenuNavigation
           idPrefix={navigationData.idPrefix || 'header-nav-item'}
           id={navigationData.id || 'header-nav-item'}
-          items={navigationData.items}
+          items={navigationData.items.map((item) => ({
+            ...item,
+            classes: clsx('c-menu-navigation__button--header -mr-base', item.classes),
+          }))}
           classes={clsx('hidden lg:block', navigationData.classes)}
           ariaLabel={navigationData.ariaLabel || 'Menú principal'}
         />

@@ -370,7 +370,7 @@ export function MenuNavigation({
       onFocus={handleContainerFocusIn}
       onBlur={handleContainerFocusOut}
       className={clsx(
-        'flex flex-wrap gap-base',
+        'flex flex-wrap gap-base c-menu-navigation__list',
         isFocused && 'focus',
         classes,
         className
@@ -471,7 +471,7 @@ export function MenuNavigation({
                   tabIndex={-1}
                   ref={(el) => { subMenuRefs.current[itemIndex] = el; }}
                   className={clsx(
-                    item.sub?.classes ?? 'c-menu-navigation__tooltip w-max max-w-64 border border-neutral-base shadow-md bg-white text-sm'
+                    item.sub?.classes ?? 'c-menu-navigation__sub--list c-menu-navigation__tooltip w-max max-w-64 border border-neutral-base shadow-md bg-white text-sm'
                   )}
                   aria-label={item.sub?.ariaLabel ?? item.ariaLabel}
                   aria-disabled={item.sub?.ariaDisabled ?? undefined}

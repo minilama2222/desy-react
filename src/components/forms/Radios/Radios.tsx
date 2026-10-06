@@ -145,7 +145,21 @@ export const RadioItem = forwardRef<HTMLInputElement, RadioItemProps>(
     const labelContent = html ? <span dangerouslySetInnerHTML={{ __html: html }} /> : text;
 
     return (
-      <div className={clsx('relative', 'flex', 'items-start', 'py-base', classes)}>
+      <div
+        className={clsx(
+          'relative',
+          'flex',
+          'items-start',
+          'py-base',
+          'c-radios__conditional',
+          conditionalHtml
+            ? checked
+              ? 'c-radios__conditional-active'
+              : 'c-radios__conditional-hidden'
+            : 'c-radios__conditional-hidden',
+          classes
+        )}
+      >
         <div className="flex items-center mx-sm">
           <input
             ref={ref}
@@ -192,7 +206,7 @@ export const RadioItem = forwardRef<HTMLInputElement, RadioItemProps>(
         </div>
         {conditionalHtml && checked && (
           <div
-            className="mb-lg ml-5 pt-sm pb-base pl-6 origin-top-left border-l-2 border-primary-base"
+            className="mb-lg ml-5 pt-sm pb-base pl-6 origin-top-left border-l-2 border-primary-base c-radios__conditional-item"
             id={`conditional-${id}`}
           >
             <span dangerouslySetInnerHTML={{ __html: conditionalHtml }} />
@@ -269,7 +283,7 @@ export const Radios = forwardRef<HTMLDivElement, RadiosProps>(
         {/* Legend */}
         {legendText || legendHtml ? (
           <fieldset className="border-0 p-0 m-0">
-            <legend className="block font-semibold mb-sm">
+            <legend className="block font-bold mb-sm">
               {renderLegend()}
             </legend>
           </fieldset>

@@ -64,7 +64,7 @@ const FILE_INPUT_CLASSES = [
   'file:inline-flex',
   'file:items-baseline',
   'file:px-3',
-  'file:py-3',
+  'file:py-2',
   'file:bg-white',
   'file:border',
   'file:border-solid',
@@ -86,6 +86,11 @@ const FILE_INPUT_CLASSES = [
   'file:hover:bg-neutral-light',
   'file:hover:border-primary-base',
   'file:hover:text-primary-base',
+  'overflow-x-auto',
+  'max-w-64',
+  'lg:w-full',
+  'lg:max-w-none',
+  'focus:outline-hidden',
 ].join(' ');
 
 /**

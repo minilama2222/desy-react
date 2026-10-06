@@ -66,7 +66,8 @@ export function Collapsible({
     <div
       data-expanded={isOpen}
       className={clsx(
-        className || '-my-px py-sm border-t border-b border-neutral-base'
+        className || '-my-px py-sm border-t border-b border-neutral-base',
+        'c-collapsible'
       )}
     >
       {/* Header */}
@@ -85,7 +86,9 @@ export function Collapsible({
           {headerText}
           <span
             className={clsx(
-              isOpen && hideClasses ? hideClasses : showClasses || defaultShowHideClasses
+              isOpen && hideClasses
+                ? hideClasses
+                : clsx(showClasses || defaultShowHideClasses, !isOpen && 'c-collapsible__show')
             )}
             aria-hidden="true"
           >
@@ -110,7 +113,9 @@ export function Collapsible({
           <span dangerouslySetInnerHTML={{ __html: headerHtml }} />
           <span
             className={clsx(
-              isOpen && hideClasses ? hideClasses : showClasses || defaultShowHideClasses
+              isOpen && hideClasses
+                ? hideClasses
+                : clsx(showClasses || defaultShowHideClasses, !isOpen && 'c-collapsible__show')
             )}
             aria-hidden="true"
           >
@@ -135,7 +140,9 @@ export function Collapsible({
           {children}
           <span
             className={clsx(
-              isOpen && hideClasses ? hideClasses : showClasses || defaultShowHideClasses
+              isOpen && hideClasses
+                ? hideClasses
+                : clsx(showClasses || defaultShowHideClasses, !isOpen && 'c-collapsible__show')
             )}
             aria-hidden="true"
           >
@@ -149,7 +156,7 @@ export function Collapsible({
         <div
           id={id || undefined}
           aria-hidden={false}
-          className={clsx(contentClasses || 'py-sm')}
+          className={clsx(contentClasses || 'py-sm', 'c-collapsible__content')}
         >
           {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
           {!html && text && <p>{text}</p>}

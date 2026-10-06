@@ -320,7 +320,7 @@ export function Header({
     if (mobileText) return mobileText;
     if (!mobileTextData) return null;
     return (
-      <span className={clsx('px-base text-sm text-black', mobileTextData.classes)}>
+      <span className={clsx('inline-block lg:hidden max-w-full align-middle py-4 text-sm text-black overflow-hidden', mobileTextData.classes)}>
         {mobileTextData.html ? (
           <span dangerouslySetInnerHTML={{ __html: mobileTextData.html }} />
         ) : (
@@ -338,7 +338,10 @@ export function Header({
       <MenuNavigation
         idPrefix={navigationData.idPrefix || 'header-nav-item'}
         id={navigationData.id || 'header-nav-item'}
-        items={navigationData.items}
+        items={navigationData.items.map((item) => ({
+          ...item,
+          classes: clsx('c-menu-navigation__button--header -mr-base', item.classes),
+        }))}
         classes={clsx('hidden lg:block', navigationData.classes)}
         ariaLabel={navigationData.ariaLabel || 'Menú principal'}
       />
